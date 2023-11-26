@@ -1,0 +1,91 @@
+site_name: Computação Embarcada
+
+theme:
+  name: active-handout-theme
+  # locale: pt_BR
+
+docs_dir: content
+site_dir: docs
+
+site_url: https://insper-education.github.io/active-handout/
+repo_name: "Embarcados"
+repo_url: https://github.com/insper-education/active-handout
+edit_uri: edit/main/content/
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - glightbox
+  - termynal
+  - active-handout:
+      telemetry: true
+      backend_url: https://example-backend.com.br/api/
+      course_slug: Active Handout Example 2022
+      tag_tree:
+        - reference:
+            - choice-exercise
+            - parsons-exercise
+            - text-exercise
+        - grandparent-tag:
+            - parent-tag:
+                - child-tag
+
+extra:
+  custom_variables:
+    var1: "*variables*"
+    var2: material
+
+markdown_extensions:
+  - footnotes
+  - markdown.extensions.admonition
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.magiclink
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - attr_list
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: content
+      check_paths: true
+
+nav:
+  - Home: index.md
+  #- Útil:
+  - Pico W:
+      - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
+      - Hardware: pico/pico-hardware.md
+      - Code snippets: pico/pico-snippets.md
+  - RP2040:
+      - Datasheet: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
+      - Hardware: rp2040/rp2040-hardware.md
+      - Code snippets: rp2040/rp2040-snippets.md
+      - GPIO: rp2040/rp2040-gpio.md
+      - TC: rp2040/rp2040-tc.md
+  - Freertos:
+      - Sobre: freertos/freertos-sobre.md
+      - Dicas: freertos/freertos-dicas.md
+      - Code snippets: freertos-snippets.md
+  - Labs core:
+      - GPIO:
+        - Preparatório: labs/gpio-pre-lab.md
+        - Prática: labs/gpio-pra-lab.md
+      #- reference/notify-content-update/index.md
