@@ -108,6 +108,23 @@
             
               
   <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Útil</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../infra/">Infra</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Pico W</span>
     <ul>
       
@@ -155,7 +172,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-hardware.md">Hardware</a>
+      <a href="../../rp2040/rp2040-hardware/">Hardware</a>
     </li>
   
 
@@ -263,6 +280,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">IRQ</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../irq-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -310,8 +352,30 @@
 <p>O desafio deste laboratório é aplicar os conceitos de entrada e saída digital para criar uma fechadura eletrônica!</p>
 <p><a class="glightbox" href="https://m.media-amazon.com/images/I/61fvkXeIMqL._AC_SL1500_.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://m.media-amazon.com/images/I/61fvkXeIMqL._AC_SL1500_.jpg" width="400" /></a></p>
 <p>Para isso, vocês vão precisar de:</p>
+<table>
+<thead>
+<tr>
+<th>Bill of Material</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1x Step Motor</td>
+</tr>
+<tr>
+<td>4x Push buttons</td>
+</tr>
+<tr>
+<td>1x Red LED</td>
+</tr>
+<tr>
+<td>1x Green LED</td>
+</tr>
+</tbody>
+</table>
+<p>Onde:</p>
 <ul>
-<li>Motor de passo: Será utilizado para "trancar" e "destrancar" a porta.</li>
+<li><a href="https://learn.adafruit.com/all-about-stepper-motors/what-is-a-stepper-motor">Motor de passo</a>: Será utilizado para "trancar" e "destrancar" a porta.</li>
 <li>Quatro botões: Funcionarão como nosso teclado!</li>
 <li>Dois LEDs: Porque se não acender, não tem graça!<ul>
 <li>Um vermelho e um Verde.</li>
@@ -319,7 +383,7 @@
 </li>
 </ul>
 <h2 id="minimo-c">Mínimo - C</h2>
-<p>É esperado que a nossa fechadura eletrônica possua uma senha de 6 dígitos envolvendo todos os botões (escolha a senha que preferir) e que a porta destranque quando a combinação for acertada, neste caso o LED verde deve acender. Para trancar a porta, qualquer dois botões devem ser apertados simultâneamente. Se a senha for digitada errada o LED vermelho deve acender por um tempo e depois apagar.</p>
+<p>É esperado que a nossa fechadura eletrônica possua uma senha de 6 dígitos envolvendo todos os botões (escolha a senha que preferir) e que a porta destranque quando a combinação for acertada, neste caso o LED verde deve acender. Se a senha for digitada errada o LED vermelho deve acender por um tempo e depois apagar.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Trancar e destrancar a porta significa rotacionar o motor de passo em exatos <code>90º</code>.</p>
@@ -327,9 +391,9 @@
 <h3 id="pontos-extras">Pontos extras</h3>
 <ul>
 <li>(<code>+1.0 conceito</code>) Permitir atualizar a senha.</li>
-<li>(<code>+1.0 conceito</code>) Tocar um som quando errar a senha (se um buzzer!).</li>
-<li>(<code>+0.5 conceito</code>) Se a senha for errada duas vezes, bloquear por um tempo maior (cooldown).</li>
-<li>(<code>+0.5 conceito</code>) Adicionar mais dois botões.</li>
+<li>(<code>+1.0 conceito</code>) Tocar um som quando errar a senha (use um buzzer!).</li>
+<li>(<code>+0.5 conceito</code>) Se a senha for errada duas vezes, bloquear por um tempo maior (<em>cooldown</em>).</li>
+<li>(<code>+0.5 conceito</code>) Trancar a porta se qualquer dois botões forem pressionados simultâneamente </li>
 </ul>
 
 
@@ -347,6 +411,13 @@
               <span class="nav-title">Preparatório</span>
             </a>
           
+          
+            <a href="../irq-pre-lab/"
+               class="ah-next"
+               title="Preparatório">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Preparatório</span>
+            </a>
           
         </div>
       </footer>
