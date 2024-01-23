@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Infra - Computação Embarcada</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '..';
+      
+      var telemetryEnabled = true;
+      var backendUrl = "https://example-backend.com.br/api/";
+      var courseSlug = "Active Handout Example 2022";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../termynal.css">
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href=".."
+           title="Computação Embarcada"
+           class="ah-logo"
+           aria-label="Computação Embarcada">
+          Computação Embarcada
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+          <div id="user-menu" hx-get="https://example-backend.com.br/api/user-menu" hx-trigger="load"> </div>
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="..">Home</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Útil</span>
+    <ul>
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Infra</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#parte-1-gcc-sdk-and-examples">Parte 1 - gcc, sdk and examples</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#parte-2-debug-probe">Parte 2 - debug-probe</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#parte-3-wokwi-cli">Parte 3 - Wokwi-cli</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#parte-4-vscode">Parte 4 - VSCODE</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#parte-5-configurando-vscode-e-testando">Parte 5 - Configurando vscode e testando</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Pico W</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../pico/pico-hardware.md">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../pico/pico-snippets.md">Code snippets</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RP2040</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040/rp2040-hardware/">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040/rp2040-snippets/">Code snippets</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040/rp2040-gpio/">GPIO</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040/rp2040-tc.md">TC</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Freertos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../freertos/freertos-sobre.md">Sobre</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../freertos/freertos-dicas.md">Dicas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../freertos-snippets.md">Code snippets</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Labs core</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">GPIO</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs/gpio-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs/gpio-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">IRQ</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs/irq-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs/irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Útil</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="infra">Infra</h1>
+<p>A disciplina vai ser executada em Linux, preferência para Ubuntu 22.04, o mesmo que será usado na disciplina de sistemas hardware software, mas os softwares que iremos usar são diferentes!</p>
+<h2 id="parte-1-gcc-sdk-and-examples">Parte 1 - gcc, sdk and examples</h2>
+<p>Crie uma pasta chamada <code>pico</code> na raiz do seu usuário, vamos instalar todos os softwares nesse local!</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>pico
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pico
+</code></pre></div>
+<ol>
+<li>Toolchain</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>gcc-arm-none-eabi<span class="w"> </span>libnewlib-arm-none-eabi<span class="w"> </span>libstdc++-arm-none-eabi-newlib
+</code></pre></div>
+<ol>
+<li>SDK</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/pico-sdk.git
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>git<span class="w"> </span>-C<span class="w"> </span>pico-sdk<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
+</code></pre></div>
+<p>Adicione o caminho recém clonado ao <code>.bashrc</code></p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PICO_SDK_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/pico/pico-sdk<span class="w"> </span>&gt;<span class="w"> </span>~/.bashrc
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<ol>
+<li>Clone o pico examples</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/pico-examples
+</code></pre></div>
+<h3 id="testando">Testando</h3>
+<p>Agora devemos ser capazes de compilar o repositório de exemplos:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pico-examples
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>mkdir<span class="w"> </span>build
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>$<span class="w"> </span>cmake<span class="w"> </span>..
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>$<span class="w"> </span>make<span class="w"> </span>blink
+</code></pre></div>
+<p>Você deve obter algo como:</p>
+<p><a href="https://asciinema.org/a/5PjMJmsDpfMx1oFwKsppp7w8F"><img alt="asciicast" src="https://asciinema.org/a/5PjMJmsDpfMx1oFwKsppp7w8F.svg" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não seguir se não funcionar!</p>
+</div>
+<h2 id="parte-2-debug-probe">Parte 2 - debug-probe</h2>
+<p>Vamos instalar o OpenOCD necessário para usarmos o <code>pico-probe</code>.</p>
+<ol>
+<li>Volte para a pasta das ferramentas:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/pico
+</code></pre></div>
+<ol>
+<li>Instale as dependências: </li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>automake<span class="w"> </span>autoconf<span class="w"> </span>build-essential<span class="w"> </span>texinfo<span class="w"> </span>libtool<span class="w"> </span>libftdi-dev<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>pkg-config
+</code></pre></div>
+<ol>
+<li>Compilnando e instalando o PicoProbe</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/openocd.git<span class="w"> </span>--branch<span class="w"> </span>rp2040-v0.12.0<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--no-single-branch
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>openocd
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>$<span class="w"> </span>./bootstrap
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>$<span class="w"> </span>./configure
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>$<span class="w"> </span>make<span class="w"> </span>-j4
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+</code></pre></div>
+<ol>
+<li>Configure a permissão do usb:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">&quot;*CMSIS-DAP*&quot;</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;664&quot;</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/udev/rules.d/99-debug-probe.rules
+</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>trigger
+</code></pre></div>
+<ol>
+<li>Instale o <code>gdb</code> crosscompile:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ sudo apt install gdb-multiarch
+</code></pre></div>
+<h3 id="testando_1">Testando</h3>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p>Inserir imagem debug-probe</p>
+</div>
+<p>Plugue o debug-probe no computador e execute:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>openocd<span class="w"> </span>-f<span class="w"> </span>interface/cmsis-dap.cfg<span class="w"> </span>-f<span class="w"> </span>target/rp2040.cfg<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;adapter speed 5000&quot;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Correto</label><label for="__tabbed_1_2">Fail</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../imgs/openocd-ok.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/openocd-ok.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../imgs/openocd-fail.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/openocd-fail.png" /></a></p>
+</div>
+</div>
+</div>
+<h2 id="parte-3-wokwi-cli">Parte 3 - Wokwi-cli</h2>
+<p>Wokwi é um simulador de microcontroladores, iremos usar em algumas atividades de laboratório.</p>
+<ol>
+<li>Instale o software:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<h2 id="parte-4-vscode">Parte 4 - VSCODE</h2>
+<p>Instale o vscode no Linux:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>--classic<span class="w"> </span>code<span class="w"> </span>
+</code></pre></div>
+<h3 id="testando_2">Testando</h3>
+<p>Abra o vscode! </p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>code<span class="w"> </span>.
+</code></pre></div>
+<h2 id="parte-5-configurando-vscode-e-testando">Parte 5 - Configurando vscode e testando</h2>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href=".."
+               class="ah-prev"
+               title="Home">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Home</span>
+            </a>
+          
+          
+            <a href="../rp2040/rp2040-hardware/"
+               class="ah-next"
+               title="Hardware">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Hardware</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../termynal.js"></script>
+    
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
