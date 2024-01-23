@@ -51,7 +51,7 @@ $ make blink
 
 Você deve obter algo como:
 
-[![asciicast](https://asciinema.org/a/5PjMJmsDpfMx1oFwKsppp7w8F.svg)](https://asciinema.org/a/5PjMJmsDpfMx1oFwKsppp7w8F)
+<script async id="asciicast-5PjMJmsDpfMx1oFwKsppp7w8F" src="https://asciinema.org/a/5PjMJmsDpfMx1oFwKsppp7w8F.js"></script>
 
 !!! warning
     Não seguir se não funcionar!
@@ -125,7 +125,24 @@ Wokwi é um simulador de microcontroladores, iremos usar em algumas atividades d
 curl -L https://wokwi.com/ci/install.sh | sh
 ```
 
-## Parte 4 - VSCODE
+### Testando
+
+Execute no terminal `wokwi-cli --help`:
+
+```bash
+$wokwi-cli --help
+Wokwi CLI v0.9.0 (abc2bb2a3530)
+
+  USAGE
+
+      $ wokwi-cli [options] [path/to/project]
+
+  OPTIONS
+  
+  ....
+```
+
+## Parte 4 - vscode
 
 Instale o vscode no Linux:
 
@@ -142,5 +159,35 @@ code .
 ```
 
 ## Parte 5 - Configurando vscode e testando
+
+Volte para a pasta base:
+
+```bash
+$ cd ~/pico
+```
+
+Clone o repositório de teste e abra no vscode:
+
+```bash
+$ git clone git@github.com:insper-embarcados/infra-test.git
+$ cd infra-test
+$ code .
+```
+
+Agora vamos carregar as extensões necessárias. No vscode execute:
+
+1. `file` -> `Preferences` -> `Profiles` -> `Import Profile ...`
+2. `Select File`
+3. `pico.code-profile`
+4. Crie um novo profile chamado `pico`
+5. Aguarde as extensões serem instaladas
+   - Quando pedir pelo compilador escolha qualquer versão do `arm-none-eabi`. 
+6. Agora compile o projeto clicando no botão `Build` (barra inferior), você deve obter o seguinte resultado:
+
+    - no terminal `[build] Build finished with exit code 0`
+    - pasta built criada no diretório com o arquivo `test/main.uf2`
+   
+<iframe width="700" height="415" src="https://www.youtube.com/embed/aouIrh3FCn4?si=pbTZrMpU57Gs2F7Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 
