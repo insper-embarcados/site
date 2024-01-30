@@ -1,16 +1,15 @@
-site_name: Computação Embarcada
+site_name: Computação Embarcada - 2.0
 
 theme:
   name: active-handout-theme
-  # locale: pt_BR
 
 docs_dir: content
 site_dir: docs
 
-site_url: https://insper-education.github.io/active-handout/
-repo_name: "Embarcados"
-repo_url: https://github.com/insper-education/active-handout
-edit_uri: edit/main/content/
+#site_url: https://insper-education.github.io/active-handout/
+#repo_name: "Embarcados"
+#repo_url: https://github.com/insper-education/active-handout
+#edit_uri: edit/main/content/
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -76,7 +75,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Útil:
-      - Infra: infra.md
+      - Infra: infra-linux-docker.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: pico/pico-hardware.md
@@ -98,3 +97,12 @@ nav:
       - IRQ:
         - Preparatório: labs/irq-pre-lab.md
         - Prática: labs/irq-pra-lab.md
+
+  - Code quality:
+      - Visão geral: CodeQuality/topview.md
+      - Regras: CodeQuality/rules.md
+      - Cppcheck: CodeQuality/cppcheck.md
+      - Variáveis: CodeQuality/variables.md
+      - Head File: CodeQuality/head-file.md
+      - ISR - variáveis: CodeQuality/isr-variables.md
+      - ISR - handler: CodeQuality/isr-handler.md
