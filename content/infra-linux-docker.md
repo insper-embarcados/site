@@ -39,12 +39,30 @@
     ```
 !!! task "Wokwi-cli"
 
-    Instale o wokwi-cli (simulador de sistemas embarcados)
+    1. Instale o wokwi-cli (simulador de sistemas embarcados)
 
     ```bash
     sudo snap install curl
     curl -L https://wokwi.com/ci/install.sh | sh
     ```
+    
+    2. Crie uma conta no site:
+    
+    - https://wokwi.com/
+
+    3. Entre em: CI Tokens: https://wokwi.com/dashboard/ci
+    
+    ![](imgs/wokwi-token.png)
+    
+    4. Gere um token e copie o código
+    
+    5. Cole na última linha do arquivo `.bashrc`
+    
+    ```bash
+    gedit ~/.bashrc
+    ```
+    
+    
 
 ## Testando tudo
 
