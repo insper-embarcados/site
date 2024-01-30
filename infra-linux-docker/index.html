@@ -462,6 +462,13 @@
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gedit<span class="w"> </span>~/.bashrc
 </code></pre></div>
 </div>
+<div class="admonition task">
+<p class="admonition-title">Task</p>
+<p>Configurando permissão:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>reboot
+</code></pre></div>
+</div>
 <h2 id="testando-tudo">Testando tudo</h2>
 <p>Agora que já temos toda a infra instalada, vamos testar!</p>
 <div class="admonition task">
@@ -469,12 +476,12 @@
 <ol>
 <li>Clone o repositório com códigos de teste</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
 </code></pre></div>
 <ol>
 <li>Abra o respositório no vscode</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>code<span class="w"> </span>infra-test/
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>code<span class="w"> </span>infra-test/
 </code></pre></div>
 <p><mark>Instale todas as extensões sugeridas!</mark></p>
 <ol>
@@ -501,6 +508,28 @@
 <p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
 <p>Você deve obter:</p>
 <p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Task</p>
+<p>Programando e depurando</p>
+<ol>
+<li>
+<p>Conecte o debug-probe e a rasp </p>
+</li>
+<li>
+<p>Selecione o programa que iremos depurar</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../imgs/config-debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-debug.png" /></a></p>
+<ol>
+<li>Abra o serial monitor (terminal)</li>
+</ol>
+<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
+<ol>
+<li>Inicialize o software</li>
+</ol>
+<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
+<p><mark>Você deve obter o Hello world</mark> no serial</p>
 </div>
 
 
