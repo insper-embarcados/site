@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Prática - Computação Embarcada - 2.0</title>
+        <title>Infra - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script>
       // SETUP GLOBAL CONSTANTS
-      var base_url = '../..';
+      var base_url = '..';
       
       var telemetryEnabled = true;
       var backendUrl = "https://example-backend.com.br/api/";
@@ -46,15 +46,15 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     
-    <link rel="stylesheet" href="../../termynal.css">
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    <link rel="stylesheet" href="../termynal.css">
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
         .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -65,7 +65,7 @@
   <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
 </svg>
         </button>
-        <a href="../.."
+        <a href=".."
            title="Computação Embarcada - 2.0"
            class="ah-logo"
            aria-label="Computação Embarcada - 2.0">
@@ -101,20 +101,32 @@
               
   
     <li>
-      <a href="../..">Home</a>
+      <a href="..">Home</a>
     </li>
   
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Útil</span>
     <ul>
       
         
   
-    <li>
-      <a href="../../infra-linux-docker/">Infra</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Infra</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#testando-tudo">Testando tudo</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -139,7 +151,7 @@
         
   
     <li>
-      <a href="../../pico/pico-hardware.md">Hardware</a>
+      <a href="../pico/pico-hardware.md">Hardware</a>
     </li>
   
 
@@ -147,7 +159,7 @@
         
   
     <li>
-      <a href="../../pico/pico-snippets.md">Code snippets</a>
+      <a href="../pico/pico-snippets.md">Code snippets</a>
     </li>
   
 
@@ -172,7 +184,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-hardware/">Hardware</a>
+      <a href="../rp2040/rp2040-hardware/">Hardware</a>
     </li>
   
 
@@ -180,7 +192,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-snippets/">Code snippets</a>
+      <a href="../rp2040/rp2040-snippets/">Code snippets</a>
     </li>
   
 
@@ -188,7 +200,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
+      <a href="../rp2040/rp2040-gpio/">GPIO</a>
     </li>
   
 
@@ -196,7 +208,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-tc.md">TC</a>
+      <a href="../rp2040/rp2040-tc.md">TC</a>
     </li>
   
 
@@ -213,7 +225,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-sobre.md">Sobre</a>
+      <a href="../freertos/freertos-sobre.md">Sobre</a>
     </li>
   
 
@@ -221,7 +233,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-dicas.md">Dicas</a>
+      <a href="../freertos/freertos-dicas.md">Dicas</a>
     </li>
   
 
@@ -229,7 +241,7 @@
         
   
     <li>
-      <a href="../../freertos-snippets.md">Code snippets</a>
+      <a href="../freertos-snippets.md">Code snippets</a>
     </li>
   
 
@@ -239,7 +251,7 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Labs core</span>
     <ul>
       
@@ -251,7 +263,7 @@
         
   
     <li>
-      <a href="../gpio-pre-lab/">Preparatório</a>
+      <a href="../labs/gpio-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -259,7 +271,7 @@
         
   
     <li>
-      <a href="../gpio-pra-lab/">Prática</a>
+      <a href="../labs/gpio-pra-lab/">Prática</a>
     </li>
   
 
@@ -269,34 +281,22 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">IRQ</span>
     <ul>
       
         
   
     <li>
-      <a href="../irq-pre-lab/">Preparatório</a>
+      <a href="../labs/irq-pre-lab/">Preparatório</a>
     </li>
   
 
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Prática</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#minimo-c">Mínimo - C</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../labs/irq-pra-lab/">Prática</a>
     </li>
   
 
@@ -317,7 +317,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/topview/">Visão geral</a>
+      <a href="../CodeQuality/topview/">Visão geral</a>
     </li>
   
 
@@ -325,7 +325,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/rules/">Regras</a>
+      <a href="../CodeQuality/rules/">Regras</a>
     </li>
   
 
@@ -333,7 +333,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+      <a href="../CodeQuality/cppcheck/">Cppcheck</a>
     </li>
   
 
@@ -341,7 +341,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/variables/">Variáveis</a>
+      <a href="../CodeQuality/variables/">Variáveis</a>
     </li>
   
 
@@ -349,7 +349,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/head-file/">Head File</a>
+      <a href="../CodeQuality/head-file/">Head File</a>
     </li>
   
 
@@ -357,7 +357,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+      <a href="../CodeQuality/isr-variables/">ISR - variáveis</a>
     </li>
   
 
@@ -365,7 +365,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+      <a href="../CodeQuality/isr-handler/">ISR - handler</a>
     </li>
   
 
@@ -384,11 +384,7 @@
               
                 
                   
-                    <li>Labs core</li>
-                  
-                
-                  
-                    <li>IRQ</li>
+                    <li>Útil</li>
                   
                 
                 <li></li>
@@ -398,31 +394,90 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="irq-pratica">IRQ - Prática</h1>
-<table>
-<thead>
-<tr>
-<th>Lab 2 - IRQ - Prática</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Deadline</strong>: <mark>TBD</mark></td>
-</tr>
-<tr>
-<td><mark>None</mark></td>
-</tr>
-</tbody>
-</table>
-<p>Nesse laboratório iremos aplicar os conceitos de interrupção de hardware (IRQ), para isso iremos usar o dispositivo OLED, que possui um display e três botões e LEDs.</p>
-<h2 id="minimo-c">Mínimo - C</h2>
-<h3 id="pontos-extras">Pontos extras</h3>
+<h1 id="infra-linux-docker">Infra Linux Docker</h1>
+<blockquote>
+<p>Tutorial para Ubuntu 22.04, da para facilmente adaptar para outro linux (por conta do aluno)</p>
+</blockquote>
+<div class="admonition task">
+<p class="admonition-title">docker</p>
+<p>Siga as instrucões em:</p>
 <ul>
-<li>(<code>+1.0 conceito</code>) </li>
-<li>(<code>+1.0 conceito</code>) </li>
-<li>(<code>+0.5 conceito</code>) </li>
-<li>(<code>+0.5 conceito</code>) </li>
+<li><a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">https://docs.docker.com/engine/install/ubuntu/#installation-methods</a></li>
 </ul>
+<p>Teste com:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<blockquote>
+<p>Este comando baixa uma imagem de teste e a executa em um contêiner. Quando o contêiner é executado, ele imprime uma mensagem de confirmação e encerra.</p>
+</blockquote>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Configurando permissão</p>
+<p>Siga os passos no site a seguir, para podermos executar o docker sem permissão de super usuário:</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/install/linux-postinstall/">https://docs.docker.com/engine/install/linux-postinstall/</a></li>
+</ul>
+<p>Teste com:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+</div>
+<div class="admonition task">
+<p class="admonition-title">vscode</p>
+<p>Instale o vscode:</p>
+<ul>
+<li><a href="https://linuxhint.com/install-visual-studio-code-ubuntu22-04/">https://linuxhint.com/install-visual-studio-code-ubuntu22-04/</a></li>
+</ul>
+<p>Teste com:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>code<span class="w"> </span>
+</code></pre></div>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Wokwi-cli</p>
+<p>Instale o wokwi-cli (simulador de sistemas embarcados)</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>curl
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+</div>
+<h2 id="testando-tudo">Testando tudo</h2>
+<p>Agora que já temos toda a infra instalada, vamos testar!</p>
+<div class="admonition task">
+<p class="admonition-title">infra-test</p>
+<ol>
+<li>Clone o repositório com códigos de teste</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
+</code></pre></div>
+<ol>
+<li>Abra o respositório no vscode</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>code<span class="w"> </span>infra-test/
+</code></pre></div>
+<p><mark>Instale todas as extensões sugeridas!</mark></p>
+<ol>
+<li>Abrir no dev-container</li>
+</ol>
+<p>Após tudo instaldo, vamos abrir a pasta no docker criado para a disciplina! </p>
+<ul>
+<li><strong>ctrl</strong> + <strong>shift</strong> + <strong>p</strong></li>
+<li><strong>Dev. Containers: Open Folder in Container..</strong></li>
+</ul>
+<blockquote>
+<blockquote>
+<p>isso deve demorar um pouco!</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>Vamos compilar o projeto!</li>
+</ol>
+<p>Clique em build na barra inferior:</p>
+<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
+<ol>
+<li>Escolha o compilador <code>arm-none-eabi</code></li>
+</ol>
+<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
+<p>Você deve obter:</p>
+<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
+</div>
 
 
 </section>
@@ -432,26 +487,26 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../irq-pre-lab/"
+            <a href=".."
                class="ah-prev"
-               title="Preparatório">
+               title="Home">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Preparatório</span>
+              <span class="nav-title">Home</span>
             </a>
           
           
-            <a href="../../CodeQuality/topview/"
+            <a href="../rp2040/rp2040-hardware/"
                class="ah-next"
-               title="Visão geral">
+               title="Hardware">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Visão geral</span>
+              <span class="nav-title">Hardware</span>
             </a>
           
         </div>
       </footer>
     </div>
     
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../termynal.js"></script>
     
   <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

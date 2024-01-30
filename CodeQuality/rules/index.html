@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Prática - Computação Embarcada - 2.0</title>
+        <title>Regras - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -239,7 +239,7 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Labs core</span>
     <ul>
       
@@ -251,7 +251,7 @@
         
   
     <li>
-      <a href="../gpio-pre-lab/">Preparatório</a>
+      <a href="../../labs/gpio-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -259,7 +259,7 @@
         
   
     <li>
-      <a href="../gpio-pra-lab/">Prática</a>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
     </li>
   
 
@@ -269,34 +269,22 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">IRQ</span>
     <ul>
       
         
   
     <li>
-      <a href="../irq-pre-lab/">Preparatório</a>
+      <a href="../../labs/irq-pre-lab/">Preparatório</a>
     </li>
   
 
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Prática</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#minimo-c">Mínimo - C</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
     </li>
   
 
@@ -310,14 +298,30 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Code quality</span>
     <ul>
       
         
   
     <li>
-      <a href="../../CodeQuality/topview/">Visão geral</a>
+      <a href="../topview/">Visão geral</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Regras</span>
+      <ul>
+        
+          
+            
+            
+        
+      </ul>
     </li>
   
 
@@ -325,7 +329,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/rules/">Regras</a>
+      <a href="../cppcheck/">Cppcheck</a>
     </li>
   
 
@@ -333,7 +337,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+      <a href="../variables/">Variáveis</a>
     </li>
   
 
@@ -341,7 +345,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/variables/">Variáveis</a>
+      <a href="../head-file/">Head File</a>
     </li>
   
 
@@ -349,7 +353,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/head-file/">Head File</a>
+      <a href="../isr-variables/">ISR - variáveis</a>
     </li>
   
 
@@ -357,15 +361,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+      <a href="../isr-handler/">ISR - handler</a>
     </li>
   
 
@@ -384,11 +380,7 @@
               
                 
                   
-                    <li>Labs core</li>
-                  
-                
-                  
-                    <li>IRQ</li>
+                    <li>Code quality</li>
                   
                 
                 <li></li>
@@ -398,31 +390,52 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="irq-pratica">IRQ - Prática</h1>
-<table>
-<thead>
-<tr>
-<th>Lab 2 - IRQ - Prática</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Deadline</strong>: <mark>TBD</mark></td>
-</tr>
-<tr>
-<td><mark>None</mark></td>
-</tr>
-</tbody>
-</table>
-<p>Nesse laboratório iremos aplicar os conceitos de interrupção de hardware (IRQ), para isso iremos usar o dispositivo OLED, que possui um display e três botões e LEDs.</p>
-<h2 id="minimo-c">Mínimo - C</h2>
-<h3 id="pontos-extras">Pontos extras</h3>
-<ul>
-<li>(<code>+1.0 conceito</code>) </li>
-<li>(<code>+1.0 conceito</code>) </li>
-<li>(<code>+0.5 conceito</code>) </li>
-<li>(<code>+0.5 conceito</code>) </li>
-</ul>
+<h1 id="regras">Regras</h1>
+<div class="admonition tip">
+<p class="admonition-title">Rule 1.0 1</p>
+<p>O código não deve possuir erros detectados pelo <code>cppcheck</code>.</p>
+<p><strong>Racional: Removendo erros detectado pelo analisador estático facilita a depuração e faz com o que projeto funcione mais rapidamente.</strong></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Rule 1.1 2</p>
+<p>Somente usar variáveis globais para passar informações de uma interrupção (ISR) para a função <code>main</code>. </p>
+<p><strong>Racional: Está regra evita que você use variáveis globais onde elas poderiam ser locais.</strong></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Rule 1.2 3</p>
+<p>Todas as variáveis globais acessadas de uma interrupção (ISR) devem possuir a keyword: <code>volatile</code></p>
+<p><strong>Racional: O volatile indica para o compilador não otimizar a variável em questão que está sendo modificada por um evento gerado pelo hardware e que o compilador não tem conhecimento.</strong></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Rule 1.3 4</p>
+<p>Somente as variáveis globais e modificadas durante a ISR devem ser globais.</p>
+<p><strong>Racional: Devemos deixar o compilador fazer o papel dele e otimizar as variáveis que devem ser otimizadas.</strong></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Rule 2.0</p>
+<p>Todo <em>head file</em> (<code>.h</code>) deve ser criado com include guard.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Rule 2.1</p>
+<p>Não ter implementação de código em <em>head file</em> (<code>.h</code>).</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">RULE 3.0</p>
+<p>Não pode usar / gerar <code>delay</code> de software dentro de uma ISR.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">RULE 3.1</p>
+<p>Não pode acessar o OLED ou qualquer outro display de dentro de uma ISR.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">RULE 3.2</p>
+<p>Não pode usar <code>printf</code> ou <code>sprintf</code> de dentro de uma ISR.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">RULE 3.3</p>
+<p>Não pode executar laços de código (<code>while</code>, <code>for</code>) de dentro de uma ISR.</p>
+<p><strong>Racional: A ideia é que a ISR seja a mais simples e rápida possível, esse conjunto de regras evita o básico de tornar um código de ISR complexo e lento.</strong></p>
+</div>
 
 
 </section>
@@ -432,19 +445,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../irq-pre-lab/"
+            <a href="../topview/"
                class="ah-prev"
-               title="Preparatório">
+               title="Visão geral">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Preparatório</span>
+              <span class="nav-title">Visão geral</span>
             </a>
           
           
-            <a href="../../CodeQuality/topview/"
+            <a href="../cppcheck/"
                class="ah-next"
-               title="Visão geral">
+               title="Cppcheck">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Visão geral</span>
+              <span class="nav-title">Cppcheck</span>
             </a>
           
         </div>
