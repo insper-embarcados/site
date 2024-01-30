@@ -433,9 +433,33 @@
 </div>
 <div class="admonition task">
 <p class="admonition-title">Wokwi-cli</p>
-<p>Instale o wokwi-cli (simulador de sistemas embarcados)</p>
+<ol>
+<li>Instale o wokwi-cli (simulador de sistemas embarcados)</li>
+</ol>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>curl
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<ol>
+<li>
+<p>Crie uma conta no site:</p>
+</li>
+<li>
+<p><a href="https://wokwi.com/">https://wokwi.com/</a></p>
+</li>
+<li>
+<p>Entre em: CI Tokens: <a href="https://wokwi.com/dashboard/ci">https://wokwi.com/dashboard/ci</a></p>
+</li>
+</ol>
+<p><a class="glightbox" href="../imgs/wokwi-token.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/wokwi-token.png" /></a></p>
+<ol>
+<li>
+<p>Gere um token e copie o código</p>
+</li>
+<li>
+<p>Cole na última linha do arquivo <code>.bashrc</code></p>
+</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gedit<span class="w"> </span>~/.bashrc
 </code></pre></div>
 </div>
 <h2 id="testando-tudo">Testando tudo</h2>
@@ -445,12 +469,12 @@
 <ol>
 <li>Clone o repositório com códigos de teste</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
 </code></pre></div>
 <ol>
 <li>Abra o respositório no vscode</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>code<span class="w"> </span>infra-test/
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>code<span class="w"> </span>infra-test/
 </code></pre></div>
 <p><mark>Instale todas as extensões sugeridas!</mark></p>
 <ol>
