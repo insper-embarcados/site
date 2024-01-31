@@ -1,5 +1,20 @@
 # Infra Linux Docker
 
+## Pré-configuração para VM
+
+Para máquinas virtuais, é recomendado o uso do `Oracle VM Virtual Box`.
+
+Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:
+
+![embarcadosvirtualbox](https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc)
+
+
+1.    Abra as Configurações -> USB
+2.    Verifique se o controlador USB está habilitado.
+3.    Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
+
+
+
 > Tutorial para Ubuntu 22.04, da para facilmente adaptar para outro linux (por conta do aluno)
 
 !!! task "docker"
