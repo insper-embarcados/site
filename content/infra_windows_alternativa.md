@@ -1,4 +1,4 @@
-![image](https://github.com/insper-embarcados/site/assets/82840303/16a329f2-102c-465c-b5a0-1b555c4f3078)# Infra
+# Infra
 A infra do Windows com setup é simples, basta baixar o instalador e instalar.
 
 Para isso, faça os seguintes passos:
