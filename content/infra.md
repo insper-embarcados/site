@@ -2,6 +2,21 @@
 
 A disciplina vai ser executada em Linux, preferência para Ubuntu 22.04, o mesmo que será usado na disciplina de sistemas hardware software, mas os softwares que iremos usar são diferentes!
 
+## Pré-configuração para VM
+
+Para máquinas virtuais, é recomendado o uso do `Oracle VM Virtual Box`.
+
+Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:
+
+![embarcadosvirtualbox](https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc)
+
+
+1.    Abra as Configurações -> USB
+2.    Verifique se o controlador USB está habilitado.
+3.    Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
+
+
+
 ## Parte 1 - gcc, sdk and examples 
 
 Crie uma pasta chamada `pico` na raiz do seu usuário, vamos instalar todos os softwares nesse local!
