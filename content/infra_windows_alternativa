@@ -1,0 +1,25 @@
+# Infra
+A infra do Windows com setup é simples, basta baixar o instalador e instalar.
+
+Para isso, faça os seguintes passos:
+
+1.  Entre no repositório: https://github.com/raspberrypi/pico-setup-windows
+
+2.  Clique no link da imagem abaixo:
+
+
+3. Espere o download acabar.
+
+4. Inicialize o Instalador.
+
+5. Clique em next, deixe o local da instalação padrão, e por final clique em "Install".
+
+Depois de instalar ele vai perguntar se você quer clonar e buildar o repositório de exemplos.
+
+6. Deixe o restante das configurações padrão e clique em "Finish". Espere ele acabar as últimas configurações.
+
+Agora é só abrir o Pico Visual Studio Code e utilizar.
+
+7. Instale a extensão Wokwi no VSCode.
+
+
