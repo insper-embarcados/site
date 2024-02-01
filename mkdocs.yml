@@ -84,7 +84,9 @@ nav:
       - Datasheet: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
       - Hardware: rp2040/rp2040-hardware.md
       - Code snippets: rp2040/rp2040-snippets.md
+      - Delay: rp2040/rp2040-delay.md
       - GPIO: rp2040/rp2040-gpio.md
+      - GPIO IRQ: rp2040/rp2040-gpio-irq.md
       - TC: rp2040/rp2040-tc.md
   - Freertos:
       - Sobre: freertos/freertos-sobre.md
