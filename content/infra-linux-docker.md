@@ -77,6 +77,13 @@ Antes de iniciar a máquina virtual é necessário fazer a seguinte configuraç�
     gedit ~/.bashrc
     ```
     
+!!! task
+    Configurando permissão:
+    
+    ```bash
+    sudo usermod -a -G "$(stat -c "%G" /dev/ttyUSB0)" $USER
+    sudo reboot
+    ```
     
 
 ## Testando tudo
@@ -122,3 +129,21 @@ Agora que já temos toda a infra instalada, vamos testar!
     
     ![](imgs/vscode-build-done.png)
 
+!!! task
+    Programando e depurando
+    
+    1. Conecte o debug-probe e a rasp 
+    
+    2. Selecione o programa que iremos depurar
+    
+    ![](imgs/config-debug.png)
+
+    3. Abra o serial monitor (terminal)
+    
+    ![](imgs/config-serial.png)
+
+    4. Inicialize o software
+    
+    ![](imgs/config-run.png)
+
+    ==Você deve obter o Hello world== no serial
