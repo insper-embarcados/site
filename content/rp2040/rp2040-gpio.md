@@ -8,6 +8,22 @@ Material de apoio:
 
 Utilizaremos o GPIO (General Purpose Input/Output) sempre que desejarmos controlar ou ler o estado de um pino digital por meio de código. Acionar um LED, ler o estado de um botão, controlar um motor de passo, ler um sensor de presença — todas essas ações podem ser realizadas através do uso deste periférico.
 
+Um sinal digital é aquele que pode ser interpretado como binário: um ou zero, tem ou não tem, aceso ou apagado, etc. Em sistemas digitais, isso significa se o sinal possui ou não energia (aproximadamente 3V ou 0V).
+
+Um microcontrolador pode precisar gerar um sinal digital em um de seus pinos (saída) ou ler um sinal digital que foi gerado externamente (entrada). Os microcontroladores modernos permitem configurar qualquer pino como entrada ou saída durante a execução do código.
+
+É importante saber de antemão que, para controlar um LED, devemos configurar o pino como saída, ou para ler um botão, configurá-lo como entrada.
+
+Segue uma pequena lista de atuadores/sensores que podem ser controlados digitalmente:
+
+- `atuadores`: LED, motores, relés, etc.
+- `sensores`: Botões, sensor de movimento, etc.
+
+!!! info
+    Usaremos o termo **atuadores** para tudo que o microcontrolador acionar/controlar e **sensores** para tudo que gerar informações para o microcontrolador (uC).
+
+## Periférico
+
 O periférico é responsável por controlar digitalmente um pino da rp2040 e interligar os pinos aos periféricos internos do microcontrolador. Os pinos da rp2040 são divididos em dois bancos, porem um dos bancos é dedicado a leitura do programa de uma memória FLASH (`QSPI` bank), sobrando apenas o banco `GPI0` para o desenvolvedor. Este banco possui 30 pinos (`GPIO0` .. `GPIO29`) que podem ser usados tanto como entrada quanto como saída.
 
 O GPIO opera como um mux, permitindo que outros periféricos internos do microcontrolador também acessem os pinos, como ilustrado na figura abaixo extraído do manual:
