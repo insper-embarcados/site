@@ -1,36 +1,27 @@
 # GPIO - Preparatório
 
-| Lab 1 - GPIO - Preparatório                            |
-|--------------------------------------------------------|
-| **Deadline**: =={{lab_pio_pre_deadline}}==             |
-| **Entrega:** [classroom]({{lab_pio_pre_classroom}})    |
-| 💰 Penalização de **UM** conceito na nota final do lab |
+| Lab 1 - GPIO - Preparatório                         |
+|-----------------------------------------------------|
+| **Deadline**: ==Antes do lab de segunda feira!==    |
+| **Entrega:** [classroom]({{lab_pio_pre_classroom}}) |
 
-Um sinal digital é aquele que pode ser interpretado como binário: um ou zero, tem ou não tem, aceso ou apagado, etc. Em sistemas digitais, isso significa se o sinal possui ou não energia (aproximadamente 3V ou 0V).
 
-Um microcontrolador pode precisar gerar um sinal digital em um de seus pinos (saída) ou ler um sinal digital que foi gerado externamente (entrada). Os microcontroladores modernos permitem configurar qualquer pino como entrada ou saída durante a execução do código.
+!!! exercise "Leitura delay"
 
-É importante saber de antemão que, para controlar um LED, devemos configurar o pino como saída, ou para ler um botão, configurá-lo como entrada.
-
-Segue uma pequena lista de atuadores/sensores que podem ser controlados digitalmente:
-
-- `atuadores`: LED, motores, relés, etc.
-- `sensores`: Botões, sensor de movimento, etc.
-
-!!! info
-    Usaremos o termo **atuadores** para tudo que o microcontrolador acionar/controlar e **sensores** para tudo que gerar informações para o microcontrolador (uC).
-
-## Objetivos 
-
-Hardware:
-
-- Configurar um pino como **saída**
-    - Acionar um pino que é saída
-- Configurar um pino como **entrada**
-    - Ler um valor de um pino digital
-    - Ativar pull-up
+    Para realizar este laboratório você deve estudar antes.
+   
+    - O que é delay e como ele funciona: [📕 ==RP2040/Delay==](/rp2040/rp2040-delay)
+    - O que é o periférico GPIO: [📘 ==RP2040/GPIO==](/rp2040/rp2040-gpio)
     
-Software: 
+## Labs preparatórios
 
-- Trabalhar com delay
-- Implementar deboucing
+- [ ] Explicar como realizar os labs.. talvez criar uma página a parte?
+
+!!! exercise "exe1"
+    - file: `exe1/main.c`
+    - test: `pytest -k exe1` 
+    
+    Faça os dois LEDs do `exe1` piscarem ao mesmo tempo! O código fornecido já funciona com o LED vermelho, agora você deve fazer o mesmo com o amarelo. Lembre de manter o vermelho piscando junto!
+    
+    
+
