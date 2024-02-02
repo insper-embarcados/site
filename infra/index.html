@@ -396,6 +396,15 @@
             <section class="progress-section show">
 <h1 id="infra">Infra</h1>
 <p>A disciplina vai ser executada em Linux, preferência para Ubuntu 22.04, o mesmo que será usado na disciplina de sistemas hardware software, mas os softwares que iremos usar são diferentes!</p>
+<h2 id="pre-configuracao-para-vm">Pré-configuração para VM</h2>
+<p>Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</code>.</p>
+<p>Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:</p>
+<p><a class="glightbox" href="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="embarcadosvirtualbox" src="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" /></a></p>
+<ol>
+<li>Abra as Configurações -&gt; USB</li>
+<li>Verifique se o controlador USB está habilitado.</li>
+<li>Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.</li>
+</ol>
 <h2 id="parte-1-gcc-sdk-and-examples">Parte 1 - gcc, sdk and examples</h2>
 <p>Crie uma pasta chamada <code>pico</code> na raiz do seu usuário, vamos instalar todos os softwares nesse local!</p>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>pico

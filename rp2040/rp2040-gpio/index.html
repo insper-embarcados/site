@@ -204,7 +204,7 @@
             
             
               <li class="ah-toc-item">
-                <a href="#na-pratica">Na prática?</a>
+                <a href="#periferico">Periférico</a>
               </li>
             
               <li class="ah-toc-item">
@@ -420,6 +420,19 @@
 /
 <a class="ah-button" href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#section_gpio">datasheet</a></p>
 <p>Utilizaremos o GPIO (General Purpose Input/Output) sempre que desejarmos controlar ou ler o estado de um pino digital por meio de código. Acionar um LED, ler o estado de um botão, controlar um motor de passo, ler um sensor de presença — todas essas ações podem ser realizadas através do uso deste periférico.</p>
+<p>Um sinal digital é aquele que pode ser interpretado como binário: um ou zero, tem ou não tem, aceso ou apagado, etc. Em sistemas digitais, isso significa se o sinal possui ou não energia (aproximadamente 3V ou 0V).</p>
+<p>Um microcontrolador pode precisar gerar um sinal digital em um de seus pinos (saída) ou ler um sinal digital que foi gerado externamente (entrada). Os microcontroladores modernos permitem configurar qualquer pino como entrada ou saída durante a execução do código.</p>
+<p>É importante saber de antemão que, para controlar um LED, devemos configurar o pino como saída, ou para ler um botão, configurá-lo como entrada.</p>
+<p>Segue uma pequena lista de atuadores/sensores que podem ser controlados digitalmente:</p>
+<ul>
+<li><code>atuadores</code>: LED, motores, relés, etc.</li>
+<li><code>sensores</code>: Botões, sensor de movimento, etc.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Usaremos o termo <strong>atuadores</strong> para tudo que o microcontrolador acionar/controlar e <strong>sensores</strong> para tudo que gerar informações para o microcontrolador (uC).</p>
+</div>
+<h2 id="periferico">Periférico</h2>
 <p>O periférico é responsável por controlar digitalmente um pino da rp2040 e interligar os pinos aos periféricos internos do microcontrolador. Os pinos da rp2040 são divididos em dois bancos, porem um dos bancos é dedicado a leitura do programa de uma memória FLASH (<code>QSPI</code> bank), sobrando apenas o banco <code>GPI0</code> para o desenvolvedor. Este banco possui 30 pinos (<code>GPIO0</code> .. <code>GPIO29</code>) que podem ser usados tanto como entrada quanto como saída.</p>
 <p>O GPIO opera como um mux, permitindo que outros periféricos internos do microcontrolador também acessem os pinos, como ilustrado na figura abaixo extraído do manual:</p>
 <p><a class="glightbox" href="../imgs/gpio-logic.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-logic.svg" /></a></p>
