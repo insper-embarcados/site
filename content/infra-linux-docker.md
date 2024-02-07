@@ -1,7 +1,5 @@
 # Infra Linux Docker
 
-## Pré-configuração para VM
-
 === "Windows? / MAC?"
     Indicamos o desenvolvimento usando uma vm Ubuntu.
     Para máquinas virtuais, é recomendado o uso do `Oracle VM Virtual Box`.
@@ -12,6 +10,7 @@
     - Mac: [Paralles](https://www.parallels.com/)  
 
     Instale o Ubuntu 22.04 na VM!
+
 === "Linux"
     Ubuntu 22.04? Só seguir a instalação. 
     
@@ -22,7 +21,7 @@
 > Tutorial para Ubuntu 22.04, da para facilmente adaptar para outro linux (por conta do aluno)
 
 !!! exercise "docker"
-    Executar no terminal:
+    Executar no terminal (uma linha por vez!):
     
     ```bash
     sudo apt-get update
@@ -180,6 +179,8 @@ Agora vamos programar a placa!
     - Raspberry pi pico
     - Protoboard
     
+    ![](imgs/pico-probe.png)
+    
 !!! warning "Executando na vm?"
     Se estiver usando uma VM, execute os passos adicionais:
 
@@ -194,13 +195,13 @@ Agora vamos programar a placa!
     ![](imgs/config-debug.png)
 
 !!! exercise
-    Abra o serial monitor (terminal)
-
-    ![](imgs/config-serial.png)
-
-!!! exercise
     Inicialize o software
 
     ![](imgs/config-run.png)
 
     ==Você deve obter o Hello world== no serial
+
+!!! exercise
+    Abra o serial monitor (terminal)
+
+    ![](imgs/config-serial.png)
