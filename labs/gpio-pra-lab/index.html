@@ -283,7 +283,7 @@
             
             
               <li class="ah-toc-item">
-                <a href="#minimo-c">Mínimo - C</a>
+                <a href="#entrega">Entrega</a>
               </li>
             
         
@@ -430,8 +430,8 @@
 </tr>
 </tbody>
 </table>
-<p>O desafio deste laboratório é aplicar os conceitos de entrada e saída digital para criar uma fechadura eletrônica!</p>
-<p><a class="glightbox" href="https://m.media-amazon.com/images/I/61fvkXeIMqL._AC_SL1500_.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://m.media-amazon.com/images/I/61fvkXeIMqL._AC_SL1500_.jpg" width="400" /></a></p>
+<p>Nesse laboratório vocês irão aplicar os conceitos do pré lab (leitura e acionamento de um pino) para controlar um motor de passos. </p>
+<p>A ideia geral é que vocês possuam um botão um LED e o motor de passos conectado na placa, toda vez que o botão for pressionado o LED deve acender e o motor girar 180 graus para uma direção.</p>
 <p>Para isso, vocês vão precisar de:</p>
 <table>
 <thead>
@@ -441,41 +441,32 @@
 </thead>
 <tbody>
 <tr>
-<td>1x Step Motor</td>
+<td>1x Motor de passos com driver</td>
 </tr>
 <tr>
-<td>4x Push buttons</td>
+<td>1x Push buttons</td>
 </tr>
 <tr>
 <td>1x Red LED</td>
 </tr>
 <tr>
-<td>1x Green LED</td>
+<td>1x Resistor 380 ohm</td>
 </tr>
 </tbody>
 </table>
-<p>Onde:</p>
+<h2 id="entrega">Entrega</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip 1</p>
+<p>Sobre os laboratórios:</p>
 <ul>
-<li><a href="https://learn.adafruit.com/all-about-stepper-motors/what-is-a-stepper-motor">Motor de passo</a>: Será utilizado para "trancar" e "destrancar" a porta.</li>
-<li>Quatro botões: Funcionarão como nosso teclado!</li>
-<li>Dois LEDs: Porque se não acender, não tem graça!<ul>
-<li>Um vermelho e um Verde.</li>
+<li>Os laboratórios possuem nota binária: PASS/ FAIL</li>
+<li>Para validar a entrega vocês devem:<ul>
+<li>Entregar código no github</li>
+<li>Apresentar protótipo funcionando até data limite</li>
 </ul>
 </li>
 </ul>
-<h2 id="minimo-c">Mínimo - C</h2>
-<p>É esperado que a nossa fechadura eletrônica possua uma senha de 6 dígitos envolvendo todos os botões (escolha a senha que preferir) e que a porta destranque quando a combinação for acertada, neste caso o LED verde deve acender. Se a senha for digitada errada o LED vermelho deve acender por um tempo e depois apagar.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Trancar e destrancar a porta significa rotacionar o motor de passo em exatos <code>90º</code>.</p>
 </div>
-<h3 id="pontos-extras">Pontos extras</h3>
-<ul>
-<li>(<code>+1.0 conceito</code>) Permitir atualizar a senha.</li>
-<li>(<code>+1.0 conceito</code>) Tocar um som quando errar a senha (use um buzzer!).</li>
-<li>(<code>+0.5 conceito</code>) Se a senha for errada duas vezes, bloquear por um tempo maior (<em>cooldown</em>).</li>
-<li>(<code>+0.5 conceito</code>) Trancar a porta se qualquer dois botões forem pressionados simultâneamente </li>
-</ul>
 
 
 </section>
