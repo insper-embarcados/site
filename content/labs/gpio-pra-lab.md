@@ -5,36 +5,29 @@
 | **Deadline**: =={{lab_pio_pra_deadline}}==      |
 | =={{lab_pio_pra_classroom}}==                   |
 
-O desafio deste laboratório é aplicar os conceitos de entrada e saída digital para criar uma fechadura eletrônica!
 
-![](https://m.media-amazon.com/images/I/61fvkXeIMqL._AC_SL1500_.jpg){width=400}
+Nesse laboratório vocês irão aplicar os conceitos do pré lab (leitura e acionamento de um pino) para controlar um motor de passos. 
+
+A ideia geral é que vocês possuam um botão um LED e o motor de passos conectado na placa, toda vez que o botão for pressionado o LED deve acender e o motor girar 180 graus para uma direção.
 
 Para isso, vocês vão precisar de:
 
-| Bill of Material |
-|------------------|
-| 1x Step Motor    |
-| 4x Push buttons  |
-| 1x Red LED       |
-| 1x Green LED     |
+| Bill of Material              |
+|-------------------------------|
+| 1x Motor de passos com driver |
+| 1x Push buttons               |
+| 1x Red LED                    |
+| 1x Resistor 380 ohm           |
 
-Onde:
+## Entrega
 
-- [Motor de passo](https://learn.adafruit.com/all-about-stepper-motors/what-is-a-stepper-motor): Será utilizado para "trancar" e "destrancar" a porta.
-- Quatro botões: Funcionarão como nosso teclado!
-- Dois LEDs: Porque se não acender, não tem graça!
-    - Um vermelho e um Verde.
+!!! tip
+    Sobre os laboratórios:
+    
+    - Os laboratórios possuem nota binária: PASS/ FAIL
+    - Para validar a entrega vocês devem:
+        - Entregar código no github
+        - Apresentar protótipo funcionando até data limite
+        
 
-## Mínimo - C
-
-É esperado que a nossa fechadura eletrônica possua uma senha de 6 dígitos envolvendo todos os botões (escolha a senha que preferir) e que a porta destranque quando a combinação for acertada, neste caso o LED verde deve acender. Se a senha for digitada errada o LED vermelho deve acender por um tempo e depois apagar.
-
-!!! info 
-    Trancar e destrancar a porta significa rotacionar o motor de passo em exatos `90º`.
-
-### Pontos extras 
-
-- (`+1.0 conceito`) Permitir atualizar a senha.
-- (`+1.0 conceito`) Tocar um som quando errar a senha (use um buzzer!).
-- (`+0.5 conceito`) Se a senha for errada duas vezes, bloquear por um tempo maior (*cooldown*).
-- (`+0.5 conceito`) Trancar a porta se qualquer dois botões forem pressionados simultâneamente 
+    
