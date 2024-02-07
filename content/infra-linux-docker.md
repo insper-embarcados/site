@@ -2,47 +2,80 @@
 
 ## Pré-configuração para VM
 
-Para máquinas virtuais, é recomendado o uso do `Oracle VM Virtual Box`.
+=== "Windows? / MAC?"
+    Indicamos o desenvolvimento usando uma vm Ubuntu.
+    Para máquinas virtuais, é recomendado o uso do `Oracle VM Virtual Box`.
 
-Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:
+    Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:
 
-![embarcadosvirtualbox](https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc)
+    - Windows: [Virtual box](https://www.virtualbox.org/)
+    - Mac: [Paralles](https://www.parallels.com/)  
 
-
-1.    Abra as Configurações -> USB
-2.    Verifique se o controlador USB está habilitado.
-3.    Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
-
-
+    Instale o Ubuntu 22.04 na VM!
+=== "Linux"
+    Ubuntu 22.04? Só seguir a instalação. 
+    
+    ==Algum outro Linux? Deve funcionar, só o passo de instalação do docker que deve ser diferente==.
+    
+## Ubuntu 22.04
 
 > Tutorial para Ubuntu 22.04, da para facilmente adaptar para outro linux (por conta do aluno)
 
-!!! task "docker"
-
-    Siga as instrucões em:
+!!! exercise "docker"
+    Executar no terminal:
     
-    - https://docs.docker.com/engine/install/ubuntu/#installation-methods
+    ```bash
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
 
+    # Add the repository to Apt sources:
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    ```
+    
+    Agora:
+    
+    ```bash
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    ```
+    
     Teste com:
     
     ```bash
     sudo docker run hello-world
     ```
     
-    > Este comando baixa uma imagem de teste e a executa em um contêiner. Quando o contêiner é executado, ele imprime uma mensagem de confirmação e encerra.
+    Este comando baixa uma imagem de teste e a executa em um contêiner. Quando o contêiner é executado, ele imprime uma mensagem de confirmação e encerra.
 
-!!! task "Configurando permissão"
+    > ref: https://docs.docker.com/engine/install/ubuntu/#installation-methods
+
+!!! exercise "Configurando permissão"
     Siga os passos no site a seguir, para podermos executar o docker sem permissão de super usuário:
     
-    - https://docs.docker.com/engine/install/linux-postinstall/
+
+    ```bash
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    ```
 
     Teste com:
     
     ```bash
     docker run hello-world
     ```
+    
+    - Se não funcionar, reinicie o computador e teste com o comando anterior.
 
-!!! task "vscode"
+    > ref: https://docs.docker.com/engine/install/linux-postinstall/
+    
+!!! exercise "vscode"
     Instale o vscode:
     
     - https://linuxhint.com/install-visual-studio-code-ubuntu22-04/
@@ -52,7 +85,9 @@ Antes de iniciar a máquina virtual é necessário fazer a seguinte configuraç�
     ``` bash
     $ code 
     ```
-!!! task "Wokwi-cli"
+    
+<!--
+!!! exercise "Wokwi-cli"
 
     1. Instale o wokwi-cli (simulador de sistemas embarcados)
 
@@ -76,9 +111,10 @@ Antes de iniciar a máquina virtual é necessário fazer a seguinte configuraç�
     ```bash
     gedit ~/.bashrc
     ```
-    
-!!! task
-    Configurando permissão:
+ -->
+ 
+!!! exercise
+    Configurando permissão do USB:
     
     ```bash
     sudo usermod -a -G "$(stat -c "%G" /dev/ttyUSB0)" $USER
@@ -86,64 +122,85 @@ Antes de iniciar a máquina virtual é necessário fazer a seguinte configuraç�
     ```
     
 
-## Testando tudo
+## Testando tudo - vscode
 
 Agora que já temos toda a infra instalada, vamos testar!
 
-!!! task "infra-test"
+!!! exercise
+    Clone o repositório com códigos de teste
 
-    1. Clone o repositório com códigos de teste
-    
     ```bash
     git clone https://github.com/insper-embarcados/infra-test.git
     ```
 
-    2. Abra o respositório no vscode
-    
+!!! exercise
+    Abra o respositório no vscode
+
     ```bash
     code infra-test/
     ```
-    
+
     ==Instale todas as extensões sugeridas!==
 
-    3. Abrir no dev-container
-    
-    Após tudo instaldo, vamos abrir a pasta no docker criado para a disciplina! 
-    
-    - **ctrl** + **shift** + **p**
+!!! exercise
+    Abrir no dev-container
+
+    Após tudo instalado, vamos abrir a pasta no docker criado para a disciplina! 
+
+    - **ctrl** + **shift**+ **p**
     - **Dev. Containers: Open Folder in Container..**
-    
+
     >> isso deve demorar um pouco!
 
-    4. Vamos compilar o projeto!
-    
+!!! exercise 
+    Vamos compilar o projeto!
+
     Clique em build na barra inferior:
-    
+
     ![](imgs/vscode-build.png)
-    
-    5. Escolha o compilador `arm-none-eabi`
-    
+
+    Escolha o compilador `arm-none-eabi`
+
     ![](imgs/vscode-arm.png)
 
     Você deve obter:
-    
+
     ![](imgs/vscode-build-done.png)
 
-!!! task
-    Programando e depurando
+### Programando e depurando
     
-    1. Conecte o debug-probe e a rasp 
+Agora vamos programar a placa!
     
-    2. Selecione o programa que iremos depurar
+
+!!! exercise
+    Conecte o debug-probe e a rasp. Para isso você vai precisar de:
     
+    - Dois cabos USB
+    - Debug-Probe
+    - Raspberry pi pico
+    - Protoboard
+    
+!!! warning "Executando na vm?"
+    Se estiver usando uma VM, execute os passos adicionais:
+
+    1.    Abra as Configurações -> USB
+    2.    Verifique se o controlador USB está habilitado.
+    3.    Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
+    -![embarcadosvirtualbox](https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc)
+
+!!! exercise
+    Selecione o programa que iremos depurar
+
     ![](imgs/config-debug.png)
 
-    3. Abra o serial monitor (terminal)
-    
+!!! exercise
+    Abra o serial monitor (terminal)
+
     ![](imgs/config-serial.png)
 
-    4. Inicialize o software
-    
+!!! exercise
+    Inicialize o software
+
     ![](imgs/config-run.png)
 
     ==Você deve obter o Hello world== no serial
