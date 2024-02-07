@@ -179,8 +179,11 @@ Agora vamos programar a placa!
     - Raspberry pi pico
     - Protoboard
     
-    ![](imgs/pico-probe.png)
-    
+    === "Diagrama"
+        ![](imgs/pico-probe.png)
+    === "Real"
+        ![](imgs/pico-probe-real.jpeg)
+        
 !!! warning "Executando na vm?"
     Se estiver usando uma VM, execute os passos adicionais:
 
