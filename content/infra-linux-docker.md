@@ -114,6 +114,27 @@
  -->
  
 !!! exercise
+    Conecte o debug-probe e a rasp. Para isso você vai precisar de:
+    
+    - Dois cabos USB
+    - Debug-Probe
+    - Raspberry pi pico
+    - Protoboard
+    
+    === "Diagrama"
+        ![](imgs/pico-probe.png)
+    === "Real"
+        ![](imgs/pico-probe-real.jpeg)
+        
+!!! warning "Executando na vm?"
+    Se estiver usando uma VM, execute os passos adicionais:
+
+    1.    Abra as Configurações -> USB
+    2.    Verifique se o controlador USB está habilitado.
+    3.    Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
+    -![embarcadosvirtualbox](https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc)
+
+!!! exercise
     Configurando permissão do USB:
     
     ```bash
@@ -121,7 +142,6 @@
     sudo usermod -a -G "$(stat -c "%G" /dev/ttyACM0)" $USER
     sudo reboot
     ```
-    
 
 ## Testando tudo - vscode
 
@@ -172,28 +192,6 @@ Agora que já temos toda a infra instalada, vamos testar!
     
 Agora vamos programar a placa!
     
-
-!!! exercise
-    Conecte o debug-probe e a rasp. Para isso você vai precisar de:
-    
-    - Dois cabos USB
-    - Debug-Probe
-    - Raspberry pi pico
-    - Protoboard
-    
-    === "Diagrama"
-        ![](imgs/pico-probe.png)
-    === "Real"
-        ![](imgs/pico-probe-real.jpeg)
-        
-!!! warning "Executando na vm?"
-    Se estiver usando uma VM, execute os passos adicionais:
-
-    1.    Abra as Configurações -> USB
-    2.    Verifique se o controlador USB está habilitado.
-    3.    Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
-    -![embarcadosvirtualbox](https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc)
-
 !!! exercise
     Selecione o programa que iremos depurar
 
