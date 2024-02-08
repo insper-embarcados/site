@@ -538,85 +538,6 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_4" id="exercise_4_0">
 <p class="admonition-title">Exercise 4</p>
 <form class="exercise-form">
-<p>Configurando permissão do USB:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo<span class="w"> </span>reboot
-</code></pre></div>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<h2 id="testando-tudo-vscode">Testando tudo - vscode</h2>
-<p>Agora que já temos toda a infra instalada, vamos testar!</p>
-<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_5" id="exercise_5_0">
-<p class="admonition-title">Exercise 5</p>
-<form class="exercise-form">
-<p>Clone o repositório com códigos de teste</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
-</code></pre></div>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_6" id="exercise_6_0">
-<p class="admonition-title">Exercise 6</p>
-<form class="exercise-form">
-<p>Abra o respositório no vscode</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>code<span class="w"> </span>infra-test/
-</code></pre></div>
-<p><mark>Instale todas as extensões sugeridas!</mark></p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_7" id="exercise_7_0">
-<p class="admonition-title">Exercise 7</p>
-<form class="exercise-form">
-<p>Abrir no dev-container</p>
-<p>Após tudo instalado, vamos abrir a pasta no docker criado para a disciplina! </p>
-<ul>
-<li><strong>ctrl</strong> + <strong>shift</strong>+ <strong>p</strong></li>
-<li><strong>Dev. Containers: Open Folder in Container..</strong></li>
-</ul>
-<blockquote>
-<blockquote>
-<p>isso deve demorar um pouco!</p>
-</blockquote>
-</blockquote>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_8" id="exercise_8_0">
-<p class="admonition-title">Exercise 8</p>
-<form class="exercise-form">
-<p>Vamos compilar o projeto!</p>
-<p>Clique em build na barra inferior:</p>
-<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
-<p>Escolha o compilador <code>arm-none-eabi</code></p>
-<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
-<p>Você deve obter:</p>
-<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<h3 id="programando-e-depurando">Programando e depurando</h3>
-<p>Agora vamos programar a placa!</p>
-<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_9" id="exercise_9_0">
-<p class="admonition-title">Exercise 9</p>
-<form class="exercise-form">
 <p>Conecte o debug-probe e a rasp. Para isso você vai precisar de:</p>
 <ul>
 <li>Dois cabos USB</li>
@@ -650,6 +571,85 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 -<a class="glightbox" href="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="embarcadosvirtualbox" src="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" /></a></li>
 </ol>
 </div>
+<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Exercise 5</p>
+<form class="exercise-form">
+<p>Configurando permissão do USB:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo<span class="w"> </span>reboot
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="testando-tudo-vscode">Testando tudo - vscode</h2>
+<p>Agora que já temos toda a infra instalada, vamos testar!</p>
+<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_6" id="exercise_6_0">
+<p class="admonition-title">Exercise 6</p>
+<form class="exercise-form">
+<p>Clone o repositório com códigos de teste</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test.git
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_7" id="exercise_7_0">
+<p class="admonition-title">Exercise 7</p>
+<form class="exercise-form">
+<p>Abra o respositório no vscode</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>code<span class="w"> </span>infra-test/
+</code></pre></div>
+<p><mark>Instale todas as extensões sugeridas!</mark></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_8" id="exercise_8_0">
+<p class="admonition-title">Exercise 8</p>
+<form class="exercise-form">
+<p>Abrir no dev-container</p>
+<p>Após tudo instalado, vamos abrir a pasta no docker criado para a disciplina! </p>
+<ul>
+<li><strong>ctrl</strong> + <strong>shift</strong>+ <strong>p</strong></li>
+<li><strong>Dev. Containers: Open Folder in Container..</strong></li>
+</ul>
+<blockquote>
+<blockquote>
+<p>isso deve demorar um pouco!</p>
+</blockquote>
+</blockquote>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_9" id="exercise_9_0">
+<p class="admonition-title">Exercise 9</p>
+<form class="exercise-form">
+<p>Vamos compilar o projeto!</p>
+<p>Clique em build na barra inferior:</p>
+<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
+<p>Escolha o compilador <code>arm-none-eabi</code></p>
+<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
+<p>Você deve obter:</p>
+<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h3 id="programando-e-depurando">Programando e depurando</h3>
+<p>Agora vamos programar a placa!</p>
 <div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_10" id="exercise_10_0">
 <p class="admonition-title">Exercise 10</p>
 <form class="exercise-form">
