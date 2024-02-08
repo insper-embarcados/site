@@ -122,10 +122,6 @@
             
             
               <li class="ah-toc-item">
-                <a href="#pre-configuracao-para-vm">Pré-configuração para VM</a>
-              </li>
-            
-              <li class="ah-toc-item">
                 <a href="#ubuntu-2204">Ubuntu 22.04</a>
               </li>
             
@@ -419,7 +415,6 @@
           
             <section class="progress-section show">
 <h1 id="infra-linux-docker">Infra Linux Docker</h1>
-<h2 id="pre-configuracao-para-vm">Pré-configuração para VM</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows? / MAC?</label><label for="__tabbed_1_2">Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -429,6 +424,7 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <ul>
 <li>Windows: <a href="https://www.virtualbox.org/">Virtual box</a></li>
 <li>Mac: <a href="https://www.parallels.com/">Paralles</a>  </li>
+<li>MAC: Dica use o <a href="https://mac.getutm.app/">UTM</a></li>
 </ul>
 <p>Instale o Ubuntu 22.04 na VM!</p>
 </div>
@@ -445,7 +441,7 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_1" id="exercise_1_0">
 <p class="admonition-title">docker 1</p>
 <form class="exercise-form">
-<p>Executar no terminal:</p>
+<p>Executar no terminal (uma linha por vez!):</p>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
@@ -544,7 +540,8 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <form class="exercise-form">
 <p>Configurando permissão do USB:</p>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>reboot
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo<span class="w"> </span>reboot
 </code></pre></div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -627,6 +624,16 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <li>Raspberry pi pico</li>
 <li>Protoboard</li>
 </ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Diagrama</label><label for="__tabbed_2_2">Real</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../imgs/pico-probe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/pico-probe.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../imgs/pico-probe-real.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/pico-probe-real.jpeg" /></a></p>
+</div>
+</div>
+</div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -657,8 +664,9 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_11" id="exercise_11_0">
 <p class="admonition-title">Exercise 11</p>
 <form class="exercise-form">
-<p>Abra o serial monitor (terminal)</p>
-<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
+<p>Inicialize o software</p>
+<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
+<p><mark>Você deve obter o Hello world</mark> no serial</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -668,9 +676,8 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_12" id="exercise_12_0">
 <p class="admonition-title">Exercise 12</p>
 <form class="exercise-form">
-<p>Inicialize o software</p>
-<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
-<p><mark>Você deve obter o Hello world</mark> no serial</p>
+<p>Abra o serial monitor (terminal)</p>
+<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
