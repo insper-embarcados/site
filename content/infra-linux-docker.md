@@ -8,6 +8,7 @@
 
     - Windows: [Virtual box](https://www.virtualbox.org/)
     - Mac: [Paralles](https://www.parallels.com/)  
+    - MAC: Dica use o [UTM](https://mac.getutm.app/)
 
     Instale o Ubuntu 22.04 na VM!
 
@@ -117,6 +118,7 @@
     
     ```bash
     sudo usermod -a -G "$(stat -c "%G" /dev/ttyUSB0)" $USER
+    sudo usermod -a -G "$(stat -c "%G" /dev/ttyACM0)" $USER
     sudo reboot
     ```
     
