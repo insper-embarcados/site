@@ -58,7 +58,6 @@
     
     Exemplo: Ambos os leds estão apagados, quando o botão vermelho for apertado, acenda o LED Vermelho. Se o Botão for apertado e solto novamente, apague o LED Vermelho. Faça o mesmo para o Verde!. 
 
-
     Lembre de configurar todos os pinos como Entrada ou Saída.
 
 
@@ -73,3 +72,5 @@
     #### Código
 
     Toda vez que o Btn Vermelho for apertado, faca os LEDs acenderem na ordem: Vermelho, Roxo, Azul e Verde. ==Só acenda um LED por vez!==.
+    
+    Utilize um delay de `300ms` entre os estados.
