@@ -180,14 +180,6 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-snippets/">Code snippets</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
       <a href="../../rp2040/rp2040-delay/">Delay</a>
     </li>
   
@@ -205,47 +197,6 @@
   
     <li>
       <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../rp2040/rp2040-tc.md">TC</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-            
-              
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">Freertos</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../../freertos/freertos-sobre.md">Sobre</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../freertos/freertos-dicas.md">Dicas</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../freertos-snippets.md">Code snippets</a>
     </li>
   
 
@@ -426,7 +377,7 @@
 <td><strong>Deadline</strong>: <mark>Antes do lab de segunda feira!</mark></td>
 </tr>
 <tr>
-<td><strong>Entrega:</strong> <a href="https://classroom.github.com/a/t40wWocH">classroom</a></td>
+<td><strong>Atividade:</strong> <a href="https://classroom.github.com/a/t40wWocH">classroom</a></td>
 </tr>
 </tbody>
 </table>
@@ -435,8 +386,8 @@
 <form class="exercise-form">
 <p>Para realizar este laboratório você deve estudar antes.</p>
 <ul>
-<li>O que é delay e como ele funciona: <a href="/rp2040/rp2040-delay">📕 <mark>RP2040/Delay</mark></a></li>
-<li>O que é o periférico GPIO: <a href="/rp2040/rp2040-gpio">📘 <mark>RP2040/GPIO</mark></a></li>
+<li>O que é delay e como ele funciona: <a href="/site/rp2040/rp2040-delay">📕 <mark>RP2040/Delay</mark></a></li>
+<li>O que é o periférico GPIO: <a href="/site/rp2040/rp2040-gpio">📘 <mark>RP2040/GPIO</mark></a></li>
 </ul>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -445,18 +396,27 @@
 </form>
 </div>
 <h2 id="labs-preparatorios">Labs preparatórios</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="left" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" width="100px," /></a></p>
+<p>Realizar dentro do Linux com o seu ambiente já pre configurado. </p>
+<ul>
+<li>Se você ainda não configurou, siga os passos em <a href="/site/infra-linux-docker">Útil/infra</a></li>
+</ul>
+<p>Acesse a atividade pelo link do classroom no topo da página.</p>
+</div>
 <p>A disciplina utilizará atividades preparatórias que ajudarão vocês no desenvolvimento dos laboratórios. Essas atividades devem ser realizadas no VSCode e, geralmente, <mark>não necessitam do uso da placa de desenvolvimento</mark>. O objetivo é desacoplar um pouco os elementos; com o simulador, é possível praticar apenas o código e alguns aspectos da conexão de hardware, sem a complexidade de montar os componentes eletrônicos.</p>
 <p>Esta entrega possui verificação automática. Para validar a entrega, envie o código para o seu repositório no GitHub e verifique o resultado do Actions. O sistema verifica:</p>
 <ul>
 <li>Se o código compila.</li>
-<li>Teste de unidade em cada código.</li>
+<li>Teste de unidade em cada código <em>(se ele funciona como deveria funcionar)</em>.</li>
 <li>Análise da qualidade de código:<ul>
-<li>cppcheck</li>
-<li>embedded-check</li>
+<li>cppcheck <em>(erros básicos de linguagem C)</em></li>
+<li>embedded-check <em>(erros conceituais de sistemas embarcados)</em></li>
 </ul>
 </li>
 </ul>
-<p>Agora vamos começar. Sugerimos que realizem um exercício por vez e, após concluído, enviem para o GitHub para verificação:</p>
+<p>Agora vamos começar. Sugerimos que realizem um exercício por vez e, após concluído, enviem para o GitHub para verificação.</p>
 <div class="admonition exercise self-progress" data-slug="labs/gpio-pre-lab/exercise_2" id="exercise_2_0">
 <p class="admonition-title">exe1 2</p>
 <form class="exercise-form">
@@ -489,6 +449,10 @@
 <li>botão 2 for apertado imprima na tela: <code>Botao 2</code></li>
 </ol>
 <p>Lembre de configurar o botão 2 como entrada!</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Usar o printf a seguir:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Botao 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Botao 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</code></pre></div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
