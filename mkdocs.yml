@@ -33,9 +33,10 @@ plugins:
 
 extra:
   custom_variables:
+
     lab_gpio_pre_classroom: https://classroom.github.com/a/t40wWocH
     lab_gpio_pre_deadline: TBD
-    lab_gpio_pra_classroom: https://classroom.github.com/a/t40wWocH
+    lab_gpio_pra_classroom: TBD
     lab_gpio_pra_deadline: TBD
     lab_irq_pre_classroom:
     lab_irq_pre_deadline: TBD
@@ -83,15 +84,15 @@ nav:
   - RP2040:
       - Datasheet: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
       - Hardware: rp2040/rp2040-hardware.md
-      - Code snippets: rp2040/rp2040-snippets.md
+#      - Code snippets: rp2040/rp2040-snippets.md
       - Delay: rp2040/rp2040-delay.md
       - GPIO: rp2040/rp2040-gpio.md
       - GPIO IRQ: rp2040/rp2040-gpio-irq.md
-      - TC: rp2040/rp2040-tc.md
-  - Freertos:
-      - Sobre: freertos/freertos-sobre.md
-      - Dicas: freertos/freertos-dicas.md
-      - Code snippets: freertos-snippets.md
+#      - TC: rp2040/rp2040-tc.md
+#  - Freertos:
+#      - Sobre: freertos/freertos-sobre.md
+#      - Dicas: freertos/freertos-dicas.md
+#      - Code snippets: freertos-snippets.md
   - Labs core:
       - GPIO:
         - Preparatório: labs/gpio-pre-lab.md
