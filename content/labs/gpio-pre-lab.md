@@ -1,8 +1,8 @@
 # GPIO - Preparatório
 
-| Lab 1 - GPIO - Preparatório                         |
-|-----------------------------------------------------|
-| **Deadline**: ==Antes do lab de segunda feira!==    |
+| Lab 1 - GPIO - Preparatório                            |
+|--------------------------------------------------------|
+| **Deadline**: {{lab_gpio_pre_deadline}}                |
 | **Atividade:** [classroom]({{lab_gpio_pre_classroom}}) |
 
 !!! exercise "Leitura delay"
@@ -35,6 +35,13 @@ Esta entrega possui verificação automática. Para validar a entrega, envie o c
     - embedded-check *(erros conceituais de sistemas embarcados)*
 
 Agora vamos começar. Sugerimos que realizem um exercício por vez e, após concluído, enviem para o GitHub para verificação.
+
+!!! video
+    ![](https://youtu.be/io7dd_pljyY?si=92IFG-zSnb-w1wX_)
+
+## Atividades
+
+Agora execute os exercícios, lembre que você pode consultar os snippets de código dentro de [RP2040/GPIO/snippets](/site/rp2040/rp2040-gpio/#snippets)
 
 !!! exercise "exe1"
     - Arquivo: `exe1/main.c`
