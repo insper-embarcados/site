@@ -122,9 +122,9 @@
     - Protoboard
     
     === "Diagrama"
-        ![](imgs/pico-probe.png)
+        ![](/pico/imgs/pico-probe.png)
     === "Real"
-        ![](imgs/pico-probe-real.jpeg)
+        ![](/pico/imgs/pico-probe-real.jpeg)
         
 !!! warning "Executando na vm?"
     Se estiver usando uma VM, execute os passos adicionais:

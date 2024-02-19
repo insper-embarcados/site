@@ -33,14 +33,21 @@ plugins:
 
 extra:
   custom_variables:
+    rules_cppcheck_classroom: https://classroom.github.com/a/mT5GPk_E
+    rules_variables_classroom: https://classroom.github.com/a/4dedv4p8
+    rules_head_classroom: https://classroom.github.com/a/sQPQYgXq
+    rules_isr_volatile_classroom: https://classroom.github.com/a/MIZb0nXB
+    rules_isr_classroom: https://classroom.github.com/a/Xpvuvr8r
+
+    aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
     lab_gpio_pre_classroom: https://classroom.github.com/a/t40wWocH
-    lab_gpio_pre_deadline: TBD
-    lab_gpio_pra_classroom: TBD
+    lab_gpio_pre_deadline: 19/2 (Até o final do dia!)
+    lab_gpio_pra_classroom: TB
     lab_gpio_pra_deadline: TBD
-    lab_irq_pre_classroom:
+    lab_irq_pre_classroom: TBD
     lab_irq_pre_deadline: TBD
-    lab_irq_pra_classroom:
+    lab_irq_pra_classroom: TBD
     lab_irq_pra_deadline: TBD
 
 markdown_extensions:
@@ -75,15 +82,17 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Aulas: aulas.md
   - Útil:
       - Infra: infra-linux-docker.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
-      - Hardware: pico/pico-hardware.md
-      - Code snippets: pico/pico-snippets.md
+      - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
+      - Programando: pico/pico-debugging.md
+
+        #      - Code snippets: pico/pico-snippets.md
   - RP2040:
       - Datasheet: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
-      - Hardware: rp2040/rp2040-hardware.md
 #      - Code snippets: rp2040/rp2040-snippets.md
       - Delay: rp2040/rp2040-delay.md
       - GPIO: rp2040/rp2040-gpio.md
