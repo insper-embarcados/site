@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Visão geral - Computação Embarcada - 2.0</title>
+        <title>Aulas - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script>
       // SETUP GLOBAL CONSTANTS
-      var base_url = '../..';
+      var base_url = '..';
       
       var telemetryEnabled = true;
       var backendUrl = "https://example-backend.com.br/api/";
@@ -46,15 +46,15 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     
-    <link rel="stylesheet" href="../../termynal.css">
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    <link rel="stylesheet" href="../termynal.css">
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
         .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -65,7 +65,7 @@
   <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
 </svg>
         </button>
-        <a href="../.."
+        <a href=".."
            title="Computação Embarcada - 2.0"
            class="ah-logo"
            aria-label="Computação Embarcada - 2.0">
@@ -101,15 +101,31 @@
               
   
     <li>
-      <a href="../..">Home</a>
+      <a href="..">Home</a>
     </li>
   
 
             
               
   
-    <li>
-      <a href="../../aulas/">Aulas</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Aulas</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#aula-3-192">Aula 3 - 19/2</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#aula-4-212-e-222">Aula 4 - 21/2 e 22/2</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -122,7 +138,7 @@
         
   
     <li>
-      <a href="../../infra-linux-docker/">Infra</a>
+      <a href="../infra-linux-docker/">Infra</a>
     </li>
   
 
@@ -155,7 +171,7 @@
         
   
     <li>
-      <a href="../../pico/pico-debugging/">Programando</a>
+      <a href="../pico/pico-debugging/">Programando</a>
     </li>
   
 
@@ -180,7 +196,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-delay/">Delay</a>
+      <a href="../rp2040/rp2040-delay/">Delay</a>
     </li>
   
 
@@ -188,7 +204,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
+      <a href="../rp2040/rp2040-gpio/">GPIO</a>
     </li>
   
 
@@ -196,7 +212,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+      <a href="../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
     </li>
   
 
@@ -218,7 +234,7 @@
         
   
     <li>
-      <a href="../../labs/gpio-pre-lab/">Preparatório</a>
+      <a href="../labs/gpio-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -226,7 +242,7 @@
         
   
     <li>
-      <a href="../../labs/gpio-pra-lab/">Prática</a>
+      <a href="../labs/gpio-pra-lab/">Prática</a>
     </li>
   
 
@@ -243,7 +259,7 @@
         
   
     <li>
-      <a href="../../labs/irq-pre-lab/">Preparatório</a>
+      <a href="../labs/irq-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -251,7 +267,7 @@
         
   
     <li>
-      <a href="../../labs/irq-pra-lab/">Prática</a>
+      <a href="../labs/irq-pra-lab/">Prática</a>
     </li>
   
 
@@ -265,38 +281,14 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Code quality</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Visão geral</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#linguagem-c">Linguagem C</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#interrupcao-callback">Interrupção / Callback</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#freertos">freeRTOS</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#fontes">Fontes</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../CodeQuality/topview/">Visão geral</a>
     </li>
   
 
@@ -304,7 +296,7 @@
         
   
     <li>
-      <a href="../rules/">Regras</a>
+      <a href="../CodeQuality/rules/">Regras</a>
     </li>
   
 
@@ -312,7 +304,7 @@
         
   
     <li>
-      <a href="../cppcheck/">Cppcheck</a>
+      <a href="../CodeQuality/cppcheck/">Cppcheck</a>
     </li>
   
 
@@ -320,7 +312,7 @@
         
   
     <li>
-      <a href="../variables/">Variáveis</a>
+      <a href="../CodeQuality/variables/">Variáveis</a>
     </li>
   
 
@@ -328,7 +320,7 @@
         
   
     <li>
-      <a href="../head-file/">Head File</a>
+      <a href="../CodeQuality/head-file/">Head File</a>
     </li>
   
 
@@ -336,7 +328,7 @@
         
   
     <li>
-      <a href="../isr-variables/">ISR - variáveis</a>
+      <a href="../CodeQuality/isr-variables/">ISR - variáveis</a>
     </li>
   
 
@@ -344,7 +336,7 @@
         
   
     <li>
-      <a href="../isr-handler/">ISR - handler</a>
+      <a href="../CodeQuality/isr-handler/">ISR - handler</a>
     </li>
   
 
@@ -362,10 +354,6 @@
             <ul class="ah-breadcrumbs">
               
                 
-                  
-                    <li>Code quality</li>
-                  
-                
                 <li></li>
             </ul>
             
@@ -373,52 +361,26 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="visao-geral">⚡ Visão geral</h1>
-<p>Regras de desenvolvimento de firmware para entregas de laboratórios, APS, projetos e avaliações. É importante ressaltar que estas são regras gerais e podem existir exceções, mas você deve pensar bem e talvez discutir com algum membro da equipe antes de querer quebrar alguma delas.</p>
-<h2 id="linguagem-c">Linguagem C</h2>
-<div class="admonition warning">
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>_&quot;With great power comes great responsibility&quot;_
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                                    Ben, Uncle.
-</code></pre></div>
-</div>
+<h1 id="aula-aula">Aula Aula</h1>
+<p>Perdeu alguma aula? Está perdido? Aqui temos uma breve explicação de cada aula de embarcados!</p>
+<h2 id="aula-3-192">Aula 3 - 19/2</h2>
+<blockquote>
+<p>Prática com GPIO, Lab 1.</p>
+</blockquote>
 <ul>
-<li>Usar variáveis globais apenas quando estritamente necessárias, como <code>"regra de ouro"</code>, só é necessário aquelas que são modificadas de dentro de uma interrupção. Pois as variáveis globais podem ser alteradas em qualquer lugar do código, tornando-o menos previsível.</li>
-<li>Se uma função for alterar uma variável global, você deve passar o ponteiro da variável como argumento da função.</li>
-<li>Sempre que possível deixe o código genérico e sem <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)"><code>magic numbers</code></a>, utilize <code>#define</code> ou <code>const</code>.</li>
-<li>Não implementar funções dentro do <code>.h</code>, faça isso no <code>.c</code>.</li>
+<li>Expositva (30 min): <a href="https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641">Mural</a></li>
+<li>Code quality (30 min):<ol>
+<li><a href="/site/CodeQuality/cppcheck">Cppcheck</a></li>
+<li><a href="/site/CodeQuality/variables">Variáveos</a></li>
+</ol>
+</li>
+<li>Lab preparatório (45 min): <a href="/site/labs/gpio-pre-lab">Labs core/GPIO/Preparatório</a></li>
+<li>Lab core (piscando LED): <a href="/site/labs/gpio-pra-lab">Labs core/GPIO/Prática</a></li>
 </ul>
-<h2 id="interrupcao-callback">Interrupção / Callback</h2>
-<div class="admonition warning">
-<p>Você deve gastar no máximo algo entre 100-200 clocks dentro de uma interrupção.</p>
-</div>
+<h2 id="aula-4-212-e-222">Aula 4 - 21/2 e 22/2</h2>
 <ul>
-<li>Apenas algumas linhas de código em C</li>
-<li>Evitar manipular strings (<code>sprintf</code>)</li>
-<li>Evitar usar <code>printf</code></li>
-<li>Não atualizar displays (OLED / LCD)</li>
-<li>Evite loops (<code>while</code> / <code>for</code>)</li>
-</ul>
-<div class="admonition info">
-<p>A interrupção é um evento de hardware na qual o compilador não tem conhecimento.</p>
-</div>
-<ul>
-<li>Lembre de dar o <strong>ACK</strong> da interrupção (exe: <code>tc_get_status</code>)</li>
-<li>Declare as variáveis compartilhadas ( entre interrupções e a main(); ) como <a href="https://www.embedded.com/introduction-to-the-volatile-keyword/"><code>volatile</code></a></li>
-<li>No ARM para ativar interrupção é necessário configurar o periférico e o NVIC!</li>
-</ul>
-<h2 id="freertos">freeRTOS</h2>
-<div class="admonition warning">
-<p>Usar os recursos do sistema operacional sempre!</p>
-</div>
-<ul>
-<li>De forma geral usar <code>vTaskDelay</code> no lugar de <code>delay_ms</code>.</li>
-<li>Não fazer uso de flags (variáveis globais) para indicar que um evento deve acontecer, usar um semáforo.</li>
-<li>Não compartilhar variáveis globais entre tasks para transmitir informações, usar uma fila para isso.</li>
-<li>Lembre de inicializar os recursos antes de usar (<code>xCreateSemaphore</code>, <code>xCreateQueue</code>). Indicamos fazer isso no início da função <code>main</code> e não dentro das tarefas </li>
-</ul>
-<h2 id="fontes">Fontes</h2>
-<ul>
-<li><a href="https://betterembsw.blogspot.com/2013/03/rules-for-using-interrupts.html">https://betterembsw.blogspot.com/2013/03/rules-for-using-interrupts.html</a></li>
+<li>Apresentaćão da APS1 </li>
+<li>Aula estúdio</li>
 </ul>
 
 
@@ -429,26 +391,26 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../labs/irq-pra-lab/"
+            <a href=".."
                class="ah-prev"
-               title="Prática">
+               title="Home">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Prática</span>
+              <span class="nav-title">Home</span>
             </a>
           
           
-            <a href="../rules/"
+            <a href="../infra-linux-docker/"
                class="ah-next"
-               title="Regras">
+               title="Infra">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Regras</span>
+              <span class="nav-title">Infra</span>
             </a>
           
         </div>
       </footer>
     </div>
     
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../termynal.js"></script>
     
   <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
