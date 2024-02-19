@@ -211,6 +211,22 @@
     <ul>
       
         
+  
+    <li>
+      <a href="../pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
   <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">GPIO</span>
     <ul>
@@ -234,7 +250,27 @@
             
             
               <li class="ah-toc-item">
-                <a href="#entrega">Entrega</a>
+                <a href="#sobre-os-laboratorios-pratica">Sobre os laboratórios prática</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#validando-pratica">Validando prática</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#validando-qualidade-de-codigo">Validando qualidade de código</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#atividade">Atividade</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#dicas">Dicas</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#desafios-extras">Desafios extras</a>
               </li>
             
         
@@ -374,15 +410,42 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Deadline</strong>: <mark>{{ lab_pio_pra_deadline }}</mark></td>
+<td><strong>Deadline</strong>: <mark>26/2 (Antes da aula)</mark></td>
 </tr>
 <tr>
-<td><mark>{{ lab_pio_pra_classroom }}</mark></td>
+<td><a href="https://classroom.github.com/a/RVDWvMjq">Repositório no classroom</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="sobre-os-laboratorios-pratica">Sobre os laboratórios prática</h2>
+<!-- BEGIN INCLUDE ./pra-lab.md '&lt;!--intro-start--&gt;' '' -->
+
+<p>As atividades de laboratório demandam que vocês utilizem a placa física, e a entrega é composta de duas frentes:</p>
+<ul>
+<li>Mostrar o projeto funcionando.</li>
+<li>Código sem qualidade de código.</li>
+</ul>
+<p>Para conseguir executar o código na placa, será necessário seguir os passos descritos em <a href="/site/pico/pico-debugging">Pico W/Programando</a>.</p>
+<h2 id="validando-pratica">Validando prática</h2>
+<p>Vocês possuem uma semana para terminarem o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consultar <strong>horários disponíveis</strong> para apresentar o laboratório.</p>
+<p><a class="glightbox" href="/site/imgs/agenda-entrega.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/agenda-entrega.png" /></a></p>
+<p>Lembrando que:</p>
+<ul>
+<li>Os laboratórios possuem nota binária: PASS/ FAIL</li>
+<li>Para validar a entrega vocês devem:<ul>
+<li>Entregar código no github (sem falhas de qualidade de código)</li>
+<li>Apresentar protótipo funcionando até data limite</li>
+</ul>
+</li>
+</ul>
+<h2 id="validando-qualidade-de-codigo">Validando qualidade de código</h2>
+<p>Você deve obter algo como:</p>
+<p><a class="glightbox" href="../imgs/lab_pra_actions.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_pra_actions.png" /></a></p>
+<!-- END INCLUDE -->
+
+<h2 id="atividade">Atividade</h2>
 <p>Nesse laboratório vocês irão aplicar os conceitos do pré lab (leitura e acionamento de um pino) para controlar um motor de passos. </p>
-<p>A ideia geral é que vocês possuam um botão um LED e o motor de passos conectado na placa, toda vez que o botão for pressionado o LED deve acender e o motor girar 180 graus para uma direção.</p>
+<p>A ideia geral é que vocês possuam um botão um LED e o motor de passos conectado na placa, toda vez que o botão for pressionado o LED deve acender e o motor girar 360 graus para uma direção de sua escolha.</p>
 <p>Para isso, vocês vão precisar de:</p>
 <table>
 <thead>
@@ -398,26 +461,37 @@
 <td>1x Push buttons</td>
 </tr>
 <tr>
-<td>1x Red LED</td>
+<td>1x LED vermelho</td>
 </tr>
 <tr>
 <td>1x Resistor 380 ohm</td>
 </tr>
 </tbody>
 </table>
-<h2 id="entrega">Entrega</h2>
-<div class="admonition tip">
-<p class="admonition-title">Tip 1</p>
-<p>Sobre os laboratórios:</p>
-<ul>
-<li>Os laboratórios possuem nota binária: PASS/ FAIL</li>
-<li>Para validar a entrega vocês devem:<ul>
-<li>Entregar código no github</li>
-<li>Apresentar protótipo funcionando até data limite</li>
-</ul>
-</li>
-</ul>
+<div class="admonition info">
+<p class="admonition-title">Motor de passos</p>
+<p>O motor de passos que iremos usar é o motor <a href="https://www.makerhero.com/img/files/download/Datasheet_28BYJ-48.pdf">28BYJ-48</a> e alimentação de 5V e redução de 1/64, isto significa que é possível dar uma volta completa com 2048 passos, ou seja, apenas ~0,176° por passo. O motor precisa de um driver de potência para que possamos controlar via um microcontrolador, no caso iremos usar o <a href="https://www.makerhero.com/img/files/download/ULN2003A-Datasheet.pdf">Uln2003</a>.</p>
+<p>No Brasil este motor custa em torno de R$18,00.</p>
+<p>Refs:
+- <a href="https://www.makerhero.com/produto/motor-de-passo-driver-uln2003-arduino/">https://www.makerhero.com/produto/motor-de-passo-driver-uln2003-arduino/</a>
+- <a href="https://electrocredible.com/raspberry-pi-pico-stepper-control-uln2003-micropython/">https://electrocredible.com/raspberry-pi-pico-stepper-control-uln2003-micropython/</a></p>
 </div>
+<h2 id="dicas">Dicas</h2>
+<p>A seguir algumas dicas, você pode ou não seguir:</p>
+<ol>
+<li>Comece colocando um LED e fazendo ele piscar!</li>
+<li>Adicione o botão, e toda vez que ele for apertado pisque o LED.</li>
+<li>Agora estude o básico sobre <a href="https://howtomechatronics.com/tutorials/arduino/stepper-motors-and-arduino-the-ultimate-guide/">motor de passos</a>.</li>
+<li>Conecte o motor na placa e faca ele girar!</li>
+<li>Implemente o resto da lógica.</li>
+</ol>
+<h2 id="desafios-extras">Desafios extras</h2>
+<p>Gostou e quer fazer mais? Que tal:</p>
+<ul>
+<li>Colocar mais um botão e fazer girar para o outro lado</li>
+<li>Enquanto estiver girado e o botão for apertado, pare. Se apertado novamente, termine a rotaćão.</li>
+<li>Adicione mais LEDs e crie uma árvore de natal! </li>
+</ul>
 
 
 </section>

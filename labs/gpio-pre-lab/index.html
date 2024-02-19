@@ -211,6 +211,22 @@
     <ul>
       
         
+  
+    <li>
+      <a href="../pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
   <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">GPIO</span>
     <ul>
@@ -226,7 +242,15 @@
             
             
               <li class="ah-toc-item">
-                <a href="#labs-preparatorios">Labs preparatórios</a>
+                <a href="#sobre-os-labs-preparatorios">Sobre os labs preparatórios</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#desenvolvendo-os-exercicios">Desenvolvendo os exercícios</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#testando-exercicios">Testando exercícios</a>
               </li>
             
               <li class="ah-toc-item">
@@ -399,7 +423,9 @@
 </div>
 </form>
 </div>
-<h2 id="labs-preparatorios">Labs preparatórios</h2>
+<h2 id="sobre-os-labs-preparatorios">Sobre os labs preparatórios</h2>
+<!-- BEGIN INCLUDE ./pre-lab.md '&lt;!--intro-start--&gt;' '' -->
+
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="left" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" width="100px," /></a></p>
@@ -409,23 +435,28 @@
 </ul>
 <p>Acesse a atividade pelo link do classroom no topo da página.</p>
 </div>
+<h2 id="desenvolvendo-os-exercicios">Desenvolvendo os exercícios</h2>
 <p>A disciplina utilizará atividades preparatórias que ajudarão vocês no desenvolvimento dos laboratórios. Essas atividades devem ser realizadas no VSCode e, geralmente, <mark>não necessitam do uso da placa de desenvolvimento</mark>. O objetivo é desacoplar um pouco os elementos; com o simulador, é possível praticar apenas o código e alguns aspectos da conexão de hardware, sem a complexidade de montar os componentes eletrônicos.</p>
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/io7dd_pljyY?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+<h2 id="testando-exercicios">Testando exercícios</h2>
 <p>Esta entrega possui verificação automática. Para validar a entrega, envie o código para o seu repositório no GitHub e verifique o resultado do Actions. O sistema verifica:</p>
 <ul>
 <li>Se o código compila.</li>
-<li>Teste de unidade em cada código <em>(se ele funciona como deveria funcionar)</em>.</li>
+<li><a href=".">Teste de unidade</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> em cada código.</li>
 <li>Análise da qualidade de código:<ul>
 <li>cppcheck <em>(erros básicos de linguagem C)</em></li>
 <li>embedded-check <em>(erros conceituais de sistemas embarcados)</em></li>
 </ul>
 </li>
 </ul>
-<p>Agora vamos começar. Sugerimos que realizem um exercício por vez e, após concluído, enviem para o GitHub para verificação.</p>
-<div>
-<iframe height="500" src="https://www.youtube.com/embed/io7dd_pljyY?autoplay=0" type="text/html" width="100%"></iframe>
-</div>
+<p>Vocês devem obter o seguinte resultado no actions:</p>
+<p><a class="glightbox" href="../imgs/lab_pre_actions.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_pre_actions.png" /></a></p>
+<!-- END INCLUDE -->
+
 <h2 id="atividades">Atividades</h2>
-<p>Agora execute os exercícios, lembre que você pode consultar os snippets de código dentro de <a href="/site/rp2040/rp2040-gpio/#snippets">RP2040/GPIO/snippets</a></p>
+<p>Agora execute os exercícios, lembre que você pode consultar os snippets de código dentro de <a href="/site/rp2040/rp2040-gpio/#snippets">RP2040/GPIO/snippets</a> e enviar o código para o github para validação.</p>
 <div class="admonition exercise self-progress" data-slug="labs/gpio-pre-lab/exercise_2" id="exercise_2_0">
 <p class="admonition-title">exe1 2</p>
 <form class="exercise-form">
@@ -507,6 +538,14 @@
 </div>
 
 
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Utilizamos o <code>wokiwi-ci</code> para verificar se o seu código faz o que deveria fazer.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 </section>
           
         
@@ -514,11 +553,11 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../rp2040/rp2040-gpio-irq/"
+            <a href="../pra-lab/"
                class="ah-prev"
-               title="GPIO IRQ">
+               title="Prática">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">GPIO IRQ</span>
+              <span class="nav-title">Prática</span>
             </a>
           
           
