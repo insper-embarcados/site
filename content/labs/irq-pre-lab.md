@@ -6,7 +6,25 @@
 | **Entrega:** [classroom]({{lab_irq_pre_classroom}}) |
 | 💰 30% nota de lab                                  |
 
+!!! exercise "Leitura prévia"
+
+    Para realizar este laboratório você deve estudar antes.
+   
+    - O que é uma IRQ de GPIO: [📘 ==RP2040/GPIO IRQ==](/site/rp2040/rp2040-gpio-irq)
+
+## Qualidade de código
+
+Antes de seguir para a atividade com GPIO, relizar os exercícios de qualidade de código.
+
+!!! exercise "Qualidade de código"
+    Realizar os dois exercícios:
+    
+    - [Code Quality / Head File](site/CodeQuality/isr-variables/)
+    - [Code Quality / ISR variáveis](site/CodeQuality/isr-handler/)
+
 ## Atividade
+
+Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando o código para o github! A qualidade de código está ativada, então se seu código falhar, verique em qual etapa foi, pode ser por conta de qualidade de código!
 
 !!! exercise "exe1"
     - Arquivo: `exe1/main.c`

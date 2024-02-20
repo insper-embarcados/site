@@ -4,6 +4,7 @@
 |--------------------------------------------------------|
 | **Deadline**: =={{lab_gpio_pra_deadline}}==            |
 | [Repositório no classroom]({{lab_gpio_pra_classroom}}) |
+| 💰 70% nota de lab                                     |
 
 ## Sobre os laboratórios prática
 

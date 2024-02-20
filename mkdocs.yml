@@ -43,11 +43,11 @@ extra:
     aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
     lab_gpio_pre_classroom: https://classroom.github.com/a/t40wWocH
-    lab_gpio_pre_deadline: 19/2 (Até o final do dia!)
+    lab_gpio_pre_deadline: 21/2 ou 22/2 (Antes da próxima aula)
     lab_gpio_pra_classroom: https://classroom.github.com/a/RVDWvMjq
     lab_gpio_pra_deadline: 26/2 (Antes da aula)
-    lab_irq_pre_classroom: TBD
-    lab_irq_pre_deadline: TBD
+    lab_irq_pre_classroom: https://classroom.github.com/a/ZSB_DhzL
+    lab_irq_pre_deadline: 26/2 (Antes da aula)
     lab_irq_pra_classroom: TBD
     lab_irq_pra_deadline: TBD
 
@@ -118,6 +118,6 @@ nav:
       - Regras: CodeQuality/rules.md
       - Cppcheck: CodeQuality/cppcheck.md
       - Variáveis: CodeQuality/variables.md
-      - Head File: CodeQuality/head-file.md
       - ISR - variáveis: CodeQuality/isr-variables.md
       - ISR - handler: CodeQuality/isr-handler.md
+      - Head File: CodeQuality/head-file.md

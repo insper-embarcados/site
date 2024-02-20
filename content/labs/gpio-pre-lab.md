@@ -4,8 +4,9 @@
 |--------------------------------------------------------|
 | **Deadline**: {{lab_gpio_pre_deadline}}                |
 | **Atividade:** [classroom]({{lab_gpio_pre_classroom}}) |
+| 💰 30% nota de lab                                  |
 
-!!! exercise "Leitura delay"
+!!! exercise "Leitura prévia"
 
     Para realizar este laboratório você deve estudar antes.
    
