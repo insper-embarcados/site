@@ -267,15 +267,7 @@
             
             
               <li class="ah-toc-item">
-                <a href="#embarcados">Embarcados</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#irq">IRQ</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#irq-keep-it-short-and-simple">IRQ - Keep it short and simple</a>
+                <a href="#atividade">Atividade</a>
               </li>
             
         
@@ -398,106 +390,93 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Deadline</strong>: <mark>TBD</mark></td>
+<td><strong>Prazo</strong>: <mark>TBD</mark></td>
 </tr>
 <tr>
 <td><strong>Entrega:</strong> <a href="TBD">classroom</a></td>
 </tr>
 <tr>
-<td>💰 Penalização de <strong>UM</strong> conceito na nota final do lab</td>
+<td>💰 30% nota de lab</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ol>
-<li>IRQ</li>
-<li>Borda</li>
-<li>sleep mode</li>
-</ol>
-</div>
-<p>Em computação, frequentemente surge a necessidade de realizar ações com base em eventos. Esses eventos podem ser classificados como internos ou externos ao processador/microcontrolador. Por exemplo, o término de um cálculo realizado por um dos núcleos de um processador multicore ou a detecção de um overflow de memória são exemplos de eventos internos ao CORE (processador). Por outro lado, a notificação de um novo pacote recebido pela comunicação Ethernet ilustra um evento externo ao CORE.</p>
-<p>A estruturação de um programa orientada a eventos oferece várias vantagens ao programador:</p>
-<ol>
-<li>Independência entre as diferentes partes do programa.</li>
-<li>Facilidade de modificação e atualização.</li>
-<li>Definição clara de prioridades.</li>
-<li>Melhoria na correlação entre o código e a documentação.</li>
-</ol>
-<p>Nesse paradigma, define-se funções específicas para determinados eventos, que são executadas quando esses eventos são detectados. As funções/eventos podem ter diferentes níveis de prioridade, permitindo ao programador estabelecer quais devem ser executadas primeiro em caso de eventos simultâneos.</p>
-<p>Por exemplo, é possível definir uma função que é acionada sempre que chega um dado pela porta Ethernet e outra que reage ao pressionamento de um botão. Também se podem estabelecer eventos periódicos, como a execução de uma função a cada X segundos (por exemplo, para piscar um LED).</p>
-<h2 id="embarcados">Embarcados</h2>
-<p>Em computadores, os eventos são geralmente gerenciados pelo sistema operacional (OS), como Linux, Windows, entre outros. Porém, em sistemas embarcados, nem sempre dispomos de um sistema operacional, ou não podemos tolerar a latência associada à troca de contexto do OS (nada é de graça!). Para esses casos, existem as interrupções de hardware, que são chamadas de funções (ou eventos) executadas pelo microcontrolador (uC) em resposta a eventos detectados pelos periféricos. Embora essas interrupções também ocorram em computadores, nelas o OS geralmente gerencia tudo.</p>
-<p>Por exemplo, é possível configurar o uC para que, toda vez que um botão for pressionado (ou seja, quando houver uma mudança de estado de HIGH para LOW), uma função específica (conhecida como <code>handler</code>) seja executada. Isso elimina a necessidade de verificar constantemente a mudança de estado do pino em um loop <code>while(1)</code>, técnica conhecida como polling. O uso de interrupções abre portas para uma série de otimizações, sendo a economia de energia uma das principais vantagens.</p>
-<p>O estilo de programação que consiste em verificar repetidamente uma mudança de estado é chamado de <strong>polling</strong>, método que foi utilizado nos laboratórios realizados até agora.</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">gpio_get</span><span class="p">(</span><span class="n">BTN</span><span class="p">))</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">gpio_set</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="k">else</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">gpio_set</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">};</span>
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Nesse exemplo de código fica-se constantemente checando por alterações no registrador do PIO responsável pelo botão a fim de decidirmos se o LED ficará acesso ou apagado. O CORE está constantemente trabalhando a fim de executar essas operações.</p>
-</div>
-<h2 id="irq">IRQ</h2>
-<p>Interruption Request (<code>IRQ</code>) </p>
-<h2 id="irq-keep-it-short-and-simple">IRQ - Keep it short and simple</h2>
-<p>O tempo que um firmware deve ficar na interrupção deve ser o menor possível, pelos principais motivos:</p>
-<ol>
-<li>Outras interrupções de mesma prioridade irão aguardar o retorno da interrupção. O firmware irá deixar de servir de maneira rápida a diferentes interrupções se gastar tempo nelas.</li>
-<li>Nem todas as funções <a href="https://en.wikipedia.org/wiki/Reentrancy_(computing)">são reentrantes</a>. Funções como <code>printf</code> podem <mark>não operar</mark> corretamente dentro de interrupções por poderem ser chamadas mais de uma vez, sem terem terminado de executar.</li>
-<li>RTOS: As tarefas devem ser executadas em tasks e não nas interrupções, possibilitando assim um maior controle do fluxo de execução do firmware (vamos ver isso mais para frente).</li>
-</ol>
-<blockquote>
-<p>Para maiores informações acesse: <a href="https://betterembsw.blogspot.com/2013/03/rules-for-using-interrupts.html">https://betterembsw.blogspot.com/2013/03/rules-for-using-interrupts.html</a></p>
-</blockquote>
-<p>Existem algumas soluções para essa questão, a mais simples delas é a de realizar o processamento de uma interrupção no loop principal (<code>while(1)</code>), essa abordagem é muito utilizada em sistemas embarcados. E deve ser feita da forma a seguir:</p>
+<h2 id="atividade">Atividade</h2>
+<div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_1" id="exercise_1_0">
+<p class="admonition-title">exe1 1</p>
+<form class="exercise-form">
 <ul>
-<li>Define-se uma variável global que servirá como <code>flag</code> (<code>true</code> ou <code>false</code>) e <strong>importante, essa variável precisa ser do tipo <code>volatile</code></strong>)</li>
-<li>Interrupção altera o status da <code>flag</code> para True</li>
-<li><code>while(1)</code> verifica status da <code>flag</code> para realizar ação.</li>
-<li><code>while(1)</code> volta a <code>flag</code> para o estado original False.</li>
+<li>Arquivo: <code>exe1/main.c</code></li>
+<li>Teste: Verifica se o <code>printf</code> é executado na função principal.</li>
 </ul>
-<p>Analise o exemplo a seguir que ilustra o uso de flags para tratar o evento no botão:</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* flag */</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">volatile</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">g_but_flag</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">/* funcao de callback/ Handler */</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">btn_callback</span><span class="p">(</span><span class="n">uint</span><span class="w"> </span><span class="n">gpio</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">events</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">g_but_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="cm">/* Inicializacao */</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="c1">// ...</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="c1">// ...</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">g_but_flag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// (2)</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">       </span><span class="n">pisca_led</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span><span class="w">    </span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">       </span><span class="n">g_but_flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// (3)</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">   </span><span class="p">}</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
-</code></pre></div>
-<ol>
-<li>Note que a variável que será utilizada como flag foi declarada como volatile</li>
-<li>O bloco de código dentro do if só será processado quando o but_flag for True</li>
-<li>⚠️ Essa linha é muito importante pois sem ela o bloco do if seria executuado novamente sem o evento externo do botão.</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">volatile</p>
-<p>Sempre que uma interrupção alterar uma variável global, essa deve possuir o 'pragma'/modificador <a href="https://barrgroup.com/Embedded-Systems/How-To/C-Volatile-Keyword"><code>volatile</code></a>.</p>
-<p>Exemplo: <code>volatile int valADC;</code></p>
-<p>Esse pragma serve para informar o compilador (no nosso caso GCC) que essa variável será modificada sem que o compilador saiba, evitando assim que a variável não seja compilada. </p>
-<p>Compiladores são projetados para otimizar programas removendo trechos ou variáveis desnecessárias. Como a função de <code>Handler</code> (interrupção) nunca é chamada diretamente pelo programa, o compilador pode supor que essa função não vai ser executada nunca e pode optimizar a variável que nela seria atualizada (já que não é chamada diretamente, mas sim pelo hardware quando ocorre um evento). </p>
+<h4 id="codigo">Código</h4>
+<p>O código fornecido configura a interrupção no pino do botão e, toda vez que ele for pressionado, imprime <code>fall</code> no terminal; e quando ele é solto, imprime <code>rise</code>. O código funciona, mas possui <mark>um erro de qualidade de código!</mark> Não devemos usar <code>printf</code> dentro de interrupções!</p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_embedded_check_printf.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_embedded_check_printf.png" /></a></p>
+<p>Modifique o código adicionando uma flag e realize o <code>printf</code> na função <code>main</code>. O comportamento deve ser o mesmo, mas a forma como lidaremos com o evento é diferente!</p>
+<h4 id="funcionalidade-esperada">Funcionalidade esperada</h4>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe1.gif" /></a></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_2" id="exercise_2_0">
+<p class="admonition-title">exe2 2</p>
+<form class="exercise-form">
 <ul>
-<li>Leia mais sobre <a href="https://barrgroup.com/Embedded-Systems/How-To/C-Volatile-Keyword">volatile</a></li>
+<li>Arquivo: <code>exe2/main.c</code></li>
+<li>Teste: Verifica se o LED muda de valor sempre que o botão é pressionado.</li>
 </ul>
-<p><mark>ATENÇÃO: só usar <code>volatile</code> quando necessário uma IRQ altera o valor de uma variável</mark>.</p>
+<h4 id="codigo_1">Código</h4>
+<p>Utilizando interrupção no pino do botão, faça com que o LED mude de valor sempre que o botão for pressionado (não fazer nada quando for solto)! Lembre-se de utilizar uma <code>flag</code> e sempre fazer o processamento na <code>main</code>!  </p>
+<h4 id="funcionalidade-esperada_1">Funcionalidade esperada</h4>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe2.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe2.gif" /></a></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_3" id="exercise_3_0">
+<p class="admonition-title">exe3 3</p>
+<form class="exercise-form">
+<ul>
+<li>Arquivo: <code>exe3/main.c</code></li>
+<li>Teste: Verifica se o <code>printf</code> é executado corretamente.</li>
+</ul>
+<h4 id="codigo_2">Código</h4>
+<p>O código fornecido configura a interrupção no pino de dois botões e, toda vez que um deles for pressionado, imprime <code>fall red</code> ou <code>fall green</code> no terminal. O código funciona, mas possui <mark>um erro de qualidade de código!</mark> Não devemos usar <code>printf</code> dentro de interrupções!</p>
+<p>Modifique o código adicionando agora duas flags e realize o <code>printf</code> na função <code>main</code>. O comportamento deve ser o mesmo, mas a forma como lidaremos com o evento é diferente!</p>
+<h4 id="funcionalidade-esperada_2">Funcionalidade esperada</h4>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe3.gif" /></a></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_4" id="exercise_4_0">
+<p class="admonition-title">exe4 4</p>
+<form class="exercise-form">
+<ul>
+<li>Arquivo: <code>exe4/main.c</code></li>
+<li>Teste: Verifica se os LEDs se comportam corretamente</li>
+</ul>
+<h4 id="codigo_3">Código</h4>
+<p>Configure os botões com IRQs:</p>
+<ul>
+<li>Botão vermelho: Borda de descida (quando for pressionado)</li>
+<li>Botão verde: Borda de subida (quando for solto)</li>
+</ul>
+<p>Toda vez que o botão vermelho for pressionado, inverta o estado do LED vermelho e toda vez que o botão verde for solto, inverta o estado do LED verde.</p>
+<h4 id="funcionalidade-esperada_3">Funcionalidade esperada</h4>
+<p><mark>Note a diferença entre as boardas de subida e descida de cada botão.</mark></p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe4.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe4.gif" /></a></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
 </div>
 
 
