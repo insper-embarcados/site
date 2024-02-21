@@ -19,8 +19,8 @@ Antes de seguir para a atividade com GPIO, relizar os exercícios de qualidade d
 !!! exercise "Qualidade de código"
     Realizar os dois exercícios:
     
-    - [Code Quality / Head File](site/CodeQuality/isr-variables/)
-    - [Code Quality / ISR variáveis](site/CodeQuality/isr-handler/)
+    - [Code Quality / Head File](/site/CodeQuality/isr-variables/)
+    - [Code Quality / ISR variáveis](/site/CodeQuality/isr-handler/)
 
 ## Atividade
 

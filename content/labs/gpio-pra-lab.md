@@ -8,11 +8,11 @@
 
 ## Sobre os laboratórios prática
 
-{%
-   include-markdown "./pra-lab.md"
-   start="<!--intro-start-->"
-%}
+!!! exercise
+    Antes de seguir, ler sobre as atividades práticas de lab:
     
+    - [Labs/Prática](/site/labs/pra-lab/)
+
 ## Atividade
 
 !!! video
@@ -24,12 +24,14 @@ A ideia geral é que vocês possuam um botão um LED e o motor de passos conecta
 
 Para isso, vocês vão precisar de:
 
-| Bill of Material              |
-|-------------------------------|
-| 1x Motor de passos com driver |
-| 1x Push buttons               |
-| 1x LED vermelho               |
-| 1x Resistor 380 ohm           |
+| Bill of Material                | Valor   |
+|---------------------------------|---------|
+| 1x Rasp pico                    | R$ 40   |
+| 1x debug-probe                  | R$ 120  |
+| 1x Motor de passos com driver   | R$ 18   |
+| 1x Push buttons                 | R$ 0.20 |
+| 1x LED (escolha a cor)          | R$ 0.1  |
+| 1x Resistor entre 100 e 380 ohm | R$ ~    |
 
 !!! info "Motor de passos"
     O motor de passos que iremos usar é o motor [28BYJ-48](https://www.makerhero.com/img/files/download/Datasheet_28BYJ-48.pdf) e alimentação de 5V e redução de 1/64, isto significa que é possível dar uma volta completa com 2048 passos, ou seja, apenas ~0,176° por passo. O motor precisa de um driver de potência para que possamos controlar via um microcontrolador, no caso iremos usar o [Uln2003](https://www.makerhero.com/img/files/download/ULN2003A-Datasheet.pdf).
@@ -49,7 +51,17 @@ A seguir algumas dicas, você pode ou não seguir:
 1. Adicione o botão, e toda vez que ele for apertado pisque o LED.
 1. Agora estude o básico sobre [motor de passos](https://howtomechatronics.com/tutorials/arduino/stepper-motors-and-arduino-the-ultimate-guide/).
 1. Conecte o motor na placa e faca ele girar!
+    - Use lógica similar ao `exe4` do pré lab.
 1. Implemente o resto da lógica.
+
+!!! tip
+    Não sabe como ligar um LED na placa? Acesse:
+    
+    - https://projects.raspberrypi.org/en/projects/introduction-to-the-pico/7
+    
+    Nào sabe ligar um botão na placa? Acesse:
+    
+    - https://projects.raspberrypi.org/en/projects/introduction-to-the-pico/10
 
 ## Desafios extras
 
