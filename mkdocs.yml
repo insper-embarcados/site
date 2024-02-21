@@ -103,7 +103,7 @@ nav:
 #      - Sobre: freertos/freertos-sobre.md
 #      - Dicas: freertos/freertos-dicas.md
 #      - Code snippets: freertos-snippets.md
-  - Labs core:
+  - Labs:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
       - GPIO:

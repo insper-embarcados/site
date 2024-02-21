@@ -8,6 +8,11 @@ As atividades de laboratório demandam que vocês utilizem a placa física, e a 
 
 Para conseguir executar o código na placa, será necessário seguir os passos descritos em [Pico W/Programando](/site/pico/pico-debugging).
 
+## Desenvolvendo
+
+Para desenvolver as atividades práticas será necessário utilizar a placa de desenvolvimento. E para isso ter o `depbug-probe` instalado e o kit junto:
+
+![](/pico/imgs/pico-probe.png){width=400}
 
 ## Validando prática
 
