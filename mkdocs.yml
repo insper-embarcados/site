@@ -89,6 +89,17 @@ nav:
   - Aulas: aulas.md
   - Avaliação: avaliacao.md
   - Infra: infra-linux-docker.md
+  - Prototipos:
+    - Fabricação: prototipos/prototipos.md
+    - Sensores:
+      - Botão de Arcade: prototipos/botao-arcade.md
+      - Joystick Arcade: prototipos/joystick-arcade.md
+      - Push Button: prototipos/push-button.md
+      - Sensores de distância: prototipos/sensores-distancia.md
+    - Atuadores:
+      - Motores: prototipos/motores.md
+      - LEDs: prototipos/leds.md
+
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg

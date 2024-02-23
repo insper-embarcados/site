@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 116.82677 116.84625"
+   width="116.82677"
+   height="116.84624"
+   version="1.1"
+   id="svg1177"
+   sodipodi:docname="corteBotaoArcade.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1179"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5"
+     inkscape:zoom="2.7901516"
+     inkscape:cx="61.107791"
+     inkscape:cy="101.96579"
+     inkscape:window-width="1920"
+     inkscape:window-height="995"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1175" />
+  <desc
+     id="desc1155">corteBotaoArcade.dxf - scale = 1.0, origin = (0.0, 0.0), method = manual</desc>
+  <defs
+     id="defs1169">
+    <marker
+       id="DistanceX"
+       orient="auto"
+       refX="0"
+       refY="0"
+       style="overflow:visible">
+      <path
+         d="M 3,-3 -3,3 M 0,-5 V 5"
+         style="stroke:#000000;stroke-width:0.5"
+         id="path1157" />
+    </marker>
+    <pattern
+       id="Hatch"
+       patternUnits="userSpaceOnUse"
+       width="8"
+       height="8"
+       x="0"
+       y="0">
+      <path
+         d="M8 4 l-4,4"
+         stroke="#000000"
+         stroke-width="0.25"
+         linecap="square"
+         id="path1160" />
+      <path
+         d="M6 2 l-4,4"
+         stroke="#000000"
+         stroke-width="0.25"
+         linecap="square"
+         id="path1162" />
+      <path
+         d="M4 0 l-4,4"
+         stroke="#000000"
+         stroke-width="0.25"
+         linecap="square"
+         id="path1164" />
+    </pattern>
+    <symbol
+       id="*MODEL_SPACE" />
+    <symbol
+       id="*PAPER_SPACE" />
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="0"
+     id="g1175"
+     transform="translate(-1.1040789,-1005.6093)">
+    <path
+       d="m 112.43085,1064.0324 a 52.913386,52.913386 0 1 0 -105.8267702,0 52.913386,52.913386 0 1 0 105.8267702,0 z"
+       style="fill:none;stroke:#000000"
+       id="path1173" />
+  </g>
+</svg>
