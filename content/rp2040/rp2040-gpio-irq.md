@@ -126,53 +126,69 @@ void main(void){
     ==ATENÇÃO: só usar `volatile` quando necessário uma IRQ altera o valor de uma variável==.
 
 
-
-
 ## Snippets
 
-Snippets relacionados a interrupcão do GPIO.
+Snippets relacionados a interrupção do GPIO.
 
 ### GPIO - IRQ
 
 Muda o valor do LED toda vez que o botão for apertado.
   - ==Necessário definir os pinos `LED_PIN` e `BTN_PIN`==
 
-- [wokwi](https://wokwi.com/projects/382410733969358849)
-- [pico examples](https://github.com/raspberrypi/pico-examples/blob/master/gpio/hello_gpio_irq/hello_gpio_irq.c): `gpio/hello_gpio_irq`
+
+[wokwi](https://wokwi.com/projects/382410733969358849){.ah-button}
+/ [pico-examples/gpio/hello_gpio_irq](https://github.com/raspberrypi/pico-examples/blob/master/gpio/hello_gpio_irq/hello_gpio_irq.c){.ah-button}
+
+!!! tip "Boardas"
+    Você pode configurar qual tipo de board deseja ativar na IRQ:
+    
+    - `GPIO_IRQ_EDGE_FALL`: Descida (Botão apertado) 
+        - ==event: 0x04==
+    - `GPIO_IRQ_EDGE_RISE`: Subida  (Botão solto)
+        - ==event: 0x08==
+    - `GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE`: Subida e descida
+        - ==event: 0x04 + 0x08==
 
 ```c
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
-const int BTN_0_PIN = 2;
+#define LED_PIN 5 
+#define BTN_PIN 26 
 
-volatile int g_flag_0 = 0;
+volatile int g_status = 0;
 
-void btn_callback(uint gpio, uint32_t events) {
+void gpio_callback(uint gpio, uint32_t events) {
     if (events == 0x4) {         // fall edge
-        g_flag_0 = 1;
+        g_status = 1;
     } else if (events == 0x8) {  // rise edge
-        g_flag_0 = 0;
+        
     }
 }
 
 int main() {
   stdio_init_all();
 
-  gpio_init(BTN_0_PIN);
-  gpio_set_dir(BTN_0_PIN, GPIO_IN);
-  gpio_pull_up(BTN_0_PIN);
-  gpio_set_irq_enabled_with_callback(BTN_0_PIN,
-                                     GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL,
+  gpio_init(BTN_PIN);
+  gpio_set_dir(BTN_PIN, GPIO_IN);
+  gpio_pull_up(BTN_PIN);
+  gpio_set_irq_enabled_with_callback(BTN_PIN, 
+                                     GPIO_IRQ_EDGE_RISE | 
+                                     GPIO_IRQ_EDGE_FALL, 
                                      true,
-                                     &btn_callback);
+                                     &gpio_callback);
     
   gpio_init(LED_PIN);
   gpio_set_dir(LED_PIN, GPIO_OUT);
 
+  int led_status = 0;
   while (true) {
-      printf("IRQ 0: %d", g_flag_0);
+    if (g_status){
+      g_status = 0; // clean IRS flag
+      led_status = !led_status;
+      gpio_put(LED_PIN, led_status);
+    }
   }
 }
 ```
@@ -181,55 +197,70 @@ int main() {
 
 Só podemos configurar um único callback para os GPIOS da pico, devemos usar a informação do argumento `gpio` para sabermos qual pino estamos lidando dentro do callback.
 
+!!! tip
+    Notem que não estamos usando a informação de `event`, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.
+
+
+[wokwi](https://wokwi.com/projects/390522233591216129){.ah-button}
+
 ```c
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
-const int BTN_1_PIN = 2;
-const int BTN_0_PIN = 3;
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/gpio.h"
 
-volatile int g_flag_0 = 0;
-volatile int g_flag_1 = 0;
+const int BTN_PIN_R = 28; 
+const int BTN_PIN_G = 26; 
+const int LED_PIN_R = 4; 
+const int LED_PIN_G = 6; 
+
+volatile int g_flag_r = 0;
+volatile int g_flag_g = 0;
+
+void pin_init(void);
 
 void btn_callback(uint gpio, uint32_t events) {
-    if (gpio == BTN_0_PIN) {     
-        g_flag_0 = 1;
-    } else if (gpio == BTN_1_PIN) {
-        g_flag_1 = 1;
+    if (gpio == BTN_PIN_R) {     
+        g_flag_r = 1;
+    } else if (gpio == BTN_PIN_G) {
+        g_flag_g = 1;
     }
 }
 
 int main() {
   stdio_init_all();
-  
-  // BTN_0_PIN
-  gpio_init(BTN_0_PIN);
-  gpio_set_dir(BTN_0_PIN, GPIO_IN);
-  gpio_pull_up(BTN_0_PIN);
-  gpio_set_irq_enabled_with_callback(BTN_0_PIN,
+  pin_init();
+
+  gpio_set_irq_enabled_with_callback(BTN_PIN_R,
                                      GPIO_IRQ_EDGE_FALL,
                                      true,
                                      &btn_callback);
-
-  // BTN_1_PIN
-  gpio_init(BTN_1_PIN);
-  gpio_set_dir(BTN_1_PIN, GPIO_IN);
-  gpio_pull_up(BTN_1_PIN);
   // Segunda IRQ usa callback já configurado.
-  gpio_set_irq_enabled(BTN_1_PIN,
+  gpio_set_irq_enabled(BTN_PIN_G,
                         GPIO_IRQ_EDGE_FALL,
                         true);
-    
 
   while (true) {
-    if(g_flag_0 || g_flag_1) {
-      printf("IRQ 0: %d | IRQ 1: %d\n", g_flag_0, g_flga_1);
-
-      g_flag_0 = 0;
-      g_flag_1 = 0;
+    if(g_flag_r || g_flag_g) {
+      printf("IRQ 0: %d | IRQ 1: %d\n", g_flag_r, g_flag_g);
+      
+      // clear flags
+      g_flag_r = 0;
+      g_flag_g = 0;
     }
   }
 }
-```
 
+void pin_init(void){
+  gpio_init(BTN_PIN_R);
+  gpio_set_dir(BTN_PIN_R, GPIO_IN);
+  gpio_pull_up(BTN_PIN_R);
+
+  gpio_init(BTN_PIN_G);
+  gpio_set_dir(BTN_PIN_G, GPIO_IN);
+  gpio_pull_up(BTN_PIN_G);
+}
+```
