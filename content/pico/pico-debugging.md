@@ -21,8 +21,8 @@ Selecione o programa que iremos depurar
 
 Inicialize o software
 
-![](/imgs/config-run.png)
+![](/site/imgs/config-run.png)
 
 Abra o serial monitor (terminal)
 
-![](/imgs/config-serial.png)
+![](/site/imgs/config-serial.png)
