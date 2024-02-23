@@ -17,10 +17,10 @@
 Antes de seguir para a atividade com GPIO, relizar os exercícios de qualidade de código.
 
 !!! exercise "Qualidade de código"
-    Realizar os dois exercícios:
+    Realizar os dois exercícios antes de seguir. ==Eles fazem parte do pré lab, sem eles vocês não possuem a nota desta entrega.==
     
-    - [Code Quality / ISR Variables](/site/CodeQuality/isr-variables/)
-    - [Code Quality / ISR Handler](/site/CodeQuality/isr-handler/)
+    - [🚦 Code Quality / ISR Variables](/site/CodeQuality/isr-variables/)
+    - [🚦 Code Quality / ISR Handler](/site/CodeQuality/isr-handler/)
 
 ## Atividade
 
