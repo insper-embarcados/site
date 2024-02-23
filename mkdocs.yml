@@ -51,6 +51,9 @@ extra:
     lab_irq_pra_classroom: TBD
     lab_irq_pra_deadline: TBD
 
+    aps_1_classroom: https://classroom.github.com/a/niP2yPR9
+    aps_1_deadline: Domingo 09/03
+
 markdown_extensions:
   - footnotes
   - markdown.extensions.admonition
@@ -84,8 +87,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Aulas: aulas.md
-  - Útil:
-      - Infra: infra-linux-docker.md
+  - Avaliação: avaliacao.md
+  - Infra: infra-linux-docker.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
@@ -103,6 +106,14 @@ nav:
 #      - Sobre: freertos/freertos-sobre.md
 #      - Dicas: freertos/freertos-dicas.md
 #      - Code snippets: freertos-snippets.md
+  - Code quality:
+      - Visão geral: CodeQuality/topview.md
+      - Regras: CodeQuality/rules.md
+      - Cppcheck: CodeQuality/cppcheck.md
+      - Variáveis: CodeQuality/variables.md
+      - ISR - variáveis: CodeQuality/isr-variables.md
+      - ISR - handler: CodeQuality/isr-handler.md
+      - Head File: CodeQuality/head-file.md
   - Labs:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
@@ -112,12 +123,5 @@ nav:
       - IRQ:
         - Preparatório: labs/irq-pre-lab.md
         - Prática: labs/irq-pra-lab.md
-
-  - Code quality:
-      - Visão geral: CodeQuality/topview.md
-      - Regras: CodeQuality/rules.md
-      - Cppcheck: CodeQuality/cppcheck.md
-      - Variáveis: CodeQuality/variables.md
-      - ISR - variáveis: CodeQuality/isr-variables.md
-      - ISR - handler: CodeQuality/isr-handler.md
-      - Head File: CodeQuality/head-file.md
+  - APS:
+      - aps/aps-1-genius.md
