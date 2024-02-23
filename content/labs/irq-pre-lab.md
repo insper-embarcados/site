@@ -38,6 +38,11 @@ Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando
     
     Modifique o código adicionando uma flag e realize o `printf` na função `main`. O comportamento deve ser o mesmo, mas a forma como lidaremos com o evento é diferente!
     
+    #### Dica:
+    
+    Não sabe o que tem que fazer? Leia a teoria em `RP2040/GPIO IRQ` especificamente a parte do *IRQ - Keep it short and simple*, se não ajudar tente [esta explicação link](https://www.techtarget.com/whatis/definition/IRQ-interrupt-request)
+    
+    
     #### Funcionalidade esperada
     
     ![](imgs/lab_irq_pre_exe1.gif)
