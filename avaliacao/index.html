@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Computação Embarcada - 2.0</title>
+        <title>Avaliação - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script>
       // SETUP GLOBAL CONSTANTS
-      var base_url = '.';
+      var base_url = '..';
       
       var telemetryEnabled = true;
       var backendUrl = "https://example-backend.com.br/api/";
@@ -46,15 +46,15 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     
-    <link rel="stylesheet" href="termynal.css">
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    <link rel="stylesheet" href="../termynal.css">
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
         .gslide-image img { background: white; }
-        </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -65,7 +65,7 @@
   <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
 </svg>
         </button>
-        <a href="."
+        <a href=".."
            title="Computação Embarcada - 2.0"
            class="ah-logo"
            aria-label="Computação Embarcada - 2.0">
@@ -100,20 +100,44 @@
             
               
   
+    <li>
+      <a href="..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../aulas/">Aulas</a>
+    </li>
+  
+
+            
+              
+  
 
     <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Home</span>
+      <span class="ah-togglable-handle">Avaliação</span>
       <ul>
         
           
             
             
               <li class="ah-toc-item">
-                <a href="#objetivos-da-materia">Objetivos da matéria</a>
+                <a href="#componentes-da-avaliacao">Componentes da Avaliação:</a>
               </li>
             
               <li class="ah-toc-item">
-                <a href="#motivacao">Motivação</a>
+                <a href="#requisitos-para-aprovacao-barreira">Requisitos para Aprovação (barreira):</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#calculo-da-nota-final">Cálculo da Nota Final:</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#observacoes-importantes">Observações Importantes:</a>
               </li>
             
         
@@ -125,23 +149,7 @@
               
   
     <li>
-      <a href="aulas/">Aulas</a>
-    </li>
-  
-
-            
-              
-  
-    <li>
-      <a href="avaliacao/">Avaliação</a>
-    </li>
-  
-
-            
-              
-  
-    <li>
-      <a href="infra-linux-docker/">Infra</a>
+      <a href="../infra-linux-docker/">Infra</a>
     </li>
   
 
@@ -170,7 +178,7 @@
         
   
     <li>
-      <a href="pico/pico-debugging/">Programando</a>
+      <a href="../pico/pico-debugging/">Programando</a>
     </li>
   
 
@@ -195,7 +203,7 @@
         
   
     <li>
-      <a href="rp2040/rp2040-delay/">Delay</a>
+      <a href="../rp2040/rp2040-delay/">Delay</a>
     </li>
   
 
@@ -203,7 +211,7 @@
         
   
     <li>
-      <a href="rp2040/rp2040-gpio/">GPIO</a>
+      <a href="../rp2040/rp2040-gpio/">GPIO</a>
     </li>
   
 
@@ -211,7 +219,7 @@
         
   
     <li>
-      <a href="rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+      <a href="../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
     </li>
   
 
@@ -228,7 +236,7 @@
         
   
     <li>
-      <a href="CodeQuality/topview/">Visão geral</a>
+      <a href="../CodeQuality/topview/">Visão geral</a>
     </li>
   
 
@@ -236,7 +244,7 @@
         
   
     <li>
-      <a href="CodeQuality/rules/">Regras</a>
+      <a href="../CodeQuality/rules/">Regras</a>
     </li>
   
 
@@ -244,7 +252,7 @@
         
   
     <li>
-      <a href="CodeQuality/cppcheck/">Cppcheck</a>
+      <a href="../CodeQuality/cppcheck/">Cppcheck</a>
     </li>
   
 
@@ -252,7 +260,7 @@
         
   
     <li>
-      <a href="CodeQuality/variables/">Variáveis</a>
+      <a href="../CodeQuality/variables/">Variáveis</a>
     </li>
   
 
@@ -260,7 +268,7 @@
         
   
     <li>
-      <a href="CodeQuality/isr-variables/">ISR - variáveis</a>
+      <a href="../CodeQuality/isr-variables/">ISR - variáveis</a>
     </li>
   
 
@@ -268,7 +276,7 @@
         
   
     <li>
-      <a href="CodeQuality/isr-handler/">ISR - handler</a>
+      <a href="../CodeQuality/isr-handler/">ISR - handler</a>
     </li>
   
 
@@ -276,7 +284,7 @@
         
   
     <li>
-      <a href="CodeQuality/head-file/">Head File</a>
+      <a href="../CodeQuality/head-file/">Head File</a>
     </li>
   
 
@@ -293,7 +301,7 @@
         
   
     <li>
-      <a href="labs/pre-lab/">Preparatórios</a>
+      <a href="../labs/pre-lab/">Preparatórios</a>
     </li>
   
 
@@ -301,7 +309,7 @@
         
   
     <li>
-      <a href="labs/pra-lab/">Prática</a>
+      <a href="../labs/pra-lab/">Prática</a>
     </li>
   
 
@@ -314,7 +322,7 @@
         
   
     <li>
-      <a href="labs/gpio-pre-lab/">Preparatório</a>
+      <a href="../labs/gpio-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -322,7 +330,7 @@
         
   
     <li>
-      <a href="labs/gpio-pra-lab/">Prática</a>
+      <a href="../labs/gpio-pra-lab/">Prática</a>
     </li>
   
 
@@ -339,7 +347,7 @@
         
   
     <li>
-      <a href="labs/irq-pre-lab/">Preparatório</a>
+      <a href="../labs/irq-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -347,7 +355,7 @@
         
   
     <li>
-      <a href="labs/irq-pra-lab/">Prática</a>
+      <a href="../labs/irq-pra-lab/">Prática</a>
     </li>
   
 
@@ -368,7 +376,7 @@
         
   
     <li>
-      <a href="aps/aps-1-genius/">Aps 1 genius</a>
+      <a href="../aps/aps-1-genius/">Aps 1 genius</a>
     </li>
   
 
@@ -393,41 +401,53 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="bem-vindo-a-disciplina-de-computacao-embarcada">Bem vindo a disciplina de Computação Embarcada</h1>
-<p><mark>Versão 2.0!</mark></p>
+<h1 id="descricao-detalhada-dos-criterios-de-avaliacao">Descrição Detalhada dos Critérios de Avaliação</h1>
+<h2 id="componentes-da-avaliacao">Componentes da Avaliação:</h2>
+<h3 id="1-laboratorios-core">1. Laboratórios Core:</h3>
 <ul>
-<li><strong>Curso:</strong> Engenharia Da Computação - Quinto Semestre - <a href="https://www.insper.edu.br/">Insper</a></li>
-<li><strong>Disciplina:</strong> Computação Embarcada </li>
-<li><strong>Repositório:</strong> <a href="http:/github.com/Insper/ComputacaoEmbarcada">http:/github.com/Insper/ComputacaoEmbarcada</a></li>
-<li><strong>Local:</strong> Laboratórios de Arquitetura de Computadores e Ágil 2</li>
-<li><strong>Equipe:</strong><ul>
-<li><a href="https://github.com/rafaelcorsi">Prof. Rafael Corsi</a></li>
-<li>Técnico Marco Mello</li>
-<li><a href="https://www.linkedin.com/in/arnaldoavianajr/">Prof. Aux. Arnaldo Jr (Tiozão)</a></li>
+<li><strong>Formato:</strong> Entrega individual de atividades de laboratório.</li>
+<li><strong>Critério de Avaliação:</strong> Média dos laboratórios com conceito superior a C.</li>
 </ul>
-</li>
-<li><strong>Já passou por aqui:</strong><ul>
-<li>(2023b) Prof. Diego Soler (treinamento) </li>
-<li>(2023a) Prof. Rodrigo Carareto </li>
-<li>(2022b) Ninja Ana Carolina Souza </li>
-<li>(2021-2021) Prof. Aux. <a href="https://www.linkedin.com/in/fl%C3%A1vio-batista-5846b674/">Flávio Batista</a></li>
-<li>(2016-2020) Prof. Aux. <a href="https://www.linkedin.com/in/eduardo-marossi/">Eduardo Marossi</a></li>
+<h3 id="2-laboratorios-especializacao">2. Laboratórios Especialização:</h3>
+<ul>
+<li><strong>Formato:</strong> Entrega individual de atividades de laboratório.</li>
+<li><strong>Critério de Avaliação:</strong> Média dos laboratórios com conceito superior a C.</li>
 </ul>
-</li>
-<li><strong>© Todos os direitos reservados</strong></li>
+<h3 id="3-atividades-praticas-supervisionadas-aps">3. Atividades Práticas Supervisionadas (APS):</h3>
+<ul>
+<li><strong>Formato:</strong> Realização em duplas.</li>
+<li><strong>Quantidade:</strong> 2 atividades ao longo do semestre.</li>
+<li><strong>Critério de Avaliação:</strong> Conceito igual ou superior a C para aprovação.</li>
 </ul>
-<hr />
-<h2 id="objetivos-da-materia">Objetivos da matéria</h2>
-<p>Ao final da disciplina o estudante deve ser capaz de:</p>
-<ol>
-<li>Criar softwares para microcontroladores utilizando suas especificidades;</li>
-<li>Avaliar e melhorar soluções embarcadas integrando hardware/software levando em conta adequação a uma aplicação;</li>
-<li>Integrar em um protótipo hardware, software básico, sistema operacional de tempo real e módulos de interfaceamento com usuários, de comunicação e de alimentação.</li>
-<li>Compreender as limitações de microcontroladores e seus periféricos;</li>
-<li>Buscar e analisar documentação (datasheet) e extrair informações relevantes.</li>
-</ol>
-<h2 id="motivacao">Motivação</h2>
-<p>Sistemas embarcados movem o mundo!</p>
+<h3 id="4-projeto">4. Projeto:</h3>
+<ul>
+<li><strong>Formato:</strong> Realização em grupos.</li>
+<li><strong>Quantidade:</strong> 1 projeto durante o semestre.</li>
+<li><strong>Critério de Avaliação:</strong> Conceito igual ou superior a C para aprovação.</li>
+</ul>
+<h3 id="5-avaliacao-pratica">5. Avaliação Prática:</h3>
+<ul>
+<li><strong>Formato:</strong> Individual.</li>
+<li><strong>Quantidade:</strong> 3 avaliações ao longo do semestre, sem possibilidade de substituição.</li>
+<li><strong>Critério de Avaliação:</strong> Obtenção de pelo menos uma nota A (as notas são binárias: I [Insuficiente] ou A [Aprovado]).</li>
+</ul>
+<h2 id="requisitos-para-aprovacao-barreira">Requisitos para Aprovação (barreira):</h2>
+<ul>
+<li>Alcançar média igual ou superior a C nas APS.</li>
+<li>Obter conceito igual ou superior a C no projeto.</li>
+<li>Ser aprovado em pelo menos uma Avaliação Prática com nota A.</li>
+<li>Alcançar média superior a C em Laboratórios Core E Laboratórios Especialização.</li>
+</ul>
+<h2 id="calculo-da-nota-final">Cálculo da Nota Final:</h2>
+<p>A nota final é calculada com base na seguinte distribuição:
+- 20% Laboratórios Core
+- 20% Laboratórios de Especialização
+- 30% APS
+- 30% Projeto</p>
+<h2 id="observacoes-importantes">Observações Importantes:</h2>
+<ul>
+<li><strong>Sem Prova Substitutiva:</strong> Devido ao formato alternativo de avaliação, que oferece três oportunidades de aprovação nas avaliações práticas, não há previsão de prova substitutiva, mesmo em casos de falta por motivos de saúde ou outras razões.</li>
+</ul>
 
 
 </section>
@@ -437,19 +457,26 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-          
-            <a href="aulas/"
-               class="ah-next"
+            <a href="../aulas/"
+               class="ah-prev"
                title="Aulas">
-              <span class="nav-label">Next</span>
+              <span class="nav-label">Previous</span>
               <span class="nav-title">Aulas</span>
+            </a>
+          
+          
+            <a href="../infra-linux-docker/"
+               class="ah-next"
+               title="Infra">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Infra</span>
             </a>
           
         </div>
       </footer>
     </div>
     
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="termynal.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../termynal.js"></script>
     
   <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
