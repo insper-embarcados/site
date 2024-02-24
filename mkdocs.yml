@@ -20,7 +20,8 @@ plugins:
   - glightbox
   - termynal
   - active-handout:
-      telemetry: true
+      telemetry: false
+      plugin_exercise_counter: false
       backend_url: https://example-backend.com.br/api/
       course_slug: Active Handout Example 2022
       tag_tree:
@@ -89,17 +90,12 @@ nav:
   - Aulas: aulas.md
   - Avaliação: avaliacao.md
   - Infra: infra-linux-docker.md
-  - Prototipos:
+  - Prototipando:
     - Fabricação: prototipos/prototipos.md
-    - Sensores:
-      - Botão de Arcade: prototipos/botao-arcade.md
-      - Joystick Arcade: prototipos/joystick-arcade.md
-      - Push Button: prototipos/push-button.md
-      - Sensores de distância: prototipos/sensores-distancia.md
-    - Atuadores:
-      - Motores: prototipos/motores.md
-      - LEDs: prototipos/leds.md
-
+    - Entradas: prototipos/entradas.md
+    - Saídas: prototipos/saida.md
+  - Dispositivos:
+      - dispositivos/buzzer.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg

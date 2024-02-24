@@ -1,23 +1,6 @@
 # Prototipação
 
-Neste página você ira encontrar uma lista de sensores e atuadores disponíveis no laboratório, assim como sugestões de como adicionalos a caixa do projeto.
-
-!!! info "Componentes"
-    === "Sensores"
-        - ***Botões :***
-
-        - [Botão Arcade](./botao-arcade.md)
-        - [JoystickArcade](./joystick-arcade.md)
-        - [PushButton](./push-button.md)
-
-        ***Analógicos :***
-        
-    === "Atuadores"
-        - ***Motores :***
-
-        - [Servo](./atuadores.md)
-        - []()
-
+Aqui, você encontrará informações relevantes para a realização do protótipo mecânico dos projetos de embarcados. Contamos com o apoio do pessoal do fablab, especialmente de Luis Bueno e de Eliana. Esta seção do site foi desenvolvida em conjunto com o pessoal do fablab!
 
 ## Fabricação de Caixas
 
