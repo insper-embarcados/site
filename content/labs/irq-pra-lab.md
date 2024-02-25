@@ -39,4 +39,4 @@ Notem que existem dois tipos de sinal: Curto e Longo, o desafio deste laboratór
 
 ## Requisitos 
 
-O seu projeto deve possuir dois 
+O seu projeto deve possuir dois botões e um buzzer, cada botão deve reproduzir um tom diferente (indicamos `freq1`, `freq2`), o código deve fazer uso de IRQ  

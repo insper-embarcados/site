@@ -90,6 +90,10 @@ nav:
   - Aulas: aulas.md
   - Avaliação: avaliacao.md
   - Infra: infra-linux-docker.md
+  - Prototipando:
+    - Fabricação: prototipos/prototipos.md
+    - Entradas: prototipos/entradas.md
+    - Saídas: prototipos/saida.md
   - Dispositivos:
       - dispositivos/buzzer.md
   - Pico W:
