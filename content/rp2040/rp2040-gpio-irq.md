@@ -198,7 +198,7 @@ int main() {
 Só podemos configurar um único callback para os GPIOS da pico, devemos usar a informação do argumento `gpio` para sabermos qual pino estamos lidando dentro do callback.
 
 !!! tip
-    Notem que não estamos usando a informação de `event`, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.
+    Notem que ==não estamos usando== a informação de `event`, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.
 
 
 [Simulação no wokwi](https://wokwi.com/projects/390522233591216129){.ah-button}
