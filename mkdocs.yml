@@ -99,15 +99,18 @@ nav:
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
+      - pico-examples: https://github.com/raspberrypi/pico-examples
       - Programando: pico/pico-debugging.md
 
         #      - Code snippets: pico/pico-snippets.md
   - RP2040:
       - Datasheet: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
+      - sdk: https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html
 #      - Code snippets: rp2040/rp2040-snippets.md
       - Delay: rp2040/rp2040-delay.md
       - GPIO: rp2040/rp2040-gpio.md
       - GPIO IRQ: rp2040/rp2040-gpio-irq.md
+      - Timer: rp2040/rp2040-timer.md
 #      - TC: rp2040/rp2040-tc.md
 #  - Freertos
 #      - Sobre: freertos/freertos-sobre.md
