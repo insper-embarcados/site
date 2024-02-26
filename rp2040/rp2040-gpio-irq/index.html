@@ -16,9 +16,9 @@
       // SETUP GLOBAL CONSTANTS
       var base_url = '../..';
       
-      var telemetryEnabled = true;
-      var backendUrl = "https://example-backend.com.br/api/";
-      var courseSlug = "Active Handout Example 2022";
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
       
       
       var dashboardEnabled = true;
@@ -83,8 +83,6 @@
           
 
           
-          <div id="user-menu" hx-get="https://example-backend.com.br/api/user-menu" hx-trigger="load"> </div>
-          
         </div>
       </header>
       <nav class="ah-navigation preload">
@@ -132,6 +130,56 @@
             
               
   <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Pico W</span>
     <ul>
       
@@ -147,6 +195,14 @@
   
     <li>
       <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://github.com/raspberrypi/pico-examples">pico-examples</a>
     </li>
   
 
@@ -172,6 +228,14 @@
   
     <li>
       <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
     </li>
   
 
@@ -220,6 +284,14 @@
             
         
       </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-timer/">Timer</a>
     </li>
   
 
@@ -517,10 +589,10 @@
 <h3 id="gpio-irq_1">GPIO - IRQ</h3>
 <p>Muda o valor do LED toda vez que o botão for apertado.
   - <mark>Necessário definir os pinos <code>LED_PIN</code> e <code>BTN_PIN</code></mark></p>
-<p><a class="ah-button" href="https://wokwi.com/projects/382410733969358849">wokwi</a>
+<p><a class="ah-button" href="https://wokwi.com/projects/382410733969358849">Simulação no wokwi</a>
 / <a class="ah-button" href="https://github.com/raspberrypi/pico-examples/blob/master/gpio/hello_gpio_irq/hello_gpio_irq.c">pico-examples/gpio/hello_gpio_irq</a></p>
 <div class="admonition tip">
-<p class="admonition-title">Boardas 1</p>
+<p class="admonition-title">Boardas</p>
 <p>Você pode configurar qual tipo de board deseja ativar na IRQ:</p>
 <ul>
 <li><code>GPIO_IRQ_EDGE_FALL</code>: Descida (Botão apertado) <ul>
@@ -582,10 +654,10 @@
 <h3 id="gpio-irq-multiplos-callbacks">GPIO - IRQ - Múltiplos callbacks</h3>
 <p>Só podemos configurar um único callback para os GPIOS da pico, devemos usar a informação do argumento <code>gpio</code> para sabermos qual pino estamos lidando dentro do callback.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip 2</p>
+<p class="admonition-title">Tip</p>
 <p>Notem que não estamos usando a informação de <code>event</code>, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.</p>
 </div>
-<p><a class="ah-button" href="https://wokwi.com/projects/390522233591216129">wokwi</a></p>
+<p><a class="ah-button" href="https://wokwi.com/projects/390522233591216129">Simulação no wokwi</a></p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/stdlib.h&quot;</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;hardware/gpio.h&quot;</span>
@@ -663,11 +735,11 @@
             </a>
           
           
-            <a href="../../CodeQuality/topview/"
+            <a href="../rp2040-timer/"
                class="ah-next"
-               title="Visão geral">
+               title="Timer">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Visão geral</span>
+              <span class="nav-title">Timer</span>
             </a>
           
         </div>

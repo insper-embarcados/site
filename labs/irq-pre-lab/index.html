@@ -16,9 +16,9 @@
       // SETUP GLOBAL CONSTANTS
       var base_url = '../..';
       
-      var telemetryEnabled = true;
-      var backendUrl = "https://example-backend.com.br/api/";
-      var courseSlug = "Active Handout Example 2022";
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
       
       
       var dashboardEnabled = true;
@@ -83,8 +83,6 @@
           
 
           
-          <div id="user-menu" hx-get="https://example-backend.com.br/api/user-menu" hx-trigger="load"> </div>
-          
         </div>
       </header>
       <nav class="ah-navigation preload">
@@ -132,6 +130,56 @@
             
               
   <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Pico W</span>
     <ul>
       
@@ -147,6 +195,14 @@
   
     <li>
       <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://github.com/raspberrypi/pico-examples">pico-examples</a>
     </li>
   
 
@@ -179,6 +235,14 @@
         
   
     <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
       <a href="../../rp2040/rp2040-delay/">Delay</a>
     </li>
   
@@ -196,6 +260,14 @@
   
     <li>
       <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-timer/">Timer</a>
     </li>
   
 
@@ -421,7 +493,7 @@
 </tbody>
 </table>
 <div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Leitura prévia 1</p>
+<p class="admonition-title">Leitura prévia</p>
 <form class="exercise-form">
 <p>Para realizar este laboratório você deve estudar antes.</p>
 <ul>
@@ -436,7 +508,7 @@
 <h2 id="qualidade-de-codigo">Qualidade de código</h2>
 <p>Antes de seguir para a atividade com GPIO, relizar os exercícios de qualidade de código.</p>
 <div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_2" id="exercise_2_0">
-<p class="admonition-title">Qualidade de código 2</p>
+<p class="admonition-title">Qualidade de código</p>
 <form class="exercise-form">
 <p>Realizar os dois exercícios antes de seguir. <mark>Eles fazem parte do pré lab, sem eles vocês não possuem a nota desta entrega.</mark></p>
 <ul>
@@ -452,7 +524,7 @@
 <h2 id="atividade">Atividade</h2>
 <p>Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando o código para o github! A qualidade de código está ativada, então se seu código falhar, verique em qual etapa foi, pode ser por conta de qualidade de código!</p>
 <div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_3" id="exercise_3_0">
-<p class="admonition-title">exe1 3</p>
+<p class="admonition-title">exe1</p>
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe1/main.c</code></li>
@@ -462,6 +534,8 @@
 <p>O código fornecido configura a interrupção no pino do botão e, toda vez que ele for pressionado, imprime <code>fall</code> no terminal; e quando ele é solto, imprime <code>rise</code>. O código funciona, mas possui <mark>um erro de qualidade de código!</mark> Não devemos usar <code>printf</code> dentro de interrupções!</p>
 <p><a class="glightbox" href="../imgs/lab_irq_pre_embedded_check_printf.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_embedded_check_printf.png" /></a></p>
 <p>Modifique o código adicionando uma flag e realize o <code>printf</code> na função <code>main</code>. O comportamento deve ser o mesmo, mas a forma como lidaremos com o evento é diferente!</p>
+<h4 id="dica">Dica:</h4>
+<p>Não sabe o que tem que fazer? Leia a teoria em <code>RP2040/GPIO IRQ</code> especificamente a parte do <em>IRQ - Keep it short and simple</em>, se não ajudar tente <a href="https://www.techtarget.com/whatis/definition/IRQ-interrupt-request">esta explicação link</a></p>
 <h4 id="funcionalidade-esperada">Funcionalidade esperada</h4>
 <p><a class="glightbox" href="../imgs/lab_irq_pre_exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe1.gif" /></a></p>
 <div class="form-elements">
@@ -471,7 +545,7 @@
 </form>
 </div>
 <div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_4" id="exercise_4_0">
-<p class="admonition-title">exe2 4</p>
+<p class="admonition-title">exe2</p>
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe2/main.c</code></li>
@@ -488,7 +562,7 @@
 </form>
 </div>
 <div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_5" id="exercise_5_0">
-<p class="admonition-title">exe3 5</p>
+<p class="admonition-title">exe3</p>
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe3/main.c</code></li>
@@ -506,7 +580,7 @@
 </form>
 </div>
 <div class="admonition exercise self-progress" data-slug="labs/irq-pre-lab/exercise_6" id="exercise_6_0">
-<p class="admonition-title">exe4 6</p>
+<p class="admonition-title">exe4</p>
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe4/main.c</code></li>

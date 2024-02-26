@@ -16,9 +16,9 @@
       // SETUP GLOBAL CONSTANTS
       var base_url = '../..';
       
-      var telemetryEnabled = true;
-      var backendUrl = "https://example-backend.com.br/api/";
-      var courseSlug = "Active Handout Example 2022";
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
       
       
       var dashboardEnabled = true;
@@ -83,8 +83,6 @@
           
 
           
-          <div id="user-menu" hx-get="https://example-backend.com.br/api/user-menu" hx-trigger="load"> </div>
-          
         </div>
       </header>
       <nav class="ah-navigation preload">
@@ -132,6 +130,56 @@
             
               
   <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Pico W</span>
     <ul>
       
@@ -147,6 +195,14 @@
   
     <li>
       <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://github.com/raspberrypi/pico-examples">pico-examples</a>
     </li>
   
 
@@ -172,6 +228,14 @@
   
     <li>
       <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
     </li>
   
 
@@ -208,6 +272,14 @@
   
     <li>
       <a href="../rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-timer/">Timer</a>
     </li>
   
 
@@ -417,7 +489,7 @@
 <h2 id="snippets">Snippets</h2>
 <p>Snippets de código relacionados ao GPIO.</p>
 <div class="admonition tip">
-<p class="admonition-title">Quando usar cada um? 1</p>
+<p class="admonition-title">Quando usar cada um?</p>
 <p>Se você precisa de um controle preciso sobre o tempo de espera, utilize o <code>busy_wait</code>. Essa abordagem garante que o tempo de espera seja exatamente o que você programou, mas consome mais energia, pois o microcontrolador permanece ativo. Por outro lado, se a precisão do tempo de espera não for crítica e você quiser economizar energia, opte pelo <code>sleep</code>. Essa função coloca o microcontrolador em modo de suspensão, reduzindo o consumo de energia.</p>
 </div>
 <h3 id="sleep">sleep</h3>

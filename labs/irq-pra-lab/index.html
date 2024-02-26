@@ -16,9 +16,9 @@
       // SETUP GLOBAL CONSTANTS
       var base_url = '../..';
       
-      var telemetryEnabled = true;
-      var backendUrl = "https://example-backend.com.br/api/";
-      var courseSlug = "Active Handout Example 2022";
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
       
       
       var dashboardEnabled = true;
@@ -83,8 +83,6 @@
           
 
           
-          <div id="user-menu" hx-get="https://example-backend.com.br/api/user-menu" hx-trigger="load"> </div>
-          
         </div>
       </header>
       <nav class="ah-navigation preload">
@@ -132,6 +130,56 @@
             
               
   <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Pico W</span>
     <ul>
       
@@ -147,6 +195,14 @@
   
     <li>
       <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://github.com/raspberrypi/pico-examples">pico-examples</a>
     </li>
   
 
@@ -179,6 +235,14 @@
         
   
     <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
       <a href="../../rp2040/rp2040-delay/">Delay</a>
     </li>
   
@@ -196,6 +260,14 @@
   
     <li>
       <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-timer/">Timer</a>
     </li>
   
 
@@ -339,7 +411,7 @@
             
             
               <li class="ah-toc-item">
-                <a href="#minimo-c">Mínimo - C</a>
+                <a href="#requisitos">Requisitos</a>
               </li>
             
         
@@ -406,22 +478,62 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Deadline</strong>: <mark>TBD</mark></td>
+<td><strong>Prazo</strong>: <mark>TBD</mark></td>
 </tr>
 <tr>
 <td><mark>TBD</mark></td>
 </tr>
 </tbody>
 </table>
-<p>Nesse laboratório iremos aplicar os conceitos de interrupção de hardware (IRQ), para isso iremos usar o dispositivo OLED, que possui um display e três botões e LEDs.</p>
-<h2 id="minimo-c">Mínimo - C</h2>
-<h3 id="pontos-extras">Pontos extras</h3>
-<ul>
-<li>(<code>+1.0 conceito</code>) </li>
-<li>(<code>+1.0 conceito</code>) </li>
-<li>(<code>+0.5 conceito</code>) </li>
-<li>(<code>+0.5 conceito</code>) </li>
-</ul>
+<p>Neste laboratório, vamos aplicar os conceitos de interrupção de hardware / GPIO (IRQ). Como desafio, desenvolveremos um telégrafo digital!</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">História</label><label for="__tabbed_1_2">Hello world 🤣</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/hIN1wH4iYdg?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+</div>
+<div class="tabbed-block">
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/L6gxfX4GrbI?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+<p>Para isso, vocês precisarão de:</p>
+<table>
+<thead>
+<tr>
+<th>Lista de Materiais</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2x Botões de pressão</td>
+<td>R$ 0,20</td>
+</tr>
+<tr>
+<td>1x Buzzer</td>
+<td>R$ 2,70</td>
+</tr>
+</tbody>
+</table>
+<p>O buzzer é um piezoelétrico capaz de vibrar quando acionado corretamente (leia sobre em <a href="/site/dispositivos/buzzer">Dispositivos/Buzzer</a>). Com ele, seremos capazes de gerar o tom necessário para simular o telégrafo e reproduzir um código morse:</p>
+<figure>
+    <figcaption>Hello World</figcaption>
+    <audio
+        controls
+        src="/labs/imgs/lab_irq_pra_morse.wav">
+            Seu navegador não suporta o elemento
+            <code>audio</code>.
+    </audio>
+</figure>
+
+<p>Note que existem dois tipos de sinal: Curto e Longo. O desafio deste laboratório será gerarmos automaticamente esses dois tons.</p>
+<p><a class="glightbox" href="../imgs/lab-irq-pra-morse.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-irq-pra-morse.png" /></a></p>
+<h2 id="requisitos">Requisitos</h2>
+<p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão.</p>
 
 
 </section>
