@@ -136,7 +136,7 @@ Muda o valor do LED toda vez que o botão for apertado.
   - ==Necessário definir os pinos `LED_PIN` e `BTN_PIN`==
 
 
-[wokwi](https://wokwi.com/projects/382410733969358849){.ah-button}
+[Simulação no wokwi](https://wokwi.com/projects/382410733969358849){.ah-button}
 / [pico-examples/gpio/hello_gpio_irq](https://github.com/raspberrypi/pico-examples/blob/master/gpio/hello_gpio_irq/hello_gpio_irq.c){.ah-button}
 
 !!! tip "Boardas"
@@ -201,7 +201,7 @@ Só podemos configurar um único callback para os GPIOS da pico, devemos usar a 
     Notem que não estamos usando a informação de `event`, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.
 
 
-[wokwi](https://wokwi.com/projects/390522233591216129){.ah-button}
+[Simulação no wokwi](https://wokwi.com/projects/390522233591216129){.ah-button}
 
 ```c
 #include <stdio.h>

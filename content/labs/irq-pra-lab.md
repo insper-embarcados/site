@@ -1,11 +1,11 @@
 # IRQ - Prática
 
-| Lab 2 - IRQ - Prática                      |
-|--------------------------------------------|
-| **Deadline**: =={{lab_irq_pra_deadline}}== |
-| =={{lab_irq_pra_classroom}}==              |
+| Lab 2 - IRQ - Prática                       |
+|---------------------------------------------|
+| **Prazo**: =={{lab_irq_pra_deadline}}==     |
+| =={{lab_irq_pra_classroom}}==               |
 
-Nesse laboratório iremos aplicar os conceitos de interrupção de hardware / GPIO (IRQ), como desafio iremos desenvolver um telégrafo digital!
+Neste laboratório, vamos aplicar os conceitos de interrupção de hardware / GPIO (IRQ). Como desafio, desenvolveremos um telégrafo digital!
 
 === "História"
     !!! video
@@ -14,29 +14,29 @@ Nesse laboratório iremos aplicar os conceitos de interrupção de hardware / GP
     !!! video
         ![](https://www.youtube.com/watch?v=L6gxfX4GrbI)
 
-Para isso, vocês vão precisar de:
+Para isso, vocês precisarão de:
 
-| Bill of Material | Valor   |
-|------------------|---------|
-| 2x Push buttons  | R$ 0.20 |
-| 1x Buzzer        | R$ 2.7  |
+| Lista de Materiais   | Valor   |
+|----------------------|---------|
+| 2x Botões de pressão | R$ 0,20 |
+| 1x Buzzer            | R$ 2,70 |
 
-O buzzer é um piezo elético capaz de vibrar quando acionado corretamente (leia sobre em [Dispositivos/Buzzer](/site/dispositivos/buzzer)), com ele seremo capazes de gerar o tom necessário para simularmos o telégrafo e podermos reproduzir um código morse:
+O buzzer é um piezoelétrico capaz de vibrar quando acionado corretamente (leia sobre em [Dispositivos/Buzzer](/site/dispositivos/buzzer)). Com ele, seremos capazes de gerar o tom necessário para simular o telégrafo e reproduzir um código morse:
 
 <figure>
     <figcaption>Hello World</figcaption>
     <audio
         controls
         src="/labs/imgs/lab_irq_pra_morse.wav">
-            Your browser does not support the
-            <code>audio</code> element.
+            Seu navegador não suporta o elemento
+            <code>audio</code>.
     </audio>
 </figure>
 
-Notem que existem dois tipos de sinal: Curto e Longo, o desafio deste laboratório vai ser identificar esses dois tipos diferentes de informaćão.
+Note que existem dois tipos de sinal: Curto e Longo. O desafio deste laboratório será gerarmos automaticamente esses dois tons.
 
 ![](imgs/lab-irq-pra-morse.png)
 
-## Requisitos 
+## Requisitos
 
-O seu projeto deve possuir dois botões e um buzzer, cada botão deve reproduzir um tom diferente (indicamos `freq1`, `freq2`), o código deve fazer uso de IRQ  
+Seu projeto deve possuir dois botões (`btn1` e `btn2`) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos `freq1`, `freq2`). O código deve fazer uso de IRQ para leitura dos botões. O `btn1` deve reproduzir `freq1` por um determinado tempo, e o `btn2` deve reproduzir `freq2` pelo triplo do tempo do outro botão.
