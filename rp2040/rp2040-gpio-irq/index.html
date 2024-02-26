@@ -655,7 +655,7 @@
 <p>Só podemos configurar um único callback para os GPIOS da pico, devemos usar a informação do argumento <code>gpio</code> para sabermos qual pino estamos lidando dentro do callback.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Notem que não estamos usando a informação de <code>event</code>, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.</p>
+<p>Notem que <mark>não estamos usando</mark> a informação de <code>event</code>, pois as duas IRQs foram configuradas na mesma boarda, caso contrário deveriam tratar essa informação.</p>
 </div>
 <p><a class="ah-button" href="https://wokwi.com/projects/390522233591216129">Simulação no wokwi</a></p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>

@@ -414,6 +414,10 @@
                 <a href="#requisitos">Requisitos</a>
               </li>
             
+              <li class="ah-toc-item">
+                <a href="#desafios-extras">Desafios extras</a>
+              </li>
+            
         
       </ul>
     </li>
@@ -478,10 +482,13 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Prazo</strong>: <mark>TBD</mark></td>
+<td><strong>Prazo</strong>: <mark>04/2 (Antes da aula)</mark></td>
 </tr>
 <tr>
-<td><mark>TBD</mark></td>
+<td><a href="https://classroom.github.com/a/oNT1nEiP">Repositório no classroom</a></td>
+</tr>
+<tr>
+<td>💰 70% nota de lab</td>
 </tr>
 </tbody>
 </table>
@@ -533,7 +540,27 @@
 <p>Note que existem dois tipos de sinal: Curto e Longo. O desafio deste laboratório será gerarmos automaticamente esses dois tons.</p>
 <p><a class="glightbox" href="../imgs/lab-irq-pra-morse.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-irq-pra-morse.png" /></a></p>
 <h2 id="requisitos">Requisitos</h2>
-<p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão.</p>
+<p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão. A ideia é que não precisamos ficar contanto o tempo na nossa cabeca (curto/longo) o sistema faz isso para a gente!</p>
+<h3 id="dicas">Dicas</h3>
+<p>A seguir algumas dicas de como fazer, você pode ou não seguir:</p>
+<ol>
+<li>Comece pelos botões e suas IRS</li>
+<li>Reproduza um som no <code>buzzer</code></li>
+<li>Crie uma funcão que recebe uma <code>frequencia</code>, <code>tempo</code> e um <code>pino</code> e reprouz um tom.</li>
+<li>Implemente a lógica</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Não esqueça de verificar o code quality! Agora ele vai começar a apitar na cabeça de vocês!</p>
+</div>
+<h2 id="desafios-extras">Desafios extras</h2>
+<p>Gostou e quer fazer mais? Que tal:</p>
+<ol>
+<li>Entre cada tom deve haver um silêncio, se o usuário pressionar muito rápido cada botão, insira o silêncio automaticamente.</li>
+<li>Adicione dois buzzers e gere um tom composto (cada som é composto por duas notas)</li>
+<li>Receba um texto via <code>UART</code> converta para código morse e transmita!</li>
+<li>Pode usar comandos básicos de <code>c</code> e leitura de terminal!</li>
+</ol>
 
 
 </section>
