@@ -235,7 +235,7 @@
         
   
     <li>
-      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">Sdk</a>
     </li>
   
 
@@ -268,6 +268,14 @@
   
     <li>
       <a href="../../rp2040/rp2040-timer/">Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-rtc/">RTC</a>
     </li>
   
 
@@ -492,7 +500,19 @@
 </tr>
 </tbody>
 </table>
-<p>Neste laboratório, vamos aplicar os conceitos de interrupção de hardware / GPIO (IRQ). Como desafio, desenvolveremos um telégrafo digital!</p>
+<!--
+Ideias do Marco para esse lab:
+
+1. Exigir a função tone
+2. Estruturar arquivo em .c/.h
+
+eu achei a dificuldade ok, tirando os dois nerdinhos que fizeram muito rápido, quem conseguiu foi no final
+do Lab, a ideia atual de embarcados é que eles não gastem muito tempo fazendo 
+lab fora da aula e sobre mais tempo para o projeto
+o pré lab (que estão levando em média 1h) ajuda muito eles fazerem essas atividades
+-->
+
+<p>Neste laboratório, aplicaremos os conceitos de Interrupção de Hardware/GPIO (IRQ). Como desafio, desenvolveremos um telégrafo digital!</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">História</label><label for="__tabbed_1_2">Hello world 🤣</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -526,7 +546,7 @@
 </tr>
 </tbody>
 </table>
-<p>O buzzer é um piezoelétrico capaz de vibrar quando acionado corretamente (leia sobre em <a href="/site/dispositivos/buzzer">Dispositivos/Buzzer</a>). Com ele, seremos capazes de gerar o tom necessário para simular o telégrafo e reproduzir um código morse:</p>
+<p>O buzzer é um dispositivo piezoelétrico capaz de vibrar quando acionado corretamente (leia mais em <a href="/site/dispositivos/buzzer">Dispositivos/Buzzer</a>). Com ele, seremos capazes de gerar o tom necessário para simular o telégrafo e reproduzir um código Morse:</p>
 <figure>
     <figcaption>Hello World</figcaption>
     <audio
@@ -540,7 +560,33 @@
 <p>Note que existem dois tipos de sinal: Curto e Longo. O desafio deste laboratório será gerarmos automaticamente esses dois tons.</p>
 <p><a class="glightbox" href="../imgs/lab-irq-pra-morse.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-irq-pra-morse.png" /></a></p>
 <h2 id="requisitos">Requisitos</h2>
-<p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão. A ideia é que não precisamos ficar contanto o tempo na nossa cabeca (curto/longo) o sistema faz isso para a gente!</p>
+<p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para a leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão. A ideia é que não precisemos contar o tempo na nossa cabeça (curto/longo); o sistema faz isso por nós!</p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freq1</code></td>
+<td>1000 hz</td>
+</tr>
+<tr>
+<td><code>time1</code></td>
+<td>100 ms</td>
+</tr>
+<tr>
+<td><code>freq2</code></td>
+<td>6000 hz</td>
+</tr>
+<tr>
+<td><code>time2</code></td>
+<td>300 ms</td>
+</tr>
+</tbody>
+</table>
 <p>Resultado esperado:</p>
 <div>
 <iframe height="500" src="https://www.youtube.com/embed/sH9y-UITTTo?autoplay=0" type="text/html" width="100%"></iframe>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>RTC - Computação Embarcada - 2.0</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../termynal.css">
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../.."
+           title="Computação Embarcada - 2.0"
+           class="ah-logo"
+           aria-label="Computação Embarcada - 2.0">
+          Computação Embarcada - 2.0
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../aulas/">Aulas</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../avaliacao/">Avaliação</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../infra-linux-docker/">Infra</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Pico W</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://github.com/raspberrypi/pico-examples">pico-examples</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-debugging/">Programando</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">RP2040</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">Sdk</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-delay/">Delay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-gpio/">GPIO</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-timer/">Timer</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">RTC</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#hardware-apis">Hardware APIs</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#snippets">Snippets</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Code quality</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/topview/">Visão geral</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rules/">Regras</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/variables/">Variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Labs</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">GPIO</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">IRQ</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">APS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>RP2040</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="rtc-real-time-clock">RTC - Real Time Clock</h1>
+<p>O RTC é um periférico que muitos microcontroladores possuem e foi desenvolvido para contar o tempo como um relógio e calendário. A base de tempo do RTC é de 1 segundo e, a partir de uma data definida como inicial, ele passa a fazer todas as contas de hora e de dias. Em produtos, o RTC é normalmente alimentado por um sistema de baterias independentes, geralmente uma bateria <a href="">CR padrão</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Já se perguntou por que mesmo quando a bateria do seu notebook acaba, quando você liga, a hora e o dia da semana estão sempre certos? Seu notebook possui um RTC alimentado por uma bateria independente que pode durar meses com a mesma carga, pois ela só alimenta o RTC. Quando você liga novamente o seu computador, a BIOS lê o valor do RTC e atualiza o seu sistema operacional!</p>
+</div>
+<p>Existem muitos modelos de RTC disponíveis, cada um com uma configuração diferente (consumo energético, preço, fidelidade, etc.). Aqui iremos aprender a usar o RTC que está disponível dentro da RP2040 (como um periférico do microcontrolador).</p>
+<p>Com o RTC, temos além de uma base de tempo e calendário, a opção de configurarmos um alarme (IRQ) quando uma situação específica ocorrer. Imagine o seguinte, você precisa fazer uma verificação a cada minuto; podemos configurar o RTC para gerar uma IRQ a cada minuto e realizar a ação.</p>
+<h2 id="hardware-apis">Hardware APIs</h2>
+<p>Breve resumo da API de hardware para manipular o RTC, extraído da documentação SDK:</p>
+<ul>
+<li><code>void rtc_init(void)</code>: Inicializa o sistema RTC.</li>
+<li><code>bool rtc_set_datetime(datetime_t *t)</code>: Define o RTC para o tempo especificado.</li>
+<li><code>bool rtc_get_datetime(datetime_t *t)</code>: Obtém o tempo atual do RTC.</li>
+<li><code>bool rtc_running(void)</code>: O RTC está em execução?</li>
+<li><code>void rtc_set_alarm(datetime_t *t, rtc_callback_t user_callback)</code>: Define um tempo futuro para o RTC chamar um callback fornecido pelo usuário.</li>
+<li><code>void rtc_enable_alarm(void)</code>: Ativa o alarme do RTC (se inativo).</li>
+<li><code>void rtc_disable_alarm(void)</code>: Desativa o alarme do RTC (se ativo).</li>
+</ul>
+<h2 id="snippets">Snippets</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O <a href="https://docs.wokwi.com/pt-BR/parts/wokwi-pi-pico">Wokwi não simula o RTC</a>.</p>
+</div>
+<p>Snippets relacionados ao uso do timer via uso das funções disponíveis no <em>high level api</em>.</p>
+<h3 id="rtc-com-alarme">RTC com alarme</h3>
+<p><a href="https://github.com/raspberrypi/pico-examples/blob/master/rtc/rtc_alarm_repeat/rtc_alarm_repeat.c">pico-examples/rtc/rtc_alarme_repeat</a></p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * Copyright (c) 2021 Raspberry Pi (Trading) Ltd.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cm"> *</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm"> * SPDX-License-Identifier: BSD-3-Clause</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm"> */</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;hardware/rtc.h&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/stdlib.h&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/util/datetime.h&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">fired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">alarm_callback</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">fired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="n">stdio_init_all</span><span class="p">();</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;RTC Alarm Repeat!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="c1">// Start on Wednesday 13th January 2021 11:20:00</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="n">datetime_t</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="p">.</span><span class="n">year</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="p">.</span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">01</span><span class="p">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="p">.</span><span class="n">day</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="p">.</span><span class="n">dotw</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="c1">// 0 is Sunday, so 3 is Wednesday</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="p">.</span><span class="n">hour</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="p">.</span><span class="n">min</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">        </span><span class="p">.</span><span class="n">sec</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">00</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="c1">// Start the RTC</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="n">rtc_init</span><span class="p">();</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="n">rtc_set_datetime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="c1">// Alarm once a minute</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="n">datetime_t</span><span class="w"> </span><span class="n">alarm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="p">.</span><span class="n">year</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="p">.</span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">        </span><span class="p">.</span><span class="n">day</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">        </span><span class="p">.</span><span class="n">dotw</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">        </span><span class="p">.</span><span class="n">hour</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="p">.</span><span class="n">min</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">        </span><span class="p">.</span><span class="n">sec</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mo">00</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">    </span><span class="n">rtc_set_alarm</span><span class="p">(</span><span class="o">&amp;</span><span class="n">alarm</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">alarm_callback</span><span class="p">);</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">    </span><span class="c1">// Alarm will keep firing forever</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fired</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">            </span><span class="n">fired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">            </span><span class="n">datetime_t</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">            </span><span class="n">rtc_get_datetime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">datetime_buf</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">datetime_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">datetime_buf</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">            </span><span class="n">datetime_to_str</span><span class="p">(</span><span class="n">datetime_str</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">datetime_buf</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Alarm Fired At %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">datetime_str</span><span class="p">);</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="p">}</span>
+</code></pre></div>
+
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a class="glightbox" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSarKUSO8fk3HzK7CMIDW8KkChF-hckjqTA&amp;usqp=CAU" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSarKUSO8fk3HzK7CMIDW8KkChF-hckjqTA&amp;usqp=CAU" /></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../rp2040-timer/"
+               class="ah-prev"
+               title="Timer">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Timer</span>
+            </a>
+          
+          
+            <a href="../../CodeQuality/topview/"
+               class="ah-next"
+               title="Visão geral">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Visão geral</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+    
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
