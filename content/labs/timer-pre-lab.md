@@ -62,3 +62,14 @@ Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando
     Da para fazer usando o tempo absoluto ou usando o alarme!
     
     ![](imgs/lab-timer-pre-exe3.gif)
+
+
+!!! exe4
+    - Arquivo: `exe4/main.c`
+    - Teste: Não tem
+    
+    Utilizando o RTC faca um LED físico piscar a cada 5 segundos.
+ 
+    ==Precisa testar na placa real, wokwi não tem o RTC implementado.!==
+
+    
