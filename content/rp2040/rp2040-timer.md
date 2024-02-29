@@ -18,6 +18,29 @@ Iremos acessar o timer usando a biblioteca de alto nível da rp2040, existe uma 
 
 Snippets relacionados ao uso do timer via iso das funções diponíveis no *high level api*.
 
+### Tempo absoluto
+
+É possível termos uma base de tempo que é fornecida pelo periférico do Timer, a contagem deste tempo é independente do que está acontecendo com o programa ou com o CORE.
+
+**Código:**
+
+```c
+#include <stdio.h>
+#include "pico/stdlib.h"
+
+int main() {
+    stdio_init_all();
+    while(1){
+        uint32_t start_ms = to_ms_since_boot(get_absolute_time());
+        uint64_t start_us = to_us_since_boot(get_absolute_time());
+        sleep_ms(100);
+    }
+}
+```
+
+Este trecho mostra como utilizar as funções `to_ms_since_boot` e `to_us_since_boot` para obter o tempo em milissegundos e microssegundos desde a inicialização do sistema, respectivamente. Utiliza-se `get_absolute_time()` para obter o tempo atual. Isso pode ser útil para temporizações precisas e medições de intervalos de tempo no desenvolvimento de aplicações com o Raspberry Pi Pico.
+
+
 ### Timer repetitivo
 
 Cria um timer que chama uma função de callback a cada `x` Hz. Se a função de `callback` retornar `true` o timer continua repetindo, caso contrário interrompe e não acontece mais.

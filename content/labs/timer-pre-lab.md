@@ -19,8 +19,7 @@
 Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando o código para o github! A qualidade de código está ativada, então se seu código falhar, verique em qual etapa foi, pode ser por conta de qualidade de código!
 
 !!! warning
-    Não vamos ter pré lab de IRQ pq não conseguimos simular no wokwi!
-
+    Não vamos ter pré lab de RTC pq não conseguimos simular no wokwi!
 
 !!! exercise "exe1"
     - Arquivo: `exe1/main.c`
@@ -34,7 +33,7 @@ Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando
     
     -  O LED deve sempre começar e terminar no estado apagado!
 
-    ![](lab-timer-pre-exe1.gif)
+    ![](imgs/lab-timer-pre-exe1.gif)
 
 !!! exercise "exe2"
     - Arquivo: `exe2/main.c`
@@ -46,7 +45,7 @@ Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando
     
     -  Os LED devem sempre começar e terminar no estado apagado!
 
-    ![](lab-timer-pre-exe2.gif)
+    ![](imgs/lab-timer-pre-exe2.gif)
 
 !!! exercise "exe3"
     - Arquivo: `exe3/main.c`
@@ -58,4 +57,8 @@ Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando
     
     -  Os LED devem sempre começar e terminar no estado apagado!
 
-    ![](lab-timer-pre-exe3.gif)
+    Dica: 
+    
+    Da para fazer usando o tempo absoluto ou usando o alarme!
+    
+    ![](imgs/lab-timer-pre-exe3.gif)
