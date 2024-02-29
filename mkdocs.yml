@@ -111,7 +111,7 @@ nav:
       - GPIO: rp2040/rp2040-gpio.md
       - GPIO IRQ: rp2040/rp2040-gpio-irq.md
       - Timer: rp2040/rp2040-timer.md
-#      - TC: rp2040/rp2040-tc.md
+      - RTC: rp2040/rp2040-rtc.md
 #  - Freertos
 #      - Sobre: freertos/freertos-sobre.md
 #      - Dicas: freertos/freertos-dicas.md
@@ -133,5 +133,7 @@ nav:
       - IRQ:
         - Preparatório: labs/irq-pre-lab.md
         - Prática: labs/irq-pra-lab.md
+      - Timer:
+        - Preparatório: labs/timer-pre-lab.md
   - APS:
       - aps/aps-1-genius.md
