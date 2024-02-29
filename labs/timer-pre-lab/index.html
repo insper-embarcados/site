@@ -169,7 +169,7 @@
         
   
     <li>
-      <a href="../../dispositivos/buzzer/">Buzzer</a>
+      <a href="../../dispositivos/buzzer.md">None</a>
     </li>
   
 
@@ -235,7 +235,7 @@
         
   
     <li>
-      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">Sdk</a>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
     </li>
   
 
@@ -268,14 +268,6 @@
   
     <li>
       <a href="../../rp2040/rp2040-timer/">Timer</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../rp2040/rp2040-rtc/">RTC</a>
     </li>
   
 
@@ -461,15 +453,15 @@
 <table>
 <thead>
 <tr>
-<th>Lab 2 - IRQ - Preparatório</th>
+<th>Lab 3 - Timer - Preparatório</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Prazo</strong>: <mark>04/02 (Antes da aula)</mark></td>
+<td><strong>Deadline</strong>: {{ lab_timer_pre_deadline }}</td>
 </tr>
 <tr>
-<td><strong>Entrega:</strong> <a href="https://classroom.github.com/a/KEhvSnZw">classroom</a></td>
+<td><strong>Atividade:</strong> <a href="{{ lab_timer_pre_classroom }}">classroom</a></td>
 </tr>
 <tr>
 <td>💰 30% nota de lab</td>
@@ -481,8 +473,8 @@
 <form class="exercise-form">
 <p>Para realizar este laboratório você deve estudar antes.</p>
 <ul>
-<li>Timer: <a href="/site/rp2040/rp2040-timer">📘 <mark>RP2040/Timer</mark></a></li>
-<li>RTC: <a href="/site/rp2040/rp2040-rtc">📘 <mark>RP2040/RTC</mark></a></li>
+<li>Sobre o periférico timer: <a href="/site/rp2040/rp2040-timer">📕 <mark>RP2040/Timer</mark></a></li>
+<li>Sobre o periférico RTC: <a href="/site/rp2040/rp2040-rtc">📘 <mark>RP2040/RTC</mark></a></li>
 </ul>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -503,15 +495,13 @@
 <li>Arquivo: <code>exe1/main.c</code></li>
 <li>Teste: Verifica o pino do LED</li>
 </ul>
-<h4 id="codigo">Código</h4>
 <p>Pisca LED chique!</p>
-<p>Quando o botão pressionado inicialize um timer repetitivo que opere a <code>500 ms</code>, sempre que o timer estourar, você deve mudar o valor do LED. Quando o botão for pressionado novamente, parece a execução do timer (<code>cancel_repeating_timer</code>).</p>
-<p>Tanto o botão quanto o LED devem operar com interrupção, lembrem de realizarem as operacoes na função <code>main</code> e não nos callbacks. </p>
+<p>Quando o botão pressionado inicialize um timer repetitivo que opere a <code>500 ms</code>, sempre que o timer estourar, você deve mudar o valor do LED. Quando o botão for pressionado novamente, pare a execução do timer (<code>cancel_repeating_timer</code>).</p>
+<p>Tanto o botão quanto o LED devem operar com interrupção, lembrem de realizarem as operacoes na função main e não nos callbacks. </p>
 <ul>
-<li>Quando não estiver piscando, o LED deve sempre parar no estado apagado!</li>
+<li>O LED deve sempre começar e terminar no estado apagado!</li>
 </ul>
-<h3 id="comportamento-esperado">Comportamento esperado</h3>
-<p><a class="glightbox" href="../imgs/lab-timer-pre-exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pre-exe1.gif" /></a></p>
+<p><a class="glightbox" href="lab-timer-pre-exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="lab-timer-pre-exe1.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -523,16 +513,14 @@
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe2/main.c</code></li>
-<li>Teste: Verifica os pinos do LEDs</li>
+<li>Teste: Verifica os pinos dos LEDs</li>
 </ul>
-<h4 id="codigo_1">Código</h4>
 <p>Árvore de natal.</p>
 <p>O mesmo comportamento do anterior, só que agora com vezes dois (deve utilizar dois timers). Para o LED vermelho usar <code>500 ms</code> e para o LED Verde usar <code>250 ms</code>. </p>
 <ul>
-<li>Quando não estiver piscando, o LED deve sempre parar no estado apagado!</li>
+<li>Os LED devem sempre começar e terminar no estado apagado!</li>
 </ul>
-<h3 id="comportamento-esperado_1">Comportamento esperado</h3>
-<p><a class="glightbox" href="../imgs/lab-timer-pre-exe2.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pre-exe2.gif" /></a></p>
+<p><a class="glightbox" href="lab-timer-pre-exe2.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="lab-timer-pre-exe2.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -544,16 +532,14 @@
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe3/main.c</code></li>
-<li>Teste: Verifica o estado do LED</li>
+<li>Teste: Verifica os pinos dos LEDs</li>
 </ul>
-<h4 id="codigo_2">Código</h4>
 <p>Aperto longo.</p>
-<p>Só considerar o botão como ativado quando ele for solto após ter sido mantido por um tempo longo pressionado (mais que <code>500</code> ms), isso deve ativar/ desativar o piscar do LED. </p>
+<p>Só considerar o botão como ativado quando ele for solto após ter sido mantido por um tempo longo pressionado (mais que 500 ms), isso deve ativar/ desativar o piscar do LED. </p>
 <ul>
-<li>Quando não estiver piscando, o LED deve sempre parar no estado apagado!</li>
+<li>Os LED devem sempre começar e terminar no estado apagado!</li>
 </ul>
-<h3 id="comportamento-esperado_2">Comportamento esperado</h3>
-<p><a class="glightbox" href="../imgs/lab-timer-pre-exe3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pre-exe3.gif" /></a></p>
+<p><a class="glightbox" href="lab-timer-pre-exe3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="lab-timer-pre-exe3.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
