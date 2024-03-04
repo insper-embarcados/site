@@ -591,7 +591,7 @@
 <p>O HC-SR04 é um sensor ativo, não devemos ativar o <code>pullup</code> no pino do ECHO! </p>
 </div>
 <h3 id="leitura">Leitura</h3>
-<p>Se o sistema ativado, devem realizar uma leitura a cada 1s (usar alarme do <code>RTC</code> ou alarme do Timer). Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o <code>Echo</code> fica em alto. Além disso, devem usar um alarme do RTC para detectar se por algum motivo o sensor não retornou um sinal.</p>
+<p>Se o sistema ativado, devem realizar uma leitura a cada 1s <del>(usar alarme do <code>RTC</code> ou alarme do Timer)</del>. Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o <code>Echo</code> fica em alto. Além disso, devem usar um alarme do RTC para detectar se por algum motivo o sensor não retornou um sinal.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Leitura correta</label><label for="__tabbed_2_2">Leitura com erro</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -625,9 +625,13 @@
 <h3 id="dicas">Dicas</h3>
 <p>A seguir algumas dicas de como fazer, você pode ou não seguir:</p>
 <ol>
-<li>Comece pela leitura do sensor (imprima o resultado na serial).</li>
+<li>Comece pela leitura do sensor (imprima o resultado na serial).<ul>
+<li>Para cancelar um alarme use <code>cancel_alarm(alarm);</code></li>
+</ul>
+</li>
 <li>Implemente a detecção de falha.<ul>
 <li>Para testar basta desconectar qualquer fio do sensor!</li>
+<li>VOcê </li>
 </ul>
 </li>
 <li>Adicione o RTC (atualize o print).<ul>
