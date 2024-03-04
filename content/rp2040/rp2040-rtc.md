@@ -27,7 +27,7 @@ Breve resumo da API de hardware para manipular o RTC, extraído da documentaçã
 
 Para utilizar o `RTC` você deve editar o arquivo `CMakeLists.txt` adicionando `hardware_rtc` ao `target_link_libraries` como no exemplo a seguir:
 
-``txt
+```txt
 target_link_libraries(main pico_stdlib hardware_rtc)
 ```
 

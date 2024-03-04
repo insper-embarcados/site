@@ -22,9 +22,29 @@ Para isso, vocês precisarão de:
 
 O sistema deve fazer a interface com o módulo de ultrasom, fazer a leitura de forma periódica e enviar os valores pela UART. Além disso, o sistema deve poder ser configurado via um terminal.
 
+### HC-SR04
+
+==O sensor opera com tensão de 5v, mas nossa placa trabalha com 3v3== por conta disso será necessário:
+
+1. Ligar o HC-SR04 no 5V (==VBUS==)
+1. Fazer um divisor resistivo no pino do `ECHO`
+1. Trigger não precisa fazer nada!
+
+=== "Divisor resistivo"
+
+    - `Pin X`: `Echo` liga na RP2040!
+    - `Pin Y`: `Triger` liga na RP2040!
+    ![](https://insper.github.io/ComputacaoEmbarcada/navigation/Labs/Lab_RTOS_HCSR04/montagem.svg){width=700}
+
+=== "Protoboard"
+    ![](https://insper.github.io/ComputacaoEmbarcada/navigation/Labs/Lab_RTOS_HCSR04/proto.jpg)
+
+!!! warning "No pullup"
+    O HC-SR04 é um sensor ativo, não devemos ativar o `pullup` no pino do ECHO! 
+
 ### Leitura
 
-Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme para detectar se por algum motivo o sensor não retornou um sinal.
+Se o sistema ativado, devem realizar uma leitura a cada 1s (usar alarme do `RTC` ou alarme do Timer). Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do RTC para detectar se por algum motivo o sensor não retornou um sinal.
 
 === "Leitura correta"
     A imagem a seguir ilustra uma leitura normal do sensor:
@@ -54,6 +74,10 @@ Em modo start o sistema deve produzir um log no terminal com a hora, minuto e se
 ```
 
 Resultado esperado:
+
+!!! video
+    ![](https://www.youtube.com/watch?v=Qf8_zQEEllA)
+
 
 
 ### Dicas
