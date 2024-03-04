@@ -1,4 +1,4 @@
-# Labs prática
+# Lab prática
 <!--intro-start-->
 
 As atividades de laboratório demandam que vocês utilizem a placa física, e a entrega é composta de duas frentes:

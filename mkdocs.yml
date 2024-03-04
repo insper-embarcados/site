@@ -54,6 +54,8 @@ extra:
 
     lab_timer_pre_classroom: https://classroom.github.com/a/KEhvSnZw
     lab_timer_pre_deadline: 04/2 (Antes da aula)
+    lab_timer_pra_classroom: https://classroom.github.com/a/RyzMEcIl
+    lab_timer_pra_deadline: 11/03
 
     aps_1_classroom: https://classroom.github.com/a/niP2yPR9
     aps_1_deadline: Domingo 09/03
@@ -99,6 +101,7 @@ nav:
     - Saídas: prototipos/saida.md
   - Dispositivos:
       - dispositivos/buzzer.md
+      - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
@@ -115,6 +118,7 @@ nav:
       - GPIO IRQ: rp2040/rp2040-gpio-irq.md
       - Timer: rp2040/rp2040-timer.md
       - RTC: rp2040/rp2040-rtc.md
+      - FLASH: https://kevinboone.me/picoflash.html
 #  - Freertos
 #      - Sobre: freertos/freertos-sobre.md
 #      - Dicas: freertos/freertos-dicas.md
@@ -138,5 +142,6 @@ nav:
         - Prática: labs/irq-pra-lab.md
       - Timer:
         - Preparatório: labs/timer-pre-lab.md
+        - Prática: labs/timer-pra-lab.md
   - APS:
       - aps/aps-1-genius.md
