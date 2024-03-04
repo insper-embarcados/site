@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Preparatório - Computação Embarcada - 2.0</title>
+        <title>Prática - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -443,28 +443,32 @@
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Preparatório</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#atividade">Atividade</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../timer-pre-lab/">Preparatório</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../timer-pra-lab/">Prática</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Prática</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#requisitos">Requisitos</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#desafios-extras">Desafios extras</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -518,114 +522,113 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="timer-preparatorio">Timer - Preparatório</h1>
+<h1 id="timer-pratica">Timer - Prática</h1>
 <table>
 <thead>
 <tr>
-<th>Lab 3 - Timer - Preparatório</th>
+<th>Lab 3 - Timer - Prática</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Deadline</strong>: 04/2 (Antes da aula)</td>
+<td><strong>Prazo</strong>: <mark>11/03</mark></td>
 </tr>
 <tr>
-<td><strong>Atividade:</strong> <a href="https://classroom.github.com/a/KEhvSnZw">classroom</a></td>
+<td><a href="https://classroom.github.com/a/RyzMEcIl">Repositório no classroom</a></td>
 </tr>
 <tr>
-<td>💰 30% nota de lab</td>
+<td>💰 70% nota de lab</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition exercise self-progress" data-slug="labs/timer-pre-lab/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Leitura prévia</p>
-<form class="exercise-form">
-<p>Para realizar este laboratório você deve estudar antes.</p>
+<p>Neste laboratório, aplicaremos os conceitos de timer para realizarmos a leitura de um sensor de distância e criarmos um dataloger.</p>
+<div class="admonition info">
+<p class="admonition-title">HC-SR04</p>
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/QOc4vgqFXS0?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+</div>
+<p>Para isso, vocês precisarão de:</p>
+<table>
+<thead>
+<tr>
+<th>Lista de Materiais</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1x HC-SR04</td>
+<td>R$ 14,00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requisitos">Requisitos</h2>
+<p>O sistema deve fazer a interface com o módulo de ultrasom, fazer a leitura de forma periódica e enviar os valores pela UART. Além disso, o sistema deve poder ser configurado via um terminal.</p>
+<h3 id="leitura">Leitura</h3>
+<p>Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o <code>Echo</code> fica em alto. Além disso, devem usar um alarme para detectar se por algum motivo o sensor não retornou um sinal.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Leitura correta</label><label for="__tabbed_1_2">Leitura com erro</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>A imagem a seguir ilustra uma leitura normal do sensor:</p>
+<p><a class="glightbox" href="../imgs/lab-timer-pra-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pra-1.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>E a imagem a seguir ilustra uma falha no sensor, nesse caso o alarme estoura e o sistema fornece uma mensagem de erro.</p>
+<p><a class="glightbox" href="../imgs/lab-timer-pra-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pra-2.png" /></a></p>
+</div>
+</div>
+</div>
+<h3 id="terminal">Terminal</h3>
+<p>O usuário deve ser capaz de controlar algumas opções do sistema pelo terminal:</p>
 <ul>
-<li>Sobre o periférico timer: <a href="/site/rp2040/rp2040-timer">📕 <mark>RP2040/Timer</mark></a></li>
-<li>Sobre o periférico RTC: <a href="/site/rp2040/rp2040-rtc">📘 <mark>RP2040/RTC</mark></a></li>
+<li><code>Start</code>: Inicializa a leitura</li>
+<li><code>Stop</code>: Para a leitura</li>
 </ul>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<h2 id="atividade">Atividade</h2>
-<p>Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando o código para o github! A qualidade de código está ativada, então se seu código falhar, verique em qual etapa foi, pode ser por conta de qualidade de código!</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Não vamos ter pré lab de RTC pq não conseguimos simular no wokwi!</p>
-</div>
-<div class="admonition exercise self-progress" data-slug="labs/timer-pre-lab/exercise_2" id="exercise_2_0">
-<p class="admonition-title">exe1</p>
-<form class="exercise-form">
+<p>Em modo start o sistema deve produzir um log no terminal com a hora, minuto e segundo que a leitura foi realizada e o valor da distância:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>22:10:01 - 100 cm
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>22:10:02 -  89 cm
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>22:10:03 -  70 cm
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>22:10:04 -  50 cm
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>....
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>23:03:01 - Falha
+</code></pre></div>
+<p>Resultado esperado:</p>
+<h3 id="dicas">Dicas</h3>
+<p>A seguir algumas dicas de como fazer, você pode ou não seguir:</p>
+<ol>
+<li>Comece pela leitura do sensor (imprima o resultado na serial).</li>
+<li>Implemente a detecção de falha.<ul>
+<li>Para testar basta desconectar qualquer fio do sensor!</li>
+</ul>
+</li>
+<li>Adicione o RTC (atualize o print).</li>
+<li>
+<p>Implemente a parte de leitura da serial.</p>
+</li>
+<li>
+<p>Para ler dado da serial/terminal sem que o programa fique travado para sempre esperando um dado.</p>
+</li>
+</ol>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Return a character from stdin if</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">// there is one available within a timeout. </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">getchar_timeout_us</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">timeout_us</span><span class="p">)</span>
+</code></pre></div>
 <ul>
-<li>Arquivo: <code>exe1/main.c</code></li>
-<li>Teste: Verifica o pino do LED</li>
+<li><a href="https://www.raspberrypi.com/documentation/pico-sdk/runtime.html#ga9b10b3bc1a4750fcb0e691566bc868e8">Documentaćão - API </a></li>
 </ul>
-<p>Pisca LED chique!</p>
-<p>Quando o botão pressionado inicialize um timer repetitivo que opere a <code>500 ms</code>, sempre que o timer estourar, você deve mudar o valor do LED. Quando o botão for pressionado novamente, pare a execução do timer (<code>cancel_repeating_timer</code>).</p>
-<p>Tanto o botão quanto o LED devem operar com interrupção, lembrem de realizarem as operacoes na função main e não nos callbacks. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Não esqueçam de verificar o code quality! Agora ele vai começar a apitar na cabeça de vocês!</p>
+</div>
+<h2 id="desafios-extras">Desafios extras</h2>
+<p>Gostou e quer fazer mais? Que tal:</p>
 <ul>
-<li>O LED deve sempre começar e terminar no estado apagado!</li>
+<li>Pense em uma forma de calibrar o sensor.</li>
+<li>Tente ler dois sensores ao mesmo tempo.</li>
+<li>Modo alerta, se a distância chegar a um limite gere um som de alarme!</li>
+<li>Crie um código em python para exibir o valor.</li>
 </ul>
-<p><a class="glightbox" href="../imgs/lab-timer-pre-exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pre-exe1.gif" /></a></p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="labs/timer-pre-lab/exercise_3" id="exercise_3_0">
-<p class="admonition-title">exe2</p>
-<form class="exercise-form">
-<ul>
-<li>Arquivo: <code>exe2/main.c</code></li>
-<li>Teste: Verifica os pinos dos LEDs</li>
-</ul>
-<p>Árvore de natal.</p>
-<p>O mesmo comportamento do anterior, só que agora com vezes dois (deve utilizar dois timers). Para o LED vermelho usar <code>500 ms</code> e para o LED Verde usar <code>250 ms</code>. </p>
-<ul>
-<li>Os LED devem sempre começar e terminar no estado apagado!</li>
-</ul>
-<p><a class="glightbox" href="../imgs/lab-timer-pre-exe2.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pre-exe2.gif" /></a></p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="labs/timer-pre-lab/exercise_4" id="exercise_4_0">
-<p class="admonition-title">exe3</p>
-<form class="exercise-form">
-<ul>
-<li>Arquivo: <code>exe3/main.c</code></li>
-<li>Teste: Verifica os pinos dos LEDs</li>
-</ul>
-<p>Aperto longo.</p>
-<p>Só considerar o botão como ativado quando ele for solto após ter sido mantido por um tempo longo pressionado (mais que 500 ms), isso deve ativar/ desativar o piscar do LED. </p>
-<ul>
-<li>Os LED devem sempre começar e terminar no estado apagado!</li>
-</ul>
-<p>Dica: </p>
-<p>Da para fazer usando o tempo absoluto ou usando o alarme!</p>
-<p><a class="glightbox" href="../imgs/lab-timer-pre-exe3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pre-exe3.gif" /></a></p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exe4">
-<p class="admonition-title">Exe4</p>
-<ul>
-<li>Arquivo: <code>exe4/main.c</code></li>
-<li>Teste: Não tem</li>
-</ul>
-<p>Utilizando o RTC faca um LED físico piscar a cada 5 segundos.</p>
-<p><mark>Precisa testar na placa real, wokwi não tem o RTC implementado.!</mark></p>
-</div>
 
 
 </section>
@@ -635,19 +638,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../irq-pra-lab/"
+            <a href="../timer-pre-lab/"
                class="ah-prev"
-               title="Prática">
+               title="Preparatório">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Prática</span>
+              <span class="nav-title">Preparatório</span>
             </a>
           
           
-            <a href="../timer-pra-lab/"
+            <a href="../../aps/aps-1-genius/"
                class="ah-next"
-               title="Prática">
+               title="Aps 1 genius">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Prática</span>
+              <span class="nav-title">Aps 1 genius</span>
             </a>
           
         </div>
