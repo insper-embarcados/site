@@ -79,7 +79,6 @@ Resultado esperado:
     ![](https://www.youtube.com/watch?v=Qf8_zQEEllA)
 
 
-
 ### Dicas
 
 A seguir algumas dicas de como fazer, você pode ou não seguir:
@@ -88,6 +87,7 @@ A seguir algumas dicas de como fazer, você pode ou não seguir:
 1. Implemente a detecção de falha.
     - Para testar basta desconectar qualquer fio do sensor!
 1. Adicione o RTC (atualize o print).
+    - Você deve incluir o RTC no projeto, para isso consulte a página do RTC (configurando `cmake`)
 1. Implemente a parte de leitura da serial.
 
 - Para ler dado da serial/terminal sem que o programa fique travado para sempre esperando um dado.
