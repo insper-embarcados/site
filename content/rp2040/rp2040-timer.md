@@ -127,10 +127,13 @@ O alarm é uma maneira de conseguirmos usar o periférico do timer para gerar um
         stdio_init_all();
 
         // Call alarm_callback in 300 ms
-        if (!add_alarm_in_ms(300, alarm_callback, NULL, false)) {
+        // usar esse alarm para cancelar 
+        alarm_id_t alarm = add_alarm_in_ms(300, alarm_callback, NULL, false))
+        
+        if (!alarm) {
             printf("Failed to add timer\n");
         }
-
+    
         while(1){
             if(timer_fired){
                 timer_fired = 0;
@@ -144,4 +147,10 @@ O alarm é uma maneira de conseguirmos usar o periférico do timer para gerar um
     
     Você pode usar: 
 
-    - `add_alarm_in_us ` ou `add_alarm_in_ms`.
+    - `add_alarm_in_us` ou `add_alarm_in_ms`.
+
+    Para cancelar um alarme use:
+    
+    ```c
+    cancel_alarm(alarm);
+    ```

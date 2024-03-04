@@ -44,7 +44,7 @@ O sistema deve fazer a interface com o módulo de ultrasom, fazer a leitura de f
 
 ### Leitura
 
-Se o sistema ativado, devem realizar uma leitura a cada 1s (usar alarme do `RTC` ou alarme do Timer). Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do RTC para detectar se por algum motivo o sensor não retornou um sinal.
+Se o sistema ativado, devem realizar uma leitura a cada 1s ~~(usar alarme do `RTC` ou alarme do Timer)~~. Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do RTC para detectar se por algum motivo o sensor não retornou um sinal.
 
 === "Leitura correta"
     A imagem a seguir ilustra uma leitura normal do sensor:
@@ -84,8 +84,10 @@ Resultado esperado:
 A seguir algumas dicas de como fazer, você pode ou não seguir:
 
 1. Comece pela leitura do sensor (imprima o resultado na serial).
+    - Para cancelar um alarme use `cancel_alarm(alarm);`
 1. Implemente a detecção de falha.
     - Para testar basta desconectar qualquer fio do sensor!
+    - VOcê 
 1. Adicione o RTC (atualize o print).
     - Você deve incluir o RTC no projeto, para isso consulte a página do RTC (configurando `cmake`)
 1. Implemente a parte de leitura da serial.
