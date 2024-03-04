@@ -23,6 +23,21 @@ Breve resumo da API de hardware para manipular o RTC, extraído da documentaçã
 - `void rtc_enable_alarm(void)`: Ativa o alarme do RTC (se inativo).
 - `void rtc_disable_alarm(void)`: Desativa o alarme do RTC (se ativo).
 
+## Configurando `cmake`
+
+Para utilizar o `RTC` você deve editar o arquivo `CMakeLists.txt` adicionando `hardware_rtc` ao `target_link_libraries` como no exemplo a seguir:
+
+``txt
+target_link_libraries(main pico_stdlib hardware_rtc)
+```
+
+No arquivo `main.c` adicionar:
+
+```c
+#include "hardware/rtc.h"
+#include "pico/util/datetime.h"
+```
+
 ## Snippets
 
 !!! warning
