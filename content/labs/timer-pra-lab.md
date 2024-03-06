@@ -95,7 +95,7 @@ A seguir algumas dicas de como fazer, você pode ou não seguir:
 ```c
 // Return a character from stdin if
 // there is one available within a timeout. 
-int getchar_timeout_us (uint32_t timeout_us)
+int caracter = getchar_timeout_us (uint32_t timeout_us)
 ```
 
 - [Documentaćão - API ](https://www.raspberrypi.com/documentation/pico-sdk/runtime.html#ga9b10b3bc1a4750fcb0e691566bc868e8)
