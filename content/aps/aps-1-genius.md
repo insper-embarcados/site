@@ -21,9 +21,13 @@ O requisito mínimo do projeto para o conceito C é dele ter funcionamento simil
 - Para cada botão, um LED e um som diferentes.
 - O jogo deve progressivamente ir aumentando a dificuldade.
 - Uma resposta visual e sonora para quando acertar ou errar.
-
+- Gera aleatoriamente a sequência cada vez que o sistema é ligado ou o começa um novo jogo.
+    - Usar a seed no `srand()`
+    
 !!! tip "Qualidade de Código"
-    O código não deve possuir erros de detectados pelas ferramentas de qualidade de código: `cppcheck` e `embedded-check`. Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.
+    O código não deve possuir erros de detectados pelas ferramentas de qualidade de código: `cppcheck` e `embedded-check`.
+    
+    Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.
 
 ### C+
 
@@ -31,14 +35,17 @@ Sistema integrado em protótipo físico, consultar página no site sobre prototi
 
 ### B / A
 
-(ideias)
+!!! tip
+    Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui, 
+    mandar mensagem ao professor.
 
-- Organizar o código em arquivos `.c` e `.h` criando funções para organizar o código.
-- Sistema que exibe pontuação.
-- Armazena pontuação mesmo quando perder a bateria.
-- Sistema alimentado por baterias.
-- Utiliza relógio para 
-
+- (meio conceito) Organizar o código em arquivos `.c` e `.h` criando funções para organizar o código.
+- (meio conceito) Sistema que exibe pontuação final.
+- (meio conceito) Armazena pontuação mesmo quando perder a bateria.
+    - Ler sobre memória em: `RP2040/Flash`
+- (meio conceito) Dado uma certa dificuldade, jogo acende duas luz ou mais luzes por vez!
+- (meio conceito) Diferentes modos de jogo:
+    - Solo, Dupla, ... 
 
 
 

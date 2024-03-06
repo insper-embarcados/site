@@ -119,8 +119,10 @@ nav:
       - Timer: rp2040/rp2040-timer.md
       - RTC: rp2040/rp2040-rtc.md
       - FLASH: https://kevinboone.me/picoflash.html
-#  - Freertos
-#      - Sobre: freertos/freertos-sobre.md
+  - FreeRTOS:
+      - Básico: freertos/freertos-basic.md
+      - Recursos: freertos/freertos-recursos.md
+      - Resumão: freertos/freertos-snippets.md
 #      - Dicas: freertos/freertos-dicas.md
 #      - Code snippets: freertos-snippets.md
   - Code quality:
