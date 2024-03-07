@@ -44,7 +44,7 @@ O sistema deve fazer a interface com o módulo de ultrasom, fazer a leitura de f
 
 ### Leitura
 
-Se o sistema ativado, devem realizar uma leitura a cada 1s ~~(usar alarme do `RTC` ou alarme do Timer)~~. Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do RTC para detectar se por algum motivo o sensor não retornou um sinal.
+Se o sistema ativado, devem realizar uma leitura a cada 1s (usar alarme do `RTC` ou alarme do Timer). Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do ~~RTC~~ timer para detectar se por algum motivo o sensor não retornou um sinal.
 
 === "Leitura correta"
     A imagem a seguir ilustra uma leitura normal do sensor:
