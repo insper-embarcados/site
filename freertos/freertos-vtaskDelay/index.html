@@ -315,7 +315,7 @@
         
   
     <li>
-      <a href="../freertos-tasks.md">Tasks</a>
+      <a href="../freertos-tasks/">Tasks</a>
     </li>
   
 
@@ -329,6 +329,10 @@
         
           
             
+            
+              <li class="ah-toc-item">
+                <a href="#snippets">Snippets</a>
+              </li>
             
         
       </ul>
@@ -588,7 +592,7 @@
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* suspende por delay ms */</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
 </code></pre></div>
-<p>O Tick de um RTOS define quantas fezes por segundo o escalonador irá executar o algoritmo de mudança de tarefas, no ARM o tick é implementado utilizando um timer do próprio CORE da ARM chamado de <code>system clock</code> ou <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0179b/ar01s02s08.html"><code>systick</code></a>, criado para essa função.</p>
+<p>O Tick de um RTOS define quantas vezes por segundo o escalonador irá executar o algoritmo de mudança de tarefas, no ARM o tick é implementado utilizando um timer do próprio CORE da ARM chamado de <code>system clock</code> ou <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0179b/ar01s02s08.html"><code>systick</code></a>, criado para essa função.</p>
 <p>Por exemplo, um RTOS que opera com um tick de 10ms irá decidir pelo chaveamento de suas tarefas 100 vezes por segundo, já um tick configurado para 1ms irá executar o escalonador a uma taxa de 1000 vezes por segundo. Trechos de código que necessitam executar a uma taxa maior que 1000 vezes por segundo (tick = 1ms) não devem ser implementados em tasks do RTOS mas sim via interrupção de timer.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -608,6 +612,10 @@ task assim como as transições. Para saber mais a respeito acesse:</p>
 </ul>
 <p><a class="glightbox" href="https://www.freertos.org/fr-content-src/uploads/2018/07/tskstate.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.freertos.org/fr-content-src/uploads/2018/07/tskstate.gif" /></a></p>
 </div>
+<h2 id="snippets">Snippets</h2>
+<p>Suspende uma tarefa por 100ms</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+</code></pre></div>
 
 
 </section>
@@ -617,11 +625,11 @@ task assim como as transições. Para saber mais a respeito acesse:</p>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../freertos-basic/"
+            <a href="../freertos-tasks/"
                class="ah-prev"
-               title="RTOS">
+               title="Tasks">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">RTOS</span>
+              <span class="nav-title">Tasks</span>
             </a>
           
           
