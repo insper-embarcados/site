@@ -46,11 +46,12 @@ Sistema integrado em protótipo físico, consultar página no site sobre prototi
 - (meio conceito) Dado uma certa dificuldade, jogo acende duas luz ou mais luzes por vez!
 - (meio conceito) Diferentes modos de jogo:
     - Solo, Dupla, ... 
-
-
-
-
-
-
-
+- (meio conceito) Implementar o código em formato de máquina de estados
+- (meio conceito) Usar alarme de timer para se usuário não apertar o botão em x segundos, perde.
+- (meio conceito) Para quem reproduz uma música (tipo mário). 
+- (meio conceito) [Manual On and Automatic Off](https://www.youtube.com/watch?v=jSZM9Js_zk8) 
+    - 
+<!--
+ - (meio conceito) Se fizer um sistema que desliga a energia sozinho e liga quando apertar um botão
+--> 
 
