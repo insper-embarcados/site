@@ -22,6 +22,92 @@ Mailbox/ `queue` é uma das maneiras de enviarmos dados entre tarefa em um siste
 
 Em uma fila você pode enviar qualquer tamanho de "informação" e a fila pode ter N posições.
 
+## Para que serve?
+
+As filas vão ser utilizadas para transmitir dado entre partes de um programa, e isso pode ser de um `callback` para um `task`, de uma `task` para um `callback` ou entre `tasks`. Analise o exemplo aplicado para o LAB 3 do sensor de ultrasom, onde queremos ler o valor do timer quando o pino sobe e quando ele desce:
+
+```c
+// time_end e time_init são variáveis globais! 
+
+void gpio_callback(uint gpio, uint32_t events) {
+    if (events == 0x4) { // fall edge
+        time_end = to_us_since_boot(get_absolute_time());
+    } else if (events == 0x8) { // rise edge
+        time_init = to_us_since_boot(get_absolute_time());
+    }
+}
+```
+
+Com uma fila podemos simplesmente colocar o dado na fila e depois lê na `task` que vai processar os dados:
+
+```c
+// apenas xQueueTime é global (fila do RTOS)
+
+void gpio_callback(uint gpio, uint32_t events) {
+    int time = 0;
+    if (events == 0x4) { // fall edge
+        time = to_us_since_boot(get_absolute_time());
+    } else if (events == 0x8) { // rise edge
+        time = to_us_since_boot(get_absolute_time());
+    }
+    xQueueSendFromISR(xQueueTime, &time, 0);
+}
+```
+
+O dado que está na fila pode ser lido da seguinte maneira:
+
+```c
+void taks_1(void){
+  
+  int gpio;
+  while(1) {
+  
+    if (xQueueReceive(xQueueBtn, &gpio,  pdMS_TO_TICKS(100))) {
+      printf("Botão pressionado pino %d", gpio);
+    } else {
+      // cai aqui se não chegar um dado em 100 ms!
+    }
+  }
+  
+}
+```
+
+Notem o exemplo anterior ler um dado da fila, temos que passar 3 argumentos:
+
+- `xQueueBtn`: Fila que desejamos ler
+- `&gpio`: Local que vamos armazenar o valor lido
+- `pdMS_TO_TICKS(100))`: Tempo que iremos esperar o dado na fila.
+
+
+!!! info "Timeout"
+  É o tempo que iremos esperar um dado na fila (task dorme enquanto espera dado).
+
+
+
+## IRS
+
+FreeRTOS é projetado para sistemas embarcados onde a manipulação eficiente de interrupções é crucial para o desempenho em tempo real. Quando uma interrupção ocorre, a execução normal do sistema é pausada e a ISR correspondente é executada. Após a conclusão da execução da ISR, o sistema retoma sua operação normal. Como as ISRs podem interromper a execução de tarefas regulares a qualquer momento, é essencial minimizar o tempo gasto dentro de uma ISR para manter a capacidade de resposta do sistema.  
+
+Sempre que forem manipular o RTOS de uma interrupção/ callback de hardawre vocês devem utilizar o conjunto de funções que terminam em `FromIRS`. O sufixo `FromISR` nos nomes das funções significa "From Interrupt Service Routine" (De Rotina de Serviço de Interrupção), indicando que essas funções são seguras para serem chamadas de uma ISR (Interrupt Service Routine).
+
+No caso da fila, vai ser muito comum colocarmos dados na fila de uma IRS e ler o valor em uma `task`:
+
+```c
+// nesse exemplo colocamos o valor do botão que gerou a IRS na fila!
+void btn_callback(uint gpio, uint32_t events) {
+    xQueueSendFromISR(xQueueBtn, &gpio, 0);
+}
+```
+
+Mas se for enviar informacão de uma `task_1` para outra `task_2` usar:
+
+```c
+void task_1(void) {
+  xQueueSend(xQueueBtn, &dado, 0 );
+
+}
+```
+
 ## Usando
 
 Para criarmos e usarmos um semáforo é necessário:
@@ -73,7 +159,7 @@ static void task_led(void *pvParameters){
 
   for (;;) {
       // aguarda por até 500 ms pelo se for liberado entra no if
-      if( xQueueReceive( xQueueButId, &id, ( TickType_t ) 500 )){
+      if( xQueueReceive( xQueueButId, &id, pdMS_TO_TICKS(100))){
         for (i =0; i < 10; i++) {
           gpio_put(id, i/2);
           vTaskDelay(pdMS_TO_TICKS(100));

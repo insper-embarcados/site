@@ -8,7 +8,7 @@ A função [vTaskDelay()](https://www.freertos.org/a00127.html) faz com que a ta
 vTaskDelay(pdMS_TO_TICKS(delay));
 ```
 
-O Tick de um RTOS define quantas fezes por segundo o escalonador irá executar o algoritmo de mudança de tarefas, no ARM o tick é implementado utilizando um timer do próprio CORE da ARM chamado de `system clock` ou [`systick`](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0179b/ar01s02s08.html), criado para essa função.
+O Tick de um RTOS define quantas vezes por segundo o escalonador irá executar o algoritmo de mudança de tarefas, no ARM o tick é implementado utilizando um timer do próprio CORE da ARM chamado de `system clock` ou [`systick`](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0179b/ar01s02s08.html), criado para essa função.
 
 Por exemplo, um RTOS que opera com um tick de 10ms irá decidir pelo chaveamento de suas tarefas 100 vezes por segundo, já um tick configurado para 1ms irá executar o escalonador a uma taxa de 1000 vezes por segundo. Trechos de código que necessitam executar a uma taxa maior que 1000 vezes por segundo (tick = 1ms) não devem ser implementados em tasks do RTOS mas sim via interrupção de timer.
 
@@ -26,3 +26,11 @@ Por exemplo, um RTOS que opera com um tick de 10ms irá decidir pelo chaveamento
     - https://www.freertos.org/RTOS-task-states.html
 
     ![](https://www.freertos.org/fr-content-src/uploads/2018/07/tskstate.gif)
+
+## Snippets
+
+Suspende uma tarefa por 100ms
+
+```c
+vTaskDelay(pdMS_TO_TICKS(100));
+```
