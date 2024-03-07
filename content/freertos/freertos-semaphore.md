@@ -14,7 +14,89 @@ Quando uma tarefa deseja acessar um recurso que é gerenciado por um semáforo, 
 
 ![](https://www.freertos.org/fr-content-src/uploads/2018/07/binary-semaphore.gif)
 
-### Usando
+## Para que serve?
+
+O semáforo veio para substituir o uso de flags, no sistema barematal nós fazíamos algo como:
+
+```c
+void btn_callback(uint gpio, uint32_t events) {
+    if (events == 0x4) {         // fall edge
+        flag_f_r = 1;
+    }
+} 
+
+
+void main(void) {
+ // ....
+ 
+    while(1) { 
+        if(flag_f_r) {
+            // faz alguma coisa
+            flag_f_r = 0;
+        }
+    }
+}
+```
+ 
+Agora com semáforo iremos fazer o seguinte:
+
+```c
+void btn_callback(uint gpio, uint32_t events) {
+    if (events == 0x4) {         // fall edge
+        xSemaphoreGiveFromISR(xSemaphore, 0);
+} 
+
+
+void task_main(void) {
+ // ....
+
+    while(1) { 
+
+        if(xSemaphoreTake(xSemaphore, pdMS_TO_TICKS(100)))
+            // faz alguma coisa
+        } else { 
+            // cai aqui se o semáforo não for liberado em 100 ms!
+        }
+        
+    }
+}
+```
+
+!!! info "Timeout"
+    É o tempo que iremos esperar um dado na fila (task dorme enquanto espera dado).
+ 
+## IRS
+
+FreeRTOS é projetado para sistemas embarcados onde a manipulação eficiente de interrupções é crucial para o desempenho em tempo real. Quando uma interrupção ocorre, a execução normal do sistema é pausada e a ISR correspondente é executada. Após a conclusão da execução da ISR, o sistema retoma sua operação normal. Como as ISRs podem interromper a execução de tarefas regulares a qualquer momento, é essencial minimizar o tempo gasto dentro de uma ISR para manter a capacidade de resposta do sistema.  
+
+Sempre que forem manipular o RTOS de uma interrupção/ callback de hardawre vocês devem utilizar o conjunto de funções que terminam em `FromIRS`. O sufixo `FromISR` nos nomes das funções significa "From Interrupt Service Routine" (De Rotina de Serviço de Interrupção), indicando que essas funções são seguras para serem chamadas de uma ISR (Interrupt Service Routine).
+
+No caso do semáforo, vai ser muito comum liberar o semáforo de uma IRS, como no exemplo a seguir de um alarme de timer:
+
+```c
+bool timer_0_callback(repeating_timer_t *rt) {
+    xSemaphoreGiveFromISR(xSemaphore, 0);
+    return true; // keep repeating
+}
+```
+
+Mas se for liberar o semáforo de uma `task_1` para outra `task_2` usar:
+
+```c
+void task_1(void) {
+    // ..
+    xSemaphoreGive(xSemaphore);
+
+}
+```
+
+!!! warning
+    Muitos alunos confundem e acham que devem chamar `FromIRS` quando estão recebendo um dado de uma IRS, mas isso não é verdade, as funções com o sufixo devem ser usadas quando chamadas de uma IRS.
+
+### Dicas de uso
+
+!!! tip "Regra de ouro"
+    O semáforo vai ser utilizado no lugar do uso de flag. 
 
 Para criarmos e usarmos um semáforo é necessário:
 
