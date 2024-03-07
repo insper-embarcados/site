@@ -57,6 +57,9 @@ extra:
     lab_timer_pra_classroom: https://classroom.github.com/a/RyzMEcIl
     lab_timer_pra_deadline: 11/03
 
+    lab_rtos_pre_classroom: https://classroom.github.com/a/1VfPSxZx
+    lab_rtos_pre_deadline: 11/03
+
     aps_1_classroom: https://classroom.github.com/a/niP2yPR9
     aps_1_deadline: Domingo 09/03
 
@@ -145,5 +148,7 @@ nav:
       - Timer:
         - Preparatório: labs/timer-pre-lab.md
         - Prática: labs/timer-pra-lab.md
+      - RTOS:
+        - Preparatório: labs/rtos-pre-lab.md
   - APS:
       - aps/aps-1-genius.md
