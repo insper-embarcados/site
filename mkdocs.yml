@@ -123,9 +123,13 @@ nav:
       - RTC: rp2040/rp2040-rtc.md
       - FLASH: https://kevinboone.me/picoflash.html
   - FreeRTOS:
-      - Básico: freertos/freertos-basic.md
-      - Recursos: freertos/freertos-recursos.md
-      - Resumão: freertos/freertos-snippets.md
+      - RTOS: freertos/freertos-basic.md
+      - Tasks: freertos/freertos-tasks.md
+      - VtaskDelay: freertos/freertos-vtaskDelay.md
+      - Software Timer: freertos/freertos-software-time.md
+      - Semaphore: freertos/freertos-semaphore.md
+      - Queue: freertos/freertos-queue.md
+#      - Resumão: freertos/freertos-snippets.md
 #      - Dicas: freertos/freertos-dicas.md
 #      - Code snippets: freertos-snippets.md
   - Code quality:
