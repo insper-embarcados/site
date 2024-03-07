@@ -11,8 +11,11 @@
 
     Para realizar este laboratório você deve estudar antes.
    
-    - Sobre RTOS: [📕 ==FreeRTOS/  Básico==](/site/freertos-freertos-basic)
-    - Sobre os recursos do Freertos: [📘 ==FreeRTOS/Recursos==](/site/freertos/freertos-recursos)
+    - Sobre RTOS: [📕 ==FreeRTOS/ RTOS==](/site/freertos/freertos-basic)
+    - Tasks: [📘 ==FreeRTOS/Tasks==](/site/freertos/freertos-tasks)
+    - vTaskDelay: [📘 ==FreeRTOS/vTaskDelay==](/site/freertos/freertos-vtaskDelay)
+    - Semaphore: [📘 ==FreeRTOS/Semaphore==](/site/freertos/freertos-semaphore)
+    - Queue: [📘 ==FreeRTOS/Queue==](/site/freertos/freertos-queue)
 
 ## Atividade
 
