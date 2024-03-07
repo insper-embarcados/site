@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Básico - Computação Embarcada - 2.0</title>
+        <title>Sobre - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -308,15 +308,11 @@
   
 
     <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Básico</span>
+      <span class="ah-togglable-handle">Sobre</span>
       <ul>
         
           
             
-            
-              <li class="ah-toc-item">
-                <a href="#tasks">Tasks</a>
-              </li>
             
         
       </ul>
@@ -327,7 +323,7 @@
         
   
     <li>
-      <a href="../freertos-recursos/">Recursos</a>
+      <a href="../freertos-tasks.md">Tasks</a>
     </li>
   
 
@@ -335,7 +331,31 @@
         
   
     <li>
-      <a href="../freertos-snippets/">Resumão</a>
+      <a href="../freertos-vtaskDelay.md">VtaskDelay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../freertos-software-time/">Software Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../freertos-semaphore/">Semaphore</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../freertos-queue/">Queue</a>
     </li>
   
 
@@ -584,138 +604,6 @@
 <li>Gerenciamento de prioridades de tarefas: em um RTOS, as tarefas são atribuídas com diferentes níveis de prioridade. O sistema garante que tarefas de alta prioridade recebam acesso imediato aos recursos do sistema, superando tarefas de menor prioridade, o que é crucial para aplicações onde algumas operações têm importância crítica.</li>
 </ol>
 <p>O sistema operacional a ser utilizado é o <a href="http://freertos.org">FreeRtos (www.freertos.org)</a>, um sistema operacional muito utilizado pela industria, sendo o segundo sistema operacional (<strong>20%</strong>) mais utilizado em projetos embarcados, perdendo só para o <a href="https://m.eet.com/media/1246048/2017-embedded-market-study.pdf">Linux</a>. </p>
-<h2 id="tasks">Tasks</h2>
-<p>Tasks são pequenos programas executados pelo sistema operacional, cada tarefa possui uma <code>stack</code> reservada para ela e é gerenciada pelo sistema operacional. Notem que toda task é uma função que não retorna e possui laço infinito (<code>while (1)</code>), <mark>tasks em um RTOS não devem retornar</mark>, elas executam como se estivessem exclusividade da CPU (assim como um código bare-metal que não deve retornar da função <code>main</code>). A seguir um exemplo de duas tarefas.</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">led_1_task</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">gpio_init</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_OUT</span><span class="p">);</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">250</span><span class="p">;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="kt">void</span><span class="w"> </span><span class="nf">led_2_task</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">gpio_init</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">);</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_OUT</span><span class="p">);</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="p">}</span>
-</code></pre></div>
-<p>A função <a href="https://www.freertos.org/a00127.html">vTaskDelay()</a> faz com que a tarefa fique em estado de <strong>blocked</strong> (permitindo que outras tarefas utilizem a CPU) por um determinado número de <strong>ticks</strong>. Essa função é diferente da <code>delay_ms()</code> que bloqueia a CPU para sua execução. Deve-se evitar o uso de funções de delay baseadas em "queimar" clocks na tarefas de um RTOS, já que elas agem como um trecho de código a ser executada.</p>
-<p>A função <code>vTaskDelay()</code> faz com que o RTOS libere processamento para outras tarefas durante o tempo especificado em sua chamada. Esse valor é determinado em <code>ticks</code>. Podemos traduzir ticks para <code>ms</code>, usando o define <code>portTICK_PERIOD_MS</code> como no exemplo a seguir }</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* suspende por delay ms */</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-</code></pre></div>
-<p>O Tick de um RTOS define quantas fezes por segundo o escalonador irá executar o algoritmo de mudança de tarefas, no ARM o tick é implementado utilizando um timer do próprio CORE da ARM chamado de <code>system clock</code> ou <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0179b/ar01s02s08.html"><code>systick</code></a>, criado para essa função.</p>
-<p>Por exemplo, um RTOS que opera com um tick de 10ms irá decidir pelo chaveamento de suas tarefas 100 vezes por segundo, já um tick configurado para 1ms irá executar o escalonador a uma taxa de 1000 vezes por segundo. Trechos de código que necessitam executar a uma taxa maior que 1000 vezes por segundo (tick = 1ms) não devem ser implementados em tasks do RTOS mas sim via interrupção de timer.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>O impacto do tick na função <code>vTaskDelay</code> é que a mesma só pode ser chamada com múltiplos inteiros referente ao tick.</li>
-<li>Não temos uma resolução tão boa quanto o Timer.</li>
-<li>Quanto maior a frequência de chaveamento mais vezes/segundo o OS necessita salvar e recuperar o contexto, diminuindo assim sua eficiência.</li>
-<li>Frequência máxima recomendada para o freertos em uma ARM e a de 1000 Hz</li>
-</ul>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Estados de uma task</p>
-<p>A máquina de estados a seguir ilustra os possíveis estados de uma
-task assim como as transições. Para saber mais a respeito acesse:</p>
-<ul>
-<li><a href="https://www.freertos.org/RTOS-task-states.html">https://www.freertos.org/RTOS-task-states.html</a></li>
-</ul>
-<p><a class="glightbox" href="https://www.freertos.org/fr-content-src/uploads/2018/07/tskstate.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.freertos.org/fr-content-src/uploads/2018/07/tskstate.gif" /></a></p>
-</div>
-<h3 id="criando-uma-task">Criando uma task</h3>
-<p>Criar uma tarefa é similar ao de inicializar um programa em um sistema operacional, mas no caso devemos indicar para o RTOS quais "funções" irão se comportar como pequenos programas (tarefas). Para isso devemos chamar a função <code>xTaskCreate</code> que possui a seguinte estrutura:</p>
-<div class="admonition info">
-<p class="admonition-title">Leitura necess[aria]</p>
-<p>Acesse e leia a documenta;áo do freertos sobre cria;áo de tasks:</p>
-<p><a href="https://www.freertos.org/a00125.html">https://www.freertos.org/a00125.html</a></p>
-</div>
-<p><code>xTaskCreate</code> pode ser utilizada para criar tarefas que têm acesso irrestrito a todo o mapa de memória do microcontrolador. Em sistemas que suportam MPU (Unidade de Proteção de Memória), tarefas com restrições de MPU podem ser criadas usando-se <code>xTaskCreateRestricted</code> como alternativa.</p>
-<p>A criação das tasks <code>led_1_task</code> e <code>led_2_task</code> são feitas da seguinte maneira (na função <code>main</code>):</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">stdio_init_all</span><span class="p">();</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Start RTOS </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">led_1_task</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LED_Task 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">led_2_task</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LED_Task 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">vTaskStartScheduler</span><span class="p">();</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// Programa nunca deve chegar aqui! </span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// vTaskStartScheduler() passa o comando do core para o FreeRTOS!</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">;</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
-</code></pre></div>
-<p>A função <code>xTaskCreate</code> possui os seguintes argumentos:</p>
-<ul>
-<li><strong>TaskFunction_t pvTaskCode</strong>: Este é um ponteiro para a função que será executada pela tarefa. Essa função deve aderir a um protótipo específico e não retornar (ou seja, deve ser um loop infinito).</li>
-<li><strong>const char* const pcName</strong>: Uma string que representa o nome da tarefa. Esse nome é útil para fins de depuração.</li>
-<li><strong>uint16_t usStackDepth</strong>: O tamanho da pilha (stack) atribuída à tarefa, especificado em palavras. Isso depende do microcontrolador e da complexidade da tarefa.</li>
-<li><strong>void* pvParameters</strong>: Um ponteiro para os parâmetros que a tarefa deve receber. Se a tarefa não necessitar de parâmetros, NULL pode ser passado.</li>
-<li><strong>UBaseType_t uxPriority</strong>: A prioridade da tarefa. Tarefas com prioridades mais altas são executadas preferencialmente em relação às tarefas com prioridades mais baixas.</li>
-<li><strong>TaskHandle_t* pvCreatedTask</strong>: Um ponteiro para uma variável do tipo <code>TaskHandle_t</code> que será preenchida com o identificador da tarefa criada. Esse identificador pode ser utilizado para se referenciar à tarefa após sua criação.</li>
-</ul>
-<h3 id="snippets">Snippets</h3>
-<p>A seguir um código bem simples de como criar duas tarefas.</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/stdlib.h&quot;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;FreeRTOS.h&gt;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;task.h&gt;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED_PIN_R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED_PIN_G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">led_1_task</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">gpio_init</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">);</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_OUT</span><span class="p">);</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">250</span><span class="p">;</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_R</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">}</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="kt">void</span><span class="w"> </span><span class="nf">led_2_task</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="n">gpio_init</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">);</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_OUT</span><span class="p">);</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">250</span><span class="p">;</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">        </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN_G</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="n">delay</span><span class="p">));</span>
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="p">}</span>
-<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
-<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">    </span><span class="n">stdio_init_all</span><span class="p">();</span>
-<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Start RTOS </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">    </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">led_1_task</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LED_Task 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">    </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">led_2_task</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LED_Task 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">    </span><span class="n">vTaskStartScheduler</span><span class="p">();</span>
-<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>
-<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">        </span><span class="p">;</span>
-<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="p">}</span>
-</code></pre></div>
 
 
 </section>
@@ -733,11 +621,11 @@ task assim como as transições. Para saber mais a respeito acesse:</p>
             </a>
           
           
-            <a href="../freertos-recursos/"
+            <a href="../freertos-software-time/"
                class="ah-next"
-               title="Recursos">
+               title="Software Timer">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Recursos</span>
+              <span class="nav-title">Software Timer</span>
             </a>
           
         </div>
