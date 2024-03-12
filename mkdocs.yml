@@ -108,6 +108,7 @@ nav:
   - Dispositivos:
       - dispositivos/buzzer.md
       - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04
+      - OLED1: dispositivos/oled1.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
@@ -132,9 +133,6 @@ nav:
       - Software Timer: freertos/freertos-software-time.md
       - Semaphore: freertos/freertos-semaphore.md
       - Queue: freertos/freertos-queue.md
-#      - Resumão: freertos/freertos-snippets.md
-#      - Dicas: freertos/freertos-dicas.md
-#      - Code snippets: freertos-snippets.md
   - Code quality:
       - Visão geral: CodeQuality/topview.md
       - Regras: CodeQuality/rules.md
@@ -157,5 +155,6 @@ nav:
         - Prática: labs/timer-pra-lab.md
       - RTOS:
         - Preparatório: labs/rtos-pre-lab.md
+        - Prática: labs/rtos-pra-lab.md
   - APS:
       - aps/aps-1-genius.md
