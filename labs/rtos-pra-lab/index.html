@@ -658,18 +658,35 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="praticando">Praticando</h2>
-<p>Vamos mexer novamente com o sensor de <code>ultrassom</code>, só que agora iremos estruturar o código para operar com <code>rtos</code> e exibir o resultado no OLED. Siga a estrutura defina em sala com o professor.</p>
+<p>Vamos mexer novamente com o sensor de <code>ultrassom</code>, só que agora iremos estruturar o código para operar com <code>rtos</code> e exibir o resultado no OLED. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Você deve seguir necessáriamente a estrutura proposta a seguir</p>
+</div>
 <p>A estrutura do código que deve ser entrega, deve seguir o diagrama a seguir, onde:</p>
 <ul>
-<li><code>pin_callback</code>: Funcao callback do pino do echo.</li>
+<li><code>pin_callback</code>: Função callback do pino do echo.</li>
 <li><code>trigger_task</code>: Task responsável por gerar o trigger.</li>
-<li><code>echo_task</code>: Task que faz a leitura do tempo que o pino <code>echo</code> ficou levantado.<ul>
-<li><code>xQueueTime</code>: Fila com informação do tempo <code>to_us_since_boot</code></li>
+<li><code>echo_task</code>: Task que faz a leitura do tempo que o pino <code>echo</code> ficou levantado.</li>
+<li><code>oled_task</code>: Task que exibe a informação da distancia no display.<ul>
+<li>Faz uso de dois recursos, <code>xSemaphoreTrigger</code> e <code>xQueueDistance</code></li>
 </ul>
 </li>
-<li><code>oled_task</code>: Task que exibe a informação da distancia no display.</li>
+</ul>
+<p>Recursos:</p>
+<ul>
+<li><code>xQueueTime</code>: Fila com informação do tempo <code>to_us_since_boot</code></li>
+<li><code>xSemaphoreTrigger</code>: Avisa o OLED que uma leitura foi disparada</li>
+<li><code>xQueueDistance</code>: Valor da distância em cm lido pela <code>task_echo</code></li>
 </ul>
 <p><a class="glightbox" href="../imgs/lab-rtos-pra.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-rtos-pra.png" /></a></p>
+<h3 id="display">Display</h3>
+<p>Você deve exibir no display:</p>
+<ul>
+<li>Se o sensor falhou</li>
+<li>O valor da distância, quando executada</li>
+<li>Uma barra que representa a distância</li>
+</ul>
 
 
 </section>
