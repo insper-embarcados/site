@@ -141,6 +141,7 @@ nav:
       - ISR - variáveis: CodeQuality/isr-variables.md
       - ISR - handler: CodeQuality/isr-handler.md
       - Head File: CodeQuality/head-file.md
+      - RTOS: CodeQuality/rtos.md
   - Labs:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
