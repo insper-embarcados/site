@@ -3,7 +3,8 @@
 | APS 1                                               |
 |-----------------------------------------------------|
 | **Prazo**: =={{aps_1_deadline}}==             |
-| **Entrega:** [classroom]({{aps_1_classroom}}) |
+| **Entrega código:** [classroom]({{aps_1_classroom}}) |
+| **Entrega forms:** [google forms]({{aps_1_forms}}|
 
 !!! video
     ![](https://www.youtube.com/watch?v=KfF-AZhUkdM)
