@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Prática - Computação Embarcada - 2.0</title>
+        <title>RTOS - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -365,14 +365,14 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Code quality</span>
     <ul>
       
         
   
     <li>
-      <a href="../../CodeQuality/topview/">Visão geral</a>
+      <a href="../topview/">Visão geral</a>
     </li>
   
 
@@ -380,7 +380,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/rules/">Regras</a>
+      <a href="../rules/">Regras</a>
     </li>
   
 
@@ -388,7 +388,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+      <a href="../cppcheck/">Cppcheck</a>
     </li>
   
 
@@ -396,7 +396,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/variables/">Variáveis</a>
+      <a href="../variables/">Variáveis</a>
     </li>
   
 
@@ -404,7 +404,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+      <a href="../isr-variables/">ISR - variáveis</a>
     </li>
   
 
@@ -412,7 +412,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+      <a href="../isr-handler/">ISR - handler</a>
     </li>
   
 
@@ -420,15 +420,27 @@
         
   
     <li>
-      <a href="../../CodeQuality/head-file/">Head File</a>
+      <a href="../head-file/">Head File</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../../CodeQuality/rtos/">RTOS</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">RTOS</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#freertos">FreeRTOS</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -438,14 +450,14 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Labs</span>
     <ul>
       
         
   
     <li>
-      <a href="../pre-lab/">Preparatórios</a>
+      <a href="../../labs/pre-lab/">Preparatórios</a>
     </li>
   
 
@@ -453,7 +465,7 @@
         
   
     <li>
-      <a href="../pra-lab/">Prática</a>
+      <a href="../../labs/pra-lab/">Prática</a>
     </li>
   
 
@@ -466,7 +478,7 @@
         
   
     <li>
-      <a href="../gpio-pre-lab/">Preparatório</a>
+      <a href="../../labs/gpio-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -474,7 +486,7 @@
         
   
     <li>
-      <a href="../gpio-pra-lab/">Prática</a>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
     </li>
   
 
@@ -484,38 +496,22 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">IRQ</span>
     <ul>
       
         
   
     <li>
-      <a href="../irq-pre-lab/">Preparatório</a>
+      <a href="../../labs/irq-pre-lab/">Preparatório</a>
     </li>
   
 
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Prática</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#requisitos">Requisitos</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#desafios-extras">Desafios extras</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
     </li>
   
 
@@ -532,7 +528,7 @@
         
   
     <li>
-      <a href="../timer-pre-lab/">Preparatório</a>
+      <a href="../../labs/timer-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -540,7 +536,7 @@
         
   
     <li>
-      <a href="../timer-pra-lab/">Prática</a>
+      <a href="../../labs/timer-pra-lab/">Prática</a>
     </li>
   
 
@@ -557,7 +553,7 @@
         
   
     <li>
-      <a href="../rtos-pre-lab/">Preparatório</a>
+      <a href="../../labs/rtos-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -565,7 +561,7 @@
         
   
     <li>
-      <a href="../rtos-pra-lab/">Prática</a>
+      <a href="../../labs/rtos-pra-lab/">Prática</a>
     </li>
   
 
@@ -605,11 +601,7 @@
               
                 
                   
-                    <li>Labs</li>
-                  
-                
-                  
-                    <li>IRQ</li>
+                    <li>Code quality</li>
                   
                 
                 <li></li>
@@ -619,125 +611,25 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="irq-pratica">IRQ - Prática</h1>
-<table>
-<thead>
-<tr>
-<th>Lab 2 - IRQ - Prática</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Prazo</strong>: <mark>04/2 (Antes da aula)</mark></td>
-</tr>
-<tr>
-<td><a href="https://classroom.github.com/a/oNT1nEiP">Repositório no classroom</a></td>
-</tr>
-<tr>
-<td>💰 70% nota de lab</td>
-</tr>
-</tbody>
-</table>
-<p>Neste laboratório, aplicaremos os conceitos de Interrupção de Hardware/GPIO (IRQ). Como desafio, desenvolveremos um telégrafo digital!</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">História</label><label for="__tabbed_1_2">Hello world 🤣</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div>
-<iframe height="500" src="https://www.youtube.com/embed/hIN1wH4iYdg?autoplay=0" type="text/html" width="100%"></iframe>
+<h1 id="rtos">RTOS</h1>
+<p>Quando fazermos uso do RTOS devemos nos atentar a algumas questões de qualidade de código, mais especificamente quando estamos lidado com um RTOS específico, como o FreeRTOS no nosso caso.</p>
+<h2 id="freertos">FreeRTOS</h2>
+<div class="admonition note">
+<p class="admonition-title">Rule 4.1</p>
+<p>Toda chamada de funções referentes FreeRTOS de uma função deve utilizar a API com o sufixo <code>FromISR</code></p>
 </div>
+<p>Ao trabalhar com FreeRTOS, surge um desafio específico: a utilização de uma API especial ao lidar com interrupções, especificamente as funções que terminam em "FromISR". A decisão sobre quando empregar cada conjunto de funções pode inicialmente parecer simples, mas na verdade exige uma compreensão detalhada do código. Frequentemente, não é claro se uma função pertence a um callback de software ou hardware, complicando o processo de desenvolvimento.</p>
+<p>Para mitigar esse problema, a regra <code>rtosMissingFromISR</code> foi estabelecida, visando corrigir a omissão comum em submissões onde as funções apropriadas do FreeRTOS não são utilizadas dentro de rotinas de serviço de interrupção (ISR). Isso previne potenciais falhas decorrentes do uso incorreto da API.</p>
+<div class="admonition note">
+<p class="admonition-title">Rule 4.2</p>
+<p>Toda chamada de funções referentes FreeRTOS de uma task <mark>não deve</mark> utilizar a API com o sufixo <code>FromISR</code></p>
 </div>
-<div class="tabbed-block">
-<div>
-<iframe height="500" src="https://www.youtube.com/embed/L6gxfX4GrbI?autoplay=0" type="text/html" width="100%"></iframe>
+<p>Adicionalmente, há casos em que as funções específicas para ISR são usadas indevidamente em situações onde a API padrão do FreeRTOS deveria ser aplicada. A regra <code>rtosWrongUseOfFromISR</code> é implementada para assegurar que as funções padrão do FreeRTOS sejam empregadas nos contextos apropriados, evitando o uso indevido de funções específicas para ISR em operações de tarefa regulares.</p>
+<div class="admonition note">
+<p class="admonition-title">Rule 4.3</p>
+<p>Quando utilizamos um RTOS não precisamos mais de nenhuma variável global, que não for um recurso do RTOS.</p>
 </div>
-</div>
-</div>
-</div>
-<p>Para isso, vocês precisarão de:</p>
-<table>
-<thead>
-<tr>
-<th>Lista de Materiais</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2x Botões de pressão</td>
-<td>R$ 0,20</td>
-</tr>
-<tr>
-<td>1x Buzzer</td>
-<td>R$ 2,70</td>
-</tr>
-</tbody>
-</table>
-<p>O buzzer é um dispositivo piezoelétrico capaz de vibrar quando acionado corretamente (leia mais em <a href="/site/dispositivos/buzzer">Dispositivos/Buzzer</a>). Com ele, seremos capazes de gerar o tom necessário para simular o telégrafo e reproduzir um código Morse:</p>
-<figure>
-    <figcaption>Hello World</figcaption>
-    <audio
-        controls
-        src="/labs/imgs/lab_irq_pra_morse.wav">
-            Seu navegador não suporta o elemento
-            <code>audio</code>.
-    </audio>
-</figure>
-
-<p>Note que existem dois tipos de sinal: Curto e Longo. O desafio deste laboratório será gerarmos automaticamente esses dois tons.</p>
-<p><a class="glightbox" href="../imgs/lab-irq-pra-morse.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-irq-pra-morse.png" /></a></p>
-<h2 id="requisitos">Requisitos</h2>
-<p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para a leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão. A ideia é que não precisemos contar o tempo na nossa cabeça (curto/longo); o sistema faz isso por nós!</p>
-<table>
-<thead>
-<tr>
-<th>Parâmetro</th>
-<th>valor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>freq1</code></td>
-<td>1000 hz</td>
-</tr>
-<tr>
-<td><code>time1</code></td>
-<td>100 ms</td>
-</tr>
-<tr>
-<td><code>freq2</code></td>
-<td>6000 hz</td>
-</tr>
-<tr>
-<td><code>time2</code></td>
-<td>300 ms</td>
-</tr>
-</tbody>
-</table>
-<p>Resultado esperado:</p>
-<div>
-<iframe height="500" src="https://www.youtube.com/embed/sH9y-UITTTo?autoplay=0" type="text/html" width="100%"></iframe>
-</div>
-<h3 id="dicas">Dicas</h3>
-<p>A seguir algumas dicas de como fazer, você pode ou não seguir:</p>
-<ol>
-<li>Comece pelos botões e suas IRS</li>
-<li>Reproduza um som no <code>buzzer</code></li>
-<li>Crie uma função que recebe uma <code>frequencia</code>, <code>tempo</code> e um <code>pino</code> e reprouz um tom.</li>
-<li>Implemente a lógica</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Não esqueçam de verificar o code quality! Agora ele vai começar a apitar na cabeça de vocês!</p>
-</div>
-<h2 id="desafios-extras">Desafios extras</h2>
-<p>Gostou e quer fazer mais? Que tal:</p>
-<ol>
-<li>Olhando o futuro... De uma olhada no <code>RP2040/Timer</code> e tente usar o periférico do timer para contar tempo!</li>
-<li>Entre cada tom deve haver um silêncio, se o usuário pressionar muito rápido cada botão, insira o silêncio automaticamente.</li>
-<li>Adicione dois buzzers e gere um tom composto (cada som é composto por duas notas)</li>
-<li>Receba um texto via <code>UART</code> converta para código morse e transmita!</li>
-<li>Pode usar comandos básicos de <code>c</code> e leitura de terminal!</li>
-</ol>
+<p>Esta abordagem dupla na aplicação de regras é crucial para aprimorar a compreensão e aplicação correta das APIs do FreeRTOS. Além disso, o RTOS oferece recursos de comunicação entre diferentes partes do código, como filas e semáforos, facilitando a comunicação entre ISR e tarefas/funções principais. Isso reduz a necessidade de variáveis globais, aumentando a segurança e a eficiência energética do código. A regra <code>rtosWrongUseGlobalVar</code> visa verificar a presença de variáveis globais inadequadas, promovendo melhores práticas de design em programas baseados em RTOS.</p>
 
 
 </section>
@@ -747,19 +639,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../irq-pre-lab/"
+            <a href="../head-file/"
                class="ah-prev"
-               title="Preparatório">
+               title="Head File">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Preparatório</span>
+              <span class="nav-title">Head File</span>
             </a>
           
           
-            <a href="../timer-pre-lab/"
+            <a href="../../labs/pre-lab/"
                class="ah-next"
-               title="Preparatório">
+               title="Preparatórios">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Preparatório</span>
+              <span class="nav-title">Preparatórios</span>
             </a>
           
         </div>
