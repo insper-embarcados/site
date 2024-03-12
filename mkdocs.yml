@@ -58,10 +58,13 @@ extra:
     lab_timer_pra_deadline: 11/03
 
     lab_rtos_pre_classroom: https://classroom.github.com/a/1VfPSxZx
-    lab_rtos_pre_deadline: 11/03
+    lab_rtos_pre_deadline: 12/03 - 23h59
+    lab_rtos_pra_classroom: https://classroom.github.com/a/AIMxAvtD
+    lab_rtos_pra_deadline: 18/03 (Antes da aula)
 
     aps_1_classroom: https://classroom.github.com/a/niP2yPR9
-    aps_1_deadline: Domingo 09/03
+    aps_1_deadline: Segunda 11/03 - 13h30
+    aps_1_forms: https://forms.gle/bM6MVGDT8vLV4Ch87
 
 markdown_extensions:
   - footnotes
