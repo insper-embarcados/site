@@ -665,8 +665,8 @@ by the PWM block.</p>
 </blockquote>
 <h2 id="snippets">Snippets</h2>
 <h3 id="hello-pwm">Hello PWM</h3>
-<p>O exemplo a seguir configura o pino <code>GP28</code> para operar com um PWM de 1Mhz com 100 possíveis níveis de Duty Cycle e configura o pino para operar com um <code>Duty Cycle</code> de 70%.</p>
-<p><a class="ah-button" href="">Simulação no wokwi</a>
+<p>O exemplo a seguir configura o pino <code>GP28</code> para operar com um PWM de 1Mhz com 100 possíveis níveis de Duty Cycle e configura o pino para operar com um <code>Duty Cycle</code> de 40%.</p>
+<p><a class="ah-button" href="https://wokwi.com/projects/392432331889921025">Simulação no wokwi</a>
 /
 <a class="ah-button" href="https://github.com/raspberrypi/pico-examples/blob/master/pwm/hello_pwm/hello_pwm.c">pico-examples/pwm/hello_pwm</a></p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/**</span>
@@ -697,7 +697,7 @@ by the PWM block.</p>
 <a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
 <a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="c1">// Set channel A output high for one cycle before dropping</span>
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="c1">// PWM set to 30%</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="n">pwm_set_chan_level</span><span class="p">(</span><span class="n">slice_num</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CHAN_A</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">);</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="n">pwm_set_chan_level</span><span class="p">(</span><span class="n">slice_num</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_CHAN_A</span><span class="p">,</span><span class="w"> </span><span class="mi">70</span><span class="p">);</span>
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
 <a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="c1">// Set the PWM running</span>
 <a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="n">pwm_set_enabled</span><span class="p">(</span><span class="n">slice_num</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
