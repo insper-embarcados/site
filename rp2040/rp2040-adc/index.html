@@ -250,7 +250,7 @@
         
   
     <li>
-      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">sdk</a>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">SDK</a>
     </li>
   
 
@@ -313,8 +313,40 @@
           
             
             
+              <li class="ah-toc-item">
+                <a href="#rp2040-pico">RP2040 / PICO</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#snippets">Snippets</a>
+              </li>
+            
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            
         
       </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-pwm/">PWM</a>
     </li>
   
 
@@ -624,6 +656,74 @@
           
             <section class="progress-section show">
 <h1 id="adc">ADC</h1>
+<ul>
+<li><a href="https://resources.pcb.cadence.com/blog/2023-adc-sampling-rate">https://resources.pcb.cadence.com/blog/2023-adc-sampling-rate</a></li>
+</ul>
+<p>Conversor Analógico-Digital (ADC) é um hardware capaz de converter um valor analógico em um valor digital. Os ADCs possuem várias características, sendo as mais importantes:</p>
+<ul>
+<li>Resolução: Qual o tamanho da palavra em bits que o módulo faz a conversão.</li>
+<li>Effective Number of Bits (ENOB): Quantos bits da conversão não possuem ruído.</li>
+<li>Taxa de amostragem máxima: O quão rápido o módulo é capaz de realizar uma conversão.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Os valores usados no texto são referentes ao ADC do nosso RP2040, mas podem variar se forem usar outro uC.</p>
+</div>
+<p>A resolução do sinal vai implicar na quantização do sinal, quantização é o processo de convertermos um valor que é constante em amplitude em um valor que é discreto em amplitude. Por exemplo, se o nosso ADC foi configurado para ler um valor entre [0, 3.3]V e ele possui, por exemplo, 12 bits de resolução, isso vai implicar que cada bit equivale a:</p>
+<p>$bit = \frac{3.3 \, V}{2^{12}} = 0.8 \, mV$  </p>
+<p>O gráfico a seguir detalha o processo de quantização:</p>
+<p><a class="glightbox" href="https://www.allaboutcircuits.com/uploads/articles/quantisation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.allaboutcircuits.com/uploads/articles/quantisation.png" /></a></p>
+<blockquote>
+<p>Ref: <a href="https://www.allaboutcircuits.com/technical-articles/understanding-analog-to-digital-converters-deciphering-resolution-and-sampl/">Understanding Analog-to-Digital Converters: Deciphering Resolution and Sampling Rate</a></p>
+</blockquote>
+<p>Mas as coisas não são tão simples assim, a quantização está sujeita a ruído, que aparece na forma do <strong>ENOB</strong>, no caso de um ENOB de por exemplo <code>8.7</code> bits, isso significa que apenas os 8 bits mais significativos possuem um valor "limpo", isso limita a nossa resolução de <code>0.8mV</code> para:</p>
+<p>$bit = \frac{3.3 \, V}{2^{8}} = 12 \, mV$  </p>
+<p>Ou seja, a resolução efetiva da conversão é de <code>12mV</code>, perdemos quase 30% de resolução nisso.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Nem tudo está perdido, se aplicarmos um filtro no sinal podemos remover o ruído e obter uma resolução mais próxima à original.</p>
+</div>
+<p>Ao realizarmos uma amostragem de um sinal analógico devemos nos preocupar em realizar uma amostragem periódica no tempo (a matemática fica mais fácil com isso), isso significa que o tempo entre uma amostragem e outra deve ser constante. Além disso, temos que lembrar do teorema de Nyquist, que diz que um sinal analógico deve ser amostrado pelo menos no dobro da frequência máxima (lembra do Fourier?) de um sinal; na prática, esse valor deve ser muito maior que o dobro da frequência máxima.</p>
+<h2 id="rp2040-pico">RP2040 / PICO</h2>
+<p>O nosso microcontrolador possui um ADC com as seguintes características: </p>
+<ul>
+<li>500ksps (using an independent 48MHz clock) (kilo samples per second)</li>
+<li>12-bit with 8.7 ENOB (see Section 4.9.3)</li>
+<li>Five input mux</li>
+</ul>
+<p>Notem que o ADC possui 5 entradas, mas só podemos realizar a conversão de apenas uma por vez! Ou seja, a taxa máxima de <code>500 ksps</code> cai para <code>100 ksps</code> se usarmos as quatro portas. Outro detalhe é que a entrada <code>4</code> do mux não está conectada a um pino, mas sim a um sensor de temperatura interno do uC.</p>
+<p><a class="glightbox" href="../imgs/adc.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/adc.png" /></a></p>
+<p>Na Pico, os pinos do ADC são: <code>GP28</code>, <code>GP27</code> e <code>GP26</code>. Notem que a entrada <code>3</code> do mux do ADC não está disponível na PICO, seria o pino (<code>GP29</code>) da RP2040.</p>
+<p><a class="glightbox" href="../imgs/adc-pico.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/adc-pico.png" /></a></p>
+<h2 id="snippets">Snippets</h2>
+<h3 id="hello-adc">Hello ADC</h3>
+<p><a class="ah-button" href="https://wokwi.com/projects/392250190334148609">Simulação no wokwi</a>
+/
+<a class="ah-button" href="https://github.com/raspberrypi/pico-examples/blob/master/adc/hello_adc/hello_adc.c">pico-examples/adc/hello_adc/hello_adc.c</a></p>
+<p>```c</p>
+<h1 id="include">include <stdio.h></h1>
+<h1 id="include-picostdlibh">include "pico/stdlib.h"</h1>
+<h1 id="include-hardwaregpioh">include "hardware/gpio.h"</h1>
+<h1 id="include-hardwareadch">include "hardware/adc.h"</h1>
+<p>int main() {
+    stdio_init_all();
+    printf("ADC Example, measuring GPIO27\n");</p>
+<div class="language-text highlight"><pre><span></span><code>adc_init();
+
+// Make sure GPIO is high-impedance, no pullups etc
+adc_gpio_init(27);
+// Select ADC input 1 (GPIO27)
+adc_select_input(1);
+
+while (1) {
+    // 12-bit conversion, assume max value == ADC_VREF == 3.3 V
+    const float conversion_factor = 3.3f / (1 &lt;&lt; 12);
+    uint16_t result = adc_read();
+    printf(&quot;Raw value: 0x%03x, voltage: %f V\n&quot;, result, result * conversion_factor);
+    sleep_ms(500);
+}
+</code></pre></div>
+<p>}</p>
 
 
 </section>
@@ -641,11 +741,11 @@
             </a>
           
           
-            <a href="../../freertos/freertos-basic/"
+            <a href="../rp2040-pwm/"
                class="ah-next"
-               title="RTOS">
+               title="PWM">
               <span class="nav-label">Next</span>
-              <span class="nav-title">RTOS</span>
+              <span class="nav-title">PWM</span>
             </a>
           
         </div>
