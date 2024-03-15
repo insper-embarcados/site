@@ -6,8 +6,6 @@
 | [Repositório no classroom]({{lab_rtos_pra_classroom}}) |
 | 💰 70% nota de lab                                     |
 
-## Sobre os laboratórios prática
-
 !!! exercise
     - Ler sobre o [Dispositivos/OLED1](/site/dispositivos/oled1) antes de seguir.
     
