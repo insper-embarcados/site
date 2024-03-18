@@ -62,6 +62,9 @@ extra:
     lab_rtos_pra_classroom: https://classroom.github.com/a/AIMxAvtD
     lab_rtos_pra_deadline: 18/03 (Antes da aula)
 
+    lab_adc_pwm_pre_classroom: https://classroom.github.com/a/B4Uh531U
+    lab_adc_pwm_pre_deadline: 21/03 - 23h59
+
     aps_1_classroom: https://classroom.github.com/a/niP2yPR9
     aps_1_deadline: Segunda 11/03 - 13h30
     aps_1_forms: https://forms.gle/bM6MVGDT8vLV4Ch87
@@ -159,6 +162,9 @@ nav:
       - RTOS:
         - Preparatório: labs/rtos-pre-lab.md
         - Prática: labs/rtos-pra-lab.md
+      - ADC/PWM:
+        - Preparatório: labs/adc-pwm-pre-lab.md
+
   - APS:
       - aps/aps-1-genius.md
       - aps/aps-2-controle.md
