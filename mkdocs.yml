@@ -69,6 +69,9 @@ extra:
     aps_1_deadline: Segunda 11/03 - 13h30
     aps_1_forms: https://forms.gle/bM6MVGDT8vLV4Ch87
 
+    aps_2_deadline: Segunda 12/04 - Sexta
+    aps_2_classroom: https://classroom.github.com/a/2cyfcwx3
+
 markdown_extensions:
   - footnotes
   - markdown.extensions.admonition
