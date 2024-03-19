@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Adc pwm pra lab - Computação Embarcada - 2.0</title>
+        <title>Prática - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -454,7 +454,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs</span>
     <ul>
       
@@ -575,7 +575,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">ADC/PWM</span>
     <ul>
       
@@ -583,6 +583,26 @@
   
     <li>
       <a href="../adc-pwm-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Prática</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#requisitos">Requisitos</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -629,6 +649,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs</li>
+                  
+                
+                  
+                    <li>ADC/PWM</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -672,10 +700,51 @@
 </tbody>
 </table>
 <h2 id="requisitos">Requisitos</h2>
-<h3 id="leitura">Leitura</h3>
-<h3 id="dicas">Dicas</h3>
-<h2 id="desafios-extras">Desafios extras</h2>
-<p>Gostou e quer fazer mais? Que tal:</p>
+<p>Fazer a leitura de um joystick, formatar os dados corretamente e enviar via serial para a leitura do programa python.</p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-diagrama.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-diagrama.png" /></a></p>
+<h3 id="python">Python</h3>
+<p>No repositório estou fornecendo um programa python (<code>python/main.py</code>) que faz a leitura da porta UART e processa o dado para movimentar o mouse, para que isso funcione corretamente será necessário enviar os dados no seguinte formato:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>AXIS VAL_0 VAL_1 EOP
+</code></pre></div>
+<p>Onde cada um dos termos do datagrama é um composto por 8 bits que indica:</p>
+<ul>
+<li><code>AXIS</code>: 0 ou 1 para indicar eixo <code>X</code> ou eixo <code>Y</code>.</li>
+<li><code>VAL_1</code>: Byte menos significativo do valor do movimento do eixo</li>
+<li><code>VAL_0</code>: Byte mais significativo do valor do movimento do </li>
+<li><code>EOP</code>: -1 indica fim de pacote</li>
+</ul>
+<p>Exemplo:</p>
+<ul>
+<li>Movimentar o mouse no eixo X para a posição 845 (direita)</li>
+</ul>
+<p><code>00000000 01001101 00000011 11111111</code></p>
+<blockquote>
+<p>Notem que o valor de 845 em binário é: <code>00000011 01001101</code>!</p>
+</blockquote>
+<ul>
+<li>Movimentar o mouse no eixo Y para a posição -55 (baixo)</li>
+</ul>
+<p><code>00000001 11001001 11111111 11111111</code></p>
+<blockquote>
+<p>Notem que o valor de -55 em binário é: <code>11111111 11001001</code>!</p>
+</blockquote>
+<h4 id="executando-o-programa">Executando o programa</h4>
+<p>Primeiro devemos configurar qual porta o programa irá usar, você deve colocar a mesma que usa no monitor serial!</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ser = serial.Serial(&#39;/dev/ttyACM0&#39;, 115200)
+</code></pre></div>
+<p>Depois devemos instalar as dependências: <code>pip3 install -r requirements.txt</code>, aconselhamos fazer isso em um ambiente virtual. </p>
+<p>Agora é só executar o programa que ficará esperando por dados na serial no formato indicado anteriormente e irá mexer o mouse.</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>main.py
+</code></pre></div>
+<h3 id="firmware">firmware</h3>
+<p>Para garantirmos a integridade do sinal analógico, vocês devem aplicar uma média móvel antes de fazer o envio do dado para a fila, mais com o intuito de trabalhar RTOS do que ser realmente necessário, iremos estruturar o firmware da seguinte maneira:</p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-rtos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-rtos.png" width="500" /></a></p>
+<p>Onde:</p>
+<ul>
+<li><code>x_task</code> e <code>y_task</code>: Fazem a leitura e filtragem do valor analógico</li>
+<li><code>xQueueX</code> e <code>xQueueY</code>: Enviam o valor filtrado para ser transmitido</li>
+<li><code>uart_task</code>: Faz o envio do dado pela UART</li>
+</ul>
 
 
 </section>
@@ -685,6 +754,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../adc-pwm-pre-lab/"
+               class="ah-prev"
+               title="Preparatório">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Preparatório</span>
+            </a>
+          
+          
+            <a href="../../aps/aps-1-genius/"
+               class="ah-next"
+               title="Aps 1 genius">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Aps 1 genius</span>
+            </a>
           
         </div>
       </footer>

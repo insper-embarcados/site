@@ -587,6 +587,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pra-lab/">Prática</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -618,6 +626,10 @@
           
             
             
+              <li class="ah-toc-item">
+                <a href="#rubrica">Rubrica</a>
+              </li>
+            
         
       </ul>
     </li>
@@ -648,11 +660,69 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="aps-2-controle">Aps 2 - Controle</h1>
+<h1 id="aps-2-controle">APS - 2 - Controle</h1>
+<table>
+<thead>
+<tr>
+<th>APS 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prazo</strong>: <mark>Segunda 12/04 - Sexta</mark></td>
+</tr>
+<tr>
+<td><strong>Entrega código:</strong> <a href="https://classroom.github.com/a/2cyfcwx3">classroom</a></td>
+</tr>
+<tr>
+<td><strong>Entrega forms:</strong> TBD</td>
+</tr>
+</tbody>
+</table>
 <div>
 <iframe height="500" src="https://www.youtube.com/embed/uCgnWqoP4MM?autoplay=0" type="text/html" width="100%"></iframe>
 </div>
-<p>Mais informacoes em breve!</p>
+<p>O desafio é desenvolver um protótipo de um controle bluetooth para um jogo de computador. </p>
+<h2 id="rubrica">Rubrica</h2>
+<p>A ideia do controle é:</p>
+<ul>
+<li>Ser desenvolvido para um jogo específico</li>
+<li>Deve possuir um protótipo mecânico customizado para o jogo em questão</li>
+<li>Fazer uso de RTOS</li>
+<li>O jogo deve ser "jogável" com o controle (sem latência)</li>
+</ul>
+<p>O controle deve possuir pelo menos:</p>
+<ul>
+<li>Botão de liga/desliga</li>
+<li>Informação visual se o controle está conectado ou não</li>
+<li>2x entradas analógicas</li>
+<li>4x entradas digitais<ul>
+<li>Usar IRS</li>
+</ul>
+</li>
+</ul>
+<p>O controle deve ser documentando no README do repositório:</p>
+<ul>
+<li>Diagrama de blocos explicativo do firmware<ul>
+<li>Indicando tasks, filas, semáforos e IRS</li>
+</ul>
+</li>
+<li>Imagens do controle e links para arquivos ou outras coisas úteis</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Qualidade de Código</p>
+<p>O código não deve possuir erros de detectados pelas ferramentas de qualidade de código: <code>cppcheck</code> e <code>embedded-check</code>.</p>
+<p>Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.</p>
+</div>
+<h3 id="ganhando-nota">Ganhando nota</h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui, 
+mandar mensagem ao professor.</p>
+</div>
+<ul>
+<li>(meio conceito) Controle possui <a href="https://en.wikipedia.org/wiki/Haptic_technology">Haptic Feedback</a></li>
+</ul>
 
 
 </section>
