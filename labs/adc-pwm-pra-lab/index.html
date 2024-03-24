@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Adc pwm pra lab - Computação Embarcada - 2.0</title>
+        <title>Prática - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -376,6 +376,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue-advanced/">Queue struct</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -454,7 +462,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs</span>
     <ul>
       
@@ -575,7 +583,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">ADC/PWM</span>
     <ul>
       
@@ -583,6 +591,30 @@
   
     <li>
       <a href="../adc-pwm-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Prática</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#requisitos">Requisitos</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#dicas">Dicas</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -628,6 +660,14 @@
           <div class="ah-title-box">
             <ul class="ah-breadcrumbs">
               
+                
+                  
+                    <li>Labs</li>
+                  
+                
+                  
+                    <li>ADC/PWM</li>
+                  
                 
                 <li></li>
             </ul>
@@ -676,27 +716,27 @@
 <p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-diagrama.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-diagrama.png" /></a></p>
 <h3 id="python">Python</h3>
 <p>No repositório estou fornecendo um programa python (<code>python/main.py</code>) que faz a leitura da porta UART e processa o dado para movimentar o mouse, para que isso funcione corretamente será necessário enviar os dados no seguinte formato:</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>AXIS VAL_0 VAL_1 EOP
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>AXIS VAL_1 VAL_0 EOP
 </code></pre></div>
 <p>Onde cada um dos termos do datagrama é um composto por 8 bits que indica:</p>
 <ul>
 <li><code>AXIS</code>: 0 ou 1 para indicar eixo <code>X</code> ou eixo <code>Y</code>.</li>
-<li><code>VAL_1</code>: Byte menos significativo do valor do movimento do eixo</li>
-<li><code>VAL_0</code>: Byte mais significativo do valor do movimento do </li>
+<li><code>VAL_1</code>: Byte <mark>mais significativo</mark> (MSB)do valor do movimento do eixo</li>
+<li><code>VAL_0</code>: Byte <mark>menos significativo</mark> (LSB) do valor do movimento do </li>
 <li><code>EOP</code>: -1 indica fim de pacote</li>
 </ul>
 <p>Exemplo:</p>
 <ul>
 <li>Movimentar o mouse no eixo X para a posição 845 (direita)</li>
 </ul>
-<p><code>00000000 01001101 00000011 11111111</code></p>
+<p><code>00000000 00000011 01001101 11111111</code></p>
 <blockquote>
 <p>Notem que o valor de 845 em binário é: <code>00000011 01001101</code>!</p>
 </blockquote>
 <ul>
 <li>Movimentar o mouse no eixo Y para a posição -55 (baixo)</li>
 </ul>
-<p><code>00000001 11001001 11111111 11111111</code></p>
+<p><code>00000001 11111111 11001001 11111111</code></p>
 <blockquote>
 <p>Notem que o valor de -55 em binário é: <code>11111111 11001001</code>!</p>
 </blockquote>
@@ -710,14 +750,36 @@
 </code></pre></div>
 <h3 id="firmware">firmware</h3>
 <p>Para garantirmos a integridade do sinal analógico, vocês devem aplicar uma média móvel antes de fazer o envio do dado para a fila, mais com o intuito de trabalhar RTOS do que ser realmente necessário, iremos estruturar o firmware da seguinte maneira:</p>
-<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-rtos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-rtos.png" width="500" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-rtos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-rtos.png" width="800" /></a></p>
 <p>Onde:</p>
 <ul>
 <li><code>x_task</code> e <code>y_task</code>: Fazem a leitura e filtragem do valor analógico</li>
-<li><code>xQueueX</code> e <code>xQueueY</code>: Enviam o valor filtrado para ser transmitido</li>
+<li><code>xQueueADC</code>: ID (<code>1</code> / <code>0</code>) e dado filtrado para ser transmitido</li>
 <li><code>uart_task</code>: Faz o envio do dado pela UART</li>
 </ul>
-<h2 id="dica">Dica</h2>
+<h2 id="dicas">Dicas</h2>
+<p>A seguir dicas sobre como executarem o lab:</p>
+<h3 id="dados">Dados</h3>
+<p>Para o mouse funcionar correto devemos obter um valor <code>0</code> quando o mesmo não está parado e um valor positivo para mover por exemplo para direita (se for o eixo <code>x</code>) e um valor negativo para mover para esquerda. Ou seja, vamos ter que mudar a escala da leitura analógico de <code>0 ... 4095</code> para <code>-255 ... +255</code> e com uma zona morta, como indicado a seguir:</p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-escala.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-escala.png" /></a></p>
+<div class="admonition danger">
+<p class="admonition-title">Zona morta</p>
+<p>A zona morta define um valor que não deve ser realizado o envio para o python, ou se enviado o valor deve ser sempre 0. Isso é necessário por variações mecânicas que o potenciômetro possui, que quando solto o seu valor não é necessariamente 2095.</p>
+</div>
+<h3 id="xqueueadc"><code>xQueueADC</code></h3>
+<p>A fila <code>xQueueADC</code> deverá ser uma fila de <code>structs</code> para podermos separar se o dado pertence ao eixo <code>x</code> ou <code>y</code>, para isso sugerimos criar a seguinte <code>struct</code>:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">adc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span><span class="w"> </span><span class="n">adc_t</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Não sabe enviar uma struct para a fila, consulte a página da disciplina:</p>
+<ul>
+<li><a href="/site/freertos/freertos-queue-advanced">Freertos/Queue Struct</a></li>
+</ul>
+</div>
 
 
 </section>
@@ -727,6 +789,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../adc-pwm-pre-lab/"
+               class="ah-prev"
+               title="Preparatório">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Preparatório</span>
+            </a>
+          
+          
+            <a href="../../aps/aps-1-genius/"
+               class="ah-next"
+               title="Aps 1 genius">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Aps 1 genius</span>
+            </a>
           
         </div>
       </footer>
