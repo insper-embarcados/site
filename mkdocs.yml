@@ -141,6 +141,7 @@ nav:
       - Software Timer: freertos/freertos-software-time.md
       - Semaphore: freertos/freertos-semaphore.md
       - Queue: freertos/freertos-queue.md
+      - Queue struct: freertos/freertos-queue-advanced.md
   - Code quality:
       - Visão geral: CodeQuality/topview.md
       - Regras: CodeQuality/rules.md
@@ -167,6 +168,7 @@ nav:
         - Prática: labs/rtos-pra-lab.md
       - ADC/PWM:
         - Preparatório: labs/adc-pwm-pre-lab.md
+        - Prática: labs/adc-pwm-pra-lab.md
 
   - APS:
       - aps/aps-1-genius.md
