@@ -1,5 +1,14 @@
 # Descrição Detalhada dos Critérios de Avaliação
 
+## Avaliação prática
+
+Simulados avaliação prática:
+
+- [Simulado ADC e PWM]({{av_simulado_classroom}})
+
+!!! tip
+    Solução na branch `solution`.
+
 ## Componentes da Avaliação:
 
 ### 1. Laboratórios Core:
