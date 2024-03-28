@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Rp2040 dma - Computação Embarcada - 2.0</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../termynal.css">
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../.."
+           title="Computação Embarcada - 2.0"
+           class="ah-logo"
+           aria-label="Computação Embarcada - 2.0">
+          Computação Embarcada - 2.0
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../aulas/">Aulas</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../avaliacao/">Avaliação</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../infra-linux-docker/">Infra</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer.md">None</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04">HC-SR04</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/oled1/">OLED1</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Pico W</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://github.com/raspberrypi/pico-examples">pico-examples</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-debugging/">Programando</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RP2040</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">SDK</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-delay/">Delay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-gpio/">GPIO</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-timer/">Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-rtc/">RTC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://kevinboone.me/picoflash.html">Flash</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-adc/">ADC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">FreeRTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-basic/">RTOS</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-tasks/">Tasks</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-vtaskDelay/">VtaskDelay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-software-time/">Software Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-semaphore/">Semaphore</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue/">Queue</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue-advanced/">Queue struct</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Code quality</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/topview/">Visão geral</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rules/">Regras</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/variables/">Variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rtos/">RTOS</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Labs</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">GPIO</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">IRQ</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Timer</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ADC/PWM</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">APS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-2-controle/">Aps 2 controle</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="dma">DMA</h1>
+<p>RP2040 Datasheet
+- <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf?_gl=1">https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf?_gl=1</a><em>133hn0o</em>_ga*NzczNjI3NTcwLjE3MDA1OTg2MjI.*_ga_22FD70LWDS*MTcxMTQ3MzYxOC4yMi4xLjE3MTE0NzQyMDguMC4wLjA. </p>
+<p>RaspBerry Pi Pico W Datasheet
+- <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf?_gl=1">https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf?_gl=1</a><em>cxqmyl</em>_ga*NzczNjI3NTcwLjE3MDA1OTg2MjI.*_ga_22FD70LWDS*MTcxMTQ3MzYxOC4yMi4xLjE3MTE0NzQzNzYuMC4wLjA.</p>
+<p>Raspberry Pi Pico C/C++ SDK
+- <a href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf?_gl=1">https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf?_gl=1</a><em>1jwcl4q</em>_ga*NzczNjI3NTcwLjE3MDA1OTg2MjI.*_ga_22FD70LWDS*MTcxMTQ3MzYxOC4yMi4xLjE3MTE0NzQzNzYuMC4wLjA.</p>
+<p>O DMA (Direct Memory Access) é o hardware responsável por ler e escrever dados no sistema, e sua melhor característica é que utilizando ele, os dados não são processados pela CPU, que consequentemente traz alguns benefícios, sendo eles:
+- O controlador DMA pode reduzir o consumo de energia: A CPU permanece em baixo consumo enquanto o DMA está ativo</p>
+<h2 id="introducao-ao-dma">Introdução ao DMA:</h2>
+<p>Definição básica do que é DMA.
+DMA (Direct Memory Access) é um controlador especializado em transferir dados, com ele conseguimos transferir dados entre periféricos e memórias sem depender da CPU, o que acaba trazendo diversos benefícios para o sistema e para aplicações de soluções embarcadas, tais como: 
+- maior rapidez na transferência de dados
+- diminuição do gasto de energia</p>
+<p>Breve histórico do desenvolvimento do DMA e sua importância na computação.
+O DMA não é uma coisa nova...
+- Foi introduzido inicialmente em computadores de mainframe entre os anos de 1950 - 1970. Inicialmente era um simples bloco com mecanismo para mover dados entre um dispositivo e uma memória.
+- Nos anos 80, dado a comercialização de computadores pessoais, o DMA tornou-se mais e mais comum em sistemas com periféricos, tal como drivers de memória.
+- Nos anos 90, com alta nas aplicações na área de multimídia e internet, surgiram demandas por taxas de transferência de dados mais rápidas. Assim o DMA foi introduzido com foco em otimizar a transferência de dados e reduzir a latência.
+- Nos anos 2000, avanços na arquitetura envolvendo os barramentos do computador, tais como o surgimento de tecnologias como o PCI e PCIe, ocasionaram uma melhor comunicação entre dispositivos e a CPU.
+- No ano de 2010, dado a emergência de computação paralela e processadores multi-core, os controladores DMA foram otimizados para processamento multi-threading.
+- Entre 2010 e 2020, com o destaque do IoT (Internet of Things) e sistemas embarcados, os controladores DMA foram adotados como requisito para sistemas de baixo consumo.</p>
+<h2 id="funcionamento-basico">Funcionamento Básico:</h2>
+<p>Explicação de como o DMA permite que dispositivos periféricos acessem diretamente a memória principal do sistema, sem a intervenção da CPU.</p>
+<p><a class="glightbox" href="/imgs/DMAstructureoverview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="DMA structure" src="/imgs/DMAstructureoverview.png" /></a></p>
+<p>Comparação do fluxo de dados com e sem DMA para ilustrar sua eficiência.</p>
+<h2 id="componentes-envolvidos">Componentes Envolvidos:</h2>
+<p>Identificação dos principais componentes envolvidos em uma operação de DMA, incluindo o controlador DMA, o dispositivo periférico e a memória principal.</p>
+<h2 id="modos-de-operacao-utilizando-a-rp2040">Modos de Operação utilizando a RP2040:</h2>
+<p>O DMA pode operar como leitura e escrita, sendo que na RP2040 o limite de leitura e escrita do DMA é de até 32 bits de tamanho, a cada ciclo de clock. Há 12 canais independentes na RP2040, cada um deles verificando uma sequência de bus transfers.
+- Memória para periférico: Um periférico sinaliza ao DMA quando precisa enviar mais dados. O DMA lê os dados de um array da RAM ou flash, e escreve no periférico utilizando o método FIFO (First In, First Out).
+- Periférico para memória: Neste modo, o periférico manda um sinal para o DMA quando os dados são recebidos. O DMA lê os dados do periférico por meio do método FIFO, e então escreve os mesmos em um array na RAM do microcontrolador.
+- Memória para memória: O DMA transfere dados entre dois buffers na RAM.</p>
+<p>Cada um dos 12 canais tem seu pŕoprio registrador de controle e status, no qual o sofware pode programar e monitorar o progresso dos canais. Quando vários canais estão ativos ao mesmo tempo, o DMA divide a largura de banda igualmente entre os canais.</p>
+<p>O tamanho de transferência pode ser 32, 16 ou 8 bits, e necessita ser configurado apenas uma vez por canal.</p>
+<h2 id="modos-de-transferencia">Modos de transferência:</h2>
+<p>São 3:
+- Burst Mode: O DMA toma conta da memória e libera apenas quando completar a transferência de dados.
+- Cycle Stealing Mode: O DMA força o processador a parar a operação e toma conta do barramento de memória por um curto período de tempo.
+- Transparent Mode: Neste modo o DMA toma conta do barramento do sistema apenas se o processador não precisar do mesmo.</p>
+<h2 id="vantagens-do-dma">Vantagens do DMA:</h2>
+<ul>
+<li>Velocidade de transferência de dados mais rápida que na CPU</li>
+<li>Reduz o trabalho da CPU, deixando ela disponível para focar em outras tarefas.</li>
+<li>Múltiplos canais DMA trabalham simultaneamente o que melhora a performance do sistema em termos de fluxo de dados.</li>
+</ul>
+<p>O controlador DMA pode reduzir o consumo de energia, permitindo que a CPU permaneça em modo de baixo consumo até que haja uma interrupção externa por parte de algum periférico.</p>
+<h2 id="desvantagens-do-dma">Desvantagens do DMA:</h2>
+<ul>
+<li>Configurações de DMA não são sempre compatíveis entre diferentes hardwares.</li>
+<li>Dificuldades quando estamos escrevendo numa memória que contem tanto a fonte como o destino dos dados.</li>
+<li>Como a DMA toma conta do barramento de memória para transferência de dados, às vezes a CPU tem que esperar o controlador DMA completar sua tarefa.</li>
+<li>Em alguns dos dispositivos pode haver conflito de memória quando múltiplos dispositivos tentarem usar o DMA simultaneamente.</li>
+</ul>
+<h2 id="aplicacoes-praticas">Aplicações Práticas:</h2>
+<ul>
+<li>placas de rede, </li>
+<li>controladores de disco, </li>
+<li>interfaces de áudio e vídeo, </li>
+<li>entre outros.</li>
+</ul>
+<h2 id="coding">Coding:</h2>
+<p>Configurando canais:</p>
+<p>ref1: <a href="https://hackaday.com/2017/02/28/understanding-dma/">https://hackaday.com/2017/02/28/understanding-dma/</a>
+ref2: <a href="https://www.ecorfan.org/taiwan/research_journals/Innovacion_Sistematica/vol1num2/Revista_de_Innovacion_Sistem%C3%A1tica_V1_N2.pdf#page=29">https://www.ecorfan.org/taiwan/research_journals/Innovacion_Sistematica/vol1num2/Revista_de_Innovacion_Sistem%C3%A1tica_V1_N2.pdf#page=29</a>
+ref3: <a href="https://www.spiceworks.com/tech/hardware/articles/direct-memory-access/">https://www.spiceworks.com/tech/hardware/articles/direct-memory-access/</a> 
+ref4: <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf?_gl=1">https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf?_gl=1</a><em>133hn0o</em>_ga*NzczNjI3NTcwLjE3MDA1OTg2MjI.*_ga_22FD70LWDS*MTcxMTQ3MzYxOC4yMi4xLjE3MTE0NzQyMDguMC4wLjA.</p>
+<p>ref 5: <a href="https://www.geeksforgeeks.org/direct-memory-access/">https://www.geeksforgeeks.org/direct-memory-access/</a>
+///////////////</p>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+    
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
