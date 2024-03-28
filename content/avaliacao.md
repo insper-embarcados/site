@@ -7,7 +7,8 @@ Simulados avaliação prática:
 - [Simulado ADC e PWM]({{av_simulado_classroom}})
 
 !!! tip
-    Solução na branch `solution`.
+    Solução:
+    https://github.com/insper-classroom/24a-emb-av-simulado-av-simulado-led-rgb/tree/solution
 
 ## Componentes da Avaliação:
 
