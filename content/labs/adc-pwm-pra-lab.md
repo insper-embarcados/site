@@ -1,10 +1,10 @@
 # Timer - Prática
 
-| Lab 3 - Timer - Prática                               |
-|-------------------------------------------------------|
+| Lab 3 - Timer - Prática                                   |
+|-----------------------------------------------------------|
 | **Prazo**: =={{lab_adc_pwm_pra_deadline}}==               |
 | [Repositório no classroom]({{lab_adc_pwm_pra_classroom}}) |
-| 💰 70% nota de lab                                    |
+| 💰 70% nota de lab                                        |
 
 Neste laboratório iremos usar um joystick analógico para implementarmos um "mouse".
 

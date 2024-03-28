@@ -105,3 +105,49 @@ int main() {
     }
 }
 ```
+
+### Múltiplos PWMs
+
+Criamos uma função que auxiliar no uso de múltiplos PWMs, o problema é saber qual CHANNEL cada PWM vai ser alocado, a função a seguir retorna o `slice` e o `channel` relativo ao PWM do pino. o `init_pwm` possui como argumento:
+
+- `pwm_pin_gp`: O GPIO que deseja configurar o PWM
+- `resolution`: A resolucão do pwm: `100`: vai de `0` a `99`, `256`: vai de `0` a `255`
+- `slice_num`: Retorna o slice alocao para o pino
+- `chan_num`: Retorna o channel alocao para o pino
+
+A demo a seguir faz um `fade` nos pinos GP27 e GP15.
+
+```c
+
+#define PWM_GP27
+#define PWM_GP15
+
+void init_pwm(int pwm_pin_gp, uint resolution, uint *slice_num, uint *chan_num) {
+    gpio_set_function(pwm_pin_gp, GPIO_FUNC_PWM);
+    uint slice = pwm_gpio_to_slice_num(pwm_pin_gp);
+    uint chan = pwm_gpio_to_channel(pwm_pin_gp);
+    pwm_set_clkdiv(slice, 125); // pwm clock should now be running at 1MHz
+    pwm_set_wrap(slice, resolution);
+    pwm_set_chan_level(slice, PWM_CHAN_A, 0);
+    pwm_set_enabled(slice, true);
+
+    *slice_num = slice;
+    *chan_num = chan;
+}
+
+
+void main() {
+    int pwm_0_slice, pwm_1_chan;
+    int pwm_1_slice, pwm_1_chan;
+    init_pwm(PWM_GP27, 256, &pwm_0_slice, &pwm_0_chan);
+    init_pwm(PWM_GP15, 256, &pwm_1_slice, &pwm_1_chan);
+
+    while(1) {
+            for (int i=0; i < 256; i++){
+                pwm_set_chan_level(pwm_0_slice, pwm_0_chan, i);
+                pwm_set_chan_level(pwm_1_slice, pwm_1_chan, 256 - i);
+                sleep_ms(10);
+            }
+    }
+}
+```
