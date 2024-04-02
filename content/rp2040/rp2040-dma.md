@@ -13,7 +13,7 @@ Analisando a estrutura do nosso microcontrolador RP2040 na Figura 1, observamos 
 
 Figura 1 - Arquitetura do RP2040
 
-![alt text](rp2040-arch.png "Figura 1")
+![rp2040-arch](/imgs/rp2040-arch.png "Figura 1")
 
 ## O que é o "Bus Fabric"?
   
@@ -21,7 +21,7 @@ Na figura 2, vocês podem ver os componentes do Bus Fabric da RP2040 em amarelo 
 
 Figura 2 - RP2040 Bus Fabric
 
-![alt text](rp2040-bus-fabric.png "Figura 2")
+![rp2040-bus-fabric](/imgs/rp2040-bus-fabric.png "Figura 2")
   
 
 
@@ -37,10 +37,9 @@ Abaixo, na figura 3, é possível observar a estrutura interna do DMA. O mesmo p
 
 Figura 3 - DMA
 
-![alt text](dma_intern.png "Figura 3")
+![dma_intern](/imgs/dma_intern.png "Figura 3")
 
 
-// ate aqui ok
 
 ## Modos de Operação do DMA utilizando a RP2040:
 O DMA pode operar como leitura e escrita, sendo que na RP2040 o limite de leitura e escrita do DMA é de até 32 bits de tamanho, a cada ciclo de clock. Há 12 canais independentes na RP2040, cada um deles verificando uma sequência de transferência de dados.
@@ -135,7 +134,7 @@ Códigos exemplo para o DMA.
 
 ### Hello DMA
 
-[Simulação no wokwi](link){.ah-button}
+[Simulação no wokwi](/definir/link){.ah-button}
 /
 [pico-examples/dma/hello_dma/hello_dma.c](https://github.com/raspberrypi/pico-examples/blob/master/dma/hello_dma/hello_dma.c){.ah-button}
 
