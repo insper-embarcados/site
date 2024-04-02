@@ -13,7 +13,7 @@ Analisando a estrutura do nosso microcontrolador RP2040 na Figura 1, observamos 
 
 Figura 1 - Arquitetura do RP2040
 
-![rp2040-arch](/imgs/rp2040-arch.png "Figura 1")
+![rp2040-arch](imgs/rp2040-arch.png "Figura 1")
 
 ## O que é o "Bus Fabric"?
   
@@ -21,7 +21,7 @@ Na figura 2, vocês podem ver os componentes do Bus Fabric da RP2040 em amarelo 
 
 Figura 2 - RP2040 Bus Fabric
 
-![rp2040-bus-fabric](/imgs/rp2040-bus-fabric.png "Figura 2")
+![rp2040-bus-fabric](imgs/rp2040-bus-fabric.png "Figura 2")
   
 
 
@@ -37,7 +37,7 @@ Abaixo, na figura 3, é possível observar a estrutura interna do DMA. O mesmo p
 
 Figura 3 - DMA
 
-![dma_intern](/imgs/dma_intern.png "Figura 3")
+![dma_intern](imgs/dma_intern.png "Figura 3")
 
 
 
