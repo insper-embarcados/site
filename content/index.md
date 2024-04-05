@@ -4,7 +4,7 @@
 
 - **Curso:** Engenharia Da Computação - Quinto Semestre - [Insper](https://www.insper.edu.br/)
 - **Disciplina:** Computação Embarcada 
-- **Repositório:** [http:/github.com/Insper/ComputacaoEmbarcada](http:/github.com/Insper/ComputacaoEmbarcada)
+- **Repositório:** [http:/https://github.com/insper-embarcados/](https://github.com/insper-embarcados/)
 - **Local:** Laboratórios de Arquitetura de Computadores e Ágil 2
 - **Equipe:**
     - [Prof. Rafael Corsi](https://github.com/rafaelcorsi)

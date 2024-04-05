@@ -137,6 +137,7 @@ nav:
       - Flash: https://kevinboone.me/picoflash.html
       - ADC: rp2040/rp2040-adc.md
       - PWM: rp2040/rp2040-pwm.md
+      - I2C: rp2040/rp2040-i2c.md
       - DMA: rp2040/rp2040-dma.md
   - FreeRTOS:
       - RTOS: freertos/freertos-basic.md
