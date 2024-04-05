@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -331,6 +332,14 @@
   
     <li>
       <a href="../rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-i2c/">I2C</a>
     </li>
   
 
@@ -701,13 +710,13 @@
 <h2 id="periferico">Periférico</h2>
 <p>O periférico é responsável por controlar digitalmente um pino da rp2040 e interligar os pinos aos periféricos internos do microcontrolador. Os pinos da rp2040 são divididos em dois bancos, porem um dos bancos é dedicado a leitura do programa de uma memória FLASH (<code>QSPI</code> bank), sobrando apenas o banco <code>GPI0</code> para o desenvolvedor. Este banco possui 30 pinos (<code>GPIO0</code> .. <code>GPIO29</code>) que podem ser usados tanto como entrada quanto como saída.</p>
 <p>O GPIO opera como um mux, permitindo que outros periféricos internos do microcontrolador também acessem os pinos, como ilustrado na figura abaixo extraído do manual:</p>
-<p><a class="glightbox" href="../imgs/gpio-logic.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-logic.svg" /></a></p>
+<p><a class="glightbox" href="../imgs/gpio-logic.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-logic.svg" /></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Conforme manual respeite a tensão máxima de <code>3.3V</code> no pino da rp2040:</p>
-<p><a class="glightbox" href="../imgs/gpio-electrical.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-electrical.svg" /></a></p>
+<p><a class="glightbox" href="../imgs/gpio-electrical.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-electrical.svg" /></a></p>
 <p>E a corrente máxima nos pinos (entrada ou saída) em <code>50mA</code>:</p>
-<p><a class="glightbox" href="../imgs/rp2040-ioh.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/rp2040-ioh.svg" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-ioh.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/rp2040-ioh.svg" /></a></p>
 </div>
 <h3 id="na-pratica">Na prática?</h3>
 <p>Na rasp pico todos os pinos são nomeados com um nome: <a href=""><code>GP0</code>, <code>GP1</code></a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, ..., e no software iremos utilizar apenas o número: <code>0</code>, <code>1</code> para nos referenciarmos ao pino específico, para organizarmos melhor o software, iremos declarar uma variável global que define o número do pino:</p>
@@ -759,7 +768,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../imgs/gpio-snippet-led.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-snippet-led.png" /></a></p>
+<p><a class="glightbox" href="../imgs/gpio-snippet-led.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-snippet-led.png" /></a></p>
 </div>
 </div>
 </div>
@@ -790,7 +799,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../imgs/gpio-snippet-pir.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-snippet-pir.png" /></a></p>
+<p><a class="glightbox" href="../imgs/gpio-snippet-pir.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio-snippet-pir.png" /></a></p>
 </div>
 </div>
 </div>
@@ -822,7 +831,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../imgs/gpio_snippet-btn.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio_snippet-btn.png" /></a></p>
+<p><a class="glightbox" href="../imgs/gpio_snippet-btn.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/gpio_snippet-btn.png" /></a></p>
 </div>
 </div>
 </div>
@@ -832,7 +841,7 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p><a class="glightbox" href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg" /></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a class="glightbox" href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg" /></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

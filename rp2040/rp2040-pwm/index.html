@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -331,6 +332,14 @@
             
         
       </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-i2c/">I2C</a>
     </li>
   
 
@@ -682,7 +691,7 @@
             <section class="progress-section show">
 <h1 id="pwm">PWM</h1>
 <p>Pulse Width Modulation (PWM) é uma forma de onda digital periódica que permite modular o tempo em que o sinal permanece em nível alto.</p>
-<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/b/b8/Duty_Cycle_Examples.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Duty_Cycle_Examples.png" /></a></p>
+<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/b/b8/Duty_Cycle_Examples.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Duty_Cycle_Examples.png" /></a></p>
 <p><code>Duty Cycle</code> é o termo utilizado para indicar quanto tempo o sinal do PWM permanece em nível alto. Um <code>Duty Cycle</code> de 40% indica que o sinal fica por <code>40%</code> do tempo em nível alto e <code>60%</code> em nível baixo.</p>
 <p>Um aspecto muito importante no PWM, e que é pouco abordado, é a frequência na qual o sinal será gerado. Se a frequência for muito baixa, o sistema que estamos controlando pode não se comportar como esperado. Por exemplo, um motor pode vibrar se a frequência do PWM for muito baixa. É importante não confundir frequência com o <code>Duty Cycle</code>, são conceitos independentes!</p>
 <p>Com essa modulação, conseguimos controlar uma série de sistemas:</p>
@@ -701,7 +710,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 <p>O nosso microcontrolador possui um periférico dedicado a gerar sinais de PWM:</p>
-<p><a class="glightbox" href="../imgs/pwm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/pwm.png" /></a></p>
+<p><a class="glightbox" href="../imgs/pwm.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/pwm.png" /></a></p>
 <p>Do manual do RP2040, podemos extrair a informação de que o periférico é capaz de gerar 16 sinais independentes de PWM em qualquer um dos pinos do GPIO:</p>
 <blockquote>
 <p>The RP2040 PWM block has 8 identical slices. Each slice can drive two PWM output signals, or measure the frequency
@@ -822,11 +831,11 @@ by the PWM block.</p>
             </a>
           
           
-            <a href="../rp2040-dma/"
+            <a href="../rp2040-i2c/"
                class="ah-next"
-               title="DMA">
+               title="I2C">
               <span class="nav-label">Next</span>
-              <span class="nav-title">DMA</span>
+              <span class="nav-title">I2C</span>
             </a>
           
         </div>

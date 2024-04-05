@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -315,6 +316,14 @@
   
     <li>
       <a href="../rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-i2c/">I2C</a>
     </li>
   
 
@@ -735,17 +744,17 @@ O nosso RP2040 é equipado com um poderoso DMA, o qual pode transferir até 32 b
 <h2 id="componentes-envolvidos">Componentes Envolvidos:</h2>
 <p>Analisando a estrutura do nosso microcontrolador RP2040 na Figura 1, observamos que o DMA está conectado diretamente ao Bus Fabric.</p>
 <p>Figura 1 - Arquitetura do RP2040</p>
-<p><a class="glightbox" href="../imgs/rp2040-arch.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-arch" src="../imgs/rp2040-arch.png" title="Figura 1" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-arch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-arch" src="../imgs/rp2040-arch.png" title="Figura 1" /></a></p>
 <h2 id="o-que-e-o-bus-fabric">O que é o "Bus Fabric"?</h2>
 <p>Na figura 2, vocês podem ver os componentes do Bus Fabric da RP2040 em amarelo e com quais partes do nosso microcontrolador ele se interliga, repare que o DMA está representado no canto superior direito. O Bus Fabric serve para interligar endereços e transportar dados através do chip. AHB-lite Crossbar é um barramento que trabalha com um protocolo AHB-lite (AMBA 3 AHB-lite), o qual o Bus Trafic faz uso. O DMA utiliza os barramentos do Bus Trafic para transmitir dados.</p>
 <p>Figura 2 - RP2040 Bus Fabric</p>
-<p><a class="glightbox" href="../imgs/rp2040-bus-fabric.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-bus-fabric" src="../imgs/rp2040-bus-fabric.png" title="Figura 2" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-bus-fabric.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-bus-fabric" src="../imgs/rp2040-bus-fabric.png" title="Figura 2" /></a></p>
 <p>Abaixo, na figura 3, é possível observar a estrutura interna do DMA. O mesmo possui conexões separadas de leitura e escrita que são ligadas diretamente ao Bus Fabric, e realizam a transferência de dados. <strong>A taxa de transferência de dados através de um DMA é superior ao que um dos processadores do RP2040 conseguiria realizar</strong>.
 - As conexões de leitura e escrita são ligadas diretamente ao Bus Trafic, através do AHB-lite Read Master e AHB-lite Write Master.
 - Internamente no DMA é processado o endereço de origem e destino dos dados.
 - Para controle e verificação do status das transferências de dados com o DMA é necessário manipular seus registradores específicos para cada ação. Caso queira saber mais sobre os registradores do DMA, acesse: <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=103">DMA Registers</a></p>
 <p>Figura 3 - DMA</p>
-<p><a class="glightbox" href="../imgs/dma_intern.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dma_intern" src="../imgs/dma_intern.png" title="Figura 3" /></a></p>
+<p><a class="glightbox" href="../imgs/dma_intern.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="dma_intern" src="../imgs/dma_intern.png" title="Figura 3" /></a></p>
 <h2 id="modos-de-operacao-do-dma-utilizando-a-rp2040">Modos de Operação do DMA utilizando a RP2040:</h2>
 <p>O DMA pode operar como leitura e escrita, sendo que na RP2040 o limite de leitura e escrita do DMA é de até 32 bits de tamanho, a cada ciclo de clock. Há 12 canais independentes na RP2040, cada um deles verificando uma sequência de transferência de dados.</p>
 <h2 id="cenarios-comuns-em-que-se-utiliza-o-dma-para-transferencia-de-dados">Cenários comuns em que se utiliza o DMA para transferência de dados:</h2>
@@ -919,11 +928,11 @@ O nosso RP2040 é equipado com um poderoso DMA, o qual pode transferir até 32 b
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../rp2040-pwm/"
+            <a href="../rp2040-i2c/"
                class="ah-prev"
-               title="PWM">
+               title="I2C">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">PWM</span>
+              <span class="nav-title">I2C</span>
             </a>
           
           

@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -339,6 +340,14 @@
   
     <li>
       <a href="../../rp2040/rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-i2c/">I2C</a>
     </li>
   
 
@@ -705,7 +714,7 @@
 </tbody>
 </table>
 <p>O OLED1 é uma placa de extensão fabricada pela Atmel/Microchip que possui 3 botões, 3 LEDs e um display OLED.</p>
-<p><a class="glightbox" href="https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/GUID-7945860A-65B1-404A-A04E-735B5C0FC01B-low.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/GUID-7945860A-65B1-404A-A04E-735B5C0FC01B-low.jpg" /></a></p>
+<p><a class="glightbox" href="https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/GUID-7945860A-65B1-404A-A04E-735B5C0FC01B-low.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/GUID-7945860A-65B1-404A-A04E-735B5C0FC01B-low.jpg" /></a></p>
 <h2 id="placa-adaptadora">Placa Adaptadora</h2>
 <p>Desenvolvemos uma placa adaptadora que permite facilmente utilizarmos o OLED1 com a Raspberry Pi Pico. A placa elimina a necessidade de conexão, minimizando erros de montagem.</p>
 <p>Os pinos foram mapeados da seguinte maneira:</p>
@@ -803,7 +812,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="../imgs/oled1/placa.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/oled1/placa.jpg" /></a></p>
+<p><a class="glightbox" href="../imgs/oled1/placa.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/oled1/placa.jpg" /></a></p>
 <h2 id="display">Display</h2>
 <p>O display da placa OLED é:</p>
 <ul>
@@ -814,11 +823,11 @@
 <p>O importante é que para acessarmos o display, precisamos usar o protocolo de comunicação SPI! Esse protocolo é muito utilizado para esse tipo de comunicação entre microcontrolador e periféricos, então a maioria dos uC possuem um periférico específico para isso (que é o caso da nossa Raspberry Pi Pico).</p>
 <h2 id="driver">Driver</h2>
 <p>O driver é responsável por fazer a interface de baixo nível com o display externo, no nosso caso isso é feito pela comunicação SPI. O driver possui funções básicas como inicializar o display e escrever um pixel no display. O nosso microcontrolador possui dois periféricos de interface SPI:</p>
-<p><a class="glightbox" href="../imgs/oled1/spi.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/oled1/spi.png" /></a></p>
+<p><a class="glightbox" href="../imgs/oled1/spi.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/oled1/spi.png" /></a></p>
 <h2 id="lib-grafica-glx">Lib Gráfica - glx</h2>
 <p>O display apenas exibe pixels, ele não processa ou gera textos. Para isso, será necessário usarmos uma biblioteca gráfica (<code>glx</code>) que será capaz de criar componentes básicos no display e facilitar a nossa vida!</p>
 <p>A estrutura normalmente é realizada da seguinte maneira:</p>
-<p><a class="glightbox" href="../imgs/oled1/stack.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/oled1/stack.png" /></a></p>
+<p><a class="glightbox" href="../imgs/oled1/stack.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/oled1/stack.png" /></a></p>
 <p>A aplicação faz uso da biblioteca <code>glx</code>, que gera as imagens e salva em um <code>framebuffer</code> local ao microcontrolador (vetor que possui todos os pixels do display). Quando a aplicação requisita uma mudança (por exemplo, escrever um texto), o glx modifica o <code>framebuffer</code> e, via o driver <code>ssd1306</code>, atualiza o display para exibir o novo resultado.</p>
 
 
