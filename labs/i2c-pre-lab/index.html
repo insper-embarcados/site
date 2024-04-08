@@ -638,6 +638,10 @@
           
             
             
+              <li class="ah-toc-item">
+                <a href="#atividade">Atividade</a>
+              </li>
+            
         
       </ul>
     </li>
@@ -709,12 +713,75 @@
           </div>
           
             <section class="progress-section show">
+<table>
+<thead>
+<tr>
+<th>Lab 6 - Preparatório</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prazo</strong>: 15/05 (Antes da aula)</td>
+</tr>
+<tr>
+<td><strong>Atividade:</strong> <a href="https://classroom.github.com/a/vYUH2R0h">classroom</a></td>
+</tr>
+<tr>
+<td>💰 30% da nota de lab</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Leitura prévia</p>
+<form class="exercise-form">
+<p>Para realizar este laboratório, você deve estudar antes:</p>
+<ul>
+<li>i2c: <a href="/site/rp2040/rp2040-i2c">📕 <strong>RP2040/i2c</strong></a></li>
+</ul>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h1 id="i2c-preparatorio">I2C - Preparatório</h1>
+<table>
+<thead>
+<tr>
+<th>Lab 6 - Preparatório</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prazo</strong>: 15/05 (Antes da aula)</td>
+</tr>
+<tr>
+<td><strong>Atividade:</strong> <a href="https://classroom.github.com/a/vYUH2R0h">classroom</a></td>
+</tr>
+<tr>
+<td>💰 30% da nota de lab</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Leitura prévia</p>
+<form class="exercise-form">
+<p>Para realizar este laboratório, você deve estudar antes:</p>
+<ul>
+<li>i2c: <a href="/site/rp2040/rp2040-i2c">📕 <strong>RP2040/i2c</strong></a></li>
+</ul>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
 <h2 id="atividade">Atividade</h2>
 <p>Neste pré-lab, exploraremos um pouco a comunicação i2c usando como base o sensor MPU6050, que é uma unidade inercial que possui internamente um acelerômetro e um giroscópio. Para isso, você terá que consultar o manual de registradores desse sensor:</p>
 <ul>
 <li><a href="https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf">Mapa de registradores do MPU6050</a></li>
 </ul>
-<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_1" id="exercise_1_0">
+<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_3" id="exercise_3_0">
 <p class="admonition-title">exe 1</p>
 <form class="exercise-form">
 <ul>
@@ -729,13 +796,13 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_2" id="exercise_2_0">
+<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_4" id="exercise_4_0">
 <p class="admonition-title">exe 2</p>
 <form class="exercise-form">
 <ul>
 <li>Arquivo: <code>exe2/main.c</code></li>
 </ul>
-<p>O código fornecido faz a leitura do registrador <code>0x75</code>:<code>WHOAMI</code>, que é um registrador contendo uma informação que confirma o ID do chip. Você deve ler o valor do <code>INT_ENABLE</code> e imprimir na serial usando o seguinte <code>printf</code>:</p>
+<p>O código fornecido faz a leitura do registrador <code>0x75</code>:<code>WHOAMI</code>, que é um registrador contendo uma informação que confirma o ID do chip. Você deve ler o valor do <code>INT_ENABLE</code> e imprimir na serial usando o seguinte printf:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;INT_ENABLE: 0x%X </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 </code></pre></div>
 <div class="form-elements">
@@ -744,7 +811,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_3" id="exercise_3_0">
+<div class="admonition exercise self-progress" data-slug="labs/i2c-pre-lab/exercise_5" id="exercise_5_0">
 <p class="admonition-title">exe 3</p>
 <form class="exercise-form">
 <ul>
