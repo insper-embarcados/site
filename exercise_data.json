@@ -176,6 +176,20 @@
         "slug": "labs/gpio-pre-lab/exercise_5"
       }
     },
+    "labs/i2c-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_3"
+      }
+    },
     "labs/irq-pre-lab/": {
       "exercise_1": {
         "tags": [],

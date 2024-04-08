@@ -64,9 +64,14 @@ extra:
 
     lab_adc_pwm_pre_classroom: https://classroom.github.com/a/B4Uh531U
     lab_adc_pwm_pre_deadline: 21/03 - 23h59
-
     lab_adc_pwm_pra_classroom: https://classroom.github.com/a/vzIo0hHz
     lab_adc_pwm_pra_deadline: 08/04 (Antes da aula)
+
+
+    lab_i2c_pre_classroom: https://classroom.github.com/a/vYUH2R0h
+    lab_i2c_pre_deadline: 15/05 (Antes da aula)
+    lab_i2c_pra_classroom: https://classroom.github.com/a/LHH9EXB0
+    lab_i2c_pra_deadline: 15/04 (Antes da aula)
 
     aps_1_classroom: https://classroom.github.com/a/niP2yPR9
     aps_1_deadline: Segunda 11/03 - 13h30
@@ -174,6 +179,9 @@ nav:
       - ADC/PWM:
         - Preparatório: labs/adc-pwm-pre-lab.md
         - Prática: labs/adc-pwm-pra-lab.md
+      - I2C:
+        - Preparatório: labs/i2c-pre-lab.md
+        - Prática: labs/i2c-pra-lab.md
 
   - APS:
       - aps/aps-1-genius.md
