@@ -1,3 +1,17 @@
+# I2C - Preparatório
+
+| Lab 6 - Preparatório                               |
+|----------------------------------------------------|
+| **Prazo**: {{lab_i2c_pre_deadline}}                |
+| **Atividade:** [classroom]({{lab_i2c_pre_classroom}}) |
+| 💰 30% da nota de lab                              |
+
+!!! exercise "Leitura prévia"
+
+    Para realizar este laboratório, você deve estudar antes:
+   
+    - i2c: [📕 **RP2040/i2c**](/site/rp2040/rp2040-i2c)
+
 ## Atividade
 
 Neste pré-lab, exploraremos um pouco a comunicação i2c usando como base o sensor MPU6050, que é uma unidade inercial que possui internamente um acelerômetro e um giroscópio. Para isso, você terá que consultar o manual de registradores desse sensor:
@@ -16,7 +30,7 @@ Neste pré-lab, exploraremos um pouco a comunicação i2c usando como base o sen
 !!! exercise "exe 2"
     - Arquivo: `exe2/main.c`
 
-    O código fornecido faz a leitura do registrador `0x75`:`WHOAMI`, que é um registrador contendo uma informação que confirma o ID do chip. Você deve ler o valor do `INT_ENABLE` e imprimir na serial usando o seguinte `printf`:
+    O código fornecido faz a leitura do registrador `0x75`:`WHOAMI`, que é um registrador contendo uma informação que confirma o ID do chip. Você deve ler o valor do `INT_ENABLE` e imprimir na serial usando o seguinte printf:
     
     ```c
     printf("INT_ENABLE: 0x%X \n", buffer[0]);
@@ -32,5 +46,5 @@ Neste pré-lab, exploraremos um pouco a comunicação i2c usando como base o sen
     ```
 
     Consulte o [manual do BMP280](https://cdn-shop.adafruit.com/datasheets/BST-BMP280-DS001-11.pdf) e extraia a informação do endereço padrão desse sensor e do endereço do registrador que possui o ID.
-   
+
     ![](imgs/lab-i2c-pre-exe3.png)
