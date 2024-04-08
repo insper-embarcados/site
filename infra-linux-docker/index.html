@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../termynal.css">
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -640,6 +639,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs/i2c-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs/i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -819,10 +843,10 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Diagrama</label><label for="__tabbed_2_2">Real</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="/site/pico/imgs/pico-probe.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe.png" /></a></p>
+<p><a class="glightbox" href="/site/pico/imgs/pico-probe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="/site/pico/imgs/pico-probe-real.jpeg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe-real.jpeg" /></a></p>
+<p><a class="glightbox" href="/site/pico/imgs/pico-probe-real.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe-real.jpeg" /></a></p>
 </div>
 </div>
 </div>
@@ -839,7 +863,7 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <li>Abra as Configurações -&gt; USB</li>
 <li>Verifique se o controlador USB está habilitado.</li>
 <li>Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.
--<a class="glightbox" href="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="embarcadosvirtualbox" src="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" /></a></li>
+-<a class="glightbox" href="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="embarcadosvirtualbox" src="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" /></a></li>
 </ol>
 </div>
 <div class="admonition exercise self-progress" data-slug="infra-linux-docker/exercise_5" id="exercise_5_0">
@@ -908,11 +932,11 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <form class="exercise-form">
 <p>Vamos compilar o projeto!</p>
 <p>Clique em build na barra inferior:</p>
-<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
+<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
 <p>Escolha o compilador <code>arm-none-eabi</code></p>
-<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
+<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
 <p>Você deve obter:</p>
-<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
+<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -925,7 +949,7 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Selecione o programa que iremos depurar</p>
-<p><a class="glightbox" href="../imgs/config-debug.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-debug.png" /></a></p>
+<p><a class="glightbox" href="../imgs/config-debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-debug.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -936,7 +960,7 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Inicialize o software</p>
-<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
+<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
 <p><mark>Você deve obter o Hello world</mark> no serial</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -948,7 +972,7 @@ Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</co
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abra o serial monitor (terminal)</p>
-<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
+<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />

@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -640,6 +639,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../i2c-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -752,12 +776,12 @@
 </ul>
 <h4 id="codigo">Código</h4>
 <p>O código fornecido configura a interrupção no pino do botão e, toda vez que ele for pressionado, imprime <code>fall</code> no terminal; e quando ele é solto, imprime <code>rise</code>. O código funciona, mas possui <mark>um erro de qualidade de código!</mark> Não devemos usar <code>printf</code> dentro de interrupções!</p>
-<p><a class="glightbox" href="../imgs/lab_irq_pre_embedded_check_printf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_embedded_check_printf.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_embedded_check_printf.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_embedded_check_printf.png" /></a></p>
 <p>Modifique o código adicionando uma flag e realize o <code>printf</code> na função <code>main</code>. O comportamento deve ser o mesmo, mas a forma como lidaremos com o evento é diferente!</p>
 <h4 id="dica">Dica:</h4>
 <p>Não sabe o que tem que fazer? Leia a teoria em <code>RP2040/GPIO IRQ</code> especificamente a parte do <em>IRQ - Keep it short and simple</em>, se não ajudar tente <a href="https://www.techtarget.com/whatis/definition/IRQ-interrupt-request">esta explicação link</a></p>
 <h4 id="funcionalidade-esperada">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_irq_pre_exe1.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe1.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe1.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -774,7 +798,7 @@
 <h4 id="codigo_1">Código</h4>
 <p>Utilizando interrupção no pino do botão, faça com que o LED mude de valor sempre que o botão for pressionado (não fazer nada quando for solto)! Lembre-se de utilizar uma <code>flag</code> e sempre fazer o processamento na <code>main</code>!  </p>
 <h4 id="funcionalidade-esperada_1">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_irq_pre_exe2.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe2.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe2.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe2.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -792,7 +816,7 @@
 <p>O código fornecido configura a interrupção no pino de dois botões e, toda vez que um deles for pressionado, imprime <code>fall red</code> ou <code>fall green</code> no terminal. O código funciona, mas possui <mark>um erro de qualidade de código!</mark> Não devemos usar <code>printf</code> dentro de interrupções!</p>
 <p>Modifique o código adicionando agora duas flags e realize o <code>printf</code> na função <code>main</code>. O comportamento deve ser o mesmo, mas a forma como lidaremos com o evento é diferente!</p>
 <h4 id="funcionalidade-esperada_2">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_irq_pre_exe3.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe3.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe3.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -815,7 +839,7 @@
 <p>Toda vez que o botão vermelho for pressionado, inverta o estado do LED vermelho e toda vez que o botão verde for solto, inverta o estado do LED verde.</p>
 <h4 id="funcionalidade-esperada_3">Funcionalidade esperada</h4>
 <p><mark>Note a diferença entre as boardas de subida e descida de cada botão.</mark></p>
-<p><a class="glightbox" href="../imgs/lab_irq_pre_exe4.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe4.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_irq_pre_exe4.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_irq_pre_exe4.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />

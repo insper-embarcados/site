@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -330,33 +329,33 @@
           
             
             
-              <li class="ah-toc-item">
-                <a href="#introducao-ao-i2c">Introdução ao I2C:</a>
-              </li>
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
             
               <li class="ah-toc-item">
-                <a href="#topologia">Topologia:</a>
+                <a href="#hello-adc">Hello ADC</a>
               </li>
             
-              <li class="ah-toc-item">
-                <a href="#protocolo">Protocolo:</a>
-              </li>
+        
+          
             
-              <li class="ah-toc-item">
-                <a href="#rp2040-pico">RP2040 / PICO</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#sdk">SDK</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#snippets">Snippets</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#referencias">Referências:</a>
-              </li>
             
         
       </ul>
@@ -660,6 +659,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -709,50 +733,60 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="i2c">I2C</h1>
-<h2 id="introducao-ao-i2c">Introdução ao I2C:</h2>
-<p>O I2C (Inter-Integrated Circuit) é um protocolo de comunicação serial síncrona que permite a comunicação entre microcontroladores e dispositivos periféricos utilizando apenas duas linhas: uma linha de dados <strong>SDA</strong> (Serial Data Line) e uma linha de clock <strong>SCL</strong> (Serial Clock Line). Ele foi desenvolvido pela Philips Semiconductor (atualmente NXP Semiconductors) nos anos 80.</p>
-<h2 id="topologia">Topologia:</h2>
-<p>Para usar o I2C, é necessário conectar os dispositivos em uma infraestrutura de barramento, geralmente utilizando resistores de pull-up na linha de dados (SDA) e na linha de clock (SCL). O sinal de clock (SCL) é sempre gerado pelo "mestre", que é o dispositivo que inicia e controla as comunicações. O sinal de dados (SDA) pode ser manipulado tanto pelo "mestre" quanto pelo dispositivo com o qual ele está se comunicando.</p>
-<p><a class="glightbox" href="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\I2C-Components-with-pull-up-resistors.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="I2C-Components-with-pull-up-resistors" src="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\I2C-Components-with-pull-up-resistors.png" /></a></p>
-<p>É possível conectar um único mestre a vários dispositivos em paralelo, formando uma topologia conhecida como "varal". Para possibilitar essa conexão, cada dispositivo é identificado por um endereço de 7 bits único.</p>
-<h2 id="protocolo">Protocolo:</h2>
-<p>A comunicação no protocolo I2C é baseada em transações de mestre e escravo. O dispositivo mestre inicia e controla as comunicações, enquanto os dispositivos escravos respondem às solicitações do mestre. Abaixo disponibilizo uma visão geral do protocolo</p>
-<ol>
-<li>
-<p><strong>Start Condition</strong>: A comunicação no barramento I2C é iniciada por uma condição de início (start condition), na qual o mestre coloca o sinal SDA de nível alto para baixo enquanto o sinal SCL permanece em alto.</p>
-</li>
-<li>
-<p><strong>Endereçamento</strong>: O mestre transmite o endereço do dispositivo com o qual deseja se comunicar. Cada dispositivo no barramento possui um endereço único de 7 ou 10 bits. O bit seguinte indica se o mestre está escrevendo (0) ou lendo (1) dados do dispositivo.</p>
-</li>
-<li>
-<p><strong>Acknowledge (ACK)</strong>: Após o recebimento do endereço, o dispositivo escravo correspondente responde com um sinal de ACK para confirmar que foi endereçado corretamente.</p>
-</li>
-<li>
-<p><strong>Transferência de Dados</strong>: Após o endereçamento, o mestre pode enviar ou receber dados do dispositivo escravo. Durante a transmissão de dados, o mestre envia bytes de dados para o dispositivo escravo, que responde com sinais ACK após a recepção de cada byte.</p>
-</li>
-<li>
-<p><strong>Stop Condition</strong>: Após concluir a comunicação, o mestre emite uma condição de parada (stop condition), na qual o sinal SDA é colocado de nível lógico baixo para alto enquanto o sinal SCL permanece em alto.</p>
-</li>
-</ol>
-<p><a class="glightbox" href="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\i2c.drawio.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="i2c.drawio" src="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\i2c.drawio.png" /></a></p>
-<p>O mestre é responsável por gerar o clock e controlar a transferência de dados. O escravo é responsável por transmitir ou receber dados do mestre. O reconhecimento dos dados é enviado pelo dispositivo que está recebendo os dados, podendo ser tanto um mestre quanto um escravo. O protocolo I2C também permite que vários mestres residam no barramento I2C.</p>
-<p>Cada escravo possui um endereço único que é determinado pela estrutura do sistema ou pelo dispositivo na linha. Quando um mestre deseja se comunicar com um escravo, o mestre transmite uma condição de START, seguida pelo endereço do escravo e um bit de controle (R/W) para determinar se o mestre deseja transmitir dados ou receber dados do escravo. O escravo então envia um pulso de reconhecimento (ACK) após o endereço.</p>
-<p>Se o mestre (mestre-transmissor) estiver escrevendo para o escravo (escravo-receptor), o receptor recebe um byte de dados. Essa transação continua até que o mestre termine a transmissão com uma condição de STOP. Se o mestre estiver lendo de um escravo (mestre-receptor), o escravo transmite (escravo-transmissor) um byte de dados para o mestre, e o mestre então reconhece a transação com o pulso ACK. Essa transação continua até que o mestre termine a transmissão, e então o mestre emite uma condição de STOP.</p>
-<p><a class="glightbox" href="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\i2cCOMPORTAMENTO.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="i2cCOMPORTAMENTO" src="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\i2cCOMPORTAMENTO.png" /></a></p>
+<h2 id="introducao-ao-i2c">Introdução ao I2C</h2>
+<p>O I2C (Inter-Integrated Circuit) é um protocolo de comunicação serial síncrona que permite a comunicação entre microcontroladores e dispositivos periféricos utilizando apenas dois pinos: um chamado de <strong>SDA</strong> (Serial Data Line) e uma linha de clock <strong>SCL</strong> (Serial Clock Line). Ele foi desenvolvido pela Philips Semiconductor (atualmente NXP Semiconductors) nos anos 80.</p>
+<p>Breve Lista de alguns sensores que possuem comunicação I2C:</p>
+<ul>
+<li><a href="https://www.adafruit.com/product/2651">BMP280</a>: Sensor de pressão barométrica que pode ser usado para medir temperatura e pressão atmosférica com alta precisão.</li>
+<li><a href="https://www.adafruit.com/product/1899">HTU21D-F</a>: Sensor de temperatura e umidade que oferece medições de alta precisão em um pequeno pacote, ideal para aplicações meteorológicas.</li>
+<li><a href="https://www.adafruit.com/product/1782">MCP9808</a>: Sensor de temperatura de alta precisão que pode ser utilizado em ambientes controlados e monitoramento de sistemas.</li>
+<li><a href="https://www.adafruit.com/product/2809">LIS3DH</a>: Acelerômetro de baixo consumo de energia e alta precisão, capaz de detectar movimento e orientação.</li>
+<li><a href="https://www.adafruit.com/product/1980">TSL2591</a>: Sensor de luz digital de alta sensibilidade que pode medir luminosidade em uma ampla gama de condições de iluminação.</li>
+<li><a href="https://www.adafruit.com/product/3317">VL53L0X</a>: Sensor de distância por tempo de voo (Time-of-Flight, ToF) que oferece medições de distância precisas e rápidas em curtas distâncias.</li>
+</ul>
+<h2 id="topologia">Topologia</h2>
+<p>Para usar o I2C, é necessário conectar os dispositivos em uma infraestrutura de barramento, geralmente utilizando resistores de pull-up na linha de dados (SDA) e na linha de clock (SCL). O sinal de clock (SCL) é sempre gerado pelo dispositivo controlador, que é o dispositivo que inicia e controla as comunicações. O sinal de dados (SDA) pode ser manipulado tanto pelo dispositivo controlador quanto pelo dispositivo com o qual ele está se comunicando.</p>
+<p><a class="glightbox" href="../imgs/I2C-Components-with-pull-up-resistors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="I2C-Components-with-pull-up-resistors" src="../imgs/I2C-Components-with-pull-up-resistors.png" /></a></p>
+<p>É possível conectar um único dispositivo controlador a vários dispositivos em paralelo, formando uma topologia conhecida como "varal". Para possibilitar essa conexão, cada dispositivo é identificado por um endereço de 7 bits único.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Notem que o protocolo i2c exige que a linha tenha um <code>pull-up</code></p>
+</div>
+<h2 id="protocolo">Protocolo</h2>
+<p>A comunicação no protocolo I2C é baseada em transações de controlador e dispositivo. O dispositivo controlador inicia e controla as comunicações, enquanto os dispositivos respondem às solicitações do controlador.</p>
+<p><a class="glightbox" href="../imgs/i2c.drawio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="i2c.drawio" src="../imgs/i2c.drawio.png" /></a></p>
+<!--
+Abaixo disponibilizo uma visão geral do protocolo
+
+1. **Start Condition**: A comunicação no barramento I2C é iniciada por uma condição de início (start condition), na qual o controlador coloca o sinal SDA de nível alto para baixo enquanto o sinal SCL permanece em alto.
+
+2. **Endereçamento**: O controlador transmite o endereço do dispositivo com o qual deseja se comunicar. Cada dispositivo no barramento possui um endereço único de 7 ou 10 bits. O bit seguinte indica se o controlador está escrevendo (0) ou lendo (1) dados do dispositivo.
+
+3. **Acknowledge (ACK)**: Após o recebimento do endereço, o dispositivo correspondente responde com um sinal de ACK para confirmar que foi endereçado corretamente.
+
+4. **Transferência de Dados**: Após o endereçamento, o controlador pode enviar ou receber dados do dispositivo. Durante a transmissão de dados, o controlador envia bytes de dados para o dispositivo, que responde com sinais ACK após a recepção de cada byte.
+
+5. **Stop Condition**: Após concluir a comunicação, o controlador emite uma condição de parada (stop condition), na qual o sinal SDA é colocado de nível lógico baixo para alto enquanto o sinal SCL permanece em alto.
+
+ -->
+
+<p>O controlador é responsável por gerar o clock e controlar a transferência de dados. O dispositivo é responsável por transmitir ou receber dados do controlador. O reconhecimento dos dados é enviado pelo dispositivo que está recebendo os dados, podendo ser tanto um controlador quanto um dispositivo. O protocolo I2C também permite que vários controladores residam no barramento I2C.</p>
+<p>Cada dispositivo possui um endereço único que é determinado pela estrutura do sistema ou pelo dispositivo na linha. Quando um controlador deseja se comunicar com um dispositivo, o controlador transmite uma condição de START, seguida pelo endereço do dispositivo e um bit de controle (R/W) para determinar se o controlador deseja transmitir dados ou receber dados do dispositivo. O dispositivo então envia um pulso de reconhecimento (ACK) após o endereço.</p>
+<p>Se o controlador (controlador-transmissor) estiver escrevendo para o dispositivo (dispositivo-receptor), o receptor recebe um byte de dados. Essa transação continua até que o controlador termine a transmissão com uma condição de STOP. Se o controlador estiver lendo de um dispositivo (controlador-receptor), o dispositivo transmite (dispositivo-transmissor) um byte de dados para o controlador, e o controlador então reconhece a transação com o pulso ACK. Essa transação continua até que o controlador termine a transmissão, e então o controlador emite uma condição de STOP.</p>
+<p><a class="glightbox" href="../imgs/i2cCOMPORTAMENTO.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="i2cCOMPORTAMENTO" src="../imgs/i2cCOMPORTAMENTO.png" /></a></p>
 <h2 id="rp2040-pico">RP2040 / PICO</h2>
 <p>O RP2040, possui duas interfaces I2C idênticas (I2C0 e I2C1). Ambas são capazes de gerar sinais de clock, iniciar e encerrar comunicações (no modo mestre), apresentam filas de até dezesseis posições para entrada e saída, e suportam o uso de DMA. No modo dispositivo ("slave"), as interfaces podem verificar os endereços e disparar uma interrupção quando uma comunicação do mestre é recebida.</p>
 <p>Os pinos do RP2040 utilizados para comunicação I2C são configuráveis. A imagem abaixo apresenta as opções disponíveis:</p>
-<p><a class="glightbox" href="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\picow-I2C-pinout.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="picow-I2C-pinout" src="C:\Users\marcoasma\Desktop\site\content\rp2040\imgs\picow-I2C-pinout.png" /></a></p>
+<p><a class="glightbox" href="../imgs/picow-I2C-pinout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="picow-I2C-pinout" src="../imgs/picow-I2C-pinout.png" /></a></p>
 <h2 id="sdk">SDK</h2>
-<p>Para usar o PWM você deve modificar o <code>CMakeLists.txt</code> adicionando <code>hardware_adc</code> no <code>target_link_libraries</code>:</p>
+<p>Para usar o I2C você deve modificar o <code>CMakeLists.txt</code> adicionando <code>hardware_adc</code> no <code>target_link_libraries</code>:</p>
 <div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>target_link_libraries(
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span>                     ....
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w"> </span>                     .....
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gi">+                     hardware_adc)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gi">+                     hardware_i2c)</span>
 </code></pre></div>
 <p>E adicionar no headfile:</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;hardware/adc.h&quot;</span>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;hardware/i2c.h&quot;</span>
 </code></pre></div>
 <h2 id="snippets">Snippets</h2>
 <p>Códigos exemplo para o ADC.</p>

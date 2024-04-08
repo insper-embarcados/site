@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -640,6 +639,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../i2c-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -730,7 +754,7 @@
 </table>
 <h2 id="requisitos">Requisitos</h2>
 <p>Fazer a leitura de um joystick, formatar os dados corretamente e enviar via serial para a leitura do programa python.</p>
-<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-diagrama.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-diagrama.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-diagrama.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-diagrama.png" /></a></p>
 <h3 id="python">Python</h3>
 <p>No repositório estou fornecendo um programa python (<code>python/main.py</code>) que faz a leitura da porta UART e processa o dado para movimentar o mouse, para que isso funcione corretamente será necessário enviar os dados no seguinte formato:</p>
 <div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>AXIS VAL_1 VAL_0 EOP
@@ -767,7 +791,7 @@
 </code></pre></div>
 <h3 id="firmware">firmware</h3>
 <p>Para garantirmos a integridade do sinal analógico, vocês devem aplicar uma média móvel antes de fazer o envio do dado para a fila, mais com o intuito de trabalhar RTOS do que ser realmente necessário, iremos estruturar o firmware da seguinte maneira:</p>
-<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-rtos.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-rtos.png" width="800" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-rtos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-rtos.png" width="800" /></a></p>
 <p>Onde:</p>
 <ul>
 <li><code>x_task</code> e <code>y_task</code>: Fazem a leitura e filtragem do valor analógico</li>
@@ -778,7 +802,7 @@
 <p>A seguir dicas sobre como executarem o lab:</p>
 <h3 id="dados">Dados</h3>
 <p>Para o mouse funcionar correto devemos obter um valor <code>0</code> quando o mesmo não está parado e um valor positivo para mover por exemplo para direita (se for o eixo <code>x</code>) e um valor negativo para mover para esquerda. Ou seja, vamos ter que mudar a escala da leitura analógico de <code>0 ... 4095</code> para <code>-255 ... +255</code> e com uma zona morta, como indicado a seguir:</p>
-<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-escala.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-escala.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-escala.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-escala.png" /></a></p>
 <div class="admonition danger">
 <p class="admonition-title">Zona morta</p>
 <p>A zona morta define um valor que não deve ser realizado o envio para o python, ou se enviado o valor deve ser sempre 0. Isso é necessário por variações mecânicas que o potenciômetro possui, que quando solto o seu valor não é necessariamente 2095.</p>
@@ -814,11 +838,11 @@
             </a>
           
           
-            <a href="../../aps/aps-1-genius/"
+            <a href="../i2c-pre-lab/"
                class="ah-next"
-               title="Aps 1 genius">
+               title="Preparatório">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Aps 1 genius</span>
+              <span class="nav-title">Preparatório</span>
             </a>
           
         </div>
