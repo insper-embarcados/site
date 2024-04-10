@@ -80,6 +80,7 @@ extra:
     aps_2_deadline: Segunda 12/04 - Sexta
     aps_2_classroom: https://classroom.github.com/a/2cyfcwx3
 
+
 markdown_extensions:
   - footnotes
   - markdown.extensions.admonition

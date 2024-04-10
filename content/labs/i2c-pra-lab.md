@@ -40,6 +40,8 @@ while(1) {
 }
 ```
 
+
+
 ### Fusão de dados
 
 Os dados brutos de aceleração e giro não são muito fáceis de se usar, pois precisam ser "fundidos" para fornecerem informacoes mais úteis, uma dessas informacoes que podemos obter da fusão dos dados é chamada de "orientacão" (`roll, pitch e yaw`).
@@ -70,6 +72,23 @@ int main() {
       printf("Roll %0.1f, Pitch %0.1f, Yaw %0.1f\n", euler.angle.roll, euler.angle.pitch, euler.angle.yaw);
   }
 ```
+
+Os dados do acc e do giro não estão em unidades de gravidade e de aceleracao, como necessitado para o algortímo de fusão de dados, use a conversão a seguir para fazer a compatibiliade:
+
+```c
+FusionVector gyroscope = {
+    .axis.x = gyro[0] / 131.0f, // Conversão para graus/s
+    .axis.y = gyro[1] / 131.0f,
+    .axis.z = gyro[2] / 131.0f,
+};
+
+FusionVector accelerometer = {
+    .axis.x = acceleration[0] / 16384.0f, // Conversão para g
+    .axis.y = acceleration[1] / 16384.0f,
+    .axis.z = acceleration[2] / 16384.0f,
+};      
+```
+
 
 !!! warning "Atenção!"
     - Notem que a lib necessita saber a taxa de amostragem! `SAMPLE_PERIOD`, vocês precisam ajustar com o valor de vocês!
