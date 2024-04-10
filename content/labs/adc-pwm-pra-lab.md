@@ -81,6 +81,23 @@ Onde:
 
 A seguir dicas sobre como executarem o lab:
 
+###  JY-023 (joystick)
+
+Esse joystick é composto por 2 potênciometros e um  push button encapsulados em no mesmo componente. Os potenciômetros possuemuma curva anti logarítmica, ou seja, o centro do mesmo não representa 50% do valor da resistência, como representado no gráfico abaixo:
+
+
+
+![](imgs/potCurves.jpg)
+
+No gráfico da linear, linha roxa, metade do giro corresponde a metade da resistência. Já no da anti logarítmica, vermelha, repare como no começo do giro a progressão da resistência é rapida e brusca, e no final ela se torna bem lenta.
+
+
+
+!!! danger "Log para Linear"
+    Crie uma função que convertar o valor lido (curva logarítimica) em um valor linear, ou seja, quando o joystick estiver em respouso (ambos os eixos centralizados), o valor lido pelo ADC deverá ser 50% da escala de 0 a 4095, ou seja, aproximadamente 2047.
+
+
+
 ### Dados
 
 Para o mouse funcionar correto devemos obter um valor `0` quando o mesmo não está parado e um valor positivo para mover por exemplo para direita (se for o eixo `x`) e um valor negativo para mover para esquerda. Ou seja, vamos ter que mudar a escala da leitura analógico de `0 ... 4095` para `-255 ... +255` e com uma zona morta, como indicado a seguir:
