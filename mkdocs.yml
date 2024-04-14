@@ -120,6 +120,8 @@ nav:
     - Fabricação: prototipos/prototipos.md
     - Entradas: prototipos/entradas.md
     - Saídas: prototipos/saida.md
+  - Utils:
+      Uinput: utils/utils-uinput
   - Dispositivos:
       - dispositivos/buzzer.md
       - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04
