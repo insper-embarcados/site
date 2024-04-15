@@ -10,6 +10,7 @@
     - [Prof. Rafael Corsi](https://github.com/rafaelcorsi)
     - Técnico Marco Mello
     - [Prof. Aux. Arnaldo Jr (Tiozão)](https://www.linkedin.com/in/arnaldoavianajr/)
+    - [Técnico Daniel Messias (Daniboy)](https://www.linkedin.com/in/danielmpinto/)
 - **Já passou por aqui:**
     - (2023b) Prof. Diego Soler (treinamento) 
     - (2023a) Prof. Rodrigo Carareto 

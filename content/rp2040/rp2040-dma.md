@@ -19,18 +19,17 @@ DMA (Direct Memory Access) é um controlador especializado em transferir dados, 
 <details>
 <summary>Expanda se quiser saber sobre a história do DMA</summary>
 
-### Histório de desenvolvimento do DMA
-**O DMA não é uma coisa nova...**
+O DMA não é uma coisa nova...<br><br>
 
-- Foi introduzido inicialmente em computadores de mainframe entre os anos de 1950 - 1970. Inicialmente era um simples bloco com mecanismo para mover dados entre um dispositivo e uma memória.
+- Foi introduzido inicialmente em computadores de mainframe entre os anos de 1950 - 1970. Inicialmente era um simples bloco com mecanismo para mover dados entre um dispositivo e uma memória.<br>
 
-- Nos anos 80, dado a comercialização de computadores pessoais, o DMA tornou-se mais e mais comum em sistemas com periféricos, tal como drivers de memória.
+- Nos anos 80, dado a comercialização de computadores pessoais, o DMA tornou-se mais e mais comum em sistemas com periféricos, tal como drivers de memória.<br>
 
-- Nos anos 90, com alta nas aplicações na área de multimídia e internet, surgiram demandas por taxas de transferência de dados mais rápidas. Assim o DMA foi introduzido com foco em otimizar a transferência de dados e reduzir a latência.
+- Nos anos 90, com alta nas aplicações na área de multimídia e internet, surgiram demandas por taxas de transferência de dados mais rápidas. Assim o DMA foi introduzido com foco em otimizar a transferência de dados e reduzir a latência.<br>
 
-- Nos anos 2000, avanços na arquitetura envolvendo os barramentos do computador, tais como o surgimento de tecnologias como o PCI e PCIe, ocasionaram uma melhor comunicação entre dispositivos e a CPU.
+- Nos anos 2000, avanços na arquitetura envolvendo os barramentos do computador, tais como o surgimento de tecnologias como o PCI e PCIe, ocasionaram uma melhor comunicação entre dispositivos e a CPU.<br>
 
-- No ano de 2010, dado a emergência de computação paralela e processadores multi-core, os controladores DMA foram otimizados para processamento multi-threading.
+- No ano de 2010, dado a emergência de computação paralela e processadores multi-core, os controladores DMA foram otimizados para processamento multi-threading.<br>
 
 - Entre 2010 e 2020, com o destaque do IoT (Internet of Things) e sistemas embarcados, os controladores DMA foram adotados como requisito para sistemas de baixo consumo.
 </details>
@@ -144,8 +143,6 @@ E adicionar no headfile:
 
 Para treinar o uso do DMA, vamos fazer um pouco diferente desta vez:
 
-Vamos fazer um pouco diferente desta vez:
-
 1. Rode o código **hello_dma.c** da seção **Snippets**.
 
 2. Reserve um tempo para tentar entendê-lo.
@@ -253,7 +250,7 @@ Figura 4 - Conteúdo do array src[]
     int chan = dma_claim_unused_channel(true);
 ```
 
-A variável **chan**, que é uma abreviação de channel (canal em português), serve para reinvindicar um canal DMA que esteja livre para uso, ou seja, dentre os 12 canais que temos disponíveis no nosso microcontrolador, iremos utilizar um deles que está livre.
+A função variável **chan**, que é uma abreviação de channel (canal em português), recebe um valor da **dma_claim_unused_channel()**, esta que serve para reinvindicar um canal DMA que esteja livre para uso, ou seja, dentre os 12 canais que temos disponíveis no nosso microcontrolador, iremos utilizar um deles que está livre.
 - OBS: Se o parâmetro for **true** e não houver canais disponíveis, ocorrerá um erro.
 
 
