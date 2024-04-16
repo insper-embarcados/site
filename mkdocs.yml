@@ -147,6 +147,7 @@ nav:
       - PWM: rp2040/rp2040-pwm.md
       - I2C: rp2040/rp2040-i2c.md
       - DMA: rp2040/rp2040-dma.md
+      - UART: rp2040/rp2040-uart.md
   - FreeRTOS:
       - RTOS: freertos/freertos-basic.md
       - Tasks: freertos/freertos-tasks.md
