@@ -121,9 +121,10 @@ nav:
     - Entradas: prototipos/entradas.md
     - Saídas: prototipos/saida.md
   - Utils:
-      Uinput: utils/utils-uinput
-      Uinput: utils/utils-pyautogui
-      Uinput: utils/utils-vjoy
+      Uinput: utils/utils-uinput.md
+      pyautogui: utils/utils-pyautogui.md
+      vjoy: utils/utils-vjoy.md
+      Volume: utils/utils-volume.md
   - Dispositivos:
       - dispositivos/buzzer.md
       - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04

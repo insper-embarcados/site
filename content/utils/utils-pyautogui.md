@@ -2,9 +2,60 @@
 
 O pyautogui é uma biblioteca que permite emularmos um teclado ou mouse no Windows (até funciona para alguns Linux, mas precisa estar rodando o gerenciador de janelas no X11 e a maioria das ditros modernas utiliza Wayland, que não é compatível).
 
+!!! tip
+    Se o pyautogui não funcionar no seu jogo, substitua o pyautogui por pydirectinput.
+    !!! video
+           ![](https://www.youtube.com/watch?v=LFDGgFRqVIs)
+
 Para mais informações consulte a documentacão oficial:
 
 - pyautogui: https://pyautogui.readthedocs.io/en/latest/
+
+
+### Manter tecla pressionada
+
+Por padrão a lib não permite manter uma tecla pressionada (e ficar repetitivamente enviando o mesmo valor), para desativar basta remover o delay:
+
+```py
+    def __init__(self, port, baudrate):
+        pyautogui.PAUSE = 0  ## remove delay
+```
+
+Agora uma tecla "pressionada" ira ser enviada repetitivamente
+
+### keyboard
+
+- https://pyautogui.readthedocs.io/en/latest/keyboard.html#
+
+O pyautogui disponibiliza duas formas diferentes de apertarmos uma tecla: 
+
+- `press` que é uma ação de apertar e soltar uma tecla
+- `keyDown` e `keyUp` que são aćoes distintas de apertar e soltar
+
+```py
+pyautogui.keyDown('shift')  # hold down the shift key
+pyautogui.press('left')     # press the left arrow key
+pyautogui.press('left')     # press the left arrow key
+pyautogui.press('left')     # press the left arrow key
+pyautogui.keyUp('shift')    # release the shift key
+```
+
+Para uma lista das teclas suportas acesse:
+
+- https://pyautogui.readthedocs.io/en/latest/keyboard.html#keyboard-keys
+
+Se precisar fazer um combo (hotkeys) de teclas como o: `ctrl` + `alt` + `f4`, use o `hotkeys`:
+
+```py
+pyautogui.hotkey('ctrl', 'shift', 'f4')
+```
+
+### Emulando mouse
+
+A documentacão oficial é muito boa:
+
+- https://pyautogui.readthedocs.io/en/latest/mouse.html
+
 
 ## Code
 
