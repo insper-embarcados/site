@@ -122,6 +122,7 @@ nav:
     - Saídas: prototipos/saida.md
   - Utils:
       Uinput: utils/utils-uinput
+      Uinput: utils/utils-pyautogui
       Uinput: utils/utils-vjoy
   - Dispositivos:
       - dispositivos/buzzer.md

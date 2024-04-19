@@ -2,6 +2,8 @@
 
 !!! info
     Material original desenvolvido por [Fernando Alzueta](https://github.com/devfernandoa). 
+    
+    Emula um teclado, mouse ou joystick para o LINUX. Se você precisa emular um teclado ou mouse no windows, verificar o material sobre pyautogui, ou se precisar emular um joystick no windows, ver sobre o vjoy.
 
 Este código Python é projetado para emular um gamepad usando um microcontrolador conectado via serial (USB ou Bluetooth). Ele usa a biblioteca serial para comunicação serial e a biblioteca uinput para criar um dispositivo virtual do gamepad.
 
