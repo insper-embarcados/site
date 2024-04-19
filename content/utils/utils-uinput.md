@@ -58,6 +58,7 @@ void write_package(adc_t data) {
     uart_putc_raw(HC06_UART_ID, data.axis);
     uart_putc_raw(HC06_UART_ID, msb);
     uart_putc_raw(HC06_UART_ID, lsb);
+    uart_putc_raw(HC06_UART_ID, -1);
 }
 ```
 

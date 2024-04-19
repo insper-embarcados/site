@@ -122,6 +122,7 @@ nav:
     - Saídas: prototipos/saida.md
   - Utils:
       Uinput: utils/utils-uinput
+      Uinput: utils/utils-vjoy
   - Dispositivos:
       - dispositivos/buzzer.md
       - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04
