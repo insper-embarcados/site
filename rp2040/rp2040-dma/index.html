@@ -168,7 +168,31 @@
         
   
     <li>
-      <a href="../../utils/utils-uinput">Uinput</a>
+      <a href="../../utils/utils-uinput/">Uinput</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-pyautogui/">pyautogui</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-vjoy/">vjoy</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-volume/">Volume</a>
     </li>
   
 
@@ -388,6 +412,14 @@
             
         
       </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rp2040-uart/">UART</a>
     </li>
   
 
@@ -767,18 +799,17 @@
 <details>
 <summary>Expanda se quiser saber sobre a história do DMA</summary>
 
-### Histório de desenvolvimento do DMA
-**O DMA não é uma coisa nova...**
+O DMA não é uma coisa nova...<br><br>
 
-- Foi introduzido inicialmente em computadores de mainframe entre os anos de 1950 - 1970. Inicialmente era um simples bloco com mecanismo para mover dados entre um dispositivo e uma memória.
+- Foi introduzido inicialmente em computadores de mainframe entre os anos de 1950 - 1970. Inicialmente era um simples bloco com mecanismo para mover dados entre um dispositivo e uma memória.<br>
 
-- Nos anos 80, dado a comercialização de computadores pessoais, o DMA tornou-se mais e mais comum em sistemas com periféricos, tal como drivers de memória.
+- Nos anos 80, dado a comercialização de computadores pessoais, o DMA tornou-se mais e mais comum em sistemas com periféricos, tal como drivers de memória.<br>
 
-- Nos anos 90, com alta nas aplicações na área de multimídia e internet, surgiram demandas por taxas de transferência de dados mais rápidas. Assim o DMA foi introduzido com foco em otimizar a transferência de dados e reduzir a latência.
+- Nos anos 90, com alta nas aplicações na área de multimídia e internet, surgiram demandas por taxas de transferência de dados mais rápidas. Assim o DMA foi introduzido com foco em otimizar a transferência de dados e reduzir a latência.<br>
 
-- Nos anos 2000, avanços na arquitetura envolvendo os barramentos do computador, tais como o surgimento de tecnologias como o PCI e PCIe, ocasionaram uma melhor comunicação entre dispositivos e a CPU.
+- Nos anos 2000, avanços na arquitetura envolvendo os barramentos do computador, tais como o surgimento de tecnologias como o PCI e PCIe, ocasionaram uma melhor comunicação entre dispositivos e a CPU.<br>
 
-- No ano de 2010, dado a emergência de computação paralela e processadores multi-core, os controladores DMA foram otimizados para processamento multi-threading.
+- No ano de 2010, dado a emergência de computação paralela e processadores multi-core, os controladores DMA foram otimizados para processamento multi-threading.<br>
 
 - Entre 2010 e 2020, com o destaque do IoT (Internet of Things) e sistemas embarcados, os controladores DMA foram adotados como requisito para sistemas de baixo consumo.
 </details>
@@ -864,7 +895,6 @@ Cada um dos 12 canais tem seu pŕoprio registrador de controle e status, no qual
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;hardware/dma.h&quot;</span>
 </code></pre></div>
 <p>Para treinar o uso do DMA, vamos fazer um pouco diferente desta vez:</p>
-<p>Vamos fazer um pouco diferente desta vez:</p>
 <ol>
 <li>
 <p>Rode o código <strong>hello_dma.c</strong> da seção <strong>Snippets</strong>.</p>
@@ -953,7 +983,7 @@ Cada um dos 12 canais tem seu pŕoprio registrador de controle e status, no qual
 </ul>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">chan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dma_claim_unused_channel</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
-<p>A variável <strong>chan</strong>, que é uma abreviação de channel (canal em português), serve para reinvindicar um canal DMA que esteja livre para uso, ou seja, dentre os 12 canais que temos disponíveis no nosso microcontrolador, iremos utilizar um deles que está livre.
+<p>A função variável <strong>chan</strong>, que é uma abreviação de channel (canal em português), recebe um valor da <strong>dma_claim_unused_channel()</strong>, esta que serve para reinvindicar um canal DMA que esteja livre para uso, ou seja, dentre os 12 canais que temos disponíveis no nosso microcontrolador, iremos utilizar um deles que está livre.
 - OBS: Se o parâmetro for <strong>true</strong> e não houver canais disponíveis, ocorrerá um erro.</p>
 <ul>
 <li><strong>Pré configurando o canal</strong></li>
@@ -1135,11 +1165,11 @@ e pensando que cada caractere precisa de no mínimo 8 bits para ser representado
             </a>
           
           
-            <a href="../../freertos/freertos-basic/"
+            <a href="../rp2040-uart/"
                class="ah-next"
-               title="RTOS">
+               title="UART">
               <span class="nav-label">Next</span>
-              <span class="nav-title">RTOS</span>
+              <span class="nav-title">UART</span>
             </a>
           
         </div>

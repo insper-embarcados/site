@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Utils uinput - Computação Embarcada - 2.0</title>
+        <title>Uinput - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -161,14 +161,54 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Utils</span>
     <ul>
       
         
   
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Uinput</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#adicionando-ou-removendo-botoes">Adicionando ou Removendo Botões</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#code">Code</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
     <li>
-      <a href=".">Uinput</a>
+      <a href="../utils-pyautogui/">pyautogui</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../utils-vjoy/">vjoy</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../utils-volume/">Volume</a>
     </li>
   
 
@@ -348,6 +388,14 @@
   
     <li>
       <a href="../../rp2040/rp2040-dma/">DMA</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-uart/">UART</a>
     </li>
   
 
@@ -703,6 +751,10 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Utils</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -714,6 +766,7 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Material original desenvolvido por <a href="https://github.com/devfernandoa">Fernando Alzueta</a>. </p>
+<p>Emula um teclado, mouse ou joystick para o LINUX. Se você precisa emular um teclado ou mouse no windows, verificar o material sobre pyautogui, ou se precisar emular um joystick no windows, ver sobre o vjoy.</p>
 </div>
 <p>Este código Python é projetado para emular um gamepad usando um microcontrolador conectado via serial (USB ou Bluetooth). Ele usa a biblioteca serial para comunicação serial e a biblioteca uinput para criar um dispositivo virtual do gamepad.</p>
 <p>O código realiza as seguintes operações principais:</p>
@@ -759,7 +812,8 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">axis</span><span class="p">);</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="n">msb</span><span class="p">);</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="n">lsb</span><span class="p">);</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="code">Code</h2>
 <p>Código em python que emula um joystick</p>
@@ -858,6 +912,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../../prototipos/entradas/"
+               class="ah-prev"
+               title="Entradas">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Entradas</span>
+            </a>
+          
+          
+            <a href="../utils-pyautogui/"
+               class="ah-next"
+               title="pyautogui">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">pyautogui</span>
+            </a>
           
         </div>
       </footer>
