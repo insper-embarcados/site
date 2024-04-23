@@ -23,3 +23,9 @@ cmake_minimum_required(VERSION 3.12)
 
 +set(PICO_BOARD pico_w)
 ```
+
+## pico extras
+
+Alguns exemplos ainda estão em fase de testes e estão disponibilizados em um outro repositório:
+
+- [raspberrypi/pico-extras](https://github.com/raspberrypi/pico-extras/tree/master)

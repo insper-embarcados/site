@@ -189,7 +189,10 @@ nav:
       - I2C:
         - Preparatório: labs/i2c-pre-lab.md
         - Prática: labs/i2c-pra-lab.md
-
+  - Experts:
+        - Sobre: labs-expert/labs-expert-about.md
+        #- DSP:
+        #    - Preparatório: labs-expert/labs-expert-dsp-audio.md
   - APS:
       - aps/aps-1-genius.md
       - aps/aps-2-controle.md
