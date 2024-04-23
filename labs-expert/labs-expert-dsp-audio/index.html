@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert dsp audio pre - Computação Embarcada - 2.0</title>
+        <title>Labs expert dsp audio - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -704,6 +703,23 @@
             
               
   <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Experts</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-about.md">Sobre</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">APS</span>
     <ul>
       
@@ -743,7 +759,7 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="expert-dsp-audio-preparatorio">Expert - DSP - áudio - Preparatório</h1>
+<h1 id="expert-dsp-audio">Expert - DSP - Áudio</h1>
 <table>
 <thead>
 <tr>
@@ -752,16 +768,59 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Deadline</strong>: {{ lab_expert_dsp_audio_pre_deadline }}</td>
+<td><strong>Deadline</strong>: {{ lab_expert_dsp_audio_deadline }}</td>
 </tr>
 <tr>
-<td><strong>Atividade:</strong> <a href="{{ lab_expert_dsp_audio_pre_classroom }}">classroom</a></td>
+<td><a href="{{ lab_expert_dsp_audio_classroom }}">Repositório no classroom</a></td>
 </tr>
 <tr>
-<td>💰 30% nota de lab</td>
+<td>💰 100% nota de lab</td>
 </tr>
 </tbody>
 </table>
+<p>Neste laboratório iremos criar um sistema capaz de ler um microfone e produzir o sinal lido em um speaker! </p>
+<h2 id="lab">Lab</h2>
+<p>Fazer a leitura de um microfone é fácil, basta configurar o ADC e ler o valor que o microfone gera, criar uma base de tempo, e fazer a convecão periódicamente. Para saber como usar um microfone na pico, consulte:</p>
+<ul>
+<li><a href="https://github.com/raspberrypi/pico-examples/tree/master/adc/microphone_adc">pico-examples/adc/microphone_adc</a></li>
+</ul>
+<p>Agora o desafio é como fazemos para gerar o áudio, a maioria dos microcontroladores possui o conversor analógico para digital, mas poucos possuem um digital para analógico (DAC), que iria facilitar em muito a nossa vida, já que poderíamos simplesmente copiar o valor do ADC para DAC e bum, teríamos um som sendo gerado no pino, ai bastaria amplificar o sinal e pronto, teríamos um áudio sendo reproduzido!</p>
+<p><a class="glightbox" href="../imgs-dsp/adc-dac.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/adc-dac.png" /></a></p>
+<p>Como não temos o DAC, poderíamos pensar em algumas alternativas:</p>
+<ul>
+<li>Usar um codec de áudio externo para fazer a conversão</li>
+<li>Conectar um conversor digital to analog (DAC) </li>
+</ul>
+<p>Mas existe uma alternativa mais fácil e que não demanda o uso de um novo dispositivo, a alternativa envolve criarmos um DAC a partir de um PWM e um filtro passivo composto de um resistor e capacitor:</p>
+<p><a class="glightbox" href="../imgs-dsp/adc-pwm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/adc-pwm.png" /></a></p>
+<p>O repositório a seguir possui uma bom exemplo e demonstraćão de como gerar um áudio usando essa técnica na nossa pico! Inclusive com exemplo de como reproduzir uma música!</p>
+<ul>
+<li><a href="https://github.com/rgrosset/pico-pwm-audio/tree/main">https://github.com/rgrosset/pico-pwm-audio/tree/main</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Outras referencias: </p>
+<ul>
+<li><a href="http://antirez.com/news/143">http://antirez.com/news/143</a></li>
+<li><a href="http://www.openmusiclabs.com/learning/digital/pwm-dac.1.html">http://www.openmusiclabs.com/learning/digital/pwm-dac.1.html</a></li>
+</ul>
+</div>
+<h2 id="entrega">Entrega</h2>
+<p>Você deve entregar um sistema que é capaz de enquanto um botão estiver pressionado, ler um áudio via ADC e reproduzir o áudio via um PWM. </p>
+<p>Você vai precisar juntar esses dois exemplos:</p>
+<ul>
+<li><a href="https://github.com/raspberrypi/pico-examples/tree/master/adc/microphone_adc">pico-examples/adc/microphone_adc</a></li>
+<li><a href="https://github.com/rgrosset/pico-pwm-audio/">pico pwm audio</a></li>
+</ul>
+<p>Dicas:</p>
+<ul>
+<li>Primeiro rode o exemplo da PICO de microfone</li>
+<li>Execute o exemplo de áudio PWM<ul>
+<li>Lembre de montar o filtro com os resistores e capacitores</li>
+</ul>
+</li>
+<li>Junte os dois para fazer um sistema que reproduz um áudio.</li>
+</ul>
 
 
 </section>
