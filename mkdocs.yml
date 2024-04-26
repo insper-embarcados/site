@@ -195,6 +195,10 @@ nav:
         #    - Áudio: labs-expert/labs-expert-dsp-audio.md
         #- Firmware:
         #    - Driver: labs-expert/labs-expert-firmware-driver.md
+        #- PPM:
+        #    - Servomotor: labs-expert/labs-expert-ppm-servomotor.md
+        #- BME280:
+        #    -
 
   - APS:
       - aps/aps-1-genius.md
