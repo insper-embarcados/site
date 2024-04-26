@@ -1,0 +1,273 @@
+{
+  "course": "Active Handout Example 2022",
+  "exercises": {
+    "infra-linux-docker/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_5"
+      },
+      "exercise_6": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_6"
+      },
+      "exercise_7": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_7"
+      },
+      "exercise_8": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_8"
+      },
+      "exercise_9": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_9"
+      },
+      "exercise_10": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_10"
+      },
+      "exercise_11": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_11"
+      },
+      "exercise_12": {
+        "tags": [],
+        "slug": "infra-linux-docker/exercise_12"
+      }
+    },
+    "CodeQuality/cppcheck/": {
+      "choice_1": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/cppcheck/choice_1",
+        "answer_idx": 0
+      },
+      "choice_2": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/cppcheck/choice_2",
+        "answer_idx": 1
+      },
+      "choice_3": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/cppcheck/choice_3",
+        "answer_idx": 3
+      },
+      "exercise_1": {
+        "tags": [],
+        "slug": "CodeQuality/cppcheck/exercise_1"
+      }
+    },
+    "CodeQuality/head-file/": {
+      "choice_1": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/head-file/choice_1",
+        "answer_idx": 2
+      },
+      "choice_2": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/head-file/choice_2",
+        "answer_idx": 1
+      },
+      "exercise_1": {
+        "tags": [],
+        "slug": "CodeQuality/head-file/exercise_1"
+      }
+    },
+    "CodeQuality/isr-handler/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "CodeQuality/isr-handler/exercise_1"
+      }
+    },
+    "CodeQuality/isr-variables/": {
+      "choice_1": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/isr-variables/choice_1",
+        "answer_idx": 2
+      },
+      "exercise_1": {
+        "tags": [],
+        "slug": "CodeQuality/isr-variables/exercise_1"
+      }
+    },
+    "CodeQuality/variables/": {
+      "choice_1": {
+        "tags": [
+          "choice-exercise"
+        ],
+        "slug": "CodeQuality/variables/choice_1",
+        "answer_idx": 2
+      },
+      "exercise_1": {
+        "tags": [],
+        "slug": "CodeQuality/variables/exercise_1"
+      }
+    },
+    "labs/adc-pwm-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/adc-pwm-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/adc-pwm-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/adc-pwm-pre-lab/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "labs/adc-pwm-pre-lab/exercise_4"
+      }
+    },
+    "labs/gpio-pra-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/gpio-pra-lab/exercise_1"
+      }
+    },
+    "labs/gpio-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_5"
+      }
+    },
+    "labs/i2c-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "labs/i2c-pre-lab/exercise_4"
+      }
+    },
+    "labs/irq-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/irq-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/irq-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/irq-pre-lab/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "labs/irq-pre-lab/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "labs/irq-pre-lab/exercise_5"
+      },
+      "exercise_6": {
+        "tags": [],
+        "slug": "labs/irq-pre-lab/exercise_6"
+      }
+    },
+    "labs/rtos-pra-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/rtos-pra-lab/exercise_1"
+      }
+    },
+    "labs/rtos-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/rtos-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/rtos-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/rtos-pre-lab/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "labs/rtos-pre-lab/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "labs/rtos-pre-lab/exercise_5"
+      }
+    },
+    "labs/timer-pre-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/timer-pre-lab/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/timer-pre-lab/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "labs/timer-pre-lab/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "labs/timer-pre-lab/exercise_4"
+      }
+    }
+  },
+  "tags": {
+    "choice-exercise": "choice-exercise"
+  }
+}
