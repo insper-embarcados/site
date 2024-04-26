@@ -191,8 +191,11 @@ nav:
         - Prática: labs/i2c-pra-lab.md
   - Experts:
         - Sobre: labs-expert/labs-expert-about.md
-        #- DSP:
-        #    - Preparatório: labs-expert/labs-expert-dsp-audio.md
+        - DSP:
+            - Áudio: labs-expert/labs-expert-dsp-audio.md
+        - Firmware:
+            - Driver: labs-expert/labs-expert-firmware-driver.md
+
   - APS:
       - aps/aps-1-genius.md
       - aps/aps-2-controle.md

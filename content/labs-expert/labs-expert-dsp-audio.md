@@ -38,6 +38,7 @@ O repositório a seguir possui uma bom exemplo e demonstração de como gerar um
     
     - http://antirez.com/news/143
     - http://www.openmusiclabs.com/learning/digital/pwm-dac.1.html
+    - https://gregchadwick.co.uk/blog/playing-with-the-pico-pt3/
 
 ## Entrega
 
