@@ -6,15 +6,10 @@
 | [Repositório no classroom]({{lab_expert_wifi_classroom}}) |
 | 💰 100% nota de lab                                            |
 
-Neste laboratório, vamos explorar o `Raspberry Pi Pico W` que é uma versão da placa Pico que inclui conectividade `Wi-Fi`, o que abre uma variedade de novas aplicações para IoT. Algumas configurações básicas são necessárias, incluindo as configurações `cmakelist.txt` e modificações no código para utilizar esse recursus da  com o Pico W.
+Neste laboratório, vamos explorar os recursos de conectividade `Wi-Fi` da `Raspberry Pi Pico W`. 
 
-
-
-
-as capacidades de `WiFI` da `Raspberry Pi Pico W` utilizando a `conexão Wifi` e o protocolo de comunicação `MQTT`, um protocolo leve de mensagens ideal para dispositivos conectados à Internet. 
-
-O Raspberry Pi Pico W é uma versão do Pico que inclui conectividade Wi-Fi, o que abre uma variedade de novas aplicações para IoT.
-
+!!! warning
+    Lembrando que algumas configurações básicas são necessárias, incluindo as configurações `cmakelist.txt` e modificações no código para utilizar esse recursus da  com o Pico W. Relembre essas configurações no exemplo blink com pico W. 
 
 ## Lab
 
@@ -24,6 +19,189 @@ O objetivo é desenvolver um sistema de monitoramento de temperatura e umidade q
 
 - Raspberry Pi Pico W
 - Sensor de temperatura e umidade (veficar os modelos disponíveis no lab)
+
+### Desenvolvimento
+
+Ao longo deste laboratório vamos entender como trabalhar com o modulo wifi
+
+#### Conectando-se na internet
+
+O código base a seguir irá tentar se conectar à internet, se for sucesso o led da placa acende.
+
+
+```C
+#include "pico/stdlib.h"
+#include "pico/cyw43_arch.h"
+
+#define WIFI_SSID "your_wifi_ssid"
+#define WIFI_PASSWORD "your_wifi_password"
+
+int main() {
+    stdio_init_all();
+
+    // Inicializa o módulo Wi-Fi
+    if (cyw43_arch_init()) {
+        printf("Falha na inicialização do Wi-Fi\n");
+        return -1;
+    }
+    printf("Wi-Fi inicializado com sucesso\n");
+
+    // Ativa o modo de estação (STA)
+    cyw43_arch_enable_sta_mode();
+
+    // Tenta conectar ao Wi-Fi
+    int result = cyw43_arch_wifi_connect_blocking(WIFI_SSID, WIFI_PASSWORD, CYW43_AUTH_WPA2_MIXED_PSK);
+
+    // Verifica o resultado da conexão
+    if (result) {
+        printf("Conexão Wi-Fi falhou\n");
+        cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0); // Desliga o LED
+        return -1;
+    }
+
+    // Se conectado com sucesso, acende o LED
+    printf("Conectado ao Wi-Fi com sucesso\n");
+    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1); // Acende o LED
+
+    // Mantém o programa rodando
+    while (true) {
+        printf("loop principal\n");
+        sleep_ms(1000);
+    }
+}
+
+```
+- `cyw43_arch_enable_sta_mode()`: O dispositivo atua como um cliente Wi-Fi, o que significa que ele se conecta a uma rede Wi-Fi existente (como a de sua casa ou escritório).
+
+
+
+#### Comunicar-se com uma API REST
+
+Vamos fazer a raspiberry pi pico W receber os dados de uma API de previsão do tempo.
+
+
+```C
+//refatorado
+#include "lwip/dns.h"
+#include "pico/stdlib.h"
+#include "pico/cyw43_arch.h"
+#include "lwip/apps/mqtt.h"
+
+#define HIVEMQ_PORT (1883)
+#define HIVEMQ_HOST "public.mqtthq.com"
+
+struct mqtt_connect_client_info_t hivemq_client_info = {
+    .client_id = "picow",
+    .client_user = NULL,
+    .client_pass = NULL,
+    .keep_alive = 100,
+    .will_msg = NULL,
+    .will_topic = NULL
+};
+volatile int blink_period = 20;
+
+ip_addr_t hiveIP;
+static mqtt_client_t *mqtt_client;
+
+void mqtt_request_callback(void *arg, err_t err) {
+    if(err != ERR_OK) {
+        printf("Subscription error\n");
+        blink_period = 0;
+    }
+}
+
+void mqtt_connection_callback(mqtt_client_t *client, void *arg, mqtt_connection_status_t status) {
+    if (status == MQTT_CONNECT_ACCEPTED) {
+        printf("MQTT Connected\n");
+        err_t statusSub = mqtt_sub_unsub(client, "hackatum2022-jetbrains", 1, mqtt_request_callback, NULL, 1);
+        if (statusSub != ERR_OK) {
+            printf("Subscription failed\n");
+            blink_period = 10;
+        } else {
+            blink_period = 100;
+        }
+    } else {
+        printf("MQTT Connection failed\n");
+        blink_period = 10;
+    }
+}
+
+void hivemq_found_callback(const char *name, const ip_addr_t *ipaddr, void *callback_arg) {
+    if (ipaddr == NULL) {
+        printf("DNS resolution failed\n");
+        blink_period = 10;
+    } else {
+        blink_period = 50;
+        memcpy(&hiveIP, ipaddr, sizeof(ip4_addr_t));
+        mqtt_client_connect(mqtt_client, &hiveIP, HIVEMQ_PORT, mqtt_connection_callback, NULL, &hivemq_client_info);
+    }
+}
+
+void mqtt_incoming_data_cb(void *arg, const u8_t *data, u16_t len, u8_t flags) {
+    if (data == NULL || len == 0) {
+        printf("Empty data received\n");
+        blink_period = 0;
+    } else {
+        int value = *data - '0';
+        if (value >= 0 && value <= 9) {
+            blink_period = 200 * value;
+        } else {
+            printf("Invalid data format\n");
+            blink_period = 0;
+        }
+    }
+}
+
+void mqtt_incoming_publish_cb(void *arg, const char *topic, u32_t tot_len) {
+    if (tot_len == 0) {
+        printf("Empty publish received\n");
+        blink_period = 0;
+    }
+}
+
+int main() {
+    stdio_init_all();
+    if (cyw43_arch_init()) {
+        printf("WiFi init failed\n");
+        return -1;
+    }
+
+    cyw43_arch_enable_sta_mode();
+    int result = cyw43_arch_wifi_connect_blocking("jetbrains-hackatum", "rpipicow", CYW43_AUTH_WPA2_MIXED_PSK);
+    if (result) {
+        printf("WiFi connection failed\n");
+        return -1;
+    }
+    printf("WiFi connected\n");
+    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
+    cyw43_arch_lwip_begin();
+
+    dns_gethostbyname(HIVEMQ_HOST, &hiveIP, &hivemq_found_callback, NULL);
+    mqtt_client = mqtt_client_new();
+    if (mqtt_client == NULL) {
+        printf("Failed to create MQTT client\n");
+        return -1;
+    }
+
+    mqtt_set_inpub_callback(mqtt_client, mqtt_incoming_publish_cb, mqtt_incoming_data_cb, NULL);
+
+    while (true) {
+        if (blink_period > 0) {
+            cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
+            sleep_ms(blink_period);
+            cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
+            sleep_ms(blink_period);
+        } else {
+            cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
+        }
+    }
+}
+
+
+```
+
+
+
 
 
 
@@ -65,56 +243,3 @@ https://github.com/SMerrony/picowpanel/tree/main
 https://mcuoneclipse.com/2023/02/11/using-mqtt-with-the-raspberry-pi-pico-w-and-homeassistant-for-an-optimized-solar-energy-electrical-vehicle-charger/
 
 ble https://mcuoneclipse.com/2023/03/19/ble-with-wifi-and-freertos-on-raspberry-pi-pico-w/
-```C
-#include "pico/stdlib.h"
-#include "pico/cyw43_arch.h"
-#include "mqtt_client.h"
-
-// Substitua esses valores pelos detalhes do seu WiFi e MQTT Broker
-const char *ssid = "your_ssid";
-const char *password = "your_password";
-const char *mqtt_broker = "broker_address";
-
-// Função para conectar ao WiFi
-void connect_to_wifi() {
-    cyw43_arch_init();
-    if (cyw43_arch_wifi_connect_timeout_ms(ssid, password, CYW43_AUTH_WPA2_AES_PSK, 10000) != 0) {
-        printf("Falha na conexão WiFi\n");
-    } else {
-        printf("Conectado ao WiFi\n");
-    }
-}
-
-if (cyw43_arch_init()) {
-        printf("failed to initialise\n");
-        return 1;
-    }
-
-// Função principal
-int main() {
-    stdio_init_all();
-    connect_to_wifi();
-
-    mqtt_client_t client;
-    mqtt_init(&client, mqtt_broker);
-
-    if (mqtt_connect(&client)) {
-        printf("Conectado ao MQTT Broker\n");
-    } else {
-        printf("Falha na conexão MQTT\n");
-        return 1;
-    }
-
-    // Substitua "topic" e "message" pelos seus dados
-    if (mqtt_publish(&client, "topic", "message", QOS_0)) {
-        printf("Mensagem publicada\n");
-    } else {
-        printf("Falha ao publicar mensagem\n");
-    }
-
-    mqtt_disconnect(&client);
-    cyw43_arch_deinit();
-    return 0;
-}
-
-```
