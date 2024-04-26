@@ -6,7 +6,15 @@
 | [Repositório no classroom]({{lab_expert_wifi_classroom}}) |
 | 💰 100% nota de lab                                            |
 
-Neste laboratório, vamos explorar as capacidades de `WiFI` da `Raspberry Pi Pico W` utilizando a `conexão Wifi` e o protocolo de comunicação `MQTT`, um protocolo leve de mensagens ideal para dispositivos conectados à Internet. 
+Neste laboratório, vamos explorar o `Raspberry Pi Pico W` que é uma versão da placa Pico que inclui conectividade `Wi-Fi`, o que abre uma variedade de novas aplicações para IoT. Algumas configurações básicas são necessárias, incluindo as configurações `cmakelist.txt` e modificações no código para utilizar esse recursus da  com o Pico W.
+
+
+
+
+as capacidades de `WiFI` da `Raspberry Pi Pico W` utilizando a `conexão Wifi` e o protocolo de comunicação `MQTT`, um protocolo leve de mensagens ideal para dispositivos conectados à Internet. 
+
+O Raspberry Pi Pico W é uma versão do Pico que inclui conectividade Wi-Fi, o que abre uma variedade de novas aplicações para IoT.
+
 
 ## Lab
 
