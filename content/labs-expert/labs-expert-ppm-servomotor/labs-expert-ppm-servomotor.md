@@ -58,17 +58,15 @@ Para controlar o servomoto não é complicado, basta você ajustar um [exemplo d
 
 https://github.com/irishpatrick/pico-servo/tree/main
 
+!!! warning "Desafio 1"
 
-
-###### Desafio 1
-
-Agora que já sabemos como ajustar a posição o servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
+​	Agora que já sabemos como ajustar a posição o servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
 
 
 
-###### Desafio 2
+!!! warning "Desafio 2"
 
-Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
+​	Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
 
 
 
@@ -130,9 +128,9 @@ https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutori
 
 
 
-###### Desafio 3
+!!! warning "Desafio 3"
 
-Implementar a leitura de cada um desses sensores na Pico W, printando seu valor já convertido para sua grandeza física.
+​	Implementar a leitura de cada um desses sensores na Pico W, printando seu valor já convertido para sua grandeza física.
 
 
 
@@ -155,4 +153,5 @@ Você deve entregar um sistema que seja possível selecionar entre 2 dos sensore
 1. Implementar o sistema com RTOS;
 
 2. Cada um dos sensores deverá estar ligado a um pino ADC diferente;
+
 3. Controle mecanicamente algum objeto, com um objetivo.
