@@ -30,7 +30,7 @@ PPM (Pulse Position Modulation) é um técnica onde a informação é codificada
 
 Um servomotor é um dispositivo que pode girar um determinado ângulo de acordo com o sinal que recebe. Ele possui três fios: um para fornecer energia (VCC), um para aterramento (GND) e um para o sinal de controle.
 
-### ![Tipos_de_Servo_Motor](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\Tipos_de_Servo_Motor.jpg)
+### ![Tipos_de_Servo_Motor](imgs-ppm-servomotor\Tipos_de_Servo_Motor.jpg)
 
 
 
@@ -82,7 +82,7 @@ Existem diversos componentes que também variam sua resistência ou possuem uma 
 
 
 
-![ldrPico](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\ldrPico.png)
+![ldrPico](imgs-ppm-servomotor\ldrPico.png)
 
 
 
@@ -100,7 +100,7 @@ https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview
 
 
 
-![termistor](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\termistor.jpg)
+![termistor](imgs-ppm-servomotor\termistor.jpg)
 
 
 
@@ -118,7 +118,7 @@ https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/
 
 
 
-![sharpSENSOR](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\sharpSENSOR.jpg)
+![sharpSENSOR](imgs-ppm-servomotor\sharpSENSOR.jpg)
 
 
 
