@@ -6,23 +6,33 @@
 | [Repositório no classroom]({{lab_expert_dsp_audio_classroom}}) |
 | 💰 100% nota de lab                                           |
 
-Neste laboratório iremos criar um sistema capaz de ajustar a posição de um servomotor através da leitura de luminosidade de um LDR! 
+Neste laboratório iremos criar um sistema capaz de ajustar a posição de um servomotor através da seleção de sensores diferentes! 
+
+
 
 ### PWM
 
-Como foi estudado no LAB 5 podemos controlar o brilho de um LED através de um técnica chamada de PWM (Pulse Width Modulation), esta técnica permite que um sinal digital seja modulado em largura de pulso, variando a razão entre o tempo em que o sinal está em nível alto (1) e o tempo em que está em nível baixo (0). Isso resulta em um sinal com uma largura de pulso variável, o que permite controlar a média de potência entregue ao dispositivo:
-
-![dutyPWM](imgs-ppm-servomotor\dutyPWM.svg)
-
-Na imagem acima podemos observar 3 ondas PWM com duty cycles diferentes, ou seja, dependendo da variação da lagura de pulso em um período T específico, conseguimos controlar a potência entregue na saída PWM, se cosideramos que um LED está ligado a esse sinal, seu brilho irá variar dependendo do pulso, onde 0% ele estaria apagado e 100% ele está aceso com toda a potência disponível.
-
-Diversos dispositivos além de LED podem ser controlados através da utilização do PWM, como por exemplo Motores DC (Velocidade), Pastilhas Peltier (Temperatura), Fan de PC (Velocidade), Fita de LED (Brilho) e Servomotor (Posição).
+Como foi estudado no LAB 5 podemos controlar o brilho de um LED através de um técnica chamada de PWM (Pulse Width Modulation), esta técnica permite que um sinal digital seja modulado em largura de pulso, variando a razão entre o tempo em que o sinal está em nível alto (1) e o tempo em que está em nível baixo (0). Isso resulta em um sinal com uma largura de pulso variável, o que permite controlar a média de potência entregue ao dispositivo, relembre:
 
 
 
-### PPM - Servomotor
+https://insper-embarcados.github.io/site/rp2040/rp2040-pwm/
+
+
+
+### PPM
 
 PPM (Pulse Position Modulation) é um técnica onde a informação é codificada na posição do pulso em relação a um intervalo de tempo fixo. Em um sinal PPM, um pulso é enviado em momentos específicos durante um período fixo, e a posição desses pulsos em relação ao início do período é usada para representar dados.
+
+
+
+### Servomotor
+
+Um servomotor é um dispositivo que pode girar um determinado ângulo de acordo com o sinal que recebe. Ele possui três fios: um para fornecer energia (VCC), um para aterramento (GND) e um para o sinal de controle.
+
+### ![Tipos_de_Servo_Motor](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\Tipos_de_Servo_Motor.jpg)
+
+
 
 A maioria dos servomotores utiliza o PPM, normalmente, aplicam essa técnica através de pulsos PWM com uma frequência de cerca de 50 Hz (ou um período de 20 ms), e a largura do pulso determina a posição desejada do servomotor. Um pulso de 1 ms geralmente representa a posição mínima, um pulso de 1,5 ms representa a posição central e um pulso de 2 ms representa a posição máxima, embora esses valores possam variar dependendo do fabricante e do modelo específico do servomotor:
 
@@ -30,41 +40,119 @@ A maioria dos servomotores utiliza o PPM, normalmente, aplicam essa técnica atr
 
 ![ppmSERVO](imgs-ppm-servomotor\ppmSERVO.jpg)
 
-​																Figura 2
+
+
+Para entender melhor, acesse:
+
+https://blog.wokwi.com/learn-servo-motor-using-wokwi-logic-analyzer/
+
+
+
+
 
 ## Lab
 
-Existem algumas formas de aferir o duty cycle que está sendo gerado pelo PWM, uma delas é utilizando a própria Pico W para isso, consulte e execute o exemplo:
+Para controlar o servomoto não é complicado, basta você ajustar um [exemplo do PWM](https://github.com/raspberrypi/pico-examples/tree/master/pwm/hello_pwm) , ajustando o ciclo de trabalho (duty cycle) com um período de 20ms (50Hz), o servo responderá ao comprimento do pulso dentro desse período. Para entender como aplicar, consulte:
 
 
 
-https://github.com/raspberrypi/pico-examples/tree/master/pwm/measure_duty_cycle
+https://github.com/irishpatrick/pico-servo/tree/main
 
 
 
-Esse exemplo acima não é a forma ideal para aferir o duty cycle de um sinal PWM, existem equipamentos melhores e mais precisos para essa finalidade, um desses equipamentos é o Osciloscópio:
+###### Desafio 1
+
+Agora que já sabemos como ajustar a posição o servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
 
 
 
-![DPO_2021B](imgs-ppm-servomotor\DPO_2021B.jpeg)
+###### Desafio 2
+
+Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
 
 
 
-Agora conecte o sinal PWM que está sendo gerado no GPIO do exemplo e compare o valor aferido pelo Osciloscópio.
+Após os desafios você poderá controlar a posição do servomotor através da posiçao do potenciômetro, certo? Podemos entender então que o potenciômetro está trabalhando como um sensor de posição, onde o seu comportamento é o de variar a resistência dependendo da sua posição.
+
+Existem diversos componentes que também variam sua resistência ou possuem uma resposta sinal analógico, através de estimulos do meio ambiente, e esses tipos de componentes podem ser utilizados como sensores em diversas aplicações:
 
 
 
-## Desafio
+#### 1 - LDR
 
-Sabendo que é possível aferir o sinal utilizando o osciloscópio, vamos modificar o exemplo do PWM para gerar um sinal PPM compatível com os formatos de onda da Figura 2.
+
+
+![ldrPico](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\ldrPico.png)
+
+
+
+
+
+O LDR (Light Dependent Resistor), também conhecido como fotorresistor, é um tipo de sensor passivo. Isso significa que ele não requer energia externa para funcionar e não produz energia própria. Em vez disso, sua resistência elétrica varia em resposta à intensidade da luz incidente. Para entender melhor, consulte:
+
+
+
+https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview
+
+
+
+#### 2 - Termistor NTC
+
+
+
+![termistor](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\termistor.jpg)
+
+
+
+Um termistor NTC é composto de um material semicondutor cuja resistência elétrica diminui quando a temperatura aumenta. Isso significa que ele possui um coeficiente de temperatura negativo, daí o nome "Negative Temperature Coefficient". Quando a temperatura aumenta, os elétrons do material semicondutor ganham energia térmica, o que aumenta sua mobilidade e reduz a resistência elétrica do termistor. Para entender melhor, consulte:
+
+
+
+https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/
+
+
+
+
+
+#### 3 - SHARP
+
+
+
+![sharpSENSOR](C:\Users\marcoasma\Desktop\site\content\labs-expert\labs-expert-ppm-servomotor\imgs-ppm-servomotor\sharpSENSOR.jpg)
+
+
+
+Sendo o mais genérico deos apresentados, esse tipo sensor de ele possui diversa aplicações como: **sensor de proximidade**, **sensor de distância** e **sensor de movimento** . Esse tipo de sensor emite luz infravermelha em direção a um objeto e medem o tempo que leva para a luz refletida retornar ao sensor. Ele possui um circuito integrado que calcula essa distância até o objeto com base no ângulo de inclinação do feixe de luz refletido. Os sensores Sharp geralmente fornecem uma saída analógica que é proporcional à distância medida até o objeto. Essa saída analógica pode variar de acordo com o modelo específico do sensor, mas geralmente é uma tensão ou corrente que varia de acordo com a distância. Para entender melhor, consulte:
+
+
+
+https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/
+
+
+
+###### Desafio 3
+
+Implementar a leitura de cada um desses sensores na Pico W, printando seu valor já convertido para sua grandeza física.
+
+
 
 ## Entrega
 
-Vocês já fizeram diversas entregas utilizando ADC, agora a proposta é que vocês leiam o valor da luminosidade de um LDR e modifiquem a posição do servomotor dependendo dessa luminosidade.
+Você deve entregar um sistema que seja possível selecionar entre 2 dos sensores, onde cada um irá ajustar a posição de um servomotor diferente, por sua vez, o movimento do motor terá que influênciar mecânicamente em algum objeto, como alguns exemplos abaixo:
 
 
 
-- Primeiro rode o exemplo da PICO do PWM
-- Modifique o exemplo para o sinal ser compatível com PPM
-- Monte e faça a leitura dos valores do LDR
-- Desenvolva um código para que o servomotor vá para uma posição relativa ao valor da luminosidade lida pelo LDR.
+1 - https://labdegaragem.com/profiles/blogs/tutorial-robo-de-papel-faca-o-seu-garabot-controlado-por-ir
+
+2 - http://www.pyroelectro.com/tutorials/robotic_eyebrows/
+
+3 - https://www.youtube.com/watch?v=QH8MPCCrpbg
+
+
+
+**Requisitos:**
+
+1. Implementar o sistema com RTOS;
+
+2. Cada um dos sensores deverá estar ligado a um pino ADC diferente;
+3. Controle mecanicamente algum objeto, com um objetivo.
