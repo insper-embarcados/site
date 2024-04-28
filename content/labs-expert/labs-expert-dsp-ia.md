@@ -26,7 +26,7 @@ Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo uti
 
 Antes de começar temos que realizar alguns procedimentos para utilizarmos o Edge Impulse.
 
-1. Crie uma conta no [Edge Impuolse](https://edgeimpulse.com/).
+1. Crie uma conta no [Edge Impulse](https://edgeimpulse.com/).
 
 2. Verifique se possui **Python 3** instalado no computador.
 
@@ -36,7 +36,6 @@ Antes de começar temos que realizar alguns procedimentos para utilizarmos o Edg
 curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 node -v
-The last command should return the node version, v20 or above.
 ```
 
 Verifique o diretório de instalação do Node.
@@ -79,7 +78,7 @@ Figura 1 - Edge Impulse Workflow
 
 ![edge impulse workflow](./imgs-dsp/ia-edgeflux.png)
 
-Abaixo há um vídeo demonstrando a feature **Live Classification** do Edge Impulse com a Raspberry Pico + MPU6050 para classficiar **idle e walking**.
+Abaixo há um vídeo demonstrando a feature **Live Classification** do Edge Impulse com a Raspberry Pico + MPU6050 para classificar **idle e walking**.
 
 !!! video
     ![](https://www.youtube.com/watch?v=7mkDIP3a95I)
@@ -100,17 +99,26 @@ Para entrega você deve realizar o deploy do seu modelo, depois de treinado e va
 
 
 Dicas:
+
 - Comece criando uma conta do Edge Impulse.
+
 - Siga a documentação oficial do Edge impulse em: https://docs.edgeimpulse.com/docs
+
 - Crie um novo projeto no Edge Impulse.
+
 - Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli)
+
 - Realize a aquisição de dados com duas labels, idle e walking.
+
 - Configure o Impulse Design e treine seu modelo.
+
 - Depois de treinar teste o mesmo com Live Classification.
+
 - Depois de testado faça o deploy para o microcontrolador.
 
 
 ## Referências:
 
 https://edgeimpulse.com/about
+
 https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing
