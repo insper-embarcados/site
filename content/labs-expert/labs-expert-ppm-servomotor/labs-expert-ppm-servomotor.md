@@ -8,17 +8,20 @@
 
 Neste laboratório, iremos criar um sistema capaz de ajustar a posição de um servomotor através da seleção de diferentes sensores!
 
+
 ### PWM
 
 Como foi estudado no LAB 5, podemos controlar o brilho de um LED através de uma técnica chamada de PWM (Pulse Width Modulation). Essa técnica permite que um sinal digital seja modulado em largura de pulso, variando a razão entre o tempo em que o sinal está em nível alto (1) e o tempo em que está em nível baixo (0). Isso resulta em um sinal com uma largura de pulso variável, o que permite controlar a média de potência entregue ao dispositivo. Relembre:
 
 https://insper-embarcados.github.io/site/rp2040/rp2040-pwm/
 
+
 ### PPM
 
 PPM (Pulse Position Modulation) é uma técnica onde a informação é codificada na posição do pulso em relação a um intervalo de tempo fixo. Em um sinal PPM, um pulso é enviado em momentos específicos durante um período fixo, e a posição desses pulsos em relação ao início do período é usada para representar dados:
 
 https://www.geeksforgeeks.org/pulse-position-modulation-ppm/
+
 
 ### Servomotor
 
@@ -33,6 +36,7 @@ A maioria dos servomotores utiliza o PPM. Normalmente, aplicam essa técnica atr
 Para entender melhor, acesse:
 
 https://blog.wokwi.com/learn-servo-motor-using-wokwi-logic-analyzer/
+
 
 ## Lab
 
@@ -50,6 +54,7 @@ Após os desafios, você poderá controlar a posição do servomotor através da
 
 Existem diversos componentes que também variam sua resistência ou possuem uma resposta sinal analógico, através de estímulos do meio ambiente, e esses tipos de componentes podem ser utilizados como sensores em diversas aplicações:
 
+
 #### 1 - LDR
 
 ![LDR Pico](imgs-ppm-servomotor/ldrPico.png)
@@ -58,6 +63,7 @@ O LDR (Light Dependent Resistor), também conhecido como fotorresistor, é um ti
 
 https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview
 
+
 #### 2 - Termistor NTC
 
 ![Termistor](imgs-ppm-servomotor/termistor.jpg)
@@ -65,6 +71,7 @@ https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview
 Um termistor NTC é composto de um material semicondutor cuja resistência elétrica diminui quando a temperatura aumenta. Isso significa que ele possui um coeficiente de temperatura negativo, daí o nome "Negative Temperature Coefficient". Quando a temperatura aumenta, os elétrons do material semicondutor ganham energia térmica, o que aumenta sua mobilidade e reduz a resistência elétrica do termistor. Para entender melhor, consulte:
 
 https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/
+
 
 #### 3 - SHARP
 
@@ -77,6 +84,7 @@ https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutori
 !!! warning "Desafio 3"
     Implementar a leitura de cada um desses sensores na Pico W, imprimindo seu valor já convertido para sua grandeza física.
 
+
 ## Entrega
 
 Você deve entregar um sistema que seja possível selecionar entre 2 dos sensores, onde cada um irá ajustar a posição de um servomotor diferente. Por sua vez, o movimento do motor terá que influenciar mecanicamente em algum objeto, como alguns exemplos abaixo:
@@ -84,6 +92,7 @@ Você deve entregar um sistema que seja possível selecionar entre 2 dos sensore
 1. [Tutorial - Robô de Papel](https://labdegaragem.com/profiles/blogs/tutorial-robo-de-papel-faca-o-seu-garabot-controlado-por-ir)
 2. [Robotic Eyebrows](http://www.pyroelectro.com/tutorials/robotic_eyebrows/)
 3. [Arduino-Controlled Robotic Hand](https://www.youtube.com/watch?v=QH8MPCCrpbg)
+
 
 **Requisitos:**
 
