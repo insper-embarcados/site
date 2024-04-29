@@ -100,13 +100,18 @@ int main() {
 - `scan_result`: A função de callback pega o resultado e imprime seu conteúdo. O `BSSID` (Basic Service Set Identifier) da rede, que é o endereço MAC do ponto de acesso que transmite a SSID. É composto por 6 bytes, usualmente exibidos em formato hexadecimal.
 
 !!! exercice
-    Crie um novo projeto e faça o scan das redes Wi-Fi para validar a o funcionamento do modulo Wi-Fi da Raspiberry Pi Pico W. Rotei a internet do seu computador ou celular e avalie se está rede aparece disponivel.
+    Crie um novo projeto e faça o scan das redes Wi-Fi para validar a o funcionamento do modulo Wi-Fi da Raspiberry Pi Pico W. 
+    - Use seu computador ou celular como roteador e avalie se aparece disponivel no scan.
+    - Note que algumas redes aparecem duplicadas e com a potência muito baixa.
+
+    [](./imgs/scan_network.png)
+
+    - Crie uma função para ordenar as redes disponiveis por potência RSSI e que remova as redes duplicdas.
 
 
 #### Conectando-se na internet
 
 O código base a seguir irá `tentar` se conectar à internet, se for sucesso o led da placa acende.
-
 
 ```C
 #include "pico/stdlib.h"
@@ -150,6 +155,7 @@ int main() {
 }
 
 ```
+
 - `cyw43_arch_enable_sta_mode()`: O dispositivo atua como um cliente Wi-Fi, o que significa que ele se conecta a uma rede Wi-Fi existente (como a de sua casa ou escritório).
 
 - `cyw43_arch_wifi_connect_blocking()`: Esta função tenta estabelecer uma conexão Wi-Fi usando as credenciais fornecidas (SSID e senha) e tipo de autenticação. Ela bloqueará a execução do programa até que a conexão Wi-Fi seja estabelecida ou falhe. Isso significa que, se a conexão Wi-Fi demorar muito ou não for bem-sucedida, seu programa esperará indefinidamente, a menos que seja interrompido externamente.
@@ -202,6 +208,7 @@ get_wifi_status(cyw43_tcpip_link_status(&cyw43_state, CYW43_ITF_STA));
 
 #### Verificando seu IP
 
+Após conectado é possivel vericar o IP alocado para a raspberry pi Pico.
 
 ```C
    char sIP[] = "xxx.xxx.xxx.xxx";  
@@ -211,10 +218,15 @@ get_wifi_status(cyw43_tcpip_link_status(&cyw43_state, CYW43_ITF_STA));
 
 
 !!! exercice
-    Crie um código que realiza a cónexão Wi-Fi do seu computador ou celular (hotspot), defina a forma de conexão e vefique se a raspiberry pi Pico W está conectada ao hotspot. 
+    Vamos juntar o conhecimento adquirido até o momento. É considerada uma boa prática em projetos de IoT ter um código que `gerencia ativamente` a conexão e implementa uma `função de reconexão` em caso de perda de conexão. Essa abordagem ajuda a aumentar a resiliência e confiabilidade dos dispositivos em ambientes onde as conexões de rede podem ser intermitentes ou instáveis, como é comum em redes GSM ou via satélite​. Nesse sentido, crie um código que tenta realizar a cónexão Wi-Fi da Pico-W ao seu computador ou celular (em modo hotspot) e uma função de reconexão. Leia mais sobre o assunto em nos links [https://learn.microsoft.com/en-us/azure/iot/concepts-manage-device-reconnections](https://learn.microsoft.com/en-us/azure/iot/concepts-manage-device-reconnections) e [https://learn.microsoft.com/en-us/azure/iot-dps/concepts-deploy-at-scale](https://learn.microsoft.com/en-us/azure/iot-dps/concepts-deploy-at-scale).
 
+    - Para validar o funcionamento da reconexão automática, o loop principal do programa deverá exibir logs de status e controlar o LED on-board da placa. Inicie observando o LED aceso, indicando que a conexão Wi-Fi está ativa. Para testar a resiliência da conexão, desligue o Wi-Fi do seu computador ou celular. É esperado que o LED começe a piscar, simbolizando a perda de conexão, e os logs exibirão mensagens de falha na tentativa de reconexão. Após alguns segundos, reative o Wi-Fi. O sistema deve `reconectar-se automaticamente`, cessando o piscar do LED e exibindo um log de sucesso de reconexão.
+    
+    - Certifique-se de estar monitorando os logs através do terminal, e verifique se os estados do LED correspondem às condições de conexão descritas.
 
-
+<!---
 #### Enviando dados da Pico-W para um PC/notebook
 
 Vamos fazer a raspiberry pi pico W enviar dados para um notebook.
+
+--->
