@@ -16,7 +16,9 @@ https://insper-embarcados.github.io/site/rp2040/rp2040-pwm/
 
 ### PPM
 
-PPM (Pulse Position Modulation) é uma técnica onde a informação é codificada na posição do pulso em relação a um intervalo de tempo fixo. Em um sinal PPM, um pulso é enviado em momentos específicos durante um período fixo, e a posição desses pulsos em relação ao início do período é usada para representar dados.
+PPM (Pulse Position Modulation) é uma técnica onde a informação é codificada na posição do pulso em relação a um intervalo de tempo fixo. Em um sinal PPM, um pulso é enviado em momentos específicos durante um período fixo, e a posição desses pulsos em relação ao início do período é usada para representar dados:
+
+https://www.geeksforgeeks.org/pulse-position-modulation-ppm/
 
 ### Servomotor
 
@@ -39,10 +41,10 @@ Para controlar o servomotor, não é complicado. Basta ajustar um [exemplo de PW
 https://github.com/irishpatrick/pico-servo/tree/main
 
 !!! warning "Desafio 1"
-  Agora que já sabemos como ajustar a posição do servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
+    Agora que já sabemos como ajustar a posição do servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
 
 !!! warning "Desafio 2"
-  Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
+    Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
 
 Após os desafios, você poderá controlar a posição do servomotor através da posição do potenciômetro, certo? Podemos entender então que o potenciômetro está trabalhando como um sensor de posição, onde o seu comportamento é o de variar a resistência dependendo da sua posição.
 
@@ -71,9 +73,6 @@ https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/
 Sendo o mais genérico dos apresentados, esse tipo sensor de ele possui diversas aplicações como: sensor de proximidade, sensor de distância e sensor de movimento. Esse tipo de sensor emite luz infravermelha em direção a um objeto e mede o tempo que leva para a luz refletida retornar ao sensor. Ele possui um circuito integrado que calcula essa distância até o objeto com base no ângulo de inclinação do feixe de luz refletido. Os sensores Sharp geralmente fornecem uma saída analógica que é proporcional à distância medida até o objeto. Essa saída analógica pode variar de acordo com o modelo específico do sensor, mas geralmente é uma tensão ou corrente que varia de acordo com a distância. Para entender melhor, consulte:
 
 https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/
-
-!!! warning "TESTEEEE!"
-    - TESTANDOO
 
 !!! warning "Desafio 3"
     Implementar a leitura de cada um desses sensores na Pico W, imprimindo seu valor já convertido para sua grandeza física.
