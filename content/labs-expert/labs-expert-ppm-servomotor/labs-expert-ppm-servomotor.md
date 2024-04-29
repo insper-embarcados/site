@@ -72,8 +72,11 @@ Sendo o mais genérico dos apresentados, esse tipo sensor de ele possui diversas
 
 https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/
 
+!!! warning "TESTEEEE!"
+    - TESTANDOO
+
 !!! warning "Desafio 3"
-  Implementar a leitura de cada um desses sensores na Pico W, imprimindo seu valor já convertido para sua grandeza física.
+    Implementar a leitura de cada um desses sensores na Pico W, imprimindo seu valor já convertido para sua grandeza física.
 
 ## Entrega
 
