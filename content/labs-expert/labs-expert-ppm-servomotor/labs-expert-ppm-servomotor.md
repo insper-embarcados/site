@@ -22,7 +22,7 @@ PPM (Pulse Position Modulation) é uma técnica onde a informação é codificad
 
 Um servomotor é um dispositivo que pode girar um determinado ângulo de acordo com o sinal que recebe. Ele possui três fios: um para fornecer energia (VCC), um para aterramento (GND) e um para o sinal de controle.
 
-![Tipos de Servomotor](imgs-ppm-servomotor/Tipos_de_Servo_Motor.jpg)
+![Tipos de Servomotor](imgs-ppm-servomotor/Tipos_de_Servomotor.jpg)
 
 A maioria dos servomotores utiliza o PPM. Normalmente, aplicam essa técnica através de pulsos PWM com uma frequência de cerca de 50 Hz (ou um período de 20 ms), e a largura do pulso determina a posição desejada do servomotor. Um pulso de 1 ms geralmente representa a posição mínima, um pulso de 1,5 ms representa a posição central e um pulso de 2 ms representa a posição máxima, embora esses valores possam variar dependendo do fabricante e do modelo específico do servomotor.
 
