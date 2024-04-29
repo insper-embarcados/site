@@ -12,7 +12,7 @@ Neste laboratório, iremos criar um sistema capaz de ajustar a posição de um s
 
 Como foi estudado no LAB 5, podemos controlar o brilho de um LED através de uma técnica chamada de PWM (Pulse Width Modulation). Essa técnica permite que um sinal digital seja modulado em largura de pulso, variando a razão entre o tempo em que o sinal está em nível alto (1) e o tempo em que está em nível baixo (0). Isso resulta em um sinal com uma largura de pulso variável, o que permite controlar a média de potência entregue ao dispositivo. Para revisar:
 
-[Insper Embarcados - PWM](https://insper-embarcados.github.io/site/rp2040/rp2040-pwm/)
+https://insper-embarcados.github.io/site/rp2040/rp2040-pwm/
 
 ### PPM
 
@@ -30,21 +30,21 @@ A maioria dos servomotores utiliza o PPM. Normalmente, aplicam essa técnica atr
 
 Para entender melhor, acesse:
 
-[Blog Wokwi - Servo Motor](https://blog.wokwi.com/learn-servo-motor-using-wokwi-logic-analyzer/)
+https://blog.wokwi.com/learn-servo-motor-using-wokwi-logic-analyzer/
 
 ## Lab
 
 Para controlar o servomotor, não é complicado. Basta ajustar um [exemplo de PWM](https://github.com/raspberrypi/pico-examples/tree/master/pwm/hello_pwm), ajustando o ciclo de trabalho (duty cycle) com um período de 20 ms (50 Hz), e o servo responderá ao comprimento do pulso dentro desse período. Para entender como aplicar, consulte:
 
-[Repositório Pico Servo](https://github.com/irishpatrick/pico-servo/tree/main)
+https://github.com/irishpatrick/pico-servo/tree/main
 
 !!! warning "Desafio 1"
 
-Agora que já sabemos como ajustar a posição do servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
+​	Agora que já sabemos como ajustar a posição do servo, o desafio é adaptar o exemplo baremetal acima para trabalhar utilizando RTOS.
 
 !!! warning "Desafio 2"
 
-Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
+​	Implementar uma leitura ADC para que o servo seja controlado pela posição de um potenciômetro.
 
 Após os desafios, você poderá controlar a posição do servomotor através da posição do potenciômetro, certo? Podemos entender então que o potenciômetro está trabalhando como um sensor de posição, onde o seu comportamento é o de variar a resistência dependendo da sua posição.
 
@@ -76,7 +76,7 @@ Sendo o mais genérico dos apresentados, esse tipo sensor de ele possui diversas
 
 !!! warning "Desafio 3"
 
-Implementar a leitura de cada um desses sensores na Pico W, imprimindo seu valor já convertido para sua grandeza física.
+​	Implementar a leitura de cada um desses sensores na Pico W, imprimindo seu valor já convertido para sua grandeza física.
 
 ## Entrega
 
