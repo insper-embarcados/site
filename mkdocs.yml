@@ -191,14 +191,12 @@ nav:
         - Prática: labs/i2c-pra-lab.md
   - Experts:
         - Sobre: labs-expert/labs-expert-about.md
-        #- DSP:
-        #    - Áudio: labs-expert/labs-expert-dsp-audio.md
-        #- Firmware:
-        #    - Driver: labs-expert/labs-expert-firmware-driver.md
-        #- PPM:
-        #    - Servomotor: labs-expert/labs-expert-ppm-servomotor/labs-expert-ppm-servomotor.md
-        #- BME280:
-        #    -
+        - Sensores:
+            - Servomotor: labs-expert/labs-expert-ppm-servomotor/labs-expert-ppm-servomotor.md
+        - DSP:
+            - Áudio: labs-expert/labs-expert-dsp-audio.md
+        - Firmware:
+            - Driver: labs-expert/labs-expert-firmware-driver.md
 
   - APS:
       - aps/aps-1-genius.md
