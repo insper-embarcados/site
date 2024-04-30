@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert about - Computação Embarcada - 2.0</title>
+        <title>Labs expert dsp ia - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -703,23 +703,6 @@
             
               
   <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">Experts</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../labs-expert-about.md">Sobre</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-            
-              
-  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">APS</span>
     <ul>
       
@@ -759,15 +742,126 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="experts">Experts</h1>
-<p>Agora vocês vão poder escolher quais especialidades vão querer trilhar, temos algumas opções que vão ajudar vocês no projeto aberto:</p>
+<h1 id="expert-dsp-inteligencia-artificial">Expert - DSP - Inteligência Artificial</h1>
+<table>
+<thead>
+<tr>
+<th>Lab Expert - DSP - IA Preparatório</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Deadline</em>: {{ lab_expert_dsp_ia_deadline }}</td>
+</tr>
+<tr>
+<td><a href="{{ lab_expert_dsp_ia_classroom }}">Repositório no classroom</a></td>
+</tr>
+<tr>
+<td>💰 100% nota de lab</td>
+</tr>
+</tbody>
+</table>
+<p>Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório <a href="https://insper-embarcados.github.io/site/labs/i2c-pra-lab/">6 - i2c</a>) para identificar quando uma pessoa está parada e quando está andando através de dados do acelerômetro. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como <em>idle</em> (parado) e <em>walking</em> (andando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.</p>
+<h3 id="definicoes">Definições</h3>
+<p><strong>Edge Computing</strong> é uma arquitetura de TI onde dados são processados na borda, ou seja, o mais próximo possível da origem dos dados. No caso da utilização do microcontrolador para Edge Computing, os dados de sensores, câmeras e outros são processados nele, o que traz algumas vantagens, tais como: serviços mais rápidos e confiáveis, diminuição de custos com máquinas na nuvem.</p>
+<p>"Para exemplificar o uso da edge computing para processar dados em tempo real, podemos pensar em uma fábrica moderna. No chão da fábrica, os sensores de Internet das Coisas (IoT) geram um fluxo contínuo de dados que pode ser usado para evitar interrupções e melhorar as operações. Estima-se que uma fábrica moderna com 2.000 equipamentos possa gerar 2.200 terabytes de dados por mês. Portanto, é mais rápido e econômico processar esse volume de dados quando ele está mais próximo do equipamento, em vez de transmiti-lo para um centro de processamento de dados remoto primeiro. No entanto, é recomendável que o equipamento esteja conectado por meio de uma plataforma de dados centralizada. Assim, o equipamento pode, por exemplo, receber atualizações de software padronizadas e compartilhar dados filtrados que ajudam a melhorar as operações em outros locais da fábrica." - <a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">RedHat</a></p>
 <ul>
-<li>Comunicacão: Aprender a usar outras formas de comunicaćão entre o uC e outro dispositivo</li>
-<li>Processamento digitais de sinais:  Focada em como adquirir, tratar e processar sinais em sistemas embarcados, essa trilha avança até a aplicação de Inteligência Artificial.</li>
-<li>Sensores e Atuadores: Esta trilha aprofunda a compreensão sobre como podemos detectar e controlar o mundo físico usando módulos. Frequentemente, esses módulos requerem o uso de protocolos machine-to-machine (m2m), como I2C, SPI, entre outros.</li>
-<li>Firmware: Uma das principais preocupações em sistemas embarcados são os requisitos energéticos, segurança e confiabilidade. Esta trilha se dedica a aprofundar o entendimento sobre como desenvolver códigos eficientes.</li>
+<li>Leitura opcional: <a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">O que é Edge Computing?</a></li>
 </ul>
-<h2 id="comunicacao">Comunicaćão</h2>
+<p><strong>Edge Impulse</strong> é uma empresa que trabalha em meios para ajudar desenvolvedores de aplicações de machine learning para embarcados a criarem e otimizarem soluções desta área.</p>
+<p><strong>Edge Impulse CLI</strong> (Edge Impulse Command Line Interface) é a aplicação que é necessária para controlar e configurar um dispositivo, que no nosso caso um microcontrolador.</p>
+<ul>
+<li>Leitura obrigatória: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></li>
+</ul>
+<h3 id="instalacao-do-edge-impulse-no-linux">Instalação do Edge Impulse no Linux</h3>
+<p>Antes de começar temos que realizar alguns procedimentos para utilizarmos o Edge Impulse.</p>
+<ol>
+<li>
+<p>Crie uma conta no <a href="https://edgeimpulse.com/">Edge Impulse</a>.</p>
+</li>
+<li>
+<p>Verifique se possui <strong>Python 3</strong> instalado no computador.</p>
+</li>
+<li>
+<p>Instale Node.js v20 ou superior no computador.</p>
+</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-sL<span class="w"> </span>https://deb.nodesource.com/setup_20.x<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>-E<span class="w"> </span>bash<span class="w"> </span>-
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nodejs
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>node<span class="w"> </span>-v
+</code></pre></div>
+<p>Verifique o diretório de instalação do Node.</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>config<span class="w"> </span>get<span class="w"> </span>prefix
+</code></pre></div>
+<p>Se retornar <code>/usr/local/</code>  , rode os seguintes comandos para mudar o diretório padrão do npm.</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>~/.npm-global
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>npm<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prefix<span class="w"> </span><span class="s1">&#39;~/.npm-global&#39;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=~/.npm-global/bin:$PATH&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.profile
+</code></pre></div>
+<ol>
+<li>Instale o edge-impulse-cli.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>edge-impulse-cli
+</code></pre></div>
+<h2 id="lab">Lab</h2>
+<p>Trabalhar com IA em sistemas embarcados não é uma tarefa tão fácil, pensando nisso a Edge Impulse desenvolveu uma solução que ajuda desenvolvedores de sistemas embarcados a desenvolverem seus modelos e dar o deploy desses modelos em computadores de um modo intuitivo e eficiente. </p>
+<p>Com o MPU6050 podemos medir a temperatura, a aceleração e o giroscópio, com essas informações, em relação ao tempo, podemos classificar padrões que se repetem e podemos assim predizer diversas coisas baseadas nesses dados. Podemos por exemplo fixar o módulo no corpo de uma pessoa, coletar dados dela realizando movimentos específicos (como andar) e por meio destes dados podemos classificar quando alguém está andando ou quando alguém está parado, seja com finalidade de monitorar a atividade física da pessoa, como velocidade, número de passos, etc.</p>
+<p>Para analisar os dados "crus" do acelerômetro do MPU6050 podemos utilizar o recurso de machine learning do Edge Impulse, treinar, e classificar novos movimentos baseado no dataset que criamos previamente.</p>
+<p>No link abaixo, há um exemplo do próprio Edge Impulse que demonstra uma aplicação que identifica 4 situações, a primeira em que o sujeito está <strong>idle/sentado</strong>, a segunda <strong>snake</strong> em que o mesmo move um acelerômetro sobre a mesa, a terceira <strong>wave</strong> em que o usuário movimenta o acelerômetro da esquerda para direita e a última <strong>updown</strong> em que o usuário movimenta o dispositivo para cima e para baixo.</p>
+<ul>
+<li><a href="https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition">Continuous Motion Recognition</a></li>
+</ul>
+<p>Abaixo, na figura 1, há a representação do fluxo de dados e interconexão entre dispositivos e servidor no cenário de utilização dos serviços do Edge Impulse. </p>
+<p>Figura 1 - Edge Impulse Workflow</p>
+<p><a class="glightbox" href="../imgs-dsp/ia-edgeflux.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="edge impulse workflow" src="../imgs-dsp/ia-edgeflux.png" /></a></p>
+<p>Abaixo há um vídeo demonstrando a feature <strong>Live Classification</strong> do Edge Impulse com a Raspberry Pico + MPU6050 para classificar <strong>idle e walking</strong>.</p>
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/7mkDIP3a95I?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+<h3 id="outras-observacoes">Outras observações</h3>
+<ul>
+<li>
+<p>Neste laboratório utilizaremos o comando <strong>edge-impulse-data-forwarder</strong> para enviarmos os dados dos sensores da nossa raspberry Pico para o edge Impulse.</p>
+</li>
+<li>
+<p>Leia sobre <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder">cli-data-forwarder</a> para saber como manipular os dados corretamente e envia-los para o Edge Impulse a partir da raspberry Pico. Atente-se ao formato do protocolo.</p>
+</li>
+<li>
+<p>Quando for a fase de deploy no Edge Impulse, será necessário configurar o deploy para buildar uma biblioteca de C++, a qual utilizaremos no nosso repositório classroom.</p>
+</li>
+</ul>
+<h2 id="entrega">Entrega</h2>
+<p>Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando uma pessoa está parada (idle), e quando uma pessoa está andando (walking).</p>
+<p>Dicas:</p>
+<ul>
+<li>
+<p>Comece criando uma conta do Edge Impulse.</p>
+</li>
+<li>
+<p>Siga a documentação oficial do Edge impulse em: <a href="https://docs.edgeimpulse.com/docs">https://docs.edgeimpulse.com/docs</a></p>
+</li>
+<li>
+<p>Crie um novo projeto no Edge Impulse.</p>
+</li>
+<li>
+<p>Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></p>
+</li>
+<li>
+<p>Realize a aquisição de dados com duas labels, idle e walking.</p>
+</li>
+<li>
+<p>Configure o Impulse Design e treine seu modelo.</p>
+</li>
+<li>
+<p>Depois de treinar teste o mesmo com Live Classification.</p>
+</li>
+<li>
+<p>Depois de testado faça o deploy para o microcontrolador.</p>
+</li>
+</ul>
+<h2 id="referencias">Referências:</h2>
+<p><a href="https://edgeimpulse.com/about">https://edgeimpulse.com/about</a></p>
+<p><a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing</a></p>
 
 
 </section>
