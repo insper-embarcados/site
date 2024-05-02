@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert com wifi - Computação Embarcada - 2.0</title>
+        <title>WIFI - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -271,6 +271,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../pico/pico-wifi/">WIFI</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -528,7 +536,7 @@
             
               
   <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">Labs</span>
+    <span class="ah-togglable-handle">Labs core</span>
     <ul>
       
         
@@ -702,6 +710,107 @@
 
             
               
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Labs experts</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-about/">Sobre</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Comunicação</span>
+    <ul>
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">WIFI</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#lab">Lab</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#entrega">Entrega</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">DSP</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-dsp-audio/">Áudio</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Sensores</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-sensors-servomotor/">Servomotor</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Firmware</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-firmware-driver/">Driver</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
   <li class="ah-togglable-item">
     <span class="ah-togglable-handle">APS</span>
     <ul>
@@ -735,6 +844,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs experts</li>
+                  
+                
+                  
+                    <li>Comunicação</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -761,246 +878,50 @@
 </tr>
 </tbody>
 </table>
-<p>Neste laboratório, vamos explorar os recursos de conectividade <code>Wi-Fi</code> da <code>Raspberry Pi Pico W</code>. </p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Lembrando que algumas configurações básicas são necessárias, incluindo as configurações <code>cmakelist.txt</code> e modificações no código para utilizar esse recursus da  com o Pico W. Relembre essas configurações no exemplo blink com pico W. </p>
-</div>
+<p>Neste laboratório vamos explorar os recursos de conectividade <code>Wi-Fi</code> da <code>Raspberry Pi Pico W</code>. </p>
 <h2 id="lab">Lab</h2>
-<p>O objetivo é entender o modulo Wifi.</p>
-<h3 id="componentes-necessarios">Componentes Necessários</h3>
+<p>Sistemas embarcados devem muitas vezes se comunicarem com outros dispositivos, ou se conectarem a internet. Muitas são as soluções que podemos assumir para a comunicação, que vão desde de protocolos proprietários de comunicacão de rádio frequência (por exemplo uma <a href="https://www.polar.com/br/sensores/sensor-de-frequencia-cardiaca/h9">sensor de frequência cardíaca</a> ) ou o uso de comunicacoes como: WIFI, bluetooth, 4G, Ethernet. Recentemente muitas soluções surgiram para a comunicação de longas distâncias e com baixo consumo energético como: LoRA ou Sigfox.</p>
+<p>O nosso kit de desenvolvimento possui além do microcontrolador rp2040 (o que temos programado até agora), um outro dispositivo chamado de <code>cyw...</code> que funciona como uma placa de rede e implementa tanto a comunicação wifi quanto bluetooth:</p>
+<p><a class="glightbox" href="../imgs-com/pico-cyw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/pico-cyw.png" /></a></p>
+<p>O WIFI é uma solução importante e utilizada em muitos produtos, mas possui uma série de problemas que devem ser levadas em consideração:</p>
 <ul>
-<li>Raspberry Pi Pico W</li>
+<li>Alto consumo energético</li>
+<li>Necessita conectar a um "roteador"</li>
+<li>Problemas com diferentes tipos de rede e autenticação</li>
 </ul>
-<h3 id="desenvolvimento">Desenvolvimento</h3>
-<p>Ao longo deste laboratório vamos entender como trabalhar com o modulo wifi</p>
-<h4 id="scan-wi-fi">Scan Wi-fi</h4>
-<p>Vamos implementar uma scan para listar as redes wifi disponiveis para se conectar. O código é adaptado do repositório oficial da raspiberry pi pico W.</p>
+<p>Mas tem muitas vantagens, como:</p>
 <ul>
-<li><a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/wifi_scan/picow_wifi_scan.c">https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/wifi_scan/picow_wifi_scan.c</a></li>
-</ul>
-<div class="language-C highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/stdlib.h&quot;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/cyw43_arch.h&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">// Função de callback para resultados de escaneamento de Wi-Fi</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">scan_result</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">cyw43_ev_scan_result_t</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="c1">// Exibe informações sobre a rede Wi-Fi encontrada</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;SSID: %-32s RSSI: %4d Canal: %3d MAC: %02x:%02x:%02x:%02x:%02x:%02x Segurança: %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">rssi</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">channel</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">bssid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">bssid</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">bssid</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">bssid</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">bssid</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">bssid</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="n">result</span><span class="o">-&gt;</span><span class="n">auth_mode</span><span class="p">);</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="n">stdio_init_all</span><span class="p">();</span><span class="w"> </span><span class="c1">// Inicializa todas as interfaces padrão de I/O</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="c1">// Inicializa o módulo Wi-Fi</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cyw43_arch_init</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Falha ao inicializar</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="c1">// Habilita o modo estação (STA)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="n">cyw43_arch_enable_sta_mode</span><span class="p">();</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="c1">// Variáveis para controle de tempo e status de escaneamento</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="n">absolute_time_t</span><span class="w"> </span><span class="n">scan_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nil_time</span><span class="p">;</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">scan_in_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">absolute_time_diff_us</span><span class="p">(</span><span class="n">get_absolute_time</span><span class="p">(),</span><span class="w"> </span><span class="n">scan_test</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">scan_in_progress</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">                </span><span class="c1">// Configura e inicia um escaneamento de Wi-Fi</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">                </span><span class="n">cyw43_wifi_scan_options_t</span><span class="w"> </span><span class="n">scan_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cyw43_wifi_scan</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cyw43_state</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">scan_options</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">scan_result</span><span class="p">);</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">                    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Realizando escaneamento de Wi-Fi</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">                    </span><span class="n">scan_in_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">                    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Falha ao iniciar escaneamento: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">);</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">                    </span><span class="n">scan_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_timeout_time_ms</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Aguarda 10s e tenta novamente</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">                </span><span class="p">}</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">cyw43_wifi_scan_active</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cyw43_state</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">                </span><span class="n">scan_in_progress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">                </span><span class="n">scan_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_timeout_time_ms</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Aguarda 10s e tenta novamente</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="n">cyw43_arch_deinit</span><span class="p">();</span><span class="w"> </span><span class="c1">// Desliga o módulo Wi-Fi antes de encerrar</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>
-<p><code>cyw43_arch_enable_sta_mode()</code>: O dispositivo atua como um cliente Wi-Fi.</p>
-</li>
-<li>
-<p><code>cyw43_wifi_scan_options_t()</code>: De acordo com a documentação oficial, atualmente as opções desse argumento são ignoradas. </p>
-</li>
-<li>
-<p><code>cyw43_wifi_scan()</code>: Este método inicia o processo de escaneamento por redes Wi-Fi disponíveis. Ele utiliza as configurações de escaneamento e requer uma função de callback (quarto parametro) para lidar com os resultados encontrados durante o escaneamento.</p>
-</li>
-<li>
-<p><code>cyw43_wifi_scan_active()</code>: Verifica se um escaneamento de redes Wi-Fi está ativo no momento. Retorna <code>true</code> se um escaneamento estiver em andamento e <code>false</code> caso contrário, ajudando a gerenciar o fluxo de controle em aplicações que dependem do status do escaneamento.</p>
-</li>
-<li>
-<p><code>scan_result</code>: A função de callback pega o resultado e imprime seu conteúdo. O <code>BSSID</code> (Basic Service Set Identifier) da rede, que é o endereço MAC do ponto de acesso que transmite a SSID. É composto por 6 bytes, usualmente exibidos em formato hexadecimal.</p>
-</li>
-</ul>
-<div class="admonition exercice">
-<p class="admonition-title">Exercice</p>
-<p>Crie um novo projeto e faça o scan das redes Wi-Fi para validar a o funcionamento do modulo Wi-Fi da Raspiberry Pi Pico W. 
-- Use seu computador ou celular como roteador e avalie se aparece disponivel no scan.
-- Note que algumas redes aparecem duplicadas e com a potência muito baixa.</p>
-<p><a href="../imgs/scan_network.png"></a></p>
-<ul>
-<li>Crie uma função para ordenar as redes disponiveis por potência RSSI e que remova as redes duplicdas.</li>
-</ul>
-</div>
-<h4 id="conectando-se-na-internet">Conectando-se na internet</h4>
-<p>O código base a seguir irá <code>tentar</code> se conectar à internet, se for sucesso o led da placa acende.</p>
-<div class="language-C highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/stdlib.h&quot;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/cyw43_arch.h&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cp">#define WIFI_SSID &quot;your_wifi_ssid&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cp">#define WIFI_PASSWORD &quot;your_wifi_password&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">stdio_init_all</span><span class="p">();</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c1">// Inicializa o módulo Wi-Fi</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cyw43_arch_init</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Falha na inicialização do Wi-Fi</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wi-Fi inicializado com sucesso</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="c1">// Ativa o modo de estação (STA)</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="n">cyw43_arch_enable_sta_mode</span><span class="p">();</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="c1">// Tenta conectar ao Wi-Fi</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cyw43_arch_wifi_connect_blocking</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">,</span><span class="w"> </span><span class="n">WIFI_PASSWORD</span><span class="p">,</span><span class="w"> </span><span class="n">CYW43_AUTH_WPA2_MIXED_PSK</span><span class="p">);</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="c1">// Verifica o resultado da conexão</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Conexão Wi-Fi falhou</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="n">cyw43_arch_gpio_put</span><span class="p">(</span><span class="n">CYW43_WL_GPIO_LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// Desliga o LED</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="c1">// Se conectado com sucesso, acende o LED</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Conectado ao Wi-Fi com sucesso</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="n">cyw43_arch_gpio_put</span><span class="p">(</span><span class="n">CYW43_WL_GPIO_LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Acende o LED</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="c1">// Mantém o programa rodando</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;loop principal</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">        </span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>
-<p><code>cyw43_arch_enable_sta_mode()</code>: O dispositivo atua como um cliente Wi-Fi, o que significa que ele se conecta a uma rede Wi-Fi existente (como a de sua casa ou escritório).</p>
-</li>
-<li>
-<p><code>cyw43_arch_wifi_connect_blocking()</code>: Esta função tenta estabelecer uma conexão Wi-Fi usando as credenciais fornecidas (SSID e senha) e tipo de autenticação. Ela bloqueará a execução do programa até que a conexão Wi-Fi seja estabelecida ou falhe. Isso significa que, se a conexão Wi-Fi demorar muito ou não for bem-sucedida, seu programa esperará indefinidamente, a menos que seja interrompido externamente.</p>
-</li>
+<li>Maneira mais fácil de se conectar na internet</li>
+<li>Alta taxa de transmissão</li>
+<li>Compatibilidade com muitos dispositivos</li>
+<li>Múltiplos dispositivos na mesma rede</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>De acordo com a documentação oficial, existem 4 tipos de autenticação: <code>CYW43_AUTH_OPEN</code>, <code>CYW43_AUTH_WPA_TKIP_PSK</code>, <code>CYW43_AUTH_WPA2_AES_PSK</code>, <code>CYW43_AUTH_WPA2_MIXED_PSK</code>.  </p>
+<p>Como fazer um sistema embarcado que não possui "teclado" nem "tela" se conectar em uma rede wifi? O usuário precisa encontrar a rede dele e configurar a senha, para que o sistema se conecte... como fazer isso?</p>
 </div>
-<p>Podemos realizar a conexão Wi-Fi da pico W tanto com função <code>cyw43_arch_wifi_connect_blocking()</code> como com a função <code>cyw43_arch_wifi_connect_timeout_ms()</code>, mas cada uma comporta-se de uma forma diferente.</p>
+<h3 id="servicos">Serviços</h3>
+<p>O sistema embarcado pode se comportar de duas maneiras, como um web server ou como um cliente, normalmente a segunda opção é a mais utilizada por limitações e seguranças da rede (o seu roteador bloqueia que qualquer dispositivo externo a sua rede se conecte em um dispositivo interno).  </p>
+<p><a class="glightbox" href="../imgs-com/server.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/server.png" /></a></p>
+<p>Muitas são as soluções que podemos empregar para criar esse web server (pode criar o seu próprio serviço, lembre de tec web!), mas como queremos facilitar a nossa vida, podemos usar recursos como:</p>
 <ul>
-<li><code>cyw43_arch_wifi_connect_timeout_ms()</code>: Esta função tenta estabelecer uma conexão Wi-Fi com um parâmetro adicional de <code>time out</code> (tempo limite) em milissegundos. Se a conexão não for bem-sucedida dentro do período especificado, ela retorna um erro. A duração do tempo limite permite especificar por quanto tempo o sistema deve tentar se conectar antes de desistir.</li>
+<li><a href="https://nodered.org/">Node-red</a></li>
+<li><a href="https://ifttt.com/explore">IFTTT</a></li>
+<li><a href="https://zapier.com/">Zapier</a></li>
 </ul>
+<h2 id="entrega">Entrega</h2>
+<p>A entrega deve ser um sistema embarcado com WIFI na qual você é capaz de ler dados de um potênciometro e enviar as informacoes para uma planilha do google sheets, simulando um dataloger.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A escolha entre as funções para tentar estabelecer uma conexão Wi-Fi, depende dos requisitos de responsividade da sua aplicação e de como você deseja lidar com cenários em que a conectividade Wi-Fi está atrasada ou indisponível. Para aplicações onde você não pode se dar ao luxo de esperar indefinidamente, <code>cyw43_arch_wifi_connect_timeout_ms()</code> fornece uma maneira de falhar de forma controlada após um período definido. Por outro lado, <code>cyw43_arch_wifi_connect_blocking()</code> é mais simples de usar quando o tempo para estabelecimento da conexão Wi-Fi não é crítico para a continuação do programa.</p>
-</div>
-<p>O drive cyw43 possui a função <code>cyw43_tcpip_link_status</code> que retorna o status da conexão. As opções são:</p>
-<table>
-<thead>
-<tr>
-<th>link status</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CYW43_LINK_DOWN</td>
-<td>Wifi down</td>
-</tr>
-<tr>
-<td>CYW43_LINK_JOIN</td>
-<td>Connected to wifi</td>
-</tr>
-<tr>
-<td>CYW43_LINK_NOIP</td>
-<td>Connected to wifi, but no IP address</td>
-</tr>
-<tr>
-<td>CYW43_LINK_UP</td>
-<td>Connect to wifi with an IP address</td>
-</tr>
-<tr>
-<td>CYW43_LINK_FAIL</td>
-<td>Connection failed</td>
-</tr>
-<tr>
-<td>CYW43_LINK_NONET</td>
-<td>No matching SSID found (could be out of range, or down)</td>
-</tr>
-<tr>
-<td>CYW43_LINK_BADAUTH</td>
-<td>Authenticatation failure</td>
-</tr>
-</tbody>
-</table>
-<p>Vamos criar uma função <code>get_wifi_status</code> que recebe o retorno dessa opção, Vamos utilizar para garantir a conexão de rede.</p>
-<div class="language-C highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">get_wifi_status</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CYW43_LINK_UP</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;wifi on</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;wifi off</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
-</code></pre></div>
-<p>Para chamar a função:</p>
-<div class="language-C highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">get_wifi_status</span><span class="p">(</span><span class="n">cyw43_tcpip_link_status</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cyw43_state</span><span class="p">,</span><span class="w"> </span><span class="n">CYW43_ITF_STA</span><span class="p">));</span>
-</code></pre></div>
-<h4 id="verificando-seu-ip">Verificando seu IP</h4>
-<p>Após conectado é possivel vericar o IP alocado para a raspberry pi Pico.</p>
-<div class="language-C highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">sIP</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx.xxx.xxx.xxx&quot;</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">strcpy</span><span class="w"> </span><span class="p">(</span><span class="n">sIP</span><span class="p">,</span><span class="w"> </span><span class="n">ip4addr_ntoa</span><span class="p">(</span><span class="n">netif_ip4_addr</span><span class="p">(</span><span class="n">netif_list</span><span class="p">)));</span><span class="w">  </span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Conectado, IP %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sIP</span><span class="p">);</span><span class="w">  </span>
-</code></pre></div>
-<div class="admonition exercice">
-<p class="admonition-title">Exercice</p>
-<p>Vamos juntar o conhecimento adquirido até o momento. É considerada uma boa prática em projetos de IoT ter um código que <code>gerencia ativamente</code> a conexão e implementa uma <code>função de reconexão</code> em caso de perda de conexão. Essa abordagem ajuda a aumentar a resiliência e confiabilidade dos dispositivos em ambientes onde as conexões de rede podem ser intermitentes ou instáveis, como é comum em redes GSM ou via satélite​. Nesse sentido, crie um código que tenta realizar a cónexão Wi-Fi da Pico-W ao seu computador ou celular (em modo hotspot) e uma função de reconexão. Leia mais sobre o assunto em nos links <a href="https://learn.microsoft.com/en-us/azure/iot/concepts-manage-device-reconnections">https://learn.microsoft.com/en-us/azure/iot/concepts-manage-device-reconnections</a> e <a href="https://learn.microsoft.com/en-us/azure/iot-dps/concepts-deploy-at-scale">https://learn.microsoft.com/en-us/azure/iot-dps/concepts-deploy-at-scale</a>.</p>
-<ul>
+<ol>
 <li>
-<p>Para validar o funcionamento da reconexão automática, o loop principal do programa deverá exibir logs de status e controlar o LED on-board da placa. Inicie observando o LED aceso, indicando que a conexão Wi-Fi está ativa. Para testar a resiliência da conexão, desligue o Wi-Fi do seu computador ou celular. É esperado que o LED começe a piscar, simbolizando a perda de conexão, e os logs exibirão mensagens de falha na tentativa de reconexão. Após alguns segundos, reative o Wi-Fi. O sistema deve <code>reconectar-se automaticamente</code>, cessando o piscar do LED e exibindo um log de sucesso de reconexão.</p>
+<p>Para entender com mais detalhes como o wifi funciona, consulte a página no site da matéria: <code>PICO W/WIFI</code>.</p>
 </li>
 <li>
-<p>Certifique-se de estar monitorando os logs através do terminal, e verifique se os estados do LED correspondem às condições de conexão descritas.</p>
+<p>O IFTTT e o Zapier possuem um serviço (<code>web request</code>) que você consegue fazer um post e ele atualiza automaticamente a tabela do excel.</p>
 </li>
-</ul>
+</ol>
 </div>
-<!---
-#### Enviando dados da Pico-W para um PC/notebook
-
-Vamos fazer a raspiberry pi pico W enviar dados para um notebook.
-
---->
 
 
 </section>
@@ -1010,6 +931,20 @@ Vamos fazer a raspiberry pi pico W enviar dados para um notebook.
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../labs-expert-about/"
+               class="ah-prev"
+               title="Sobre">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Sobre</span>
+            </a>
+          
+          
+            <a href="../labs-expert-dsp-audio/"
+               class="ah-next"
+               title="Áudio">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Áudio</span>
+            </a>
           
         </div>
       </footer>

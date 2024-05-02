@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Delay - Computação Embarcada - 2.0</title>
+        <title>Rp2040 w - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -258,7 +258,7 @@
         
   
     <li>
-      <a href="../../pico/pico-examples/">pico-examples</a>
+      <a href="../pico-examples/">pico-examples</a>
     </li>
   
 
@@ -266,7 +266,7 @@
         
   
     <li>
-      <a href="../../pico/pico-debugging/">Programando</a>
+      <a href="../pico-debugging/">Programando</a>
     </li>
   
 
@@ -274,7 +274,7 @@
         
   
     <li>
-      <a href="../../pico/pico-wifi/">WIFI</a>
+      <a href="../pico-wifi/">WIFI</a>
     </li>
   
 
@@ -284,7 +284,7 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">RP2040</span>
     <ul>
       
@@ -306,20 +306,8 @@
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Delay</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#snippets">Snippets</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../rp2040/rp2040-delay/">Delay</a>
     </li>
   
 
@@ -327,7 +315,7 @@
         
   
     <li>
-      <a href="../rp2040-gpio/">GPIO</a>
+      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
     </li>
   
 
@@ -335,7 +323,7 @@
         
   
     <li>
-      <a href="../rp2040-gpio-irq/">GPIO IRQ</a>
+      <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
     </li>
   
 
@@ -343,7 +331,7 @@
         
   
     <li>
-      <a href="../rp2040-timer/">Timer</a>
+      <a href="../../rp2040/rp2040-timer/">Timer</a>
     </li>
   
 
@@ -351,7 +339,7 @@
         
   
     <li>
-      <a href="../rp2040-rtc/">RTC</a>
+      <a href="../../rp2040/rp2040-rtc/">RTC</a>
     </li>
   
 
@@ -367,7 +355,7 @@
         
   
     <li>
-      <a href="../rp2040-adc/">ADC</a>
+      <a href="../../rp2040/rp2040-adc/">ADC</a>
     </li>
   
 
@@ -375,7 +363,7 @@
         
   
     <li>
-      <a href="../rp2040-pwm/">PWM</a>
+      <a href="../../rp2040/rp2040-pwm/">PWM</a>
     </li>
   
 
@@ -383,7 +371,7 @@
         
   
     <li>
-      <a href="../rp2040-i2c/">I2C</a>
+      <a href="../../rp2040/rp2040-i2c/">I2C</a>
     </li>
   
 
@@ -391,7 +379,7 @@
         
   
     <li>
-      <a href="../rp2040-dma/">DMA</a>
+      <a href="../../rp2040/rp2040-dma/">DMA</a>
     </li>
   
 
@@ -399,7 +387,7 @@
         
   
     <li>
-      <a href="../rp2040-uart/">UART</a>
+      <a href="../../rp2040/rp2040-uart/">UART</a>
     </li>
   
 
@@ -840,10 +828,6 @@
             <ul class="ah-breadcrumbs">
               
                 
-                  
-                    <li>RP2040</li>
-                  
-                
                 <li></li>
             </ul>
             
@@ -851,43 +835,93 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="delay">Delay</h1>
-<table>
-<thead>
-<tr>
-<th>Documentacão</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.raspberrypi.com/documentation/pico-sdk/hardware.html#hardware_timer">Hardware Timer</a></td>
-</tr>
-</tbody>
-</table>
-<p>É muito comum em sistemas embarcados termos que "gastar tempo" ou esperar um instante específico para realizarmos alguma ação. Por exemplo, ao piscar um LED, não podemos simplesmente acionar e apagar o LED na velocidade máxima que o processador trabalha; caso contrário, não seríamos capazes de enxergar o LED piscando. Nosso processador, por exemplo, opera com um clock de 125 MHz, executando 3.3 milhões de instruções por segundo.</p>
-<p>Existem diversas formas de "contar tempo" em um microcontrolador. A principal maneira é gastarmos ciclos de clock, ou seja, usamos o processamento para não fazermos nada! Isso normalmente é feito em assembly, onde conseguimos controlar exatamente quantas instruções iremos gastar para dar o tempo necessário.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Delays são ineficientes do ponto de vista de energia, já que estamos literalmente gastando energia para não fazer nada. Além disso, são ineficientes em termos de desempenho, pois não conseguimos realizar outra tarefa enquanto aguardamos o tempo passar.</p>
-<p>Uma solução para o problema de consumo de energia é fazer com que o microcontrolador (uC) entre em modo de suspensão (sleep mode) durante o período em que desejamos que ele fique inativo. Quanto ao problema de desempenho, podemos utilizar um periférico de temporização para contar o tempo. Enquanto o temporizador está ativo, o microcontrolador pode executar outra função, otimizando assim o uso dos recursos do sistema.</p>
-</div>
-<p>A biblioteca SDK da Pico possui algumas funções de delays de software, sendo as principais do tipo <code>sleep</code> (que coloca o core para dormir por uma quantidade de tempo) e <code>busy_wait</code> (que apenas "gasta" clocks para dar o tempo necessário).</p>
-<h2 id="snippets">Snippets</h2>
-<p>Snippets de código relacionados ao GPIO.</p>
+<h1 id="pico-w">Pico - W</h1>
+<p>O <code>Raspberry Pi Pico</code> e o <code>Pico W</code> são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não haviamos falado da existencia dessa versão Pico W. O <code>Raspberry Pi Pico W</code> é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.</p>
+<p><a class="glightbox" href="imgs/compare-front-pico-vs-pico-w.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="imgs/compare-front-pico-vs-pico-w.png" /></a></p>
 <div class="admonition tip">
-<p class="admonition-title">Quando usar cada um?</p>
-<p>Se você precisa de um controle preciso sobre o tempo de espera, utilize o <code>busy_wait</code>. Essa abordagem garante que o tempo de espera seja exatamente o que você programou, mas consome mais energia, pois o microcontrolador permanece ativo. Por outro lado, se a precisão do tempo de espera não for crítica e você quiser economizar energia, opte pelo <code>sleep</code>. Essa função coloca o microcontrolador em modo de suspensão, reduzindo o consumo de energia.</p>
+<p class="admonition-title">Tip</p>
+<p>Datasheet Pico W: <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf</a></p>
 </div>
-<h3 id="sleep">sleep</h3>
-<p>Fazer o core dormir por um determinado tempo:</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">sleep_us</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="p">);</span><span class="w"> </span><span class="c1">// 30 us de sleep</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">sleep_ms</span><span class="w"> </span><span class="p">(</span><span class="mi">40</span><span class="p">);</span><span class="w"> </span><span class="c1">// 40 ms de sleep</span>
+<h2 id="chip-cyw43439">Chip CYW43439</h2>
+<p>Ambas as versões, Pico e Pico W, utilizam o mesmo microcontrolador RP2040. A principal diferença está na inclusão do chip CYW43439 da Infineon no Pico W, que adiciona as seguintes funcionalidades wireless:</p>
+<ul>
+<li>WiFi 4 (802.11n), Single-band (2.4 GHz)</li>
+<li>WPA3</li>
+<li>SoftAP (Até 4 clientes)</li>
+<li>Bluetooth 5.2<ul>
+<li>Suporte para Bluetooth LE Central and Peripheral roles</li>
+<li>Suporte para Bluetooth Classic</li>
+</ul>
+</li>
+</ul>
+<p>Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados para comunicação com o CYW43439 e foram substituídos pelo GPIO presente no CY43439. Esses podem ser controládos pelo usuário, são eles:</p>
+<ul>
+<li>WL_GPIO2 – (Entrada) Sentido VBUS. ALTO quando VBUS está presente (Veja o datasheet)</li>
+<li>WL_GPIO1 – (Saída) Controla o pino SMPS Power Save integrado (Veja o datasheet)</li>
+<li>WL_GPIO0 – (Saída) Controla o LED On-board</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O led on-board é controlado pelo GPIO25 no Pico padrão. No Pico W, este GPIO é usado para comunicação com o módulo wireless, mas o controle do LED pode ser feito pelo pino <code>WL_GPIO0</code> do módulo wireless.</p>
+</div>
+<h2 id="rp2040-pico-w">RP2040 / PICO W</h2>
+<p>Vamos utilizar a interface do CYW43439 para fazer um pisca led. O intuito é entender as configurações básicas para desenvolvemento de aplicações utlizando a versão Pico W.  </p>
+<h3 id="sdk">SDK</h3>
+<p>Para desenvolver aplicações utilizando o Pico W, você pode basear-se em qualquer projeto desenvolvido para o Pico e fazer algumas modificações: </p>
+<ul>
+<li>O arquivo <code>CMakeLists.txt</code> que está na raiz do projeto (onde fica a pasta build). Defina <code>PICO_BOARD</code> como <code>pico_w</code>:</li>
+</ul>
+<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>set(PICO_BOARD pico_w)
 </code></pre></div>
-<h3 id="busy_wait">busy_wait</h3>
-<p>Ou gastar clocks da cpu:</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">busy_wait_us</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span><span class="w"> </span><span class="c1">// 30 us de clocks gastos</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">busy_wait_ms</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span><span class="w"> </span><span class="c1">// 40 ms de clocks gastos</span>
+<ul>
+<li>Já no arquivo <code>CMakeLists.txt</code> dentro da pasta do projeto (onde está o arquivo <code>main.c</code>) e adicione <code>pico_cyw43_arch_none</code> no <code>target_link_libraries</code>:</li>
+</ul>
+<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>target_link_libraries(
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span>                     ....
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span>                     .....
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gi">+                     pico_cyw43_arch_none)</span>
 </code></pre></div>
+<p>No arquivo 'main.c' adicione no headfile:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/cyw43_arch.h&quot;</span>
+</code></pre></div>
+<h3 id="hello-world">Hello World</h3>
+<p>Um exemplo completo de um blink led:</p>
+<p><a class="ah-button" href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/blink/picow_blink.c">pico-examples/blob/master/pico_w/wifi/blink/picow_blink.c</a></p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/cyw43_arch.h&quot;</span><span class="c1"> // específica do Pico W, interface wireless</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">stdio_init_all</span><span class="p">();</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">//inicializa o módulo wireless CYW43439. </span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">//Se a inicialização falhar, a função retorna um valor não zero, e o programa imprime uma mensagem de erro e termina.</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cyw43_arch_init</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wi-Fi init failed&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">cyw43_arch_gpio_put</span><span class="p">(</span><span class="n">CYW43_WL_GPIO_LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">cyw43_arch_gpio_put</span><span class="p">(</span><span class="n">CYW43_WL_GPIO_LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>A função cyw43_arch_gpio_put()` é chamada para definir o estado do LED (ligado ou desligado). - É definido neste arquivo: <a href="https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c">https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c</a></li>
+<li>o LED é controlado diretamente através do pino <code>CYW43_WL_GPIO_LED_PIN</code>. É definido neste arquivo: <a href="https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/pico_w.h">https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/pico_w.h</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>acesse a documentação SDK Oficial para ter mais detalhes: </p>
+<p><a href="https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/group__pico__cyw43__arch.html#ga7a05bd21f02a0effadbba1e8266b8771">https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/index.html</a></p>
+<p><a class="glightbox" href="imgs/lib_cyw43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="imgs/lib_cyw43.png" /></a></p>
+</div>
+<h3 id="wifi-e-bluetooth">Wifi e Bluetooth</h3>
+<ul>
+<li>Para exemplos de utilização do WiFi e Bluetooth, recomenda-se consultar documentações específicas e tutoriais que exploram essas funcionalidades em projetos práticos.</li>
+</ul>
+<p><a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/">pico-examples/blob/master/pico_w/</a></p>
 
 
 </section>
@@ -897,20 +931,6 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../pico/pico-wifi/"
-               class="ah-prev"
-               title="WIFI">
-              <span class="nav-label">Previous</span>
-              <span class="nav-title">WIFI</span>
-            </a>
-          
-          
-            <a href="../rp2040-gpio/"
-               class="ah-next"
-               title="GPIO">
-              <span class="nav-label">Next</span>
-              <span class="nav-title">GPIO</span>
-            </a>
           
         </div>
       </footer>
