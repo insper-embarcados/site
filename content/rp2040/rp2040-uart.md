@@ -1,39 +1,26 @@
-
-
-
 # UART
-
-## UART
-
-### Introdução ao UART: 
 
 UART é um dos protocolos mais utilizados para comunicação em sistemas digitais, o que inclui computadores, microcontroladores e sistemas embarcados. **UART** significa **Universal Asynchronous Receiver-Transmitter**, e é um protocolo de comunicação utilizado em hardware que permite uma comunicação assíncrona - comunicação que não ocorre ao mesmo tempo entre os dispositivos - e com velocidade de transmissão configurável.
 
-
-### Algumas aplicações práticas:
+Aplicações práticas:
 
 - Debugging: UART ajuda na capturação de mensagens do sistemas e consequentemente ajuda na solução de bugs do sistema.
-
 - Teste: Verificação de produtos antes de saírem da linha de produção buscando uma melhor qualidade para o usuário final. 
-
 - Podemos utilizar UART para conectar com módulos bluetooth e também com módulos de GPS.
 
-### Vantagens do UART:
+Vantagens do UART:
 
 - UART por si só é simples pois utiliza dois fios.
 - Há verificação de bits de paridade para verificação de erro de pacotes de dados.
 - UART é extremamente utilizado.
 
 
-### Desvantagens do UART:
+Desvantagens do UART:
 
 - O data frame é limitado 8 bits.
-
 - O Baud Rate do dispositivo que transmite e do que recebe devem ser o mesmo.
 
-
-
-### Comunicação na prática
+## Na prática
 
 A principal utilização de um UART para transmissão e recebimento de dados está demonstrado na Figura 1, nela é possível ver duas UART diferentes, e entre elas há uma comunicação bidirecional, atraveś dos pinos RX e TX podemos transferir neste caso até 1 byte de informações. 
 
@@ -41,7 +28,7 @@ Figura 1 - Transmissão e recepção UART
 
 ![uart_transmission](imgs/rp2040-uart-buscommunication.png)
 
-
+  * [ ] 
 ### Transmissão na prática
 
 No contexto da UART, o pacote de dados transmitido segue a estrutura da Figura 2, nela é possível ver que temos o **Start Bit**, o **Data Frame ou Word data**, o **Parity Bits** e o **Stop Bits**. Falaremos um pouco sobre eles a seguir.
@@ -62,10 +49,7 @@ Figura 2 - Bits protocolo UART
 
 ### Exemplo de transmissão:
 
-Na Figura 3 demonstramos a transferência de 2 pacotes de dados:
-
-
-Figura 3 - Transferindo dois símbolos
+A figura a seguir demonstramos a transferência de 2 pacotes de dados:
 
 ![uart_transfering](imgs/rp2040-uart-exampletransmission.png)
 
@@ -73,28 +57,17 @@ Figura 3 - Transferindo dois símbolos
 
 - O segundo pacote contendo **0x67** hexadecimal, que é igual a **01100111** em binário e que em ASCII é o equivalente ao símbolo **g**.
 
-
 Neste caso o **LSB** é utilizado, então o primeiro dado a ser enviado é o bit menos significativo, e o último é o **MSB**, o bit com maior valor significativo.
-
 Checando os Bits do data frame e o bit da paridade, vemos que não obtivemos perca de pacotes nas transmissões.
-
 Observamos também que o data frame começou a ser transmitido depois que o Start Bit mudou de 1 para 0.
-
 E finalmente, quando tivemos o Stop Bit, neste caso dois, finalizamos a primeira transferência e iniciamos a outra.
-
 Se tivermos no dispositivo receptor UART algo que convertesse os bits recebidos para caracteres, teríamos recebido os caracteres **á** e **g** em sequência.
-
-
 
 ## RP2040 / PICO
 
 No microcontrolador que estamos utilizando - o RP2040 -, conseguimos utilizar até duas instâncias do periférico UART. Na figura 4 é demonstrado o periférico UART da RP2040, onde há a localização do mesmo dentro do chip.
 
-Figura 4 - UART na RP2040
-
 ![uart_intern](imgs/rp2040-uart.png)
-
-
 
 ### Na Prática
 
@@ -122,8 +95,6 @@ gpio_set_function(uint gpio, enum gpio_function fn)
     - A função que você quer utilizar do pino
 
 É possível ver na figura 5 quais pinos podem fornecer a função de UART, podemos utilizar apenas 2 interfaces, a UART0 e a UART1.
-
-Figura 5 - UART pinos
 
 ![uart_pins](imgs/rp2040-uart-uartpins.png)
 
@@ -155,15 +126,6 @@ uart_putc (uart_inst_t * uart, char c)
     - O primeiro é a instância (uart0 ou uart1) no qual o caracter será transmitido.
     - O segundo é o caracter a ser enviado.
  
-
-
-
-
-
-
-
-
-
 ## SDK
 Para usar o UART você deve modificar o `CMakeLists.txt` adicionando `hardware_uart` no `target_link_libraries`:
 
@@ -191,7 +153,6 @@ Códigos de exemplo para o UART.
 [Simulação no wokwi](/definir/link){.ah-button}
 /
 [pico-examples/dma/hello_dma/hello_dma.c](https://github.com/raspberrypi/pico-examples/blob/master/uart/hello_uart/hello_uart.c){.ah-button}
-
 
 ```c
 /**
