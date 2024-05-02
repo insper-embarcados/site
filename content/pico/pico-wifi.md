@@ -1,11 +1,111 @@
-# WIFI
+# Pico - W
+
+O `Raspberry Pi Pico` e o `Pico W` são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não haviamos falado da existencia dessa versão Pico W. O `Raspberry Pi Pico W` é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.
+
+![](imgs/pico-cyw.png)
+
+!!! tip
+    Datasheet Pico W: [https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
+
+## Chip CYW43439
+
+Ambas as versões, Pico e Pico W, utilizam o mesmo microcontrolador RP2040. A principal diferença está na inclusão do chip CYW43439 da Infineon no Pico W, que adiciona as seguintes funcionalidades wireless:
 
 
+- WiFi 4 (802.11n), Single-band (2.4 GHz)
+- WPA3
+- SoftAP (Até 4 clientes)
+- Bluetooth 5.2
+    - Suporte para Bluetooth LE Central and Peripheral roles
+    - Suporte para Bluetooth Classic
 
+Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados para comunicação com o CYW43439 e foram substituídos pelo GPIO presente no CY43439. Esses podem ser controládos pelo usuário, são eles:
+
+- `WL_GPIO2` – (Entrada) Sentido VBUS. ALTO quando VBUS está presente (Veja o datasheet)
+- `WL_GPIO1` – (Saída) Controla o pino SMPS Power Save integrado (Veja o datasheet)
+- `WL_GPIO0` – (Saída) Controla o LED On-board
+
+!!! warning
+    O led on-board é controlado pelo GPIO25 no Pico padrão. No Pico W, este GPIO é usado para comunicação com o módulo wireless, mas o controle do LED pode ser feito pelo pino `WL_GPIO0` do módulo wireless.
+
+## WIFI
+
+Vamos utilizar a interface do CYW43439 para fazer um pisca led. O intuito é entender as configurações básicas para desenvolvimento de aplicações utilizando a versão Pico W.  
+
+### SDK
+
+Para desenvolver aplicações utilizando o Pico W, você pode basear-se em qualquer projeto desenvolvido para o Pico e fazer algumas modificações: 
+
+-  O arquivo `CMakeLists.txt` que está na raiz do projeto (onde fica a pasta build). Defina `PICO_BOARD` como `pico_w`:
+
+```diff
++set(PICO_BOARD pico_w)
+```
+
+- Já no arquivo `CMakeLists.txt` dentro da pasta do projeto (onde está o arquivo `main.c`) e adicione `pico_cyw43_arch_none` no `target_link_libraries`:
+
+```diff
+target_link_libraries(
+                      ....
+                      .....
++                     pico_cyw43_arch_none)
+```
+
+No arquivo 'main.c' adicione no headfile:
+
+```c
+#include "pico/cyw43_arch.h"
+```
+
+### Hello World
+
+Um exemplo completo de um blink led:
+
+[pico-examples/blob/master/pico_w/wifi/blink/picow_blink.c](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/blink/picow_blink.c){.ah-button}
+
+```c
+#include <stdio.h>
+#include "pico/cyw43_arch.h" // específica do Pico W, interface wireless
+
+int main() {
+    stdio_init_all();
+
+    //inicializa o módulo wireless CYW43439. 
+    //Se a inicialização falhar, a função retorna um valor não zero, e o programa imprime uma mensagem de erro e termina.
+    if (cyw43_arch_init()) {
+        printf("Wi-Fi init failed");
+        return -1;
+    }
+    while (true) {
+        cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
+        sleep_ms(250);
+        cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
+        sleep_ms(250);
+    }
+}
+```
+
+- A função cyw43_arch_gpio_put()` é chamada para definir o estado do LED (ligado ou desligado). - É definido neste arquivo: [https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c)
+- O LED é controlado diretamente através do pino `CYW43_WL_GPIO_LED_PIN`. É definido neste arquivo: [https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/pico_w.h](https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/pico_w.h)
+
+!!! tip
+    acesse a documentação SDK Oficial para ter mais detalhes: 
+
+    [https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/index.html](https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/group__pico__cyw43__arch.html#ga7a05bd21f02a0effadbba1e8266b8771)
+
+    ![](imgs/lib_cyw43.png)
+
+### Wifi e Bluetooth
+
+- Para exemplos de utilização do WiFi e Bluetooth, recomenda-se consultar documentações específicas e tutoriais que exploram essas funcionalidades em projetos práticos.
+
+[pico-examples/blob/master/pico_w/](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/)
+
+## Snippets
 
 ## Scan Wi-fi
 
-Vamos implementar uma scan para listar as redes wifi disponiveis para se conectar. O código é adaptado do repositório oficial da raspiberry pi pico W.
+Vamos implementar uma scan para listar as redes wifi disponíveis para se conectar. O código é adaptado do repositório oficial da raspiberry pi pico W.
 
 - [https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/wifi_scan/picow_wifi_scan.c](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/wifi_scan/picow_wifi_scan.c)
 
@@ -78,15 +178,6 @@ int main() {
 
 - `scan_result`: A função de callback pega o resultado e imprime seu conteúdo. O `BSSID` (Basic Service Set Identifier) da rede, que é o endereço MAC do ponto de acesso que transmite a SSID. É composto por 6 bytes, usualmente exibidos em formato hexadecimal.
 
-!!! exercice
-    Crie um novo projeto e faça o scan das redes Wi-Fi para validar a o funcionamento do modulo Wi-Fi da Raspiberry Pi Pico W. 
-    - Use seu computador ou celular como roteador e avalie se aparece disponivel no scan.
-    - Note que algumas redes aparecem duplicadas e com a potência muito baixa.
-
-    [](./imgs/scan_network.png)
-
-    - Crie uma função para ordenar as redes disponiveis por potência RSSI e que remova as redes duplicdas.
-
 ### Conectando-se na internet
 
 O código base a seguir irá `tentar` se conectar à internet, se for sucesso o led da placa acende.
@@ -151,15 +242,15 @@ Podemos realizar a conexão Wi-Fi da pico W tanto com função `cyw43_arch_wifi_
 
 O drive cyw43 possui a função `cyw43_tcpip_link_status` que retorna o status da conexão. As opções são:
 
-| link status |	Meaning |
-| ------------- | ------------- |
-| CYW43_LINK_DOWN | Wifi down | 
-| CYW43_LINK_JOIN | Connected to wifi | 
-| CYW43_LINK_NOIP | Connected to wifi, but no IP address | 
-| CYW43_LINK_UP | Connect to wifi with an IP address | 
-| CYW43_LINK_FAIL | Connection failed | 
-| CYW43_LINK_NONET | No matching SSID found (could be out of range, or down) | 
-| CYW43_LINK_BADAUTH | Authenticatation failure | 
+| link status         | Meaning                                                 |
+|---------------------|---------------------------------------------------------|
+| `CYW43_LINK_DOWN  ` | Wifi down                                               |
+| `CYW43_LINK_JOIN  ` | Connected to wifi                                       |
+| `CYW43_LINK_NOIP  ` | Connected to wifi, but no IP address                    |
+| `CYW43_LINK_UP    ` | Connect to wifi with an IP address                      |
+| `CYW43_LINK_FAIL  ` | Connection failed                                       |
+| `CYW43_LINK_NONET ` | No matching SSID found (could be out of range, or down) |
+| `CYW43_LINK_BADAUT` | Authenticatation failure                                |
 
 
 Vamos criar uma função `get_wifi_status` que recebe o retorno dessa opção, Vamos utilizar para garantir a conexão de rede.
@@ -184,7 +275,7 @@ get_wifi_status(cyw43_tcpip_link_status(&cyw43_state, CYW43_ITF_STA));
 
 ### Verificando seu IP
 
-Após conectado é possivel vericar o IP alocado para a raspberry pi Pico.
+Após conectado é possível verificar o IP alocado para a raspberry pi Pico.
 
 ```C
    char sIP[] = "xxx.xxx.xxx.xxx";  
