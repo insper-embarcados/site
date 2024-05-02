@@ -134,8 +134,7 @@ nav:
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
       - pico-examples: pico/pico-examples.md
       - Programando: pico/pico-debugging.md
-
-        #      - Code snippets: pico/pico-snippets.md
+      - WIFI: pico/pico-wifi.md
   - RP2040:
       - Datasheet: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
       - SDK: https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html
@@ -168,7 +167,7 @@ nav:
       - ISR - handler: CodeQuality/isr-handler.md
       - Head File: CodeQuality/head-file.md
       - RTOS: CodeQuality/rtos.md
-  - Labs:
+  - Labs core:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
       - GPIO:
@@ -189,14 +188,16 @@ nav:
       - I2C:
         - Preparatório: labs/i2c-pre-lab.md
         - Prática: labs/i2c-pra-lab.md
-  - Experts:
-        - Sobre: labs-expert/labs-expert-about.md
-        - Sensores:
-            - Servomotor: labs-expert/labs-expert-ppm-servomotor/labs-expert-ppm-servomotor.md
-        - DSP:
-            - Áudio: labs-expert/labs-expert-dsp-audio.md
-        - Firmware:
-            - Driver: labs-expert/labs-expert-firmware-driver.md
+  - Labs experts:
+      - Sobre: labs-expert/labs-expert-about.md
+      - Comunicação:
+          - WIFI: labs-expert/labs-expert-com-wifi.md
+      - DSP:
+          - Áudio: labs-expert/labs-expert-dsp-audio.md
+      - Sensores:
+          - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
+      - Firmware:
+          - Driver: labs-expert/labs-expert-firmware-driver.md
 
   - APS:
       - aps/aps-1-genius.md
