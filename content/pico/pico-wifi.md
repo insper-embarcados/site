@@ -182,6 +182,13 @@ int main() {
 
 ### Conectando-se na internet
 
+!!! warning
+    Eu gastei um tempinho até fazer os ajustes do cmake para compilar corretamente o exemplo de conexão wifi adaptado a seguir. Além da configuração normal para usar a pico_w, realizei as seguintes configurações:
+
+    - no cmakelist.txt da pasta main: adicionei 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.
+    - Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h) para a pasta main com o nome 'lwipopts.h'.  
+
+
 O código base a seguir irá `tentar` se conectar à internet, se for sucesso o led da placa acende.
 
 ```C
@@ -284,3 +291,16 @@ Após conectado é possível verificar o IP alocado para a raspberry pi Pico.
     strcpy (sIP, ip4addr_ntoa(netif_ip4_addr(netif_list)));  
     printf ("Conectado, IP %s\n", sIP);  
 ```    
+
+Ao final deste laboratório introdutório é esperado que você tenha entendido o processo de habilitação e conexão com o modulo Wifi da raspiberry pi pico e consiga um resultado semelhante a imagem a seguir.
+
+![](imgs/wifi-conectado.png)
+
+#### Próximmos passos
+
+Agora você já está pronto para desbravar o mundo da conectavidade explorando novas possibilidades.
+
+Sugestão:
+
+- Explore os exemplos de wifi do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi)
+
