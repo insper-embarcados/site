@@ -296,11 +296,17 @@ Ao final deste laboratório introdutório é esperado que você tenha entendido 
 
 ![](imgs/wifi-conectado.png)
 
-#### Próximmos passos
+## Próximmos passos
 
 Agora você já está pronto para desbravar o mundo da conectavidade explorando novas possibilidades.
 
 Sugestão:
 
 - Explore os exemplos de wifi do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi)
+
+### tcp Client
+
+Comece pelo exemplo tcp_client. Algumas dicas: O raspiberry pi pico será um cliente que fará uma conexão ao servidor (código python com socket). Rode o servidor, no cliente ajuste o ip e porta correto referente ao server. 
+
+
 
