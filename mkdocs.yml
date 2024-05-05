@@ -129,6 +129,7 @@ nav:
       - dispositivos/buzzer.md
       - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04
       - OLED1: dispositivos/oled1.md
+      - Servomotor: dispositivos/servo.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
@@ -194,7 +195,7 @@ nav:
           - WIFI: labs-expert/labs-expert-com-wifi.md
       - DSP:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
-      - Sensores:
+      - Sensores/Atuadores:
           - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
