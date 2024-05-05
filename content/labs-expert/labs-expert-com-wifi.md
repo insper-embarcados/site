@@ -32,7 +32,6 @@ Mas tem muitas vantagens, como:
 !!! tip
     Como fazer um sistema embarcado que não possui "teclado" nem "tela" se conectar em uma rede wifi? O usuário precisa encontrar a rede dele e configurar a senha, para que o sistema se conecte... como fazer isso?
 
-
 ### Serviços
 
 O sistema embarcado pode se comportar de duas maneiras, como um web server ou como um cliente, normalmente a segunda opção é a mais utilizada por limitações e seguranças da rede (o seu roteador bloqueia que qualquer dispositivo externo a sua rede se conecte em um dispositivo interno).  
@@ -49,7 +48,7 @@ Muitas são as soluções que podemos empregar para criar esse web server (pode 
 
 A entrega deve ser um sistema embarcado com WIFI na qual você é capaz de ler dados de um potênciometro e enviar as informacoes para uma planilha do google sheets, simulando um dataloger.
 
-!!! tip
-    1. Para entender com mais detalhes como o wifi funciona, consulte a página no site da matéria: `PICO W/WIFI`.
+Para isso você deverá:
 
-    2. O IFTTT e o Zapier possuem um serviço (`web request`) que você consegue fazer um post e ele atualiza automaticamente a tabela do excel.
+- Entender com o wifi funciona, consulte a página no site da matéria [Pico W/wifi](/site/pico/pico-wifi).
+- Usar o IFTTT e o Zapier com o servico (`web request`) que você consegue fazer um post e ele atualiza automaticamente a tabela do excel.
