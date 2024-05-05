@@ -103,7 +103,9 @@ int main() {
 
 ## Snippets
 
-## Scan Wi-fi
+Snippets de código para o WIFI
+
+### Scan Wi-fi
 
 Vamos implementar uma scan para listar as redes wifi disponíveis para se conectar. O código é adaptado do repositório oficial da raspiberry pi pico W.
 

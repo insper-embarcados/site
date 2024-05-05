@@ -55,3 +55,8 @@ Dicas:
 - Execute o exemplo de áudio PWM
     - Lembre de montar o filtro com os resistores e capacitores
 - Junte os dois exemplos para fazer um sistema que reproduz um áudio.
+
+
+Entendendo o PWM para Áudio:
+
+- https://electronics.stackexchange.com/questions/239442/audio-using-pwm-what-is-the-principle-behind-it

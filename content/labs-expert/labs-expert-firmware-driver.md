@@ -3,131 +3,192 @@
 | Lab Expert - DSP - Áudio Preparatório                          |
 |----------------------------------------------------------------|
 | **Deadline**: {{lab_expert_firmware_driver_deadline}}                |
-| [Repositório no classroom]({{lab_expert_firmware_driver_classroom}}) |
-| 💰 100% nota de lab                                            |
+| [Repositório no Classroom]({{lab_expert_firmware_driver_classroom}}) |
+| 💰 100% nota de laboratório                                            |
 
-Neste laboratório de especializaćão de firmware vocês vão aprender como criar drivers para periféricos a fim de tornar o código mais portátil, eficiente e com menos falhas.
+Neste laboratório de especialização de firmware vocês vão aprender como criar drivers para periféricos a fim de tornar o código mais portátil, eficiente e com menos falhas.
 
 ## Lab
 
-Drivers podem ser entendidos como uma camada de software que desacopla o acesso de uma aplicaćão a um recurso ou hardware específico. 
+Drivers podem ser entendidos como uma camada de software que desacopla o acesso de uma aplicação a um recurso ou hardware específico.
 
 ![](imgs-firmware/driver-layers.png)
 
-O termo `drivers` pode aparecer com diferentes nomes: `library`, `api`, `framework`, mas quando o foco é sistemas embarcados e a abstraćão se refere a um componente de hardware as opcões mais apropriadas são: `hardware abstraction layer (HAL)` ou `driver`.
+O termo `drivers` pode aparecer com diferentes nomes: `library`, `api`, `framework`, mas quando o foco é sistemas embarcados e a abstração se refere a um componente de hardware as opções mais apropriadas são: `hardware abstraction layer (HAL)` ou `driver`.
 
-Os drivers podem ser disponibilizados de deiversas maneiras diferentes, mas no final, será composto por uma série de arquivos `.h` e `.c` que vão possibilitar a interface com entre a aplicacao e o hardware em questão.
+Os drivers podem ser disponibilizados de diversas maneiras diferentes, mas no final, será composto por uma série de arquivos `.h` e `.c` que vão possibilitar a interface com entre a aplicação e o hardware em questão.
 
-### cmake
+### CMake
 
-O universo de desenvolvimento da rasp pico é baseado em `CMake`, uma ferramenta cross pataforma para automatizacã́o do processo de `build` para programas em `c` e `c++`.  
+O universo de desenvolvimento da Raspberry Pi Pico é baseado em `CMake`, uma ferramenta cross plataforma para automação do processo de `build` para programas em `C` e `C++`.
 
-Leia esse material para entender como podemos criar uma lib em `c` no sistema de `CMake` da pico:
+Leia esse material para entender como podemos criar uma lib em `C` no sistema de `CMake` da Pico:
 
-- Lib em `c` na pico via `CMake`:  https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pico-and-cmake---create-your-own-c-lib-with-header-files
+- Lib em `C` na Pico via `CMake`:  [Link](https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pico-and-cmake---create-your-own-c-lib-with-header-files)
 
 ### Drivers
 
-Drivers são 
+Drivers são camadas de software que desacoplam o baixo nível da aplicação possibilitando o reaproveitamento de código entre projetos.
 
 ### MPU6050
 
-A mpu6050 possui muitos recursos que não foram explorados no laboratório, iremos nessa entrega expandir as opcões que podemos usar módulo, por exemplo, o MPU6050 pode detectar queda ou identificar quando alguém da um `tap` no sensor. Além disso, podemos configurar a resolućão que o acelerometro vai trabalhar: `+-2G`, `+-4G`... `16G` (depende da aplicacao 2G pode saturar o sinal).
+A MPU6050 possui muitos recursos que não foram explorados no laboratório, iremos nessa entrega expandir as opções que podemos usar módulo, por exemplo, o MPU6050 pode detectar queda ou identificar quando alguém dá um `tap` no sensor. Além disso, podemos configurar a resolução que o acelerômetro vai trabalhar: `±2G`, `±4G` (depende da aplicação 2G pode saturar o sinal).
 
-Lembrem de consultarem os manuais da MP6050 para mais informaćòes:
+Lembrem de consultarem os manuais da MPU6050 para mais informações:
 
-- https://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/RM-MPU-6000A.pdf
-- https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf
+- [Datasheet - Sparkfun](https://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/RM-MPU-6000A.pdf)
+- [Datasheet - InvenSense](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf)
+
+### Poupando energia
+
+A MPU6050 pode gerar uma interrupção quando um movimento determinado for detectado, isso é muito útil para permitir que o sistema embarcado entre em modo sleep enquanto aguarda um movimento, e aí ele é acordado com essa interrupção processando os dados, e poupando energia quando não precisa processar (imagine um controle bluetooth que liga quando é pegado da mesa, ou um smartwatch que liga a tela quando o braço é mexido).
+
+Para podermos usar isso, teremos que fornecer uma camada de software que permite a aplicação ativar esse recurso na MPU.
 
 ## Entrega
 
 Nessa entrega vocês devem criar um driver chamado MPU6050 com os seguintes arquivos:
 
-- `MPU6050/mpu6050.h`: Configurações e prototypes
-- `MPU6050/mpu6050.c`: Implementaćão das funções
+- `MPU6050/mpu6050.h`: Configurações e protótipos
+- `MPU6050/mpu6050.c`: Implementação das funções
 
-Esses arquivos deve ser uma lib do projeto do CMake!
+Esses arquivos devem ser uma lib do projeto do CMake!
 
-Para deixarmos o driver mais genérico possível, vamos definir uma struct que possui as configurações necessárias para a IMU: 
+O driver deve suportar o que já possuímos hoje, mas não foi estruturado em forma de driver:
 
-``` h
+1. Ter um "objeto" de configuração
+2. Permitir configurar pinos e I2C a ser utilizado
+3. Funções que permitam manipular e ler a IMU
+4. Funções para configurar o motion detection.
+
+Para realizar a entrega, você deverá ler:
+
+- Lib em `C` na Pico via `CMake`: [Link](https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pico-and-cmake---create-your-own-c-lib-with-header-files)
+- Driver MPU6050 Adafruit: [Link](https://github.com/adafruit/Adafruit_MPU6050/blob/88b3f5983771ed6efc6c048b2c49c77ed1d417f2/Adafruit_MPU6050.cpp#L416)
+
+### Geral
+
+Você deve criar as seguintes funções e demonstrar o seu uso em um projeto, notem que as funções retornam um `int`, esse valor deve ser `1` para quando a execućão da funções for vem sucedida ou `0` para quando falhar (`timeout por exemplo`).  
+
+Para deixarmos o driver mais genérico possível, vamos definir uma struct que possui as configurações necessárias para a IMU
+
+```c
+// no arquivo .h
 typedef struct imu6050 {
-    // pinos
+    // configuração do I2C
+    i2c_inst_t i2c;
     int pin_sda;
     int pin_scl;
  
-    // configuracao do range do acelerometro
+    // configuração do range do acelerômetro
     int acc_scale;
 } imu_t;
 ```
 
-Você deve criar as seguintes funções e demonstrar o seu uso em um projeto:
-
-- Configura o struct de configuracao do componente.
+Função que configura o struct de configuração do componente.
 
 ```c
-mpu6050_set_config(imu_c config, pin_sda, pin_scl, freq) { ... } 
+mpu6050_set_config(imu_c *config, i2c_inst_t i2c, int pin_sda, int pin_scl, int acc_scale) { ... } 
 ```
 
-- Configura pinos e periférico i2c:
+Configura pinos e periférico I2C:
 
 ```c
 int mpu6050_init(imu_c config) { ... } 
 ```
 
-- Reinicia o device para o estado original:
+Reinicia o dispositivo para o estado original:
 
 ```c
 int mpu6050_reset() { .. }
 ```
 
-- Faz a leitura do acelerometro:
+Faz a leitura do acelerômetro:
 
-``` c
+```c
 int mpu6050_read_acc(imu_c config, int16_t accel[3]) { .. }
 ```
 
-- Faz a leitura do gyro:
+Faz a leitura do giroscópio:
 
-``` c
+```c
 int mpu6050_read_gyro(imu_c config, int16_t gyro[3]) { .. }
 ```
 
-- Faz a leitura da temperatura:
+Faz a leitura da temperatura:
 
-``` c
+```c
 int mpu6050_read_temp(imu_c config, int16_t *temp) { .. }
 ```
 
-Exemplos de uso:
+### Motion detection
+
+Funções para configurar o motion detection.
 
 ```c
-imu_c imu_config;
-int accel[3];
-int gyro[3];
-int tmp;
-
-mpu6050_set_config(&imu_config, 12, 13, 200000);
-mpu6050_reset(imu_config);
-
-while(1) {
-  mpu6050_read_acc(config, accel) { .. }
-  mpu6050_read_gyro(config, gyro) { .. }
-  mpu6050_read_temp(config, &temp) { .. }
-}
+int mpu6050_set_motion_detection(imu_c config, int enable) { ... }
 ```
 
-- Melhorar driver da IMU
-  - Criar funcoes
-  - Modo sleep
-  - Usar pino de IRQ do módulo
-  - multicore?
+Funções para ler o status de detecção.
 
-Um driver 
+```c
+int mpu6050_get_motion_interrupt_status(imu_c config) { ... }
+```
+
+Funções para configurar o threshold de detecção de movimento.
+
+```c
+int mpu6050_set_motion_detection_threshold(imu_c config, uint8_t thr) { ... }
+```
+
+Funções para configurarar a duração do motion detection.
+
+```c
+int mpu6050_set_motion_detection_duration(imu_c config, uint8_t thr) { ... }
+```
+
+### Exemplo de uso
+
+Exemplo de uso para o driver criado:
+
+```c
+#include "mpu6050.h"
+// ...
+
+volatile int f_irq_mpu = 0;
+
+void gpio_callback(uint gpio, uint32_t events) {
+  f_irq_mpu = 1;
+}
 
 
-## Entrega
+void main() {
+  // ...
+  
+  // Configura pino da IRQ do MPU
+  // gpio_callback
+  
+  // MPU
+  imu_c imu_config;
 
-Para realizar a entrega, você deverá ler:
+  // geral
+  mpu6050_set_config(&imu_config, 12, 13, 2);
+  mpu6050_reset(imu_config);
+  
+  // configurando detecao de movimento
+  mpu_set_motion_detection_threshold(imu_config, 1);
+  mpu_set_motion_detection_duration(imu_config, 20);
+  mpu_set_motion_detection(imu_config, 1);
+  
+  while(1) {
+    int accel[3]; int gyro[3]; int tmp;
 
-- Lib em `c` na pico via `CMake`:  https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pico-and-cmake---create-your-own-c-lib-with-header-files
+    if (f_irq_mpu){
+      mpu6050_read_acc(config, accel) { .. }
+      mpu6050_read_gyro(config, gyro) { .. }
+      mpu6050_read_temp(config, &temp) { .. }
+      // print 
+    }
+  }
+}
+```
