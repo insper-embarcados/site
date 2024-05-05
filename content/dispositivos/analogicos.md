@@ -9,6 +9,8 @@ Estender material, falando de:
 - Problemas com sensores analógicos 
 - Calibraćão
 
+A seguir uma lista dos sensores disponíveis no lab:
+
 ## LDR
 
 ![LDR Pico](imgs-ppm-servomotor/ldrPico.png)
