@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert firmware dma - Computação Embarcada - 2.0</title>
+        <title>Análogicos - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -202,14 +202,14 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Dispositivos</span>
     <ul>
       
         
   
     <li>
-      <a href="../../dispositivos/buzzer.md">None</a>
+      <a href="../buzzer.md">None</a>
     </li>
   
 
@@ -225,7 +225,7 @@
         
   
     <li>
-      <a href="../../dispositivos/oled1/">OLED1</a>
+      <a href="../oled1/">OLED1</a>
     </li>
   
 
@@ -233,15 +233,39 @@
         
   
     <li>
-      <a href="../../dispositivos/servo/">Servomotor</a>
+      <a href="../servo/">Servomotor</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../../dispositivos/analogicos/">Análogicos</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Análogicos</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#ldr">LDR</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#termistor-ntc">Termistor NTC</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#strain-gauge">Strain gauge</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#sharp">SHARP</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -733,7 +757,7 @@
         
   
     <li>
-      <a href="../labs-expert-about/">Sobre</a>
+      <a href="../../labs-expert/labs-expert-about/">Sobre</a>
     </li>
   
 
@@ -746,7 +770,7 @@
         
   
     <li>
-      <a href="../labs-expert-com-wifi/">WIFI</a>
+      <a href="../../labs-expert/labs-expert-com-wifi/">WIFI</a>
     </li>
   
 
@@ -763,7 +787,7 @@
         
   
     <li>
-      <a href="../labs-expert-dsp-audio/">Áudio</a>
+      <a href="../../labs-expert/labs-expert-dsp-audio/">Áudio</a>
     </li>
   
 
@@ -780,7 +804,7 @@
         
   
     <li>
-      <a href="../labs-expert-sensors-servomotor/">Servomotor</a>
+      <a href="../../labs-expert/labs-expert-sensors-servomotor/">Servomotor</a>
     </li>
   
 
@@ -797,7 +821,7 @@
         
   
     <li>
-      <a href="../labs-expert-firmware-driver/">Driver</a>
+      <a href="../../labs-expert/labs-expert-firmware-driver/">Driver</a>
     </li>
   
 
@@ -844,6 +868,10 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Dispositivos</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -851,27 +879,40 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="expert-dsp-audio">Expert - DSP - Áudio</h1>
-<table>
-<thead>
-<tr>
-<th>Lab Expert - DSP - Áudio Preparatório</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Deadline</strong>: {{ lab_expert_dsp_audio_deadline }}</td>
-</tr>
-<tr>
-<td><a href="{{ lab_expert_dsp_audio_classroom }}">Repositório no classroom</a></td>
-</tr>
-<tr>
-<td>💰 100% nota de lab</td>
-</tr>
-</tbody>
-</table>
-<h2 id="lab">Lab</h2>
-<h2 id="entrega">Entrega</h2>
+<h1 id="sensores-analogicos">Sensores analógicos</h1>
+<p>No laboratório temos uma série de sensores analógicos e que podem ser utilizados para mensurarem o mundo externo.</p>
+<p>Estender material, falando de:</p>
+<ul>
+<li>Condicionamento de sinal</li>
+<li>Ponte de Wheatstone</li>
+<li>Problemas com sensores analógicos </li>
+<li>Calibraćão</li>
+</ul>
+<p>A seguir uma lista dos sensores disponíveis no lab:</p>
+<h2 id="ldr">LDR</h2>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/ldrPico.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LDR Pico" src="../imgs-ppm-servomotor/ldrPico.png" /></a></p>
+<p>O LDR (Light Dependent Resistor), também conhecido como fotorresistor, é um tipo de sensor passivo. Isso significa que ele não requer energia externa para funcionar e não produz energia própria. Em vez disso, sua resistência elétrica varia em resposta à intensidade da luz incidente. Para entender melhor, consulte:</p>
+<ul>
+<li><a href="https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview">https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview</a></li>
+</ul>
+<h2 id="termistor-ntc">Termistor NTC</h2>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/termistor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Termistor" src="../imgs-ppm-servomotor/termistor.jpg" /></a></p>
+<p>Um termistor NTC é composto de um material semicondutor cuja resistência elétrica diminui quando a temperatura aumenta. Isso significa que ele possui um coeficiente de temperatura negativo, daí o nome "Negative Temperature Coefficient". Quando a temperatura aumenta, os elétrons do material semicondutor ganham energia térmica, o que aumenta sua mobilidade e reduz a resistência elétrica do termistor. Para entender melhor, consulte:</p>
+<ul>
+<li><a href="https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/">https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/</a></li>
+</ul>
+<h2 id="strain-gauge">Strain gauge</h2>
+<p><a class="glightbox" href="https://blog.endaq.com/hs-fs/hubfs/Blog-Images/Strain%20Gauges/example-of-a-strain-gauge.png?width=437&amp;name=example-of-a-strain-gauge.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://blog.endaq.com/hs-fs/hubfs/Blog-Images/Strain%20Gauges/example-of-a-strain-gauge.png?width=437&amp;name=example-of-a-strain-gauge.png" /></a></p>
+<p>É dispositivo cuja resistência elétrica que varia com a deformação, pode ser utilizado para medir uma série de coisas, desde o quanto uma rachadura em uma parede está aumentando, se um eixo está sofrendo deformação. Ele não desenvolvido para medir "peso",  mas podemos usar para ter uma noção de quanto de forca foi aplicado nele.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Strain_gauge">https://en.wikipedia.org/wiki/Strain_gauge</a></li>
+</ul>
+<h2 id="sharp">SHARP</h2>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/sharpSENSOR.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SHARP SENSOR" src="../imgs-ppm-servomotor/sharpSENSOR.jpg" /></a></p>
+<p>Sendo o mais genérico dos apresentados, esse tipo sensor de ele possui diversas aplicações como: sensor de proximidade, sensor de distância e sensor de movimento. Esse tipo de sensor emite luz infravermelha em direção a um objeto e mede o tempo que leva para a luz refletida retornar ao sensor. Ele possui um circuito integrado que calcula essa distância até o objeto com base no ângulo de inclinação do feixe de luz refletido. Os sensores Sharp geralmente fornecem uma saída analógica que é proporcional à distância medida até o objeto. Essa saída analógica pode variar de acordo com o modelo específico do sensor, mas geralmente é uma tensão ou corrente que varia de acordo com a distância. Para entender melhor, consulte:</p>
+<ul>
+<li><a href="https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/">https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/</a></li>
+</ul>
 
 
 </section>
@@ -881,6 +922,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../servo/"
+               class="ah-prev"
+               title="Servomotor">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Servomotor</span>
+            </a>
+          
+          
+            <a href="../../pico/pico-examples/"
+               class="ah-next"
+               title="pico-examples">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">pico-examples</span>
+            </a>
           
         </div>
       </footer>
