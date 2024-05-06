@@ -8,10 +8,10 @@
 
 Neste laboratório, iremos criar uma aplicação que faz as leituras de um sensor bme280 (I2C) e mostrar os valroes aferido em um display LCD TFT com driver ili9341 (SPI).
 
+
 ## Definições
 
 Durante o curso realizamos várias aplicações com procolo UART, principalmente para enviar dados da Pico W para o PC e vice-versa, contudo para comunicações com outros dispositivos como sensores por exemplos a velocidade e integridade dos dados se torna mais necessário, para isso, no mundo de embarcados existem outros 2 tipos de comunicação muito utilizados, o SPI e o I2C.
-
 
 ### I2C
 
@@ -47,9 +47,7 @@ Pressão: 30.000Pa a 110.000Pa, precisão relativa de 12Pa, precisão absoluta d
 Altitude: 0 a 30.000 pés (9,2 km), precisão relativa de 3,3 pés (1 m) ao nível do mar, 6,6 (2 m) a 30.000 pés.
 
 
-
 ## LAB
-
 
 ### LCD TFT ili9341 com Adafruit GFX Library (SPI)
 
