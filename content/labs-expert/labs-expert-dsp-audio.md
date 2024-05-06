@@ -33,6 +33,10 @@ O repositório a seguir possui uma bom exemplo e demonstração de como gerar um
 
 - https://github.com/rgrosset/pico-pwm-audio/tree/main
 
+No lugar de usar o filtro indicado no repositório, vocês podem usar esse como alternativa: 
+
+![](imgs-dsp/pwm-filter.png)
+
 !!! tip
     Outras referências: 
     
