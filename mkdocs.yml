@@ -75,6 +75,9 @@ extra:
 
     lab_expert_1_classroom: https://classroom.github.com/a/q-oW2dpv
     lab_expert_1_deadline: 13/05
+    
+    lab_expert_2_classroom: 
+    lab_expert_2_deadline: 
 
     aps_1_classroom: https://classroom.github.com/a/niP2yPR9
     aps_1_deadline: Segunda 11/03 - 13h30
@@ -201,6 +204,7 @@ nav:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
       - Sensores/Atuadores:
           - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
+          #- LCD / BME280: labs-expert-bme280-ili9341.md
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
 
