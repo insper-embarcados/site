@@ -22,6 +22,6 @@ Para entender melhor, acesse:
 
 ## RP2040 / PICO
 
-Para controlar o servomotor, não é complicado. Basta ajustar um [exemplo de PWM](https://github.com/raspberrypi/pico-examples/tree/master/pwm/hello_pwm), ajustando o ciclo de trabalho (duty cycle) com um período de 20 ms (50 Hz), e o servo responderá ao comprimento do pulso dentro desse período. Para entender como aplicar, consulte:
+Para controlar o servomotor, não seria tão complicado. Bastaria modificar o [exemplo de PWM](https://github.com/raspberrypi/pico-examples/tree/master/pwm/hello_pwm), e ajustar o duty cycle com um período de 20 ms (50 Hz), e variar a largura da onda entre 1ms a 2ms para e com isso o servo variar seu eixo de 0º a 180º. No link abaixo você pode encontrar um exemplo do usuário [irishpatrick](https://github.com/irishpatrick) onde ele criou uma biblioteca para controlar o servomotor utilizando pwm, consulte:
 
 - https://github.com/irishpatrick/pico-servo/tree/main
