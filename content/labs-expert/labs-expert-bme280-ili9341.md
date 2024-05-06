@@ -6,18 +6,12 @@
 | [Repositório no Classroom]({{lab_expert_2_classroom}}) |
 | 💰 100% nota de laboratório                                   |
 
-Neste laboratório, iremos criar uma aplicação que faz as leituras de um sensor bme280 (I2C) e mostrar os valroes aferido em um display LCD TFT com driver ili9341 (SPI).
+Neste laboratório, iremos criar uma aplicação que faz as leituras de um sensor bme280 e mostrar os valroes aferido em um display LCD TFT com driver ili9341, ambos utilizando protocolo SPI.
 
 
 ## Definições
 
-Durante o curso realizamos várias aplicações com procolo UART, principalmente para enviar dados da Pico W para o PC e vice-versa, contudo para comunicações com outros dispositivos como sensores por exemplos a velocidade e integridade dos dados se torna mais necessário, para isso, no mundo de embarcados existem outros 2 tipos de comunicação muito utilizados, o SPI e o I2C.
-
-### I2C
-
-Já conhecemos o protocolo I2C, ele foi utilizado anteriormente para ler os dados da IMU, relembre:
-
-https://insper-embarcados.github.io/site/rp2040/rp2040-i2c/
+Durante o curso realizamos várias aplicações com procolo UART, principalmente para enviar dados da Pico W para o PC e vice-versa, contudo para comunicações com outros dispositivos como sensores por exemplos a velocidade e integridade dos dados se torna mais necessário, para isso, foram criados outros tipos de protocolo, e um deles é o SPI.
 
 ### SPI
 
@@ -28,14 +22,14 @@ https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all
 
 ### LCD TFT ili9341
 
-![](/imgs-expert-spi/tft_lcd_ili9341.jpg){width=400px}
+![](imgs-bme280-ili9341/tft_lcd_ili9341.jpg){width=200px}
 
 A principal característica do TFT LCD ili9341 é sua alta resolução e capacidade de exibir cores vivas. Ele geralmente possui uma resolução de 320x240 pixels e é capaz de exibir milhares de cores, o que o torna ideal para aplicações gráficas. Outra vantagem do TFT LCD 9341 é sua capacidade de ser controlado por interfaces comuns, como SPI (Serial Peripheral Interface), o que simplifica ainda mais o processo de comunicação com dispositivos externos.
 
 
 ### BME280
 
-![](/imgs-expert-spi/bosch_bme280.jpg){width=200px}
+![](imgs-bme280-ili9341/bosch_bme280.jpg){width=200px}
 
 O BME280 pode ser usado para fazer leituras de pressão, umidade e temperatura. Utilize os dados para obter mudanças de altitude relativas, ou altitude absoluta se a pressão barométrica localmente relatada for conhecida.
 
@@ -49,7 +43,7 @@ Altitude: 0 a 30.000 pés (9,2 km), precisão relativa de 3,3 pés (1 m) ao nív
 
 ## LAB
 
-### LCD TFT ili9341 com Adafruit GFX Library (SPI)
+### LCD TFT ili9341 com Adafruit GFX Library
 
 A Adafruit criou uma biblioteca muito interessante, ela fornece uma sintaxe comum e um conjunto de funções gráficas para todos os nossos displays LCD e OLED, bem como matrizes de LEDs.
 
@@ -59,13 +53,13 @@ https://github.com/tvlad1234/pico-displayExamples
 
 No repositório acima você irá encontrar uma aplicação utilizando a Pico para se comunicar com o driver ili9341 já com a biblioteca Adafruit GFX integrada, rode o exemplo e faça testes com o mesmo.
 
-### BME 280 (I2C)
+### BME 280
 
-Assim como no lab onde utilizamos a IMU, precisaríamos acessar o [datasheet](https://cdn.sparkfun.com/assets/learn_tutorials/4/1/9/BST-BME280_DS001-10.pdf) do sensor para saber quais os endereços que devemos buscar os dados que queremos, contudo, no próprio repositório da pico-examples está disponível um código exemplo que utiliza esse sensor:
+Assim como no lab onde utilizamos a IMU, precisaríamos acessar o [datasheet](https://cdn.sparkfun.com/assets/learn_tutorials/4/1/9/BST-BME280_DS001-10.pdf) do sensor para saber como acessar os dados que desejamos, contudo, no próprio repositório da pico-examples está disponível um código exemplo que utiliza esse sensor:
 
 https://github.com/raspberrypi/pico-examples
 
-Encontre o exemplo para ler esse valor utilizando protocolo I2C e execue-o.
+Encontre o exemplo para ler esse valor utilizando protocolo SPI e execue-o.
 
 
 ## Entrega
@@ -75,4 +69,5 @@ Utilizando RTOS, você deverá integrar ambos os dispositivos, tanto o LCD TFT i
 ### Dicas:
 
 	1. Crias exemplos separados com RTOS para cada um dos dispositivos;
-	2. Para portar um exemplo externo, seguir as intruções que disponibilizamos no site: https://insper-embarcados.github.io/site/pico/pico-examples/.
+	2. Os dois exemplos utilizam o mesmo periférico SPI (SPI0), você deve modificar um dos exemplos para utiliza o outro periférico SPI disponível (SPI1)
+	3. Para portar um exemplo externo, seguir as intruções que disponibilizamos no site: https://insper-embarcados.github.io/site/pico/pico-examples/.
