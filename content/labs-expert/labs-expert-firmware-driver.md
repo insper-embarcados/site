@@ -1,10 +1,10 @@
 # Expert - Firmware - Driver
 
-| Lab Expert - DSP - Áudio Preparatório                          |
-|----------------------------------------------------------------|
+| Lab Expert - Firmware - Driver                         |
+|--------------------------------------------------------|
 | **Deadline**: {{lab_expert_1_deadline}}                |
 | [Repositório no classroom]({{lab_expert_1_classroom}}) |
-| 💰 100% nota de laboratório                                            |
+| 💰 100% nota de laboratório                            |
 
 Neste laboratório de especialização de firmware vocês vão aprender como criar drivers para periféricos a fim de tornar o código mais portátil, eficiente e com menos falhas.
 
@@ -68,7 +68,7 @@ Para realizar a entrega, você deverá ler:
 
 ### Geral
 
-Você deve criar as seguintes funções e demonstrar o seu uso em um projeto, notem que as funções retornam um `int`, esse valor deve ser `1` para quando a execućão da funções for vem sucedida ou `0` para quando falhar (`timeout por exemplo`).  
+Você deve criar as seguintes funções e demonstrar o seu uso em um projeto, notem que as funções retornam um `int`, esse valor deve ser `1` para quando a execução da funções for vem sucedida ou `0` para quando falhar (`timeout por exemplo`).  
 
 Para deixarmos o driver mais genérico possível, vamos definir uma struct que possui as configurações necessárias para a IMU
 
@@ -82,7 +82,7 @@ typedef struct imu6050 {
  
     // configuração do range do acelerômetro
     int acc_scale;
-} imu_t;
+} imu_c;
 ```
 
 Função que configura o struct de configuração do componente.
@@ -100,7 +100,7 @@ int mpu6050_init(imu_c config) { ... }
 Reinicia o dispositivo para o estado original:
 
 ```c
-int mpu6050_reset() { .. }
+int mpu6050_reset(imu_c config) { .. }
 ```
 
 Faz a leitura do acelerômetro:
@@ -165,7 +165,7 @@ void gpio_callback(uint gpio, uint32_t events) {
 void main() {
   // ...
   
-  // Configura pino da IRQ do MPU
+  // Configura pino para funcionar com callback
   // gpio_callback
   
   // MPU
