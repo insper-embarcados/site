@@ -2,8 +2,8 @@
 
 | Lab Expert - DSP - Áudio Preparatório                          |
 |----------------------------------------------------------------|
-| **Deadline**: {{lab_expert_dsp_audio_deadline}}                |
-| [Repositório no classroom]({{lab_expert_dsp_audio_classroom}}) |
+| **Deadline**: {{lab_expert_1_deadline}}                |
+| [Repositório no classroom]({{lab_expert_1_classroom}}) |
 | 💰 100% nota de lab                                            |
 
 Neste laboratório iremos criar um sistema capaz de captar um sinal de áudio com um microfone e reproduzir o sinal lido em um speaker! 

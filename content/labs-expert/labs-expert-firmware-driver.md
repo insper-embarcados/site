@@ -2,8 +2,8 @@
 
 | Lab Expert - DSP - Áudio Preparatório                          |
 |----------------------------------------------------------------|
-| **Deadline**: {{lab_expert_firmware_driver_deadline}}                |
-| [Repositório no Classroom]({{lab_expert_firmware_driver_classroom}}) |
+| **Deadline**: {{lab_expert_1_deadline}}                |
+| [Repositório no classroom]({{lab_expert_1_classroom}}) |
 | 💰 100% nota de laboratório                                            |
 
 Neste laboratório de especialização de firmware vocês vão aprender como criar drivers para periféricos a fim de tornar o código mais portátil, eficiente e com menos falhas.

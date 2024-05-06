@@ -2,8 +2,8 @@
 
 | Lab Expert - WiFi - Áudio Preparatório                          |
 |----------------------------------------------------------------|
-| **Deadline**: {{lab_expert_wifi_deadline}}                |
-| [Repositório no classroom]({{lab_expert_wifi_classroom}}) |
+| **Deadline**: {{lab_expert_1_deadline}}                |
+| [Repositório no classroom]({{lab_expert_1_classroom}}) |
 | 💰 100% nota de lab                                            |
 
 Neste laboratório vamos explorar os recursos de conectividade `Wi-Fi` da `Raspberry Pi Pico W`. 
@@ -51,4 +51,5 @@ A entrega deve ser um sistema embarcado com WIFI na qual você é capaz de ler d
 Para isso você deverá:
 
 - Entender com o wifi funciona, consulte a página no site da matéria [Pico W/wifi](/site/pico/pico-wifi).
+- Para fazer o post no IFTTT/Zapier deve usar o exemplo da pico: https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/tcp_client/
 - Usar o IFTTT e o Zapier com o servico (`web request`) que você consegue fazer um post e ele atualiza automaticamente a tabela do excel.

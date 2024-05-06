@@ -32,6 +32,9 @@ Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados pa
 
 Vamos utilizar a interface do CYW43439 para fazer um pisca led. O intuito é entender as configurações básicas para desenvolvimento de aplicações utilizando a versão Pico W.  
 
+!!! info
+    Consulte a página do site da disciplina [Pico W/pico-examples](/site/pico/pico-examples) para saber como usar o repositório de exemplos da pico!
+
 ### SDK
 
 Para desenvolver aplicações utilizando o Pico W, você pode basear-se em qualquer projeto desenvolvido para o Pico e fazer algumas modificações: 
@@ -65,6 +68,7 @@ Um exemplo completo de um blink led:
 
 ```c
 #include <stdio.h>
+#include "pico/stdlib.h"
 #include "pico/cyw43_arch.h" // específica do Pico W, interface wireless
 
 int main() {
@@ -85,7 +89,8 @@ int main() {
 }
 ```
 
-- A função cyw43_arch_gpio_put()` é chamada para definir o estado do LED (ligado ou desligado). - É definido neste arquivo: [https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c)
+- A função `cyw43_arch_gpio_put()` é chamada para definir o estado do LED (ligado ou desligado). 
+- É definido neste arquivo: [https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_cyw43_arch/cyw43_arch.c)
 - O LED é controlado diretamente através do pino `CYW43_WL_GPIO_LED_PIN`. É definido neste arquivo: [https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/pico_w.h](https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards/pico_w.h)
 
 !!! tip
@@ -192,6 +197,7 @@ int main() {
 O código base a seguir irá `tentar` se conectar à internet, se for sucesso o led da placa acende.
 
 ```C
+#include <stdio.h>
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
 
@@ -231,7 +237,6 @@ int main() {
         sleep_ms(1000);
     }
 }
-
 ```
 
 - `cyw43_arch_enable_sta_mode()`: O dispositivo atua como um cliente Wi-Fi, o que significa que ele se conecta a uma rede Wi-Fi existente (como a de sua casa ou escritório).

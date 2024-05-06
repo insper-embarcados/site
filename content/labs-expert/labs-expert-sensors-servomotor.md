@@ -2,8 +2,8 @@
 
 | Lab Expert - PPM - Servomotor                                |
 | ------------------------------------------------------------ |
-| **Deadline**: {{lab_expert_pwm_servomotor_deadline}}         |
-| [Repositório no Classroom]({{lab_expert_dsp_audio_classroom}}) |
+| **Deadline**: {{lab_expert_1_deadline}}                |
+| [Repositório no classroom]({{lab_expert_1_classroom}}) |
 | 💰 100% nota de laboratório                                   |
 
 Neste laboratório, iremos criar um sistema capaz de ajustar a posição de um servomotor através da seleção de diferentes sensores!

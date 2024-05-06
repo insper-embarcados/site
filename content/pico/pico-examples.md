@@ -14,7 +14,7 @@ https://github.com/insper-embarcados/pico-base-project/blob/main/.devcontainer/d
 !!! tip
     Todos os códigos que disponibilizamos para vocês possuem esse arquivo, vocês podem apenas copiar para o repositório clonado.
 
-Agora com o `.devcontainer` configurado seremos capaz de compilar e usar os exemplos, mas agora precisamos configurar que a placa que possuímos é a versão `W`, ou seja, possui o módulo de WIFI e BlueTooth.
+Agora com o `.devcontainer` configurado seremos capaz de abrir a pasta no container e compilar e usar os exemplos, antes só precisamos configurar que a placa que possuímos é a versão `W`, ou seja, possui o módulo de WIFI e BlueTooth.
 
 Então modifique o arquivo `CMakeLists.txt` e adicione na segunda linha `set(PICO_BOARD pico_w)` como demonstrado a seguir:
 
