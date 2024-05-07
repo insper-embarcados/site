@@ -6,13 +6,15 @@ A raspberry pi fundation disponibiliza oficialmente uma série de códigos exemp
 
 
 
+
+
+
+
 ## Usando exemplos
 
 
 
-
-
-### .devcontainet/
+### .devcontainer/
 
 Para usar o exemplos na nossa infra é preciso clonar o repositório e criar um diretórrio chamado `.devcontainer` com o arquivo `devcontainer.json` com o  seguinte conteúdo:
 
@@ -34,8 +36,6 @@ cmake_minimum_required(VERSION 3.12)
 
 
 
-
-
 ### .vscode/
 
 Para gravar e debugar (RUN AND DEBUG) os exemplos dentro do vscode na nossa infra, é preciso também fazer o download do repositório no link abaixo e descompactar o mesmo no repositório clonado:
@@ -44,6 +44,8 @@ Para gravar e debugar (RUN AND DEBUG) os exemplos dentro do vscode na nossa infr
 
 !!! tip
     Todos os códigos que disponibilizamos para vocês na disciplina possuem esse diretório, vocês podem apenas copiar o mesmo para o repositório clonado.
+
+
 
 
 
