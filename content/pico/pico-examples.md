@@ -4,15 +4,23 @@ A raspberry pi fundation disponibiliza oficialmente uma série de códigos exemp
 
 - https://github.com/raspberrypi/pico-examples
 
+
+
 ## Usando exemplos
 
-Para usar o exemplos na nossa infra basta clonar o repositório e criar uma pasta chamada `.devcontainer` com o arquivo `devcontainer.json` com o  seguinte conteúdo:
+
+
+
+
+### .devcontainet/
+
+Para usar o exemplos na nossa infra é preciso clonar o repositório e criar um diretórrio chamado `.devcontainer` com o arquivo `devcontainer.json` com o  seguinte conteúdo:
 
 - [devcontainer.json](
 https://github.com/insper-embarcados/pico-base-project/blob/main/.devcontainer/devcontainer.json)
 
 !!! tip
-    Todos os códigos que disponibilizamos para vocês possuem esse arquivo, vocês podem apenas copiar para o repositório clonado.
+    Todos os códigos que disponibilizamos para vocês na disciplina possuem esse diretório, vocês podem apenas copiar o mesmo para o repositório clonado.
 
 Agora com o `.devcontainer` configurado seremos capaz de abrir a pasta no container e compilar e usar os exemplos, antes só precisamos configurar que a placa que possuímos é a versão `W`, ou seja, possui o módulo de WIFI e BlueTooth.
 
@@ -23,6 +31,23 @@ cmake_minimum_required(VERSION 3.12)
 
 +set(PICO_BOARD pico_w)
 ```
+
+
+
+
+
+### .vscode/
+
+Para gravar e debugar (RUN AND DEBUG) os exemplos dentro do vscode na nossa infra, é preciso também fazer o download do repositório no link abaixo e descompactar o mesmo no repositório clonado:
+
+- [.vscode.zip](https://insper-my.sharepoint.com/:u:/g/personal/marcoasma_insper_edu_br/EY1GhgGok2lJgQcrGaubDMsBBjT1rsQQA2Yry2DCxlvrSQ?e=Im28Cq)
+
+!!! tip
+    Todos os códigos que disponibilizamos para vocês na disciplina possuem esse diretório, vocês podem apenas copiar o mesmo para o repositório clonado.
+
+
+
+
 
 ## pico extras
 
