@@ -74,6 +74,6 @@ Utilizando RTOS, você deverá integrar ambos os dispositivos, tanto o LCD TFT i
 
 ### Dicas:
 
-1. Crias exemplos separados com RTOS para cada um dos dispositivos;
+1. Criar exemplos separados com RTOS para cada um dos dispositivos;
 2. Os dois exemplos utilizam o mesmo periférico SPI (SPI0), você deve modificar um dos exemplos para utiliza o outro periférico SPI disponível (SPI1)
 3. Para portar um exemplo externo, seguir as intruções que disponibilizamos no site: https://insper-embarcados.github.io/site/pico/pico-examples/.
