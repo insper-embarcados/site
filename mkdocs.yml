@@ -204,7 +204,7 @@ nav:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
       - Sensores/Atuadores:
           - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
-          #- LCD / BME280: labs-expert-bme280-ili9341.md
+          #- LCD / BME280: labs-expert/labs-expert-bme280-ili9341.md
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
 
