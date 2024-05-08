@@ -47,6 +47,8 @@ Intervalos:
 
 ## LAB
 
+Com os componentes previamente definidos, vamos agora integrá-los a nossa Pico. Neste lab, vamos utilizar os exemplos fornecidos a seguir e adaptá-los para nossa aplicação específica, portando os mesmo para nossa infra.
+
 ### LCD TFT ili9341 com Adafruit GFX Library
 
 A Adafruit criou uma [biblioteca](https://learn.adafruit.com/adafruit-gfx-graphics-library/overview) muito interessante, ela fornece uma sintaxe comum e um conjunto de funções gráficas para todos os nossos displays LCD e OLED, bem como matrizes de LEDs.
