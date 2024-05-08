@@ -6,7 +6,7 @@
 | [Repositório no classroom]({{lab_expert_dsp_ia_classroom}}) |
 | 💰 100% nota de lab                                            |
 
-Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório [6 - i2c](https://insper-embarcados.github.io/site/labs/i2c-pra-lab/)) para identificar quando uma pessoa está parada e quando está andando através de dados do acelerômetro. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como *idle* (parado) e *walking* (andando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.
+Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório [6 - i2c](https://insper-embarcados.github.io/site/labs/i2c-pra-lab/)) para classificar movimentos de um acelerômetro no espaço. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como *idle* (parado), *updown* (cima-baixo) e *wave* (acenando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.
 
 ### Definições
 
@@ -57,6 +57,7 @@ echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
 
 ``` bash
 npm install -g edge-impulse-cli
+reboot
 ``` 
 
 ## Lab
@@ -78,10 +79,10 @@ Figura 1 - Edge Impulse Workflow
 
 ![edge impulse workflow](./imgs-dsp/ia-edgeflux.png)
 
-Abaixo há um vídeo demonstrando a feature **Live Classification** do Edge Impulse com a Raspberry Pico + MPU6050 para classificar **idle e walking**.
+Abaixo há um vídeo demonstrando a classificação do modelo gerado no Edge Impulse com a Raspberry Pico + MPU6050 para classificar **idle, updown e wave**.
 
 !!! video
-    ![](https://www.youtube.com/watch?v=7mkDIP3a95I)
+    ![](https://youtu.be/Yk3hq3IcJR4)
 
 
 ### Outras observações
@@ -95,7 +96,7 @@ Abaixo há um vídeo demonstrando a feature **Live Classification** do Edge Impu
 
 ## Entrega
 
-Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando uma pessoa está parada (idle), e quando uma pessoa está andando (walking).
+Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown).
 
 
 Dicas:
@@ -108,11 +109,11 @@ Dicas:
 
 - Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli)
 
-- Realize a aquisição de dados com duas labels, idle e walking.
+- Realize a aquisição de dados com três labels, idle, updown e wave.
 
 - Configure o Impulse Design e treine seu modelo.
 
-- Depois de treinar teste o mesmo com Live Classification.
+- Depois de treinar crie o repositório.
 
 - Depois de testado faça o deploy para o microcontrolador.
 
