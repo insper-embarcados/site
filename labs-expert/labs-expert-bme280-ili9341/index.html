@@ -473,6 +473,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../freertos/freertos-smp/">SMP</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -890,6 +898,7 @@
 <li>Altitude: 0 a 30.000 pés (9,2 km), precisão relativa de 3,3 pés (1 m) ao nível do mar, 6,6 (2 m) a 30.000 pés.</li>
 </ul>
 <h2 id="lab">LAB</h2>
+<p>Com os componentes previamente definidos, vamos agora integrá-los a nossa Pico. Neste lab, vamos utilizar os exemplos fornecidos a seguir e adaptá-los para nossa aplicação específica, portando os mesmo para nossa infra.</p>
 <h3 id="lcd-tft-ili9341-com-adafruit-gfx-library">LCD TFT ili9341 com Adafruit GFX Library</h3>
 <p>A Adafruit criou uma <a href="https://learn.adafruit.com/adafruit-gfx-graphics-library/overview">biblioteca</a> muito interessante, ela fornece uma sintaxe comum e um conjunto de funções gráficas para todos os nossos displays LCD e OLED, bem como matrizes de LEDs.</p>
 <p>Essa biblioteca é muito utilizada com plataforma Arduino, mas nada que impeça de que seja possível portar a mesma para a Pico por exemplo, e foi isso que o usuário <a href="https://github.com/tvlad1234">tvlad1234</a> fez:</p>
@@ -903,7 +912,7 @@
 <p>Utilizando RTOS, você deverá integrar ambos os dispositivos, tanto o LCD TFT ili9341, quanto o sensor BME280 e mostrando os valores das grandezas lidas e no display LCD.</p>
 <h3 id="dicas">Dicas:</h3>
 <ol>
-<li>Crias exemplos separados com RTOS para cada um dos dispositivos;</li>
+<li>Criar exemplos separados com RTOS para cada um dos dispositivos;</li>
 <li>Os dois exemplos utilizam o mesmo periférico SPI (SPI0), você deve modificar um dos exemplos para utiliza o outro periférico SPI disponível (SPI1)</li>
 <li>Para portar um exemplo externo, seguir as intruções que disponibilizamos no site: <a href="https://insper-embarcados.github.io/site/pico/pico-examples/">https://insper-embarcados.github.io/site/pico/pico-examples/</a>.</li>
 </ol>

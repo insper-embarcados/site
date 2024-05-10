@@ -473,6 +473,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../freertos/freertos-smp/">SMP</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -870,7 +878,7 @@
 </tr>
 </tbody>
 </table>
-<p>Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório <a href="https://insper-embarcados.github.io/site/labs/i2c-pra-lab/">6 - i2c</a>) para identificar quando uma pessoa está parada e quando está andando através de dados do acelerômetro. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como <em>idle</em> (parado) e <em>walking</em> (andando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.</p>
+<p>Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório <a href="https://insper-embarcados.github.io/site/labs/i2c-pra-lab/">6 - i2c</a>) para classificar movimentos de um acelerômetro no espaço. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como <em>idle</em> (parado), <em>updown</em> (cima-baixo) e <em>wave</em> (acenando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.</p>
 <h3 id="definicoes">Definições</h3>
 <p><strong>Edge Computing</strong> é uma arquitetura de TI onde dados são processados na borda, ou seja, o mais próximo possível da origem dos dados. No caso da utilização do microcontrolador para Edge Computing, os dados de sensores, câmeras e outros são processados nele, o que traz algumas vantagens, tais como: serviços mais rápidos e confiáveis, diminuição de custos com máquinas na nuvem.</p>
 <p>"Para exemplificar o uso da edge computing para processar dados em tempo real, podemos pensar em uma fábrica moderna. No chão da fábrica, os sensores de Internet das Coisas (IoT) geram um fluxo contínuo de dados que pode ser usado para evitar interrupções e melhorar as operações. Estima-se que uma fábrica moderna com 2.000 equipamentos possa gerar 2.200 terabytes de dados por mês. Portanto, é mais rápido e econômico processar esse volume de dados quando ele está mais próximo do equipamento, em vez de transmiti-lo para um centro de processamento de dados remoto primeiro. No entanto, é recomendável que o equipamento esteja conectado por meio de uma plataforma de dados centralizada. Assim, o equipamento pode, por exemplo, receber atualizações de software padronizadas e compartilhar dados filtrados que ajudam a melhorar as operações em outros locais da fábrica." - <a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">RedHat</a></p>
@@ -911,6 +919,7 @@
 <li>Instale o edge-impulse-cli.</li>
 </ol>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>edge-impulse-cli
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>reboot
 </code></pre></div>
 <h2 id="lab">Lab</h2>
 <p>Trabalhar com IA em sistemas embarcados não é uma tarefa tão fácil, pensando nisso a Edge Impulse desenvolveu uma solução que ajuda desenvolvedores de sistemas embarcados a desenvolverem seus modelos e dar o deploy desses modelos em computadores de um modo intuitivo e eficiente. </p>
@@ -923,9 +932,9 @@
 <p>Abaixo, na figura 1, há a representação do fluxo de dados e interconexão entre dispositivos e servidor no cenário de utilização dos serviços do Edge Impulse. </p>
 <p>Figura 1 - Edge Impulse Workflow</p>
 <p><a class="glightbox" href="../imgs-dsp/ia-edgeflux.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="edge impulse workflow" src="../imgs-dsp/ia-edgeflux.png" /></a></p>
-<p>Abaixo há um vídeo demonstrando a feature <strong>Live Classification</strong> do Edge Impulse com a Raspberry Pico + MPU6050 para classificar <strong>idle e walking</strong>.</p>
+<p>Abaixo há um vídeo demonstrando a classificação do modelo gerado no Edge Impulse com a Raspberry Pico + MPU6050 para classificar <strong>idle, updown e wave</strong>.</p>
 <div>
-<iframe height="500" src="https://www.youtube.com/embed/7mkDIP3a95I?autoplay=0" type="text/html" width="100%"></iframe>
+<iframe height="500" src="https://www.youtube.com/embed/Yk3hq3IcJR4?autoplay=0" type="text/html" width="100%"></iframe>
 </div>
 <h3 id="outras-observacoes">Outras observações</h3>
 <ul>
@@ -940,7 +949,7 @@
 </li>
 </ul>
 <h2 id="entrega">Entrega</h2>
-<p>Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando uma pessoa está parada (idle), e quando uma pessoa está andando (walking).</p>
+<p>Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown).</p>
 <p>Dicas:</p>
 <ul>
 <li>
@@ -956,13 +965,13 @@
 <p>Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></p>
 </li>
 <li>
-<p>Realize a aquisição de dados com duas labels, idle e walking.</p>
+<p>Realize a aquisição de dados com três labels, idle, updown e wave.</p>
 </li>
 <li>
 <p>Configure o Impulse Design e treine seu modelo.</p>
 </li>
 <li>
-<p>Depois de treinar teste o mesmo com Live Classification.</p>
+<p>Depois de treinar crie o repositório.</p>
 </li>
 <li>
 <p>Depois de testado faça o deploy para o microcontrolador.</p>

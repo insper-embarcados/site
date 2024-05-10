@@ -489,6 +489,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../freertos/freertos-smp/">SMP</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -877,13 +885,14 @@
 <li><a href="https://github.com/raspberrypi/pico-examples">https://github.com/raspberrypi/pico-examples</a></li>
 </ul>
 <h2 id="usando-exemplos">Usando exemplos</h2>
-<p>Para usar o exemplos na nossa infra basta clonar o repositório e criar uma pasta chamada <code>.devcontainer</code> com o arquivo <code>devcontainer.json</code> com o  seguinte conteúdo:</p>
+<h3 id="devcontainer">.devcontainer/</h3>
+<p>Para usar o exemplos na nossa infra é preciso clonar o repositório e criar um diretórrio chamado <code>.devcontainer</code> com o arquivo <code>devcontainer.json</code> com o  seguinte conteúdo:</p>
 <ul>
 <li><a href="https://github.com/insper-embarcados/pico-base-project/blob/main/.devcontainer/devcontainer.json">devcontainer.json</a></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Todos os códigos que disponibilizamos para vocês possuem esse arquivo, vocês podem apenas copiar para o repositório clonado.</p>
+<p>Todos os códigos que disponibilizamos para vocês na disciplina possuem esse diretório, vocês podem apenas copiar o mesmo para o repositório clonado.</p>
 </div>
 <p>Agora com o <code>.devcontainer</code> configurado seremos capaz de abrir a pasta no container e compilar e usar os exemplos, antes só precisamos configurar que a placa que possuímos é a versão <code>W</code>, ou seja, possui o módulo de WIFI e BlueTooth.</p>
 <p>Então modifique o arquivo <code>CMakeLists.txt</code> e adicione na segunda linha <code>set(PICO_BOARD pico_w)</code> como demonstrado a seguir:</p>
@@ -891,6 +900,15 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gi">+set(PICO_BOARD pico_w)</span>
 </code></pre></div>
+<h3 id="vscode">.vscode/</h3>
+<p>Para gravar e debugar (RUN AND DEBUG) os exemplos dentro do vscode na nossa infra, é preciso também fazer o download do repositório no link abaixo e descompactar o mesmo no repositório clonado:</p>
+<ul>
+<li><a href="https://insper-my.sharepoint.com/:u:/g/personal/marcoasma_insper_edu_br/EY1GhgGok2lJgQcrGaubDMsBBjT1rsQQA2Yry2DCxlvrSQ?e=Im28Cq">.vscode.zip</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Todos os códigos que disponibilizamos para vocês na disciplina possuem esse diretório, vocês podem apenas copiar o mesmo para o repositório clonado.</p>
+</div>
 <h2 id="pico-extras">pico extras</h2>
 <p>Alguns exemplos ainda estão em fase de testes e estão disponibilizados em um outro repositório:</p>
 <ul>

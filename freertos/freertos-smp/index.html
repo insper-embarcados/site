@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>RTOS - Computação Embarcada - 2.0</title>
+        <title>SMP - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -419,16 +419,8 @@
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">RTOS</span>
-      <ul>
-        
-          
-            
-            
-        
-      </ul>
+    <li>
+      <a href="../freertos-basic/">RTOS</a>
     </li>
   
 
@@ -483,8 +475,20 @@
       
         
   
-    <li>
-      <a href="../freertos-smp/">SMP</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">SMP</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#smp">SMP</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -871,27 +875,53 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="basico-rtos">Básico - RTOS</h1>
-<div class="admonition tip">
-<p class="admonition-title">Embedded FM - episódio 175</p>
-<p><strong>How Hard Could It Be?</strong></p>
-<p>Jean Labrosse of Micrium (@Micrium) spoke with us about writing a real time operating system (uC/OS), building a business, and caring about code quality.</p>
+<h1 id="symmetric-multiprocessing-smp">Symmetric Multiprocessing (SMP)</h1>
+<p>Existem diversos jeitos de usarmos um RTOS com microprocessador multicore. Dois métodos populares são o Asymmetric Multiprocessing (<code>AMP</code>) e o Symmetric Multiprocessing (<code>SMP</code>), como indicado a seguir:</p>
+<p><a class="glightbox" href="../imgs/amp-smp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/amp-smp.png" /></a></p>
+<p>A primeira alternativa (<code>AMP</code>) consiste em executar dois <code>FreeRTOS</code> independentes em cada um dos processadores do microcontrolador, onde cada RTOS pode possuir suas próprias tasks. A comunicação entre as <code>tasks</code> de diferentes cores pode ser complicada; uma solução é o uso do recurso que o RP2040 fornece para comunicação entre os COREs, utilizando uma FIFO:</p>
+<p><a class="glightbox" href="../imgs/rp2040-SIO.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/rp2040-SIO.png" width="600" /></a></p>
+<p><mark>Até agora nós temos utilizado um único CORE da CPU, ignorando o outro completamente.</mark></p>
+<h2 id="smp">SMP</h2>
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/sSjSquKBNkw?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+<p>A segunda solução é executar um único <code>FreeRTOS</code> entre os dois COREs, o que simplifica bastante, já que toda a parte de baixo nível fica sob a responsabilidade do <code>FreeRTOS</code>. Assim, o scheduler do <code>FreeRTOS</code> vai alocar uma tarefa por CORE. O <code>FreeRTOS</code> recentemente fez merge na branch principal de uma atualização que adiciona suporte ao symmetric multiprocessing (<code>SMP</code>), permitindo o agendamento e distribuição de tarefas entre processadores idênticos de um microcontrolador multicore.</p>
+<p>No SMP, existem quatro chamadas de função do <code>FreeRTOS</code> que deverão ser tratadas:</p>
 <ul>
-<li><a href="https://embedded.fm/episodes/175">https://embedded.fm/episodes/175</a></li>
+<li><code>vTaskCoreAffinitySet(handle, mask)</code>: Fixa uma tarefa em um core específico. Na máscara, usar:<ul>
+<li>Core <code>0</code> com a máscara <code>1 &lt;&lt; 0</code> e Core <code>1</code> com a máscara <code>1 &lt;&lt; 1</code>.</li>
+</ul>
+</li>
+<li><code>vTaskCoreAffinityGet(handle)</code>: Retorna a qual CORE a tarefa foi atribuída.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Você não precisa necessariamente associar uma task a um core; você pode deixar o escalonador decidir isso.</p>
+</div>
+<p>Para mais informações, consulte o site do FreeRTOS sobre o SMP:</p>
+<ul>
+<li><a href="https://www.freertos.org/symmetric-multiprocessing-introduction.html">FreeRTOS SMP Introduction</a></li>
+</ul>
+<h3 id="freertosconfigh"><code>FreeRTOSConfig.h</code></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Esta configuração só funciona com a nova versão da biblioteca <code>pico-base-rtos</code> lançada em 10 de maio de 2024. Portanto, o <code>SMP</code> não funcionará em laboratórios e projetos anteriores.</p>
+<ul>
+<li><a href="https://github.com/insper-embarcados/pico-base-rtos">pico-base-rtos GitHub</a></li>
 </ul>
 </div>
-<div>
-<iframe height="500" src="https://www.youtube.com/embed/F321087yYy4?autoplay=0" type="text/html" width="100%"></iframe>
-</div>
-<p>Um sistema operacional é essencialmente um software que facilita a gestão de recursos físicos limitados (como unidades de processamento e memória) para executar múltiplos programas simultaneamente. Além disso, incorpora funcionalidades de abstração de hardware, segurança e ferramentas adicionais, visando otimizar a eficiência do sistema.</p>
-<p>Dentro dessa categoria, o Sistema Operacional de Tempo Real (RTOS - Real-Time Operating System) representa uma variante especializada. Embora as diferenças em relação a um sistema operacional convencional possam parecer sutis inicialmente, elas são significativas em operação. As principais características que distinguem um RTOS incluem:</p>
-<ol>
-<li>Natureza determinística, permitindo a previsão precisa do momento de execução de cada tarefa.</li>
-<li>Footprint reduzido: RTOSs são frequentemente projetados para terem uma pegada de memória (footprint) pequena, otimizando o uso de recursos do sistema, o que os torna ideais para dispositivos com capacidade de hardware limitada.</li>
-<li>Alta eficiência na troca de contexto: um RTOS é projetado para realizar trocas de contexto entre programas em execução de forma extremamente rápida e eficiente, utilizando o mínimo possível de ciclos de processamento.</li>
-<li>Gerenciamento de prioridades de tarefas: em um RTOS, as tarefas são atribuídas com diferentes níveis de prioridade. O sistema garante que tarefas de alta prioridade recebam acesso imediato aos recursos do sistema, superando tarefas de menor prioridade, o que é crucial para aplicações onde algumas operações têm importância crítica.</li>
-</ol>
-<p>O sistema operacional a ser utilizado é o <a href="http://freertos.org">FreeRtos (www.freertos.org)</a>, um sistema operacional muito utilizado pela industria, sendo o segundo sistema operacional (<strong>20%</strong>) mais utilizado em projetos embarcados, perdendo só para o <a href="https://m.eet.com/media/1246048/2017-embedded-market-study.pdf">Linux</a>. </p>
+<p>Para ativarmos o <code>SMP</code> em nossos projetos, precisamos editar o arquivo <code>freertos/FreeRTOSConfig.h</code> modificando as seguintes linhas:</p>
+<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>#if FREE_RTOS_KERNEL_SMP // set by the RP2040 SMP port of FreeRTOS
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/* SMP port only */
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gi">+#define configNUMBER_OF_CORES 2</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>#define configUSE_PASSIVE_IDLE_HOOK 0
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>#define configTICK_CORE 0
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>#define configRUN_MULTIPLE_PRIORITIES 1
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="gi">+#define configUSE_CORE_AFFINITY 1</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>#endif
+</code></pre></div>
+<p>Essas configuracoes fazem o seguinte: <code>configNUMBER_OF_CORES 2</code> define para o FreeRTOS quantos cores irão ser utilizados, se o valor for maior que <code>1</code> o <code>SMP</code> será ativado. já o <code>configUSE_PASSIVE_IDLE_HOOK 0</code> indica que não queremos ter uma funcão de <code>callback</code> que será ativada sempre que não existir uma <code>task</code> a ser executada, o <code>configTICK_CORE</code> define qual <code>CORE</code> irá lidar com o <code>ticks</code> que o RTOS necessita para chamar o <code>scheduler</code>. o</p>
+<p>Se <code>configRUN_MULTIPLE_PRIORITIES</code> for configurado como <code>0</code>, então apenas tarefas de prioridades iguais vão executar simultaneamente. Ou seja, se apenas uma tarefa de alta prioridade precisar executar, um dos COREs ficará ocioso.  E por último o <code>configUSE_CORE_AFFINITY 1</code> diz que podemos atribuir manualmente uma <code>task</code> a um CORE específico!</p>
 
 
 </section>
@@ -901,19 +931,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../rp2040/rp2040-uart/"
+            <a href="../freertos-queue-advanced/"
                class="ah-prev"
-               title="UART">
+               title="Queue struct">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">UART</span>
+              <span class="nav-title">Queue struct</span>
             </a>
           
           
-            <a href="../freertos-tasks/"
+            <a href="../../CodeQuality/topview/"
                class="ah-next"
-               title="Tasks">
+               title="Visão geral">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Tasks</span>
+              <span class="nav-title">Visão geral</span>
             </a>
           
         </div>
