@@ -166,6 +166,7 @@ nav:
       - Semaphore: freertos/freertos-semaphore.md
       - Queue: freertos/freertos-queue.md
       - Queue struct: freertos/freertos-queue-advanced.md
+      - SMP: freertos/freertos-smp.md
   - Code quality:
       - Visão geral: CodeQuality/topview.md
       - Regras: CodeQuality/rules.md
