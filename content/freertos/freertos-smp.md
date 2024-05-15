@@ -54,3 +54,29 @@ Para ativarmos o `SMP` em nossos projetos, precisamos editar o arquivo `freertos
 Essas configuracoes fazem o seguinte: `configNUMBER_OF_CORES 2` define para o FreeRTOS quantos cores irão ser utilizados, se o valor for maior que `1` o `SMP` será ativado. já o `configUSE_PASSIVE_IDLE_HOOK 0` indica que não queremos ter uma funcão de `callback` que será ativada sempre que não existir uma `task` a ser executada, o `configTICK_CORE` define qual `CORE` irá lidar com o `ticks` que o RTOS necessita para chamar o `scheduler`. o
 
 Se `configRUN_MULTIPLE_PRIORITIES` for configurado como `0`, então apenas tarefas de prioridades iguais vão executar simultaneamente. Ou seja, se apenas uma tarefa de alta prioridade precisar executar, um dos COREs ficará ocioso.  E por último o `configUSE_CORE_AFFINITY 1` diz que podemos atribuir manualmente uma `task` a um CORE específico!
+
+## Code Snippets
+
+Atribuindo três tasks cada, a primeira ao `CORE_0` e as demais ao `CORE_1` um a um core:
+
+```c
+#define CORE_0 (1 << 0)
+#define CORE_1 (1 << 1)
+
+
+void main() { 
+    // ...
+
+    TaskHandle_t xHandle1;
+    TaskHandle_t xHandle2;
+    TaskHandle_t xHandle3;
+    
+    xTaskCreate(vTask1, "task1", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, &( xHandle1 ) );
+    xTaskCreate(vTask2, "task2", STACK_SIZE, NULL, tskIDLE_PRIORITY    , &( xHandle2 ) );
+    xTaskCreate(vTask3, "task3", STACK_SIZE, NULL, tskIDLE_PRIORITY    , &( xHandle3 ) );
+
+    vTaskCoreAffinitySet( xHandle1, CORE_0 );
+    vTaskCoreAffinitySet( xHandle2, CORE_1 );
+    vTaskCoreAffinitySet( xHandle3, CORE_1 );
+}
+```

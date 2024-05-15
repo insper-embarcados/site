@@ -123,6 +123,9 @@ int mpu6050_read_temp(imu_c config, int16_t *temp) { .. }
 
 ### Motion detection
 
+!!! warning
+    Essa parte é opcional. Pensei que iria funcionar, mas parece que o sensor não está respondendo.
+
 Funções para configurar o motion detection.
 
 ```c
@@ -141,7 +144,7 @@ Funções para configurar o threshold de detecção de movimento.
 int mpu6050_set_motion_detection_threshold(imu_c config, uint8_t thr) { ... }
 ```
 
-Funções para configurarar a duração do motion detection.
+Funções para configurar a duração do motion detection.
 
 ```c
 int mpu6050_set_motion_detection_duration(imu_c config, uint8_t thr) { ... }
@@ -176,6 +179,7 @@ void main() {
   mpu6050_reset(imu_config);
   
   // configurando detecao de movimento
+  // opcional
   mpu_set_motion_detection_threshold(imu_config, 1);
   mpu_set_motion_detection_duration(imu_config, 20);
   mpu_set_motion_detection(imu_config, 1);

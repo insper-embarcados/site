@@ -46,10 +46,17 @@ Muitas são as soluções que podemos empregar para criar esse web server (pode 
 
 ## Entrega
 
-A entrega deve ser um sistema embarcado com WIFI na qual você é capaz de ler dados de um potênciometro e enviar as informacoes para uma planilha do google sheets, simulando um dataloger.
+!!! info
+    Atualizado
+
+Um sistema embarcado que se conecta a um servidor local (flask) e envia periodicamente dados de uma leitura analógica. O servidor deve imprimir (ou exibir em html) os valores lidos.
+
+<!--
+A entrega deve ser um sistema embarcado com WIFI na qual você é capaz de ler dados de um potenciometro e enviar as informacoes para uma planilha do google sheets, simulando um dataloger.
 
 Para isso você deverá:
 
 - Entender com o wifi funciona, consulte a página no site da matéria [Pico W/wifi](/site/pico/pico-wifi).
 - Para fazer o post no IFTTT/Zapier deve usar o exemplo da pico: https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/tcp_client/
 - Usar o IFTTT e o Zapier com o servico (`web request`) que você consegue fazer um post e ele atualiza automaticamente a tabela do excel.
+-->
