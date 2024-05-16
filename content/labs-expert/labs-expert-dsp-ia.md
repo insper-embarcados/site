@@ -115,7 +115,10 @@ Dicas:
 
 - Depois de treinar crie o repositório.
 
-- Depois de testado faça o deploy para o microcontrolador.
+- Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
+
+- Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17.
+
 
 
 ## Referências:
