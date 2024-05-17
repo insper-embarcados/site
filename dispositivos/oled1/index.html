@@ -915,7 +915,9 @@
 <p><a class="glightbox" href="https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/GUID-7945860A-65B1-404A-A04E-735B5C0FC01B-low.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/GUID-7945860A-65B1-404A-A04E-735B5C0FC01B-low.jpg" /></a></p>
 <h2 id="placa-adaptadora">Placa Adaptadora</h2>
 <p>Desenvolvemos uma placa adaptadora que permite facilmente utilizarmos o OLED1 com a Raspberry Pi Pico. A placa elimina a necessidade de conexão, minimizando erros de montagem.</p>
-<p>Os pinos foram mapeados da seguinte maneira:</p>
+<p>Os pinos da <strong>Pico</strong> foram selecionados de tal maneira que a placa OLED seja conectada ao <strong>SPI1</strong> da mesma, através do header <strong>EXT</strong>, conforme imagem abaixo:</p>
+<p><a class="glightbox" href="../imgs/OLED-PicoW/OLED-picoW.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/OLED-PicoW/OLED-picoW.svg" /></a></p>
+<p>Os pinos para o OLED (SPI), Botões e LEDS foram mapeados da seguinte maneira:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Nenhum pino listado a seguir deve ser utilizado para outra funcionalidade.</p>
@@ -943,21 +945,21 @@
 <td>1</td>
 </tr>
 <tr>
-<td>GPIO-9</td>
+<td>GPIO-9        (SPI1)</td>
 <td>12</td>
-<td>DISPLAY_SS</td>
+<td>DISPLAY_CS</td>
 <td>15</td>
 </tr>
 <tr>
-<td>GPIO-10</td>
+<td>GPIO-10      (SPI1)</td>
 <td>14</td>
 <td>SPI_SCK</td>
 <td>18</td>
 </tr>
 <tr>
-<td>GPIO-11</td>
+<td>GPIO-11      (SPI1)</td>
 <td>15</td>
-<td>SPI_MOSI</td>
+<td>SPI_TX (MOSI)</td>
 <td>16</td>
 </tr>
 <tr>
@@ -969,7 +971,7 @@
 <tr>
 <td>GPIO-15</td>
 <td>20</td>
-<td>DATA_CMD_SEL</td>
+<td>DISPLAY_DC</td>
 <td>5</td>
 </tr>
 <tr>

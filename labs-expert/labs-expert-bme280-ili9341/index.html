@@ -939,7 +939,11 @@
 <p>A Adafruit criou uma <a href="https://learn.adafruit.com/adafruit-gfx-graphics-library/overview">biblioteca</a> muito interessante, ela fornece uma sintaxe comum e um conjunto de funções gráficas para todos os nossos displays LCD e OLED, bem como matrizes de LEDs.</p>
 <p>Essa biblioteca é muito utilizada com plataforma Arduino, mas nada que impeça de que seja possível portar a mesma para a Pico por exemplo, e foi isso que o usuário <a href="https://github.com/tvlad1234">tvlad1234</a> fez:</p>
 <p><a href="https://github.com/tvlad1234/pico-displayExamples">https://github.com/tvlad1234/pico-displayExamples</a></p>
-<p>No repositório acima você irá encontrar uma aplicação utilizando a Pico para se comunicar com o driver ili9341 já com a biblioteca Adafruit GFX integrada, rode o exemplo e faça testes com o mesmo.</p>
+<p>No repositório acima você irá encontrar uma aplicação utilizando a Pico para se comunicar com o driver <strong>ili9341</strong> (e também outros drivers) já com a biblioteca Adafruit GFX integrada, rode o exemplo e faça testes com o mesmo.</p>
+<div class="admonition tip placa adaptadora">
+<p class="admonition-title">Tip</p>
+<p>É possível utilizar a <a href="https://insper-embarcados.github.io/site/dispositivos/oled1/">placa adaptadora</a> que utilizamos com a placa OLED1, contudo, os pinos do EXT estão mapeadores de tal maneira que utilizam pinos compatíveis com SPI1, o exemplo do LCD acima utiliza SPI0, ou seja, para utilizar a placa adaptadora com o diplay LCD ili9341, você deverá alterar o exemplo fornecido e mapear os pinos da biblioteca <a href="https://github.com/tvlad1234/pico-displayDrivs/blob/5b5b52dc8ff59c58db32c9c3cc63c75239cef35b/ili9341/ili9341.c">ili9341</a> para o SPI1.</p>
+</div>
 <h3 id="bme-280">BME 280</h3>
 <p>Assim como no lab onde utilizamos a IMU, precisaríamos acessar o <a href="https://cdn.sparkfun.com/assets/learn_tutorials/4/1/9/BST-BME280_DS001-10.pdf">datasheet</a> do sensor para saber como acessar os dados que desejamos, contudo, no próprio repositório da pico-examples está disponível um código exemplo que utiliza esse sensor:</p>
 <p><a href="https://github.com/raspberrypi/pico-examples">https://github.com/raspberrypi/pico-examples</a></p>
