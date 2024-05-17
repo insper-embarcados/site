@@ -15,9 +15,9 @@ Desenvolvemos uma placa adaptadora que permite facilmente utilizarmos o OLED1 co
 
 
 
-Os pinos da **Pico** foram selecionados de tal maneira que a placa OLED seja conectada ao **SPI1** da mesma através do Header EXT, conforme imagem abaixo:
+Os pinos da **Pico** foram selecionados de tal maneira que a placa OLED seja conectada ao **SPI1** da mesma, através do header **EXT**, conforme imagem abaixo:
 
-<img src="imgs/OLED-PicoW/OLED-picoW.svg" alt="OLED-picoW" style="zoom:50%;" />
+![](imgs/OLED-PicoW/OLED-picoW.svg)
 
 
 
