@@ -13,26 +13,34 @@ O OLED1 é uma placa de extensão fabricada pela Atmel/Microchip que possui 3 bo
 
 Desenvolvemos uma placa adaptadora que permite facilmente utilizarmos o OLED1 com a Raspberry Pi Pico. A placa elimina a necessidade de conexão, minimizando erros de montagem.
 
-Os pinos foram mapeados da seguinte maneira:
+
+
+Os pinos da **Pico** foram selecionados de tal maneira que a placa OLED seja conectada ao **SPI1** da mesma através do Header EXT, conforme imagem abaixo:
+
+<img src="imgs/OLED-PicoW/OLED-picoW.svg" alt="OLED-picoW" style="zoom:50%;" />
+
+
+
+Os pinos para o OLED (SPI), Botões e LEDS foram mapeados da seguinte maneira:
 
 !!! warning
     Nenhum pino listado a seguir deve ser utilizado para outra funcionalidade.
 
-| Conexão Pico W    | Pino Pico W | Conexão OLED1    | Pino OLED1 |
-|-------------------|-------------|------------------|------------|
-| GND               | 3           | GND              | 2          |
-| VCC               | 36          | VCC              | 1          |
-| GPIO-9            | 12          | DISPLAY_SS       | 15         |
-| GPIO-10           | 14          | SPI_SCK          | 18         |
-| GPIO-11           | 15          | SPI_MOSI         | 16         |
-| GPIO-14           | 19          | DISPLAY_RESET    | 10         |
-| GPIO-15           | 20          | DATA_CMD_SEL     | 5          |
-| GPIO-20           | 26          | LED 1            | 7          |
-| GPIO-21           | 27          | LED 2            | 8          |
-| GPIO-22           | 29          | LED 3            | 6          |
-| GPIO-26           | 31          | BUTTON 2         | 3          |
-| GPIO-27           | 32          | BUTTON 3         | 4          |
-| GPIO-28           | 34          | BUTTON 1         | 9          |
+| Conexão Pico W       | Pino Pico W | Conexão OLED1 | Pino OLED1 |
+| -------------------- | ----------- | ------------- | ---------- |
+| GND                  | 3           | GND           | 2          |
+| VCC                  | 36          | VCC           | 1          |
+| GPIO-9        (SPI1) | 12          | DISPLAY_CS    | 15         |
+| GPIO-10      (SPI1)  | 14          | SPI_SCK       | 18         |
+| GPIO-11      (SPI1)  | 15          | SPI_TX (MOSI) | 16         |
+| GPIO-14              | 19          | DISPLAY_RESET | 10         |
+| GPIO-15              | 20          | DISPLAY_DC    | 5          |
+| GPIO-20              | 26          | LED 1         | 7          |
+| GPIO-21              | 27          | LED 2         | 8          |
+| GPIO-22              | 29          | LED 3         | 6          |
+| GPIO-26              | 31          | BUTTON 2      | 3          |
+| GPIO-27              | 32          | BUTTON 3      | 4          |
+| GPIO-28              | 34          | BUTTON 1      | 9          |
 
 ![](imgs/oled1/placa.jpg)
 
