@@ -1,6 +1,6 @@
-# Expert - DSP - Áudio
+# Expert - Firmware - DMA
 
-| Lab Expert - DSP - Áudio Preparatório                          |
+| Lab Expert - Firmare - DMA                                     |
 |----------------------------------------------------------------|
 | **Deadline**: {{lab_expert_dsp_audio_deadline}}                |
 | [Repositório no classroom]({{lab_expert_dsp_audio_classroom}}) |

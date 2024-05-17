@@ -208,7 +208,7 @@ nav:
           - LCD / BME280: labs-expert/labs-expert-bme280-ili9341.md
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
-          - Driver: labs-expert/labs-expert-firmware-dma.md
+          - DMA: labs-expert/labs-expert-firmware-dma.md
 
   - APS:
       - aps/aps-1-genius.md
