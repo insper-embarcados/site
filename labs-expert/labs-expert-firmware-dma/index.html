@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert firmware dma - Computação Embarcada - 2.0</title>
+        <title>Driver - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -734,7 +734,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs experts</span>
     <ul>
       
@@ -806,7 +806,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Firmware</span>
     <ul>
       
@@ -814,6 +814,30 @@
   
     <li>
       <a href="../labs-expert-firmware-driver/">Driver</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Driver</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#lab">Lab</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#entrega">Entrega</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -860,6 +884,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs experts</li>
+                  
+                
+                  
+                    <li>Firmware</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -888,8 +920,24 @@
 </table>
 <h2 id="lab">Lab</h2>
 <p>Neste laboratório iremos trabalhar usando todos os cores do nosso processador usando o FreeRTOS no modo SMP. Além disso, iremos modificar a lib do OLED1 para fazer uso de um DMA.</p>
+<h3 id="smp">SMP</h3>
+<p>O Nosso freertos suporta um modo de operação chamado de SMP, esse modo ativado para quando temos mais de uma unidade de processamento (CORE), permite alocarmos cada tarefa para um desses COREs específicos.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Leia mais sobre esse modo de operação em:</p>
+<ul>
+<li><a href="/site/freertos/freertos-smp">FreeRTOS/SMP</a></li>
+</ul>
+</div>
 <h3 id="dma">DMA</h3>
 <p>DMA (Direct Memory Access) é um controlador especializado em transferir dados, com ele conseguimos transferir dados entre periféricos e memórias de computadores sem depender da CPU, o que acaba trazendo diversos benefícios para sistemas computacionais e também para aplicações de soluções embarcadas. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Leia mais sobre esse modo de operação em:</p>
+<ul>
+<li><a href="/site/rp2050/rp2040-dma">RP2040/DMA</a></li>
+</ul>
+</div>
 <p>Vamos analisar a função do OLED que temos que chamar para atualizar o display:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">gfx_clear_buffer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">disp</span><span class="p">);</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">gfx_draw_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">disp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mandioca&quot;</span><span class="p">);</span>
@@ -920,9 +968,15 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">spi_write_blocking</span><span class="p">(</span><span class="n">SPI_PORT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">busy_wait_us_32</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 </code></pre></div>
-<p>Nessa funcao o <code>gpio_put</code> indica para o OLED que iremos fazer um envio de dado e não de comando, e a função <code>spi_write_blocking</code> faz o envio do <code>$data</code> pelo SPI.</p>
-<p>Como podemos melhorar esse código, ganhar performance, sem modificar muita coisa? Reescrevendo o <code>ssd1306_write_data</code> para fazer uso de um DMA no lugar do <code>do while</code>, assim poupamos esforco da CPU em ficar copiando os dados da memória para o SPI.</p>
+<p>Nessa função o <code>gpio_put</code> indica para o OLED que iremos fazer um envio de dado e não de comando, e a função <code>spi_write_blocking</code> faz o envio do <code>$data</code> pelo SPI.</p>
+<p>Como podemos melhorar esse código, ganhar performance, sem modificar muita coisa? Reescrevendo o <code>ssd1306_write_data</code> para fazer uso de um DMA no lugar do <code>do while</code>, assim poupamos esforço da CPU em ficar copiando os dados da memória para o SPI.</p>
 <h2 id="entrega">Entrega</h2>
+<p>Nessa entrega vocês devem criar duas <code>tasks</code>, cada uma alocada em um dos COREs da CPU, a primeira <code>taks</code> deve ser dedicada a leitura do ADC a segunda deve ser dedicada a atualizar o OLED.    </p>
+<p>Além disso, vocês devem modificar a função da lib oled <code>ssd1306_put_page</code> para operar com DMA.</p>
+<p>Dicas:</p>
+<ul>
+<li>Leia o exemplo de DMA + SPI da própria pico: <a href="https://github.com/raspberrypi/pico-examples/blob/master/spi/spi_dma/spi_dma.c">https://github.com/raspberrypi/pico-examples/blob/master/spi/spi_dma/spi_dma.c</a></li>
+</ul>
 
 
 </section>
@@ -932,6 +986,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../labs-expert-firmware-driver/"
+               class="ah-prev"
+               title="Driver">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Driver</span>
+            </a>
+          
+          
+            <a href="../../aps/aps-1-genius/"
+               class="ah-next"
+               title="Aps 1 genius">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Aps 1 genius</span>
+            </a>
           
         </div>
       </footer>
