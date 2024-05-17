@@ -59,7 +59,7 @@ https://github.com/tvlad1234/pico-displayExamples
 
 No repositório acima você irá encontrar uma aplicação utilizando a Pico para se comunicar com o driver **ili9341** (e também outros drivers) já com a biblioteca Adafruit GFX integrada, rode o exemplo e faça testes com o mesmo.
 
-!!! warning Placa Adaptadora
+!!! tip Placa Adaptadora
 
     É possível utilizar a [placa adaptadora](https://insper-embarcados.github.io/site/dispositivos/oled1/) que utilizamos com a placa OLED1, contudo, os pinos do EXT estão mapeadores de tal maneira que utilizam pinos compatíveis com SPI1, o exemplo do LCD acima utiliza SPI0, ou seja, para utilizar a placa adaptadora com o diplay LCD ili9341, você deverá alterar o exemplo fornecido e mapear os pinos da biblioteca [ili9341](https://github.com/tvlad1234/pico-displayDrivs/blob/5b5b52dc8ff59c58db32c9c3cc63c75239cef35b/ili9341/ili9341.c) para o SPI1.
 
