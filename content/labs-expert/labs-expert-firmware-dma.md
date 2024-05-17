@@ -1,10 +1,10 @@
 # Expert - Firmware - DMA
 
-| Lab Expert - Firmare - DMA                                     |
-|----------------------------------------------------------------|
-| **Deadline**: {{lab_expert_dsp_audio_deadline}}                |
-| [Repositório no classroom]({{lab_expert_dsp_audio_classroom}}) |
-| 💰 100% nota de lab                                            |
+| Lab Expert - Firmare - DMA                             |
+|--------------------------------------------------------|
+| **Deadline**: {{lab_expert_2_deadline}}                |
+| [Repositório no Classroom]({{lab_expert_2_classroom}}) |
+| 💰 100% nota de lab                                    |
 
 ## Lab
 
