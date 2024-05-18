@@ -903,7 +903,7 @@
 <table>
 <thead>
 <tr>
-<th>Lab Expert - Firmare - DMA</th>
+<th>Lab Expert - Firmware - DMA</th>
 </tr>
 </thead>
 <tbody>
@@ -919,9 +919,9 @@
 </tbody>
 </table>
 <h2 id="lab">Lab</h2>
-<p>Neste laboratório iremos trabalhar usando todos os cores do nosso processador usando o FreeRTOS no modo SMP. Além disso, iremos modificar a lib do OLED1 para fazer uso de um DMA.</p>
+<p>Neste laboratório, iremos trabalhar usando todos os cores do nosso processador, utilizando o FreeRTOS no modo SMP. Além disso, iremos modificar a biblioteca do OLED1 para fazer uso de DMA.</p>
 <h3 id="smp">SMP</h3>
-<p>O Nosso freertos suporta um modo de operação chamado de SMP, esse modo ativado para quando temos mais de uma unidade de processamento (CORE), permite alocarmos cada tarefa para um desses COREs específicos.</p>
+<p>O nosso FreeRTOS suporta um modo de operação chamado SMP. Esse modo, ativado quando temos mais de uma unidade de processamento (CORE), permite alocar cada tarefa para um desses COREs específicos.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Leia mais sobre esse modo de operação em:</p>
@@ -930,27 +930,28 @@
 </ul>
 </div>
 <h3 id="dma">DMA</h3>
-<p>DMA (Direct Memory Access) é um controlador especializado em transferir dados, com ele conseguimos transferir dados entre periféricos e memórias de computadores sem depender da CPU, o que acaba trazendo diversos benefícios para sistemas computacionais e também para aplicações de soluções embarcadas. </p>
+<p>DMA (Direct Memory Access) é um controlador especializado em transferir dados. Com ele, conseguimos transferir dados entre periféricos e memórias de computadores sem depender da CPU, trazendo diversos benefícios para sistemas computacionais e também para aplicações de soluções embarcadas. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Leia mais sobre esse modo de operação em:</p>
+<p>Leia mais sobre o periférico DMA em:</p>
 <ul>
 <li><a href="/site/rp2050/rp2040-dma">RP2040/DMA</a></li>
 </ul>
 </div>
-<p>Vamos analisar a função do OLED que temos que chamar para atualizar o display:</p>
+<h3 id="biblioteca-oled">Biblioteca OLED</h3>
+<p>Vamos analisar a função do OLED que precisamos chamar para atualizar o display:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">gfx_clear_buffer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">disp</span><span class="p">);</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">gfx_draw_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">disp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mandioca&quot;</span><span class="p">);</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">gfx_show</span><span class="p">(</span><span class="o">&amp;</span><span class="n">disp</span><span class="p">);</span>
 </code></pre></div>
-<p>Toda vez que desejamos atualizar o OLED temos que fazer a chamada da funcão <code>gfx_show</code>. O papel dessa funcã́o é transferir a imagem (<code>framebuffer</code>) que está na RAM da pico para a memória do display, isso é realizado fazendo uma cópia px a px e enviando o dado via o protocolo <code>SPI</code>:</p>
+<p>Toda vez que desejamos atualizar o OLED, precisamos chamar a função <code>gfx_show</code>. O papel dessa função é transferir a imagem (<code>framebuffer</code>) que está na RAM da Pico para a memória do display, realizando uma cópia pixel a pixel e enviando os dados via o protocolo SPI:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">gfx_show</span><span class="p">(</span><span class="n">ssd1306_t</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">pages</span><span class="p">;</span><span class="w"> </span><span class="n">page</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">ssd1306_put_page</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">page</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">),</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">);</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
 </code></pre></div>
-<p>Notem que o nosso display trabalha por páginas, então para cada página temos que fazer a cópia dos px, isso é feito na <code>ssd1306_put_page</code>:</p>
+<p>Nosso display trabalha por páginas, então, para cada página, temos que fazer a cópia dos pixels. Isso é feito na <code>ssd1306_put_page</code>:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ssd1306_put_page</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">column</span><span class="p">,</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">                      </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">ssd1306_set_page_address</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
@@ -961,21 +962,22 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">width</span><span class="p">);</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div>
-<p>Estamos interessados aqui na <code>do while</code>, que é realizado por <code>width</code> vezes. A funcão <code>ssd1306_write_data</code> possui a seguinte implementacão:</p>
+<p>Estamos interessados em otimizar o que está dentro do <code>do while</code>, que é realizado <code>width</code> vezes. A função <code>ssd1306_write_data</code> possui a seguinte implementação:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ssd1306_write_data</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">SSD1306_DATA_CMD_SEL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">spi_cs_select</span><span class="p">();</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">spi_write_blocking</span><span class="p">(</span><span class="n">SPI_PORT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">busy_wait_us_32</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
 </code></pre></div>
-<p>Nessa função o <code>gpio_put</code> indica para o OLED que iremos fazer um envio de dado e não de comando, e a função <code>spi_write_blocking</code> faz o envio do <code>$data</code> pelo SPI.</p>
-<p>Como podemos melhorar esse código, ganhar performance, sem modificar muita coisa? Reescrevendo o <code>ssd1306_write_data</code> para fazer uso de um DMA no lugar do <code>do while</code>, assim poupamos esforço da CPU em ficar copiando os dados da memória para o SPI.</p>
+<p>Nessa função, <code>gpio_put</code> indica para o OLED que iremos fazer um envio de dado e não de comando, e a função <code>spi_write_blocking</code> faz o envio do <code>data</code> pelo SPI.</p>
+<p>Como podemos melhorar esse código e ganhar performance sem modificar muita coisa? Reescrevendo a <code>ssd1306_write_data</code> para fazer uso de um DMA no lugar do <code>do while</code>, poupamos esforço da CPU em copiar os dados da memória para o SPI. Além disso, podemos alocar todo o processamento do OLED para um CORE específico, liberando o outro para operações críticas.</p>
 <h2 id="entrega">Entrega</h2>
-<p>Nessa entrega vocês devem criar duas <code>tasks</code>, cada uma alocada em um dos COREs da CPU, a primeira <code>taks</code> deve ser dedicada a leitura do ADC a segunda deve ser dedicada a atualizar o OLED.    </p>
-<p>Além disso, vocês devem modificar a função da lib oled <code>ssd1306_put_page</code> para operar com DMA.</p>
+<p>Nesta entrega, vocês devem criar duas tasks, cada uma alocada em um dos COREs da CPU. A primeira task deve ser dedicada à leitura do ADC e a segunda deve ser dedicada à atualização do OLED.    </p>
+<p>Além disso, vocês devem modificar a função da biblioteca OLED <code>ssd1306_put_page</code> para operar com DMA.</p>
 <p>Dicas:</p>
 <ul>
-<li>Leia o exemplo de DMA + SPI da própria pico: <a href="https://github.com/raspberrypi/pico-examples/blob/master/spi/spi_dma/spi_dma.c">https://github.com/raspberrypi/pico-examples/blob/master/spi/spi_dma/spi_dma.c</a></li>
+<li>Leia o exemplo de DMA + SPI da própria Pico: <a href="https://github.com/raspberrypi/pico-examples/blob/master/spi/spi_dma/spi_dma.c">DMA + SPI Example</a></li>
 </ul>
 
 
