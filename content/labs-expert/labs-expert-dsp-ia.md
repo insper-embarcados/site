@@ -1,12 +1,17 @@
 # Expert - DSP - Inteligência Artificial
 
-| Lab Expert - DSP - IA Preparatório                          |
-|----------------------------------------------------------------|
-| *Deadline*: {{lab_expert_dsp_ia_deadline}}                |
-| [Repositório no classroom]({{lab_expert_dsp_ia_classroom}}) |
-| 💰 100% nota de lab                                            |
+| Lab Expert - DSP - IA                                  |
+|--------------------------------------------------------|
+| **Deadline**: {{lab_expert_2_deadline}}                |
+| [Repositório no Classroom]({{lab_expert_2_classroom}}) |
+| 💰 100% nota de lab                                    |
 
 Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório [6 - i2c](https://insper-embarcados.github.io/site/labs/i2c-pra-lab/)) para classificar movimentos de um acelerômetro no espaço. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como *idle* (parado), *updown* (cima-baixo) e *wave* (acenando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.
+
+!!! tip
+    Vocês devem utilizar como código base o repositório a seguir, após criado o classroom copie os códigos do `lab-exp-dsp-ia` para o criado pelo classroom:
+    
+    - https://github.com/insper-embarcados/lab-exp-dsp-ia
 
 ### Definições
 
@@ -87,6 +92,8 @@ Abaixo há um vídeo demonstrando a classificação do modelo gerado no Edge Imp
 
 ### Outras observações
 
+Atente para os seguintes detalhes:
+
 - Neste laboratório utilizaremos o comando **edge-impulse-data-forwarder** para enviarmos os dados dos sensores da nossa raspberry Pico para o edge Impulse.
 
 - Leia sobre [cli-data-forwarder](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder) para saber como manipular os dados corretamente e envia-los para o Edge Impulse a partir da raspberry Pico. Atente-se ao formato do protocolo.
@@ -98,27 +105,17 @@ Abaixo há um vídeo demonstrando a classificação do modelo gerado no Edge Imp
 
 Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown).
 
-
 Dicas:
 
 - Comece criando uma conta do Edge Impulse.
-
 - Siga a documentação oficial do Edge impulse em: https://docs.edgeimpulse.com/docs
-
 - Crie um novo projeto no Edge Impulse.
-
 - Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli)
-
 - Realize a aquisição de dados com três labels, idle, updown e wave.
-
 - Configure o Impulse Design e treine seu modelo.
-
 - Depois de treinar crie o repositório.
-
 - Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
-
 - Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17.
-
 
 
 ## Referências:
