@@ -12,7 +12,7 @@ Neste laboratório vamos explorar os recursos de conectividade `Wi-Fi` da `Raspb
 
 Sistemas embarcados devem muitas vezes se comunicarem com outros dispositivos, ou se conectarem a internet. Muitas são as soluções que podemos assumir para a comunicação, que vão desde de protocolos proprietários de comunicacão de rádio frequência (por exemplo uma [sensor de frequência cardíaca](https://www.polar.com/br/sensores/sensor-de-frequencia-cardiaca/h9) ) ou o uso de comunicacoes como: WIFI, bluetooth, 4G, Ethernet. Recentemente muitas soluções surgiram para a comunicação de longas distâncias e com baixo consumo energético como: LoRA ou Sigfox.
 
-O nosso kit de desenvolvimento possui além do microcontrolador rp2040 (o que temos programado até agora), um outro dispositivo chamado de `cyw...` que funciona como uma placa de rede e implementa tanto a comunicação wifi quanto bluetooth:
+O nosso kit de desenvolvimento possui além do microcontrolador rp2040 (o que temos programado até agora), um outro dispositivo chamado de `CYW43439` que funciona como uma placa de rede e implementa tanto a comunicação wifi quanto bluetooth:
 
 ![](imgs-com/pico-cyw.png)
 

@@ -201,6 +201,7 @@ nav:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:
           - WIFI: labs-expert/labs-expert-com-wifi.md
+          - Bluetooth: labs-expert/labs-expert-bt.md
       - DSP:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
       - Sensores/Atuadores:
