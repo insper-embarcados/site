@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert dsp ia - Computação Embarcada - 2.0</title>
+        <title>IA - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -734,7 +734,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs experts</span>
     <ul>
       
@@ -759,12 +759,20 @@
   
 
       
+        
+  
+    <li>
+      <a href="../labs-expert-com-bt/">Bluetooth</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">DSP</span>
     <ul>
       
@@ -772,6 +780,42 @@
   
     <li>
       <a href="../labs-expert-dsp-audio/">Áudio</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">IA</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#definicoes">Definições</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#instalacao-do-edge-impulse-no-linux">Instalação do Edge Impulse no Linux</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#lab">Lab</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#entrega">Entrega</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#referencias">Referências:</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -796,7 +840,7 @@
         
   
     <li>
-      <a href="../labs-expert-bme280-ili9341/">LCD / BME280</a>
+      <a href="../labs-expert-sensors-bme280-ili9341/">LCD / BME280</a>
     </li>
   
 
@@ -868,6 +912,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs experts</li>
+                  
+                
+                  
+                    <li>DSP</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -879,15 +931,15 @@
 <table>
 <thead>
 <tr>
-<th>Lab Expert - DSP - IA Preparatório</th>
+<th>Lab Expert - DSP - IA</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><em>Deadline</em>: {{ lab_expert_dsp_ia_deadline }}</td>
+<td><strong>Deadline</strong>: 27/05</td>
 </tr>
 <tr>
-<td><a href="{{ lab_expert_dsp_ia_classroom }}">Repositório no classroom</a></td>
+<td><a href="https://classroom.github.com/a/_3k13vdL">Repositório no Classroom</a></td>
 </tr>
 <tr>
 <td>💰 100% nota de lab</td>
@@ -895,6 +947,13 @@
 </tbody>
 </table>
 <p>Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório <a href="https://insper-embarcados.github.io/site/labs/i2c-pra-lab/">6 - i2c</a>) para classificar movimentos de um acelerômetro no espaço. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como <em>idle</em> (parado), <em>updown</em> (cima-baixo) e <em>wave</em> (acenando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Vocês devem utilizar como código base o repositório a seguir, após criado o classroom copie os códigos do <code>lab-exp-dsp-ia</code> para o criado pelo classroom:</p>
+<ul>
+<li><a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></li>
+</ul>
+</div>
 <h3 id="definicoes">Definições</h3>
 <p><strong>Edge Computing</strong> é uma arquitetura de TI onde dados são processados na borda, ou seja, o mais próximo possível da origem dos dados. No caso da utilização do microcontrolador para Edge Computing, os dados de sensores, câmeras e outros são processados nele, o que traz algumas vantagens, tais como: serviços mais rápidos e confiáveis, diminuição de custos com máquinas na nuvem.</p>
 <p>"Para exemplificar o uso da edge computing para processar dados em tempo real, podemos pensar em uma fábrica moderna. No chão da fábrica, os sensores de Internet das Coisas (IoT) geram um fluxo contínuo de dados que pode ser usado para evitar interrupções e melhorar as operações. Estima-se que uma fábrica moderna com 2.000 equipamentos possa gerar 2.200 terabytes de dados por mês. Portanto, é mais rápido e econômico processar esse volume de dados quando ele está mais próximo do equipamento, em vez de transmiti-lo para um centro de processamento de dados remoto primeiro. No entanto, é recomendável que o equipamento esteja conectado por meio de uma plataforma de dados centralizada. Assim, o equipamento pode, por exemplo, receber atualizações de software padronizadas e compartilhar dados filtrados que ajudam a melhorar as operações em outros locais da fábrica." - <a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">RedHat</a></p>
@@ -953,6 +1012,7 @@
 <iframe height="500" src="https://www.youtube.com/embed/Yk3hq3IcJR4?autoplay=0" type="text/html" width="100%"></iframe>
 </div>
 <h3 id="outras-observacoes">Outras observações</h3>
+<p>Atente para os seguintes detalhes:</p>
 <ul>
 <li>
 <p>Neste laboratório utilizaremos o comando <strong>edge-impulse-data-forwarder</strong> para enviarmos os dados dos sensores da nossa raspberry Pico para o edge Impulse.</p>
@@ -968,33 +1028,15 @@
 <p>Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown).</p>
 <p>Dicas:</p>
 <ul>
-<li>
-<p>Comece criando uma conta do Edge Impulse.</p>
-</li>
-<li>
-<p>Siga a documentação oficial do Edge impulse em: <a href="https://docs.edgeimpulse.com/docs">https://docs.edgeimpulse.com/docs</a></p>
-</li>
-<li>
-<p>Crie um novo projeto no Edge Impulse.</p>
-</li>
-<li>
-<p>Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></p>
-</li>
-<li>
-<p>Realize a aquisição de dados com três labels, idle, updown e wave.</p>
-</li>
-<li>
-<p>Configure o Impulse Design e treine seu modelo.</p>
-</li>
-<li>
-<p>Depois de treinar crie o repositório.</p>
-</li>
-<li>
-<p>Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são <strong>tflite-model, model-parameters e o edge-impulse-sdk</strong>, não inclua o restante para não desconfigurar o projeto.</p>
-</li>
-<li>
-<p>Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17.</p>
-</li>
+<li>Comece criando uma conta do Edge Impulse.</li>
+<li>Siga a documentação oficial do Edge impulse em: <a href="https://docs.edgeimpulse.com/docs">https://docs.edgeimpulse.com/docs</a></li>
+<li>Crie um novo projeto no Edge Impulse.</li>
+<li>Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></li>
+<li>Realize a aquisição de dados com três labels, idle, updown e wave.</li>
+<li>Configure o Impulse Design e treine seu modelo.</li>
+<li>Depois de treinar crie o repositório.</li>
+<li>Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são <strong>tflite-model, model-parameters e o edge-impulse-sdk</strong>, não inclua o restante para não desconfigurar o projeto.</li>
+<li>Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17.</li>
 </ul>
 <h2 id="referencias">Referências:</h2>
 <p><a href="https://edgeimpulse.com/about">https://edgeimpulse.com/about</a></p>
@@ -1008,6 +1050,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../labs-expert-dsp-audio/"
+               class="ah-prev"
+               title="Áudio">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Áudio</span>
+            </a>
+          
+          
+            <a href="../labs-expert-sensors-servomotor/"
+               class="ah-next"
+               title="Servomotor">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Servomotor</span>
+            </a>
           
         </div>
       </footer>
@@ -1015,5 +1071,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>
