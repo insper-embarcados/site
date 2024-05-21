@@ -26,7 +26,7 @@ DMA (Direct Memory Access) é um controlador especializado em transferir dados. 
 !!! info 
     Leia mais sobre o periférico DMA em:
     
-    - [RP2040/DMA](/site/rp2050/rp2040-dma)
+    - [RP2040/DMA](/site/rp2040/rp2040-dma)
 
 ### Biblioteca OLED
 
