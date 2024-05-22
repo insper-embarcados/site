@@ -961,7 +961,7 @@
 <li>Leitura opcional: <a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">O que é Edge Computing?</a></li>
 </ul>
 <p><strong>Edge Impulse</strong> é uma empresa que trabalha em meios para ajudar desenvolvedores de aplicações de machine learning para embarcados a criarem e otimizarem soluções desta área.</p>
-<p><strong>Edge Impulse CLI</strong> (Edge Impulse Command Line Interface) é a aplicação que é necessária para controlar e configurar um dispositivo, que no nosso caso um microcontrolador.</p>
+<p><strong>Edge Impulse CLI</strong> (Edge Impulse Command Line Interface) é a aplicação que é necessária para controlar e configurar um dispositivo para um projeto do Edge Impulse, que no nosso caso é um microcontrolador.</p>
 <ul>
 <li>Leitura obrigatória: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></li>
 </ul>
@@ -1001,6 +1001,7 @@
 <p>Com o MPU6050 podemos medir a temperatura, a aceleração e o giroscópio, com essas informações, em relação ao tempo, podemos classificar padrões que se repetem e podemos assim predizer diversas coisas baseadas nesses dados. Podemos por exemplo fixar o módulo no corpo de uma pessoa, coletar dados dela realizando movimentos específicos (como andar) e por meio destes dados podemos classificar quando alguém está andando ou quando alguém está parado, seja com finalidade de monitorar a atividade física da pessoa, como velocidade, número de passos, etc.</p>
 <p>Para analisar os dados "crus" do acelerômetro do MPU6050 podemos utilizar o recurso de machine learning do Edge Impulse, treinar, e classificar novos movimentos baseado no dataset que criamos previamente.</p>
 <p>No link abaixo, há um exemplo do próprio Edge Impulse que demonstra uma aplicação que identifica 4 situações, a primeira em que o sujeito está <strong>idle/sentado</strong>, a segunda <strong>snake</strong> em que o mesmo move um acelerômetro sobre a mesa, a terceira <strong>wave</strong> em que o usuário movimenta o acelerômetro da esquerda para direita e a última <strong>updown</strong> em que o usuário movimenta o dispositivo para cima e para baixo.</p>
+<p>Tome como base o seguinte projeto:</p>
 <ul>
 <li><a href="https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition">Continuous Motion Recognition</a></li>
 </ul>
@@ -1018,26 +1019,29 @@
 <p>Neste laboratório utilizaremos o comando <strong>edge-impulse-data-forwarder</strong> para enviarmos os dados dos sensores da nossa raspberry Pico para o edge Impulse.</p>
 </li>
 <li>
-<p>Leia sobre <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder">cli-data-forwarder</a> para saber como manipular os dados corretamente e envia-los para o Edge Impulse a partir da raspberry Pico. Atente-se ao formato do protocolo.</p>
+<p>Leia sobre <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder">cli-data-forwarder</a> para saber como manipular os dados corretamente e envia-los para o Edge Impulse a partir da raspberry Pico. Atente-se ao formato do protocolo. <strong>Durante a etapa de aquisição de dados / treinamento seŕa necessário rodar o código da mpu-data-forwarder, do mesmo repositório, para captar os dados da Raspberry Pico W.</strong></p>
 </li>
 <li>
 <p>Quando for a fase de deploy no Edge Impulse, será necessário configurar o deploy para buildar uma biblioteca de C++, a qual utilizaremos no nosso repositório classroom.</p>
 </li>
 </ul>
 <h2 id="entrega">Entrega</h2>
-<p>Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown).</p>
+<p>Para entrega você deve ter um modelo treinado por você rodando localmente (através da cópia dos arquivos gerados no Edge Impulse) na Raspberry Pico que manipulará um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown). </p>
 <p>Dicas:</p>
 <ul>
+<li>Primeiro de tudo, leia as leituras sugeridas nos links aqui do laboratório, são essenciais para o entendimento da integração da raspberry pico com o edge impulse.</li>
 <li>Comece criando uma conta do Edge Impulse.</li>
-<li>Siga a documentação oficial do Edge impulse em: <a href="https://docs.edgeimpulse.com/docs">https://docs.edgeimpulse.com/docs</a></li>
-<li>Crie um novo projeto no Edge Impulse.</li>
-<li>Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">Edge Impulse CLI</a></li>
+<li>Dê preferência pela documentação oficial do Edge impulse.</li>
+<li>Tome como base o seguinte projeto: <a href="https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition">Continuous Motion Recognition</a></li>
 <li>Realize a aquisição de dados com três labels, idle, updown e wave.</li>
-<li>Configure o Impulse Design e treine seu modelo.</li>
-<li>Depois de treinar crie o repositório.</li>
+<li>Configure o Impulse Design tomando como base o projeto <a href="https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition">Continuous Motion Recognition</a></li>
+<li>Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17, não importa qual a cor do RGB cada um controlará.</li>
 <li>Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são <strong>tflite-model, model-parameters e o edge-impulse-sdk</strong>, não inclua o restante para não desconfigurar o projeto.</li>
-<li>Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17.</li>
+<li>Verifique no código onde está conectado os pinos SDA e SCL do módulo I2C.</li>
 </ul>
+<p>É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de <strong>Deploy</strong> no site do <strong>Edge Impulse</strong>, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione. Conforme a Figura 2 você precisará extrair os arquivos na pasta do teu projeto, substuindo os que estão lá.</p>
+<p>Figura 2 - Substituindo bibliotecas do Edge Impulse</p>
+<p><a class="glightbox" href="../imgs-dsp/ia-deploy.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="edge impulse workflow" src="../imgs-dsp/ia-deploy.png" /></a></p>
 <h2 id="referencias">Referências:</h2>
 <p><a href="https://edgeimpulse.com/about">https://edgeimpulse.com/about</a></p>
 <p><a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing</a></p>
@@ -1071,6 +1075,5 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
