@@ -23,7 +23,7 @@ Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo uti
 
 **Edge Impulse** é uma empresa que trabalha em meios para ajudar desenvolvedores de aplicações de machine learning para embarcados a criarem e otimizarem soluções desta área.
 
-**Edge Impulse CLI** (Edge Impulse Command Line Interface) é a aplicação que é necessária para controlar e configurar um dispositivo, que no nosso caso um microcontrolador.
+**Edge Impulse CLI** (Edge Impulse Command Line Interface) é a aplicação que é necessária para controlar e configurar um dispositivo para um projeto do Edge Impulse, que no nosso caso é um microcontrolador.
 
 - Leitura obrigatória: [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli)
 
@@ -98,14 +98,15 @@ Atente para os seguintes detalhes:
 
 - Neste laboratório utilizaremos o comando **edge-impulse-data-forwarder** para enviarmos os dados dos sensores da nossa raspberry Pico para o edge Impulse.
 
-- Leia sobre [cli-data-forwarder](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder) para saber como manipular os dados corretamente e envia-los para o Edge Impulse a partir da raspberry Pico. Atente-se ao formato do protocolo.
+- Leia sobre [cli-data-forwarder](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder) para saber como manipular os dados corretamente e envia-los para o Edge Impulse a partir da raspberry Pico. Atente-se ao formato do protocolo. **Durante a etapa de aquisição de dados / treinamento seŕa necessário rodar o código da mpu-data-forwarder, do mesmo repositório, para captar os dados da Raspberry Pico W.**
 
 - Quando for a fase de deploy no Edge Impulse, será necessário configurar o deploy para buildar uma biblioteca de C++, a qual utilizaremos no nosso repositório classroom.
 
 
+
 ## Entrega
 
-Para entrega você deve realizar o deploy do seu modelo, depois de treinado e validado, buildando uma biblioteca em C++ que deverá ser utilizada junto ao código do repositório classroom para a sua RaspBerry Pico W e manipular um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown).
+Para entrega você deve ter um modelo treinado por você rodando localmente (através da cópia dos arquivos gerados no Edge Impulse) na Raspberry Pico que manipulará um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown). 
 
 Dicas:
 
@@ -117,6 +118,7 @@ Dicas:
 - Configure o Impulse Design tomando como base o projeto [Continuous Motion Recognition]( https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition)
 - Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17, não importa qual a cor do RGB cada um controlará.
 - Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
+- Verifique no código onde está conectado os pinos SDA e SCL do módulo I2C.
 
 É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de **Deploy** no site do **Edge Impulse**, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione. Conforme a Figura 2 você precisará extrair os arquivos na pasta do teu projeto, substuindo os que estão lá.
 
