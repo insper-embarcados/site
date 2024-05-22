@@ -76,6 +76,8 @@ Para analisar os dados "crus" do acelerômetro do MPU6050 podemos utilizar o rec
 
 No link abaixo, há um exemplo do próprio Edge Impulse que demonstra uma aplicação que identifica 4 situações, a primeira em que o sujeito está **idle/sentado**, a segunda **snake** em que o mesmo move um acelerômetro sobre a mesa, a terceira **wave** em que o usuário movimenta o acelerômetro da esquerda para direita e a última **updown** em que o usuário movimenta o dispositivo para cima e para baixo.
 
+Tome como base o seguinte projeto:
+
 - [Continuous Motion Recognition]( https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition)
 
 Abaixo, na figura 1, há a representação do fluxo de dados e interconexão entre dispositivos e servidor no cenário de utilização dos serviços do Edge Impulse. 
@@ -107,15 +109,22 @@ Para entrega você deve realizar o deploy do seu modelo, depois de treinado e va
 
 Dicas:
 
+- Primeiro de tudo, leia as leituras sugeridas nos links aqui do laboratório, são essenciais para o entendimento da integração da raspberry pico com o edge impulse.
 - Comece criando uma conta do Edge Impulse.
-- Siga a documentação oficial do Edge impulse em: https://docs.edgeimpulse.com/docs
-- Crie um novo projeto no Edge Impulse.
-- Conecte a RaspBerry Pico W no Edge Impulse ao projeto. Leia: [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli)
+- Dê preferência pela documentação oficial do Edge impulse.
+- Tome como base o seguinte projeto: [Continuous Motion Recognition]( https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition)
 - Realize a aquisição de dados com três labels, idle, updown e wave.
-- Configure o Impulse Design e treine seu modelo.
-- Depois de treinar crie o repositório.
+- Configure o Impulse Design tomando como base o projeto [Continuous Motion Recognition]( https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition)
+- Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17, não importa qual a cor do RGB cada um controlará.
 - Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
-- Por padrão as saídas que serão utilizadas para identificar os movimentos são: GP15, GP16 e GP17.
+
+É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de **Deploy** no site do **Edge Impulse**, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione. Conforme a Figura 2 você precisará extrair os arquivos na pasta do teu projeto, substuindo os que estão lá.
+
+Figura 2 - Substituindo bibliotecas do Edge Impulse
+
+![edge impulse workflow](./imgs-dsp/ia-deploy.png)
+
+
 
 
 ## Referências:
