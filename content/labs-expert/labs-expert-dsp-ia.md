@@ -106,7 +106,7 @@ Atente para os seguintes detalhes:
 
 ## Entrega
 
-Para entrega você deve ter um modelo treinado por você rodando localmente (através da cópia dos arquivos gerados no Edge Impulse) na Raspberry Pico que manipulará um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown). 
+Para entrega você deve ter um modelo treinado por você rodando localmente (através da cópia dos arquivos gerados no Edge Impulse) na Raspberry Pico que manipulará um LED RGB para demonstrar quando a pessoa deixa o MPU parado, quando ela move ele da esquerda para a direita (Wave) e quando ela move o dispositivo de cima para baixo (updown). Utilize a frequência de 62.5 Hz para coleta de dados.
 
 Dicas:
 
