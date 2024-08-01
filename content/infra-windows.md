@@ -1,4 +1,4 @@
-# Infra Linux Docker
+# Infra WSL Ubuntu
 
 === "Windows?"
     Indicamos o desenvolvimento usando o *WSL (Windows Subsystem for Linux) com Ubuntu 22.04*.
@@ -23,6 +23,8 @@
     ![alt text](./imgs/infra_windows_wslfeature.png)
 
     - O Windows começará a instalar o WSL, após o processo acabar a tela ficará parecida com a imagem a seguir, clique em *Reiniciar Agora*.
+
+    ![alt text](./imgs/infrawindows_reloadafterwslinstall.png)
 
     - Após reiniciar abra o PowerShell no Windows como *Administrador* e digite os seguintes comandos:
     
@@ -53,12 +55,11 @@
     - Abra a Microsoft Store no seu Windows.
 
     - Agora pesquise por Ubuntu 22.04 na *Microsoft Store* e Instale o seguinte:
-
-    ![alt text](./imgs/infrawindows_reloadafterwslinstall.png)
+    
+    ![](imgs/ubuntumicrosoft.png)
 
     *OBS:* Se tiver algum problema, contate um técnico ou o professor da disciplina.
  
-    ![](imgs/ubuntumicrosoft.png)
     
 
 *Sempre que você quiser utilizar o WSL com Ubuntu 22 você pode pesquisar no Windows pelo software "Ubuntu 22.04.3 LTS" e abri-lo.*
@@ -159,14 +160,20 @@ Agora vamos instalar o *USBIPD*, responsável por fazer a interface de conexão 
 
     Procure pelo DEVICE de nome CMSIS-DAP e identifique seu *VID:PID, no meu caso por exemplo é o 2e8a:000c*.
 
-    - usbipd bind -i "VIP:PID" # sem as aspas
+    - usbipd bind -i "VID:PID" # sem as aspas
 
-    Substitua o VIP:PID pelo correspondente da Raspberry Pico Probe (CMSIS-DAP), quando você der *usbipd list* de novo aparece que o DEVICE está com STATE = Shared, como na imagem abaixo:
+    Substitua o VID:PID pelo correspondente da Raspberry Pico Probe (CMSIS-DAP), quando você der *usbipd list* de novo aparece que o *DEVICE está com STATE = Shared*, como na imagem abaixo:
+
+    ![alt text](./imgs/usbipd_exemplo.png)
 
     - usbipd attach --wsl -i "VID:PID" 
 
     Nesta parte substitua o VID:PID pelo correspondente, no meu caso o 2e8a:000c, mas no seu será um diferente.
 
+    Exemplo:
+    ```bash
+    $ usbipd attach --wsl -i 2e8a:000c
+    ```
     
     Aqui o dispositivo (CMSIS DAP / Rasp Pico Debugger) já é acessível no WSL.
 
