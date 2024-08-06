@@ -94,18 +94,24 @@ Agora vamos instalar o *USBIPD*, responsável por fazer a interface de conexão 
     
     - https://code.visualstudio.com/download
     
-    Teste no programa Ubuntu 22.04.3 LTS com:
+    Teste no terminal do *Ubuntu 22.04.3 LTS* com:
     
     ``` bash
-    $ mkdir workspace/embarcados #vamos criar um diretorio para nossos projetos de embarcados!!
-    $ cd workspace/embarcados
+    $ mkdir workspace # criando o workspace
+    $ cd workspace # entrando dentro do workspace
+    $ mkdir embarcados #vamos criar um diretorio para nossos projetos de embarcados dentro de workspace
+    
+    $ # Verifique se está dentro do workspace/embarcados, caso sim, continue
+
     $ git clone https://github.com/insper-embarcados/infra-test
-    $ code infra-test/
+    $ code infra-test/ # vamos abrir a infra
     ```
 
     *OBS:* Execute um comando por vez!
 
     Se o seu VSCODE abrir, esta etapa estará validada, por enquanto feche o VSCODE e vamos para a próxima etapa.
+
+    *OBS:* Instale todos os plugins que forem solicitados no VSCode
  
 <!--
 !!! exercise "Wokwi-cli"
