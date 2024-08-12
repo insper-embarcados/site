@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Windows - Computação Embarcada - 2.0</title>
+        <title>Infra windows - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -120,7 +120,7 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Infra</span>
     <ul>
       
@@ -134,24 +134,8 @@
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Windows</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#wsl">WSL</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#testando-tudo-vscode">Testando tudo - vscode</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../infra-windows/">Windows</a>
     </li>
   
 
@@ -667,10 +651,6 @@
             <ul class="ah-breadcrumbs">
               
                 
-                  
-                    <li>Infra</li>
-                  
-                
                 <li></li>
             </ul>
             
@@ -678,47 +658,47 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="infra-wsl-ubuntu">Infra WSL Ubuntu</h1>
+<h1 id="windows">Windows</h1>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows?</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Indicamos o desenvolvimento usando o <em>WSL (Windows Subsystem for Linux) com Ubuntu 22.04</em>.</p>
+<p>Indicamos o desenvolvimento usando o WSL (Windows Subsystem for Linux) com Ubuntu 22.04.</p>
 </div>
 </div>
 </div>
 <h2 id="wsl">WSL</h2>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Instalar o WSL</p>
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_1" id="exercise_1_0">
+<p class="admonition-title">wsl</p>
 <form class="exercise-form">
 <p>Verifique se o WSL está ativado no seu sistema operacional, para isso faça os seguintes passos:</p>
-<ul>
-<li>Abra os <em>Recursos Opcionais</em> do Windows, conforme imagem abaixo:</li>
-</ul>
+<ol>
+<li>Abra os "Recursos Opcionais" do Windows, conforme imagem abaixo:</li>
+</ol>
 <p><a class="glightbox" href="../imgs/tutorial_win_optionalfeatures.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/tutorial_win_optionalfeatures.png" /></a></p>
-<ul>
+<ol>
 <li>
-<p>Em seguida clique em <em>More Windows features</em> ou <em>Mais Recursos do Windows</em> (ptbr) conforme a última opção na imagem.</p>
+<p>Em seguida clique em "More Windows features" ou "Mais Recursos do Windows" (ptbr) conforme a última opção na imagem.</p>
 </li>
 <li>
-<p>Agora procure o <em>Subsistema do Windows para Linux</em> (WSL) conforme na imagem, clique no Quadrado, verifique se ficou azul e de um <em>OK</em>.</p>
+<p>Agora procure o "Subsistema do Windows para Linux" (WSL) conforme na imagem, clique no Quadrado, verifique se ficou azul e de um OK.</p>
 </li>
-</ul>
+</ol>
 <p><a class="glightbox" href="../imgs/infra_windows_wslfeature.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/infra_windows_wslfeature.png" /></a></p>
-<ul>
-<li>O Windows começará a instalar o WSL, após o processo acabar a tela ficará parecida com a imagem a seguir, clique em <em>Reiniciar Agora</em>.</li>
-</ul>
-<p><a class="glightbox" href="../imgs/infrawindows_reloadafterwslinstall.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/infrawindows_reloadafterwslinstall.png" /></a></p>
-<ul>
-<li>Após reiniciar abra o PowerShell no Windows como <em>Administrador</em> e digite os seguintes comandos:</li>
-</ul>
-<p><div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dism.exe<span class="w"> </span>/online<span class="w"> </span>/enable-feature<span class="w"> </span>/featurename:Microsoft-Windows-Subsystem-Linux<span class="w"> </span>/all
+<ol>
+<li>
+<p>O Windows começará a instalar o WSL, após o processo acabar a tela ficará parecida com a imagem a seguir, clique em "Reiniciar Agora".</p>
+</li>
+<li>
+<p>Após reiniciar abra o PowerShell no Windows como "Administrador" e digite o seguinte comando:</p>
+</li>
+</ol>
+<p>Um comando por vez, esperando cada um ser executado devidamente, caso tenha problemas chame o técnico ou professor.</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dism.exe<span class="w"> </span>/online<span class="w"> </span>/enable-feature<span class="w"> </span>/featurename:Microsoft-Windows-Subsystem-Linux<span class="w"> </span>/all
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dism.exe<span class="w"> </span>/online<span class="w"> </span>/enable-feature<span class="w"> </span>/featurename:VirtualMachinePlatform<span class="w"> </span>/all
 </code></pre></div>
-<em>OBS:</em> Um comando por vez, esperando cada um ser executado devidamente, caso tenha problemas chame o técnico ou professor.</p>
-<ul>
-<li>Após reiniciar abra o PowerShell novamente como <em>Administrador</em> e digite os seguintes comandos:</li>
-</ul>
-<p><em>OBS:</em> Um comando por vez, esperando cada um ser executado devidamente, caso tenha problemas chame o técnico ou professor.</p>
+<ol>
+<li>Após reiniciar abra o PowerShell novamente como "Administrador" e digite os seguintes comandos:</li>
+</ol>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>wsl<span class="w"> </span>--install
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>wsl<span class="w"> </span>--update
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>wsl<span class="w"> </span>--set-default-version<span class="w"> </span><span class="m">2</span>
@@ -729,33 +709,27 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_2" id="exercise_2_0">
-<p class="admonition-title">Instalando Ubuntu 22 no WSL</p>
-<form class="exercise-form">
-<p>A distribuição do Linux que utilizaremos no WSL será o Ubuntu 22, você deverá instalar a mesma versão.</p>
-<p>Para isto:</p>
-<ul>
-<li>
-<p>Abra a Microsoft Store no seu Windows.</p>
-</li>
-<li>
-<p>Agora pesquise por Ubuntu 22.04 na <em>Microsoft Store</em> e Instale o seguinte:</p>
-</li>
-</ul>
-<p><a class="glightbox" href="../imgs/ubuntumicrosoft.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/ubuntumicrosoft.png" /></a></p>
-<p><em>OBS:</em> Se tiver algum problema, contate um técnico ou o professor da disciplina.</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<p><em>Sempre que você quiser utilizar o WSL com Ubuntu 22 você pode pesquisar no Windows pelo software "Ubuntu 22.04.3 LTS" e abri-lo.</em></p>
+<p>!!! exercise "Instalando Ubuntu 22 no WSL"</p>
+<div class="language-text highlight"><pre><span></span><code>A distribuição do Linux que utilizaremos no WSL será o Ubuntu 22, você deverá instalar a mesma versão.
+
+Para isto:
+
+1. Abra a Microsoft Store no seu Windows.
+
+2. Agora pesquise por Ubuntu 22.04 na *Microsoft Store* e Instale o seguinte:
+
+![alt text](./imgs/infrawindows_reloadafterwslinstall.png)
+
+Se tiver algum problema, contate um técnico ou o professor da disciplina.
+
+![](imgs/ubuntumicrosoft.png)
+</code></pre></div>
+<p>Sempre que você quiser utilizar o WSL com Ubuntu 22 você pode pesquisar no Windows pelo software "Ubuntu 22.04.3 LTS" e abri-lo.</p>
 <p>Reinicie o computador e tente abrir o "Ubuntu 22.04.3 LTS", se tudo tiver dado certo você precisará definir um usuário e senha, e a tela a ser exibida será:</p>
-<p><a class="glightbox" href="../imgs/windowsinfra_wslok.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/windowsinfra_wslok.png" /></a></p>
-<p><em>Parabéns</em>, agora você tem um WSL Ubuntu instalado e prontinho para uso!!</p>
-<p>Agora vamos instalar o <em>USBIPD</em>, responsável por fazer a interface de conexão entre o dispositivo USB no windows com o WSL/Ubuntu.</p>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_3" id="exercise_3_0">
+<p><a class="glightbox" href="./imgs/windowsinfra_wslok.png.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="./imgs/windowsinfra_wslok.png.png" /></a></p>
+<p>Parabéns, agora você tem um WSL Ubuntu instalado e prontinho para uso!!</p>
+<p>Agora vamos instalar o USBIPD, responsável por fazer a interface de conexão entre o dispositivo USB no windows com o WSL/Ubuntu.</p>
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Instalando USBIPD</p>
 <form class="exercise-form">
 <ol>
@@ -770,66 +744,60 @@
 </li>
 </ol>
 <p><a class="glightbox" href="../imgs/usbipd_list.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="usbipd list" src="../imgs/usbipd_list.png" /></a></p>
-<p>Note que há informações sobre os periféricos conectados ao nosso computador.</p>
+<p>Note que há informações sobre os periféricos conectados ao nosso computador, neste caso eu tenho 4, e há informações sobre qual barramento os mesmos estão conectados "1-" e o números dos dispositivos "-1".</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_4" id="exercise_4_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_3" id="exercise_3_0">
 <p class="admonition-title">vscode</p>
 <form class="exercise-form">
 <p>Instale o vscode no seu Windows caso não tenha:</p>
 <ul>
 <li><a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></li>
 </ul>
-<p>Teste no terminal do <em>Ubuntu 22.04.3 LTS</em> com:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>workspace<span class="w"> </span><span class="c1"># criando o workspace</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace<span class="w"> </span><span class="c1"># entrando dentro do workspace</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$<span class="w"> </span>mkdir<span class="w"> </span>embarcados<span class="w"> </span><span class="c1">#vamos criar um diretorio para nossos projetos de embarcados dentro de workspace</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>$<span class="w"> </span><span class="c1"># Verifique se está dentro do workspace/embarcados, caso sim, continue</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>$<span class="w"> </span>code<span class="w"> </span>infra-test/<span class="w"> </span><span class="c1"># vamos abrir a infra</span>
+<p>Teste no programa Ubuntu 22.04.3 LTS com:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>workspace/embarcados<span class="w"> </span><span class="c1">#vamos criar um diretorio para nossos projetos de embarcados!!</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace/embarcados
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>$<span class="w"> </span>code<span class="w"> </span>infra-test/
 </code></pre></div>
-<p><em>OBS:</em> Execute um comando por vez!</p>
-<p>Se o seu VSCODE abrir, esta etapa estará validada, por enquanto feche o VSCODE e vamos para a próxima etapa.</p>
-<p><em>OBS:</em> Instale todos os plugins que forem solicitados no VSCode</p>
+<p>Quando abrir o VSCODE estará valido, por enquanto feche o VSCODE e vamos para a próxima etapa.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
-<!--
-!!! exercise "Wokwi-cli"
+<p>!!! exercise "Wokwi-cli" no WSL</p>
+<div class="language-text highlight"><pre><span></span><code>1. Instale o wokwi-cli (simulador de sistemas embarcados)
 
-    1. Instale o wokwi-cli (simulador de sistemas embarcados)
+```bash
+sudo snap install curl
+curl -L https://wokwi.com/ci/install.sh | sh
+```
 
-    <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>curl
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+2. Crie uma conta no site:
+
+- https://wokwi.com/
+
+3. Entre em: CI Tokens: https://wokwi.com/dashboard/ci
+
+![](imgs/wokwi-token.png)
+
+4. Gere um token e copie o código
+
+5. Cole na última linha do arquivo `.bashrc`
+
+```bash
+gedit ~/.bashrc
+```
 </code></pre></div>
-
-    2. Crie uma conta no site:
-
-    - https://wokwi.com/
-
-    3. Entre em: CI Tokens: https://wokwi.com/dashboard/ci
-
-    ![](imgs/wokwi-token.png)
-
-    4. Gere um token e copie o código
-
-    5. Cole na última linha do arquivo `.bashrc`
-
-    <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gedit<span class="w"> </span>~/.bashrc
-</code></pre></div>
- -->
-
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_5" id="exercise_5_0">
-<p class="admonition-title">Conectando tudo</p>
+<p>&rarr;</p>
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Conecte o debug-probe e a rasp. Para isso você vai precisar de:</p>
 <ul>
@@ -854,37 +822,33 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_6" id="exercise_6_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_5" id="exercise_5_0">
 <p class="admonition-title">Roteie o USB via ip do Windows para o WSL</p>
 <form class="exercise-form">
 <p>Com a Rasp Pico e o Debugger conectados no PC, faça:</p>
-<ul>
+<ol>
 <li>
 <p>Reiniciar PowerShell com administrador.</p>
 </li>
 <li>
-<p>Digite o comando <em>usbipd list</em></p>
+<p>usbipd list</p>
 </li>
-</ul>
-<p><a class="glightbox" href="../imgs/usbipd_list.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/usbipd_list.png" /></a></p>
+</ol>
+<p><a class="glightbox" href="./imgs/usbipd_list.png.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="./imgs/usbipd_list.png.png" /></a></p>
 <p>Procure pelo DEVICE de nome CMSIS-DAP e identifique seu <em>VID:PID, no meu caso por exemplo é o 2e8a:000c</em>.</p>
-<ul>
-<li>usbipd bind -i "VID:PID" # sem as aspas</li>
-</ul>
-<p>Substitua o VID:PID pelo correspondente da Raspberry Pico Probe (CMSIS-DAP), quando você der <em>usbipd list</em> de novo aparece que o <em>DEVICE está com STATE = Shared</em>, como na imagem abaixo:</p>
-<p><a class="glightbox" href="../imgs/usbipd_exemplo.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/usbipd_exemplo.png" /></a></p>
-<ul>
+<ol>
+<li>usbipd bind -i "VIP:PID" # sem as aspas</li>
+</ol>
+<p>Substitua o VIP:PID pelo correspondente da Raspberry Pico Probe (CMSIS-DAP), quando você der <em>usbipd list</em> de novo aparece que o DEVICE está com STATE = Shared, como na imagem abaixo:</p>
+<ol>
 <li>usbipd attach --wsl -i "VID:PID" </li>
-</ul>
+</ol>
 <p>Nesta parte substitua o VID:PID pelo correspondente, no meu caso o 2e8a:000c, mas no seu será um diferente.</p>
-<p>Exemplo:
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>usbipd<span class="w"> </span>attach<span class="w"> </span>--wsl<span class="w"> </span>-i<span class="w"> </span>2e8a:000c
-</code></pre></div></p>
 <p>Aqui o dispositivo (CMSIS DAP / Rasp Pico Debugger) já é acessível no WSL.</p>
-<p>Para verificar, entre no <em>Ubuntu 22.04.3 LTS</em>, copie e cole:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span>/dev/ttyACM0<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Parabéns, a Rasp tá funcionando no wsl &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Tem alguma coisa errada&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<p>Para verificar, entre no <em>Ubuntu 22.04.3 LTS</em> e digite:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span>/dev/ttyACM0<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Parabéns, a Rasp tá funcionando no wsl &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Tem alguma coisa errada&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
 </code></pre></div>
-<p>Basicamente checamos se existe o device <em>ttyACM0</em>, se sim, retornamos um mensagem de "Parabéns", se não, "tem alguma coisa errada".</p>
+<p>Basicamente checamos se existe o device ttyACM0, se sim, retornamos um mensagem de "Parabéns", se não, "tem alguma coisa errada".</p>
 <p><em>Se aparecer "Parabéns..." é porque tudo até aqui deu certo :)</em></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -892,13 +856,13 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_7" id="exercise_7_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_6" id="exercise_6_0">
 <p class="admonition-title">Permissões USB no wsl</p>
 <form class="exercise-form">
 <p>Configurando permissão do USB:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sudo<span class="w"> </span>reboot
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo<span class="w"> </span>reboot
 </code></pre></div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -908,11 +872,11 @@
 </div>
 <h2 id="testando-tudo-vscode">Testando tudo - vscode</h2>
 <p>Agora que já temos toda a infra instalada, vamos testar!</p>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_8" id="exercise_8_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_7" id="exercise_7_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abra o respositório no vscode</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>code<span class="w"> </span>infra-test/
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>code<span class="w"> </span>infra-test/
 </code></pre></div>
 <p><mark>Instale todas as extensões sugeridas!</mark></p>
 <div class="form-elements">
@@ -921,7 +885,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_9" id="exercise_9_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_8" id="exercise_8_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abrir no dev-container</p>
@@ -941,7 +905,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_10" id="exercise_10_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_9" id="exercise_9_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Vamos compilar o projeto!</p>
@@ -959,7 +923,7 @@
 </div>
 <h3 id="programando-e-depurando">Programando e depurando</h3>
 <p>Agora vamos programar a placa!</p>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_11" id="exercise_11_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_10" id="exercise_10_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Selecione o programa que iremos depurar</p>
@@ -970,7 +934,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_12" id="exercise_12_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_11" id="exercise_11_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Inicialize o software</p>
@@ -982,7 +946,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_13" id="exercise_13_0">
+<div class="admonition exercise self-progress" data-slug="infra_windows/exercise_12" id="exercise_12_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abra o serial monitor (terminal)</p>
@@ -1002,20 +966,6 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../infra-linux-docker/"
-               class="ah-prev"
-               title="Linux ou Mac">
-              <span class="nav-label">Previous</span>
-              <span class="nav-title">Linux ou Mac</span>
-            </a>
-          
-          
-            <a href="../prototipos/prototipos/"
-               class="ah-next"
-               title="Fabricação">
-              <span class="nav-label">Next</span>
-              <span class="nav-title">Fabricação</span>
-            </a>
           
         </div>
       </footer>
