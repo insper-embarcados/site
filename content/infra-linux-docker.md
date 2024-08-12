@@ -1,10 +1,10 @@
 # Linux/ Mac
 
 === "MAC"
-    Indicamos o desenvolvimento usando uma VM Ubuntu.
-    - MAC: Dica use o [UTM](https://mac.getutm.app/)
-
-    Instale o Ubuntu 22.04 na VM e siga o tutorial.
+    Fazer o desenvolvimento usando uma VM Ubuntu:
+    
+    1. Indicamos a [UTM](https://mac.getutm.app/)
+    2. Após instalar a VM, instale o ubuntu e siga o tutorial
 
 === "Linux"
     Ubuntu 22.04? Só seguir a instalação. 
@@ -130,6 +130,8 @@
 
 !!! exercise
     Configurando permissão do USB:
+    
+    ==Os dois cabos USB devem estar conectados no PC e na placa.==
     
     ```bash
     sudo usermod -a -G "$(stat -c "%G" /dev/ttyUSB0)" $USER

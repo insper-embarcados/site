@@ -1,47 +1,17 @@
 # GPIO - Preparatório
 
-| Lab 1 - GPIO - Preparatório                            |
-|--------------------------------------------------------|
-| **Deadline**: {{lab_gpio_pre_deadline}}                |
-| **Atividade:** [classroom]({{lab_gpio_pre_classroom}}) |
-| 💰 30% nota de lab                                  |
+| Lab 1 - GPIO - Preparatório                        |
+|----------------------------------------------------|
+| **Deadline**: {{lab_gpio_pre_deadline}}            |
+| 💰 30% nota de lab (junto com qualidade de código) |
 
 
-O laboratório é composto de duas partes: uma chamada pré-lab, onde praticamos um pouco em um ambiente simulado, e outra chamada prática, onde realmente usamos o microcontrolador e controlamos algo real.
+Os laboratórios de embarcados são compostos de duas partes: uma chamada pré-lab, onde praticamos um pouco em um ambiente simulado, e outra chamada prática, onde realmente usamos o microcontrolador e controlamos algo real.
 
-Aqui, iremos aprender sobre qualidade de código e também sobre os conceitos básicos do microcontrolador. As notas são binárias; ou seja, para conseguir os 30%, você deve fazer todas as entregas desta página.
+Aqui, iremos aprender sobre os conceitos básicos do microcontrolador.
 
-## Qualidade Código
-
-Na disciplina de embarcados, precisaremos ter um cuidado especial com o código que geramos. Não basta que o programa funcione; é necessário também considerar os possíveis problemas que podem surgir. Os principais motivos sã
-
-1. Nem todo erro ou problema aparece na fase de teste.
-2. Erros em códigos de sistemas embarcados podem ser catastróficos.
-3. Não existe um mecanismo fácil de atualizar sistemas embarcados; uma vez produzido o produto, dificilmente ele receberá atualizações.
-
-Para minimizar possíveis erros, vamos criar códigos com um nível mínimo de qualidade.
-
-### Praticando
-
-Para que vocês comecem a entender as regras, vamos fazer dois exercícios:
-
-!!! exercise "Cppcheck"
-
-    - Exercício qualidade de código referente a ferramenta cppcheck: [==Code Quality/Cppcheck==](/site/CodeQuality/cppcheck)
-
-!!! exercise "Variáveis"
-
-    - Exercício sobre qualidade de código referente a variáveis: [==Code Quality/Variáveis==](/site/CodeQuality/variables)
-
-## Firmware 
-
-
-!!! exercise
+!!! info
     Antes de seguir, será necessário configurar a infra.
-    
-!!! exercise
-    Leia sobre os laboratórios preparatórios:
-    - [labs/preparatórios](/site/labs/pre-lab)
 
 !!! exercise "Leitura prévia"
 
@@ -49,8 +19,20 @@ Para que vocês comecem a entender as regras, vamos fazer dois exercícios:
    
     - O que é delay e como ele funciona: [📕 ==RP2040/Delay==](/site/rp2040/rp2040-delay)
     - O que é o periférico GPIO: [📘 ==RP2040/GPIO==](/site/rp2040/rp2040-gpio)
+
+### Praticando
+
+!!! exercise
+    Leia sobre os laboratórios preparatórios:
     
-## Atividades
+    - [labs/preparatórios](/site/labs/pre-lab)
+
+!!! exercise "Entrega 3: Firmware"
+    
+    Acesse o repositório via o link a seguir, clone para a sua máquina e trabalhe nele usando o wokiwi:
+    
+    - [classroom firmware]({{lab_gpio_pre_classroom}}) 
+
 
 Agora execute os exercícios, lembre que você pode consultar os snippets de código dentro de [RP2040/GPIO/snippets](/site/rp2040/rp2040-gpio/#snippets) e enviar o código para o github para validação.
 

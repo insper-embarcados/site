@@ -47,8 +47,8 @@ extra:
     lab_gpio_pre_deadline:  Antes da próxima aula - 14/9 ou 15/9
     lab_gpio_pra_classroom: https://classroom.github.com/a/C-So7F02
     lab_gpio_pra_deadline: 19/9 (Antes da aula)
-    lab_irq_pre_classroom:
-    lab_irq_pre_deadline: TBD
+    lab_irq_pre_classroom: https://classroom.github.com/a/aUTa4rl6
+    lab_irq_pre_deadline: 19/9 (Antes da aula)
     lab_irq_pra_classroom:
     lab_irq_pra_deadline: TBD
 
@@ -182,10 +182,12 @@ nav:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
       - GPIO:
+        - Qualidade de Código: labs/qualidade-codigo-1
         - Preparatório: labs/gpio-pre-lab.md
         - Prática: labs/gpio-pra-lab.md
-#      - IRQ:
-#        - Preparatório: labs/irq-pre-lab.md
+      - IRQ:
+        - Qualidade de Código: labs/qualidade-codigo-irs
+        - Preparatório: labs/irq-pre-lab.md
 #        - Prática: labs/irq-pra-lab.md
 #      - Timer:
 #        - Preparatório: labs/timer-pre-lab.md

@@ -286,14 +286,6 @@
       "exercise_7": {
         "tags": [],
         "slug": "labs/gpio-pre-lab/exercise_7"
-      },
-      "exercise_8": {
-        "tags": [],
-        "slug": "labs/gpio-pre-lab/exercise_8"
-      },
-      "exercise_9": {
-        "tags": [],
-        "slug": "labs/gpio-pre-lab/exercise_9"
       }
     },
     "labs/i2c-pre-lab/": {
@@ -348,6 +340,16 @@
       "exercise_2": {
         "tags": [],
         "slug": "labs/qualidade-codigo-1/exercise_2"
+      }
+    },
+    "labs/qualidade-codigo-irs/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/qualidade-codigo-irs/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/qualidade-codigo-irs/exercise_2"
       }
     },
     "labs/rtos-pra-lab/": {
