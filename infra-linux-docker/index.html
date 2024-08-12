@@ -682,9 +682,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MAC</label><label for="__tabbed_1_2">Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Indicamos o desenvolvimento usando uma VM Ubuntu.
-- MAC: Dica use o <a href="https://mac.getutm.app/">UTM</a></p>
-<p>Instale o Ubuntu 22.04 na VM e siga o tutorial.</p>
+<p>Fazer o desenvolvimento usando uma VM Ubuntu:</p>
+<ol>
+<li>Indicamos a <a href="https://mac.getutm.app/">UTM</a></li>
+<li>Após instalar a VM, instale o ubuntu e siga o tutorial</li>
+</ol>
 </div>
 <div class="tabbed-block">
 <p>Ubuntu 22.04? Só seguir a instalação. </p>
@@ -833,6 +835,7 @@
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Configurando permissão do USB:</p>
+<p><mark>Os dois cabos USB devem estar conectados no PC e na placa.</mark></p>
 <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo<span class="w"> </span>reboot
