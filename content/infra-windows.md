@@ -89,6 +89,61 @@ Agora vamos instalar o *USBIPD*, responsável por fazer a interface de conexão 
     
     Note que há informações sobre os periféricos conectados ao nosso computador.
     
+
+!!! exercise "docker no wsl Ubuntu 22"
+    Executar no terminal (uma linha por vez!):
+    
+    ```bash
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    ```
+    
+    Agora:
+    
+    ```bash
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    ```
+    
+    Teste com:
+    
+    ```bash
+    sudo docker run hello-world
+    ```
+    
+    Este comando baixa uma imagem de teste e a executa em um contêiner. Quando o contêiner é executado, ele imprime uma mensagem de confirmação e encerra.
+
+    > ref: https://docs.docker.com/engine/install/ubuntu/#installation-methods
+
+!!! exercise "Configurando permissão"
+    Siga os passos no site a seguir, para podermos executar o docker sem permissão de super usuário:
+    
+
+    ```bash
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    ```
+
+    Teste com:
+    
+    ```bash
+    docker run hello-world
+    ```
+    
+    - Se não funcionar, reinicie o computador e teste com o comando anterior.
+
+    > ref: https://docs.docker.com/engine/install/linux-postinstall/
+
 !!! exercise "vscode"
     Instale o vscode no seu Windows caso não tenha:
     
