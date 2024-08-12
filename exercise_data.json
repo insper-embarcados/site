@@ -51,6 +51,110 @@
         "slug": "infra-linux-docker/exercise_12"
       }
     },
+    "infra-windows/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "infra-windows/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "infra-windows/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "infra-windows/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "infra-windows/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "infra-windows/exercise_5"
+      },
+      "exercise_6": {
+        "tags": [],
+        "slug": "infra-windows/exercise_6"
+      },
+      "exercise_7": {
+        "tags": [],
+        "slug": "infra-windows/exercise_7"
+      },
+      "exercise_8": {
+        "tags": [],
+        "slug": "infra-windows/exercise_8"
+      },
+      "exercise_9": {
+        "tags": [],
+        "slug": "infra-windows/exercise_9"
+      },
+      "exercise_10": {
+        "tags": [],
+        "slug": "infra-windows/exercise_10"
+      },
+      "exercise_11": {
+        "tags": [],
+        "slug": "infra-windows/exercise_11"
+      },
+      "exercise_12": {
+        "tags": [],
+        "slug": "infra-windows/exercise_12"
+      },
+      "exercise_13": {
+        "tags": [],
+        "slug": "infra-windows/exercise_13"
+      }
+    },
+    "infra_windows/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "infra_windows/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "infra_windows/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "infra_windows/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "infra_windows/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "infra_windows/exercise_5"
+      },
+      "exercise_6": {
+        "tags": [],
+        "slug": "infra_windows/exercise_6"
+      },
+      "exercise_7": {
+        "tags": [],
+        "slug": "infra_windows/exercise_7"
+      },
+      "exercise_8": {
+        "tags": [],
+        "slug": "infra_windows/exercise_8"
+      },
+      "exercise_9": {
+        "tags": [],
+        "slug": "infra_windows/exercise_9"
+      },
+      "exercise_10": {
+        "tags": [],
+        "slug": "infra_windows/exercise_10"
+      },
+      "exercise_11": {
+        "tags": [],
+        "slug": "infra_windows/exercise_11"
+      },
+      "exercise_12": {
+        "tags": [],
+        "slug": "infra_windows/exercise_12"
+      }
+    },
     "CodeQuality/cppcheck/": {
       "choice_1": {
         "tags": [
@@ -174,6 +278,22 @@
       "exercise_5": {
         "tags": [],
         "slug": "labs/gpio-pre-lab/exercise_5"
+      },
+      "exercise_6": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_6"
+      },
+      "exercise_7": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_7"
+      },
+      "exercise_8": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_8"
+      },
+      "exercise_9": {
+        "tags": [],
+        "slug": "labs/gpio-pre-lab/exercise_9"
       }
     },
     "labs/i2c-pre-lab/": {
@@ -218,6 +338,16 @@
       "exercise_6": {
         "tags": [],
         "slug": "labs/irq-pre-lab/exercise_6"
+      }
+    },
+    "labs/qualidade-codigo-1/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/qualidade-codigo-1/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "labs/qualidade-codigo-1/exercise_2"
       }
     },
     "labs/rtos-pra-lab/": {

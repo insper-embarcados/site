@@ -15,9 +15,6 @@ Para ter uma ideia, os erros mais comuns cometidos por alunos de embarcados nos 
 
 - **bufferAccessOutOfBounds / arrayIndexOutOfBounds** (18 ocorrências): Este erro ocorre quando o programa tenta acessar uma área de memória fora dos limites de um buffer. Isso pode resultar em um comportamento inesperado do programa ou até mesmo fazer com que ele falhe.
 
-!!! progress 
-    Começar
-
     
 ## Praticando
 

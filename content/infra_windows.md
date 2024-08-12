@@ -1,11 +1,8 @@
-# Infra Linux Docker
+# Windows
 
 === "Windows?"
     Indicamos o desenvolvimento usando o WSL (Windows Subsystem for Linux) com Ubuntu 22.04.
 
-
-
-    
 ## WSL 
 
 !!! exercise "wsl"
@@ -64,14 +61,9 @@ Reinicie o computador e tente abrir o "Ubuntu 22.04.3 LTS", se tudo tiver dado c
 
 ![alt text](./imgs/windowsinfra_wslok.png.png)
 
-
 Parabéns, agora você tem um WSL Ubuntu instalado e prontinho para uso!!
 
-
-
 Agora vamos instalar o USBIPD, responsável por fazer a interface de conexão entre o dispositivo USB no windows com o WSL/Ubuntu.
-
-
 
 !!! exercise "Instalando USBIPD"
     

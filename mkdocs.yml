@@ -35,52 +35,52 @@ plugins:
 
 extra:
   custom_variables:
-    rules_cppcheck_classroom: https://classroom.github.com/a/mT5GPk_E
-    rules_variables_classroom: https://classroom.github.com/a/4dedv4p8
-    rules_head_classroom: https://classroom.github.com/a/sQPQYgXq
-    rules_isr_volatile_classroom: https://classroom.github.com/a/MIZb0nXB
-    rules_isr_classroom: https://classroom.github.com/a/Xpvuvr8r
+    rules_cppcheck_classroom: https://classroom.github.com/a/KpF7rQ-x
+    rules_variables_classroom: https://classroom.github.com/a/NEaCoRTi
+    rules_head_classroom: https://classroom.github.com/a/CKDXFW-0
+    rules_isr_volatile_classroom: https://classroom.github.com/a/TKiBeqWE
+    rules_isr_classroom: https://classroom.github.com/a/R6nPAzyU
 
     aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
-    lab_gpio_pre_classroom: https://classroom.github.com/a/t40wWocH
-    lab_gpio_pre_deadline: 21/2 ou 22/2 (Antes da próxima aula)
-    lab_gpio_pra_classroom: https://classroom.github.com/a/RVDWvMjq
-    lab_gpio_pra_deadline: 26/2 (Antes da aula)
-    lab_irq_pre_classroom: https://classroom.github.com/a/ZSB_DhzL
-    lab_irq_pre_deadline: 26/2 (Antes da aula)
-    lab_irq_pra_classroom: https://classroom.github.com/a/oNT1nEiP
-    lab_irq_pra_deadline: 04/2 (Antes da aula)
+    lab_gpio_pre_classroom: https://classroom.github.com/a/Og2WhTSP
+    lab_gpio_pre_deadline:  Antes da próxima aula - 14/9 ou 15/9
+    lab_gpio_pra_classroom: https://classroom.github.com/a/C-So7F02
+    lab_gpio_pra_deadline: 19/9 (Antes da aula)
+    lab_irq_pre_classroom:
+    lab_irq_pre_deadline: TBD
+    lab_irq_pra_classroom:
+    lab_irq_pra_deadline: TBD
 
-    lab_timer_pre_classroom: https://classroom.github.com/a/KEhvSnZw
-    lab_timer_pre_deadline: 04/2 (Antes da aula)
-    lab_timer_pra_classroom: https://classroom.github.com/a/RyzMEcIl
-    lab_timer_pra_deadline: 11/03
+    lab_timer_pre_classroom:
+    lab_timer_pre_deadline:
+    lab_timer_pra_classroom:
+    lab_timer_pra_deadline:
 
-    lab_rtos_pre_classroom: https://classroom.github.com/a/1VfPSxZx
-    lab_rtos_pre_deadline: 12/03 - 23h59
-    lab_rtos_pra_classroom: https://classroom.github.com/a/AIMxAvtD
-    lab_rtos_pra_deadline: 18/03 (Antes da aula)
+    lab_rtos_pre_classroom:
+    lab_rtos_pre_deadline:
+    lab_rtos_pra_classroom:
+    lab_rtos_pra_deadline:
 
-    lab_adc_pwm_pre_classroom: https://classroom.github.com/a/B4Uh531U
-    lab_adc_pwm_pre_deadline: 21/03 - 23h59
-    lab_adc_pwm_pra_classroom: https://classroom.github.com/a/vzIo0hHz
-    lab_adc_pwm_pra_deadline: 08/04 (Antes da aula)
+    lab_adc_pwm_pre_classroom:
+    lab_adc_pwm_pre_deadline:
+    lab_adc_pwm_pra_classroom:
+    lab_adc_pwm_pra_deadline:
 
 
-    lab_i2c_pre_classroom: https://classroom.github.com/a/vYUH2R0h
-    lab_i2c_pre_deadline: 15/05 (Antes da aula)
-    lab_i2c_pra_classroom: https://classroom.github.com/a/LHH9EXB0
-    lab_i2c_pra_deadline: 15/04 (Antes da aula)
+    lab_i2c_pre_classroom:
+    lab_i2c_pre_deadline:
+    lab_i2c_pra_classroom:
+    lab_i2c_pra_deadline:
 
-    lab_expert_1_classroom: https://classroom.github.com/a/q-oW2dpv
-    lab_expert_1_deadline: 27/05
+    lab_expert_1_classroom:
+    lab_expert_1_deadline:
     
-    lab_expert_2_classroom: https://classroom.github.com/a/_3k13vdL
-    lab_expert_2_deadline: 27/05
+    lab_expert_2_classroom:
+    lab_expert_2_deadline:
 
-    aps_1_classroom: https://classroom.github.com/a/niP2yPR9
-    aps_1_deadline: Segunda 11/03 - 13h30
+    aps_1_classroom:
+    aps_1_deadline:
     aps_1_forms: https://forms.gle/bM6MVGDT8vLV4Ch87
 
     aps_2_deadline: Segunda 12/04 - Sexta
@@ -121,7 +121,9 @@ nav:
   - Home: index.md
   - Aulas: aulas.md
   - Avaliação: avaliacao.md
-  - Infra: infra-linux-docker.md
+  - Infra:
+    - Linux ou Mac: infra-linux-docker.md
+    - Windows: infra-windows.md
   - Prototipando:
     - Fabricação: prototipos/prototipos.md
     - Entradas: prototipos/entradas.md
@@ -182,36 +184,36 @@ nav:
       - GPIO:
         - Preparatório: labs/gpio-pre-lab.md
         - Prática: labs/gpio-pra-lab.md
-      - IRQ:
-        - Preparatório: labs/irq-pre-lab.md
-        - Prática: labs/irq-pra-lab.md
-      - Timer:
-        - Preparatório: labs/timer-pre-lab.md
-        - Prática: labs/timer-pra-lab.md
-      - RTOS:
-        - Preparatório: labs/rtos-pre-lab.md
-        - Prática: labs/rtos-pra-lab.md
-      - ADC/PWM:
-        - Preparatório: labs/adc-pwm-pre-lab.md
-        - Prática: labs/adc-pwm-pra-lab.md
-      - I2C:
-        - Preparatório: labs/i2c-pre-lab.md
-        - Prática: labs/i2c-pra-lab.md
-  - Labs experts:
-      - Sobre: labs-expert/labs-expert-about.md
-      - Comunicação:
-          - WIFI: labs-expert/labs-expert-com-wifi.md
-          - Bluetooth: labs-expert/labs-expert-com-bt.md
-      - DSP:
-          - Áudio: labs-expert/labs-expert-dsp-audio.md
-          - IA: labs-expert/labs-expert-dsp-ia.md
-      - Sensores/Atuadores:
-          - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
-          - LCD / BME280: labs-expert/labs-expert-sensors-bme280-ili9341.md
-      - Firmware:
-          - Driver: labs-expert/labs-expert-firmware-driver.md
-          - DMA: labs-expert/labs-expert-firmware-dma.md
+#      - IRQ:
+#        - Preparatório: labs/irq-pre-lab.md
+#        - Prática: labs/irq-pra-lab.md
+#      - Timer:
+#        - Preparatório: labs/timer-pre-lab.md
+#        - Prática: labs/timer-pra-lab.md
+#      - RTOS:
+#        - Preparatório: labs/rtos-pre-lab.md
+#        - Prática: labs/rtos-pra-lab.md
+#      - ADC/PWM:
+#        - Preparatório: labs/adc-pwm-pre-lab.md
+#        - Prática: labs/adc-pwm-pra-lab.md
+#      - I2C:
+#        - Preparatório: labs/i2c-pre-lab.md
+#        - Prática: labs/i2c-pra-lab.md
+#  - Labs experts:
+#      - Sobre: labs-expert/labs-expert-about.md
+#      - Comunicação:
+#          - WIFI: labs-expert/labs-expert-com-wifi.md
+#          - Bluetooth: labs-expert/labs-expert-com-bt.md
+#      - DSP:
+#          - Áudio: labs-expert/labs-expert-dsp-audio.md
+#          - IA: labs-expert/labs-expert-dsp-ia.md
+#      - Sensores/Atuadores:
+#          - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
+#          - LCD / BME280: labs-expert/labs-expert-sensors-bme280-ili9341.md
+#      - Firmware:
+#          - Driver: labs-expert/labs-expert-firmware-driver.md
+#          - DMA: labs-expert/labs-expert-firmware-dma.md
 
   - APS:
       - aps/aps-1-genius.md
-      - aps/aps-2-controle.md
+#      - aps/aps-2-controle.md

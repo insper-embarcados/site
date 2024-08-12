@@ -1,16 +1,10 @@
-# Infra Linux Docker
+# Linux/ Mac
 
-=== "Windows? / MAC?"
-    Indicamos o desenvolvimento usando uma vm Ubuntu.
-    Para máquinas virtuais, é recomendado o uso do `Oracle VM Virtual Box`.
-
-    Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:
-
-    - Windows: [Virtual box](https://www.virtualbox.org/)
-    - Mac: [Paralles](https://www.parallels.com/)  
+=== "MAC"
+    Indicamos o desenvolvimento usando uma VM Ubuntu.
     - MAC: Dica use o [UTM](https://mac.getutm.app/)
 
-    Instale o Ubuntu 22.04 na VM!
+    Instale o Ubuntu 22.04 na VM e siga o tutorial.
 
 === "Linux"
     Ubuntu 22.04? Só seguir a instalação. 
