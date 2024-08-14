@@ -36,18 +36,18 @@ plugins:
 extra:
   custom_variables:
     rules_cppcheck_classroom: https://classroom.github.com/a/KpF7rQ-x
-    rules_variables_classroom: https://classroom.github.com/a/NEaCoRTi
-    rules_head_classroom: https://classroom.github.com/a/CKDXFW-0
-    rules_isr_volatile_classroom: https://classroom.github.com/a/TKiBeqWE
-    rules_isr_classroom: https://classroom.github.com/a/R6nPAzyU
+    rules_variables_classroom: https://classroom.github.com/a/3kCtAOxG
+    rules_isr_classroom: https://classroom.github.com/a/9ZP6ial1
+    rules_isr_volatile_classroom: https://classroom.github.com/a/5RQM6NE4
+    rules_head_classroom:
 
     aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
     lab_gpio_pre_classroom: https://classroom.github.com/a/Og2WhTSP
     lab_gpio_pre_deadline:  Antes da próxima aula - 14/9 ou 15/9
-    lab_gpio_pra_classroom: https://classroom.github.com/a/C-So7F02
+    lab_gpio_pra_classroom: https://classroom.github.com/a/QnfriADY
     lab_gpio_pra_deadline: 19/9 (Antes da aula)
-    lab_irq_pre_classroom: https://classroom.github.com/a/aUTa4rl6
+    lab_irq_pre_classroom: https://classroom.github.com/a/GYW_HTi4
     lab_irq_pre_deadline: 19/9 (Antes da aula)
     lab_irq_pra_classroom:
     lab_irq_pra_deadline: TBD
@@ -181,12 +181,12 @@ nav:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
       - GPIO:
-        - Qualidade de Código: labs/qualidade-codigo-1
-        - Preparatório: labs/gpio-pre-lab.md
+        - ⏰ Qualidade de Código: labs/qualidade-codigo-1
+        - ⏰ Preparatório: labs/gpio-pre-lab.md
         - Prática: labs/gpio-pra-lab.md
       - IRQ:
-        - Qualidade de Código: labs/qualidade-codigo-irs
-        - Preparatório: labs/irq-pre-lab.md
+        - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
+        - ⏰ Preparatório: labs/irq-pre-lab.md
 #        - Prática: labs/irq-pra-lab.md
 #      - Timer:
 #        - Preparatório: labs/timer-pre-lab.md
