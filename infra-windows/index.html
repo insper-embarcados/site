@@ -811,6 +811,62 @@
 </form>
 </div>
 <div class="admonition exercise self-progress" data-slug="infra-windows/exercise_4" id="exercise_4_0">
+<p class="admonition-title">docker no wsl Ubuntu 22</p>
+<form class="exercise-form">
+<p>Executar no terminal (uma linha por vez!):</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.asc
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.asc
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Add the repository to Apt sources:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VERSION_CODENAME</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</code></pre></div>
+<p>Agora:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin
+</code></pre></div>
+<p>Teste com:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<p>Este comando baixa uma imagem de teste e a executa em um contêiner. Quando o contêiner é executado, ele imprime uma mensagem de confirmação e encerra.</p>
+<blockquote>
+<p>ref: <a href="https://docs.docker.com/engine/install/ubuntu/#installation-methods">https://docs.docker.com/engine/install/ubuntu/#installation-methods</a></p>
+</blockquote>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Configurando permissão</p>
+<form class="exercise-form">
+<p>Siga os passos no site a seguir, para podermos executar o docker sem permissão de super usuário:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>newgrp<span class="w"> </span>docker
+</code></pre></div>
+<p>Teste com:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<ul>
+<li>Se não funcionar, reinicie o computador e teste com o comando anterior.</li>
+</ul>
+<blockquote>
+<p>ref: <a href="https://docs.docker.com/engine/install/linux-postinstall/">https://docs.docker.com/engine/install/linux-postinstall/</a></p>
+</blockquote>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_6" id="exercise_6_0">
 <p class="admonition-title">vscode</p>
 <form class="exercise-form">
 <p>Instale o vscode no seu Windows caso não tenha:</p>
@@ -818,14 +874,14 @@
 <li><a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></li>
 </ul>
 <p>Teste no terminal do <em>Ubuntu 22.04.3 LTS</em> com:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>workspace<span class="w"> </span><span class="c1"># criando o workspace</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace<span class="w"> </span><span class="c1"># entrando dentro do workspace</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$<span class="w"> </span>mkdir<span class="w"> </span>embarcados<span class="w"> </span><span class="c1">#vamos criar um diretorio para nossos projetos de embarcados dentro de workspace</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>$<span class="w"> </span><span class="c1"># Verifique se está dentro do workspace/embarcados, caso sim, continue</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>$<span class="w"> </span>code<span class="w"> </span>infra-test/<span class="w"> </span><span class="c1"># vamos abrir a infra</span>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>workspace<span class="w"> </span><span class="c1"># criando o workspace</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace<span class="w"> </span><span class="c1"># entrando dentro do workspace</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>$<span class="w"> </span>mkdir<span class="w"> </span>embarcados<span class="w"> </span><span class="c1">#vamos criar um diretorio para nossos projetos de embarcados dentro de workspace</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>$<span class="w"> </span><span class="c1"># Verifique se está dentro do workspace/embarcados, caso sim, continue</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/infra-test
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>$<span class="w"> </span>code<span class="w"> </span>infra-test/<span class="w"> </span><span class="c1"># vamos abrir a infra</span>
 </code></pre></div>
 <p><em>OBS:</em> Execute um comando por vez!</p>
 <p>Se o seu VSCODE abrir, esta etapa estará validada, por enquanto feche o VSCODE e vamos para a próxima etapa.</p>
@@ -841,8 +897,8 @@
 
     1. Instale o wokwi-cli (simulador de sistemas embarcados)
 
-    <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>curl
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+    <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>curl
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
 
     2. Crie uma conta no site:
@@ -857,11 +913,11 @@
 
     5. Cole na última linha do arquivo `.bashrc`
 
-    <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gedit<span class="w"> </span>~/.bashrc
+    <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>gedit<span class="w"> </span>~/.bashrc
 </code></pre></div>
  -->
 
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_5" id="exercise_5_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_7" id="exercise_7_0">
 <p class="admonition-title">Conectando tudo</p>
 <form class="exercise-form">
 <p>Conecte o debug-probe e a rasp. Para isso você vai precisar de:</p>
@@ -887,7 +943,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_6" id="exercise_6_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_8" id="exercise_8_0">
 <p class="admonition-title">Roteie o USB via ip do Windows para o WSL</p>
 <form class="exercise-form">
 <p>Com a Rasp Pico e o Debugger conectados no PC, faça:</p>
@@ -911,11 +967,11 @@
 </ul>
 <p>Nesta parte substitua o VID:PID pelo correspondente, no meu caso o 2e8a:000c, mas no seu será um diferente.</p>
 <p>Exemplo:
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>usbipd<span class="w"> </span>attach<span class="w"> </span>--wsl<span class="w"> </span>-i<span class="w"> </span>2e8a:000c
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>usbipd<span class="w"> </span>attach<span class="w"> </span>--wsl<span class="w"> </span>-i<span class="w"> </span>2e8a:000c
 </code></pre></div></p>
 <p>Aqui o dispositivo (CMSIS DAP / Rasp Pico Debugger) já é acessível no WSL.</p>
 <p>Para verificar, entre no <em>Ubuntu 22.04.3 LTS</em>, copie e cole:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span>/dev/ttyACM0<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Parabéns, a Rasp tá funcionando no wsl &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Tem alguma coisa errada&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span>/dev/ttyACM0<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Parabéns, a Rasp tá funcionando no wsl &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Tem alguma coisa errada&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
 </code></pre></div>
 <p>Basicamente checamos se existe o device <em>ttyACM0</em>, se sim, retornamos um mensagem de "Parabéns", se não, "tem alguma coisa errada".</p>
 <p><em>Se aparecer "Parabéns..." é porque tudo até aqui deu certo :)</em></p>
@@ -925,13 +981,13 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_7" id="exercise_7_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_9" id="exercise_9_0">
 <p class="admonition-title">Permissões USB no wsl</p>
 <form class="exercise-form">
 <p>Configurando permissão do USB:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sudo<span class="w"> </span>reboot
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyUSB0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>/dev/ttyACM0<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>sudo<span class="w"> </span>reboot
 </code></pre></div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -941,11 +997,11 @@
 </div>
 <h2 id="testando-tudo-vscode">Testando tudo - vscode</h2>
 <p>Agora que já temos toda a infra instalada, vamos testar!</p>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_8" id="exercise_8_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_10" id="exercise_10_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abra o respositório no vscode</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>code<span class="w"> </span>infra-test/
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>code<span class="w"> </span>infra-test/
 </code></pre></div>
 <p><mark>Instale todas as extensões sugeridas!</mark></p>
 <div class="form-elements">
@@ -954,7 +1010,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_9" id="exercise_9_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_11" id="exercise_11_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abrir no dev-container</p>
@@ -974,7 +1030,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_10" id="exercise_10_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_12" id="exercise_12_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Vamos compilar o projeto!</p>
@@ -992,7 +1048,7 @@
 </div>
 <h3 id="programando-e-depurando">Programando e depurando</h3>
 <p>Agora vamos programar a placa!</p>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_11" id="exercise_11_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_13" id="exercise_13_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Selecione o programa que iremos depurar</p>
@@ -1003,7 +1059,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_12" id="exercise_12_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_14" id="exercise_14_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Inicialize o software</p>
@@ -1015,7 +1071,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_13" id="exercise_13_0">
+<div class="admonition exercise self-progress" data-slug="infra-windows/exercise_15" id="exercise_15_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abra o serial monitor (terminal)</p>
