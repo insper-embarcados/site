@@ -67,7 +67,6 @@ extra:
     lab_adc_pwm_pra_classroom:
     lab_adc_pwm_pra_deadline:
 
-
     lab_i2c_pre_classroom:
     lab_i2c_pre_deadline:
     lab_i2c_pra_classroom:
@@ -79,12 +78,12 @@ extra:
     lab_expert_2_classroom:
     lab_expert_2_deadline:
 
-    aps_1_classroom:
-    aps_1_deadline:
+    aps_1_classroom: https://classroom.github.com/a/LMAgWbOl
+    aps_1_deadline: 30/08 (Sexta)
     aps_1_forms: https://forms.gle/bM6MVGDT8vLV4Ch87
 
-    aps_2_deadline: Segunda 12/04 - Sexta
-    aps_2_classroom: https://classroom.github.com/a/2cyfcwx3
+    aps_2_deadline:
+    aps_2_classroom:
 
 
 markdown_extensions:

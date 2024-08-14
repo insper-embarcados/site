@@ -59,7 +59,7 @@ A seguir algumas dicas, você pode ou não seguir:
     
     - https://projects.raspberrypi.org/en/projects/introduction-to-the-pico/7
     
-    Nào sabe ligar um botão na placa? Acesse:
+    Não sabe ligar um botão na placa? Acesse:
     
     - https://projects.raspberrypi.org/en/projects/introduction-to-the-pico/10
 
