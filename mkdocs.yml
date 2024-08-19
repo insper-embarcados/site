@@ -133,7 +133,7 @@ nav:
       vjoy: utils/utils-vjoy.md
       Volume: utils/utils-volume.md
   - Dispositivos:
-      - dispositivos/buzzer.md
+      - Buzzer: dispositivos/buzzer.md
       - "HC-SR04": https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04
       - OLED1: dispositivos/oled1.md
       - Servomotor: dispositivos/servo.md
