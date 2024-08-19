@@ -1,6 +1,6 @@
-# IRS - Prática
+# ISR - Prática
 
-| Lab 2 - IRS - Prática                                             |
+| Lab 2 - ISR - Prática                                             |
 |-------------------------------------------------------------------|
 | **Prazo**: =={{lab_irq_pra_deadline}}==                           |
 | [Entrega pelo classroom]({{lab_irq_pra_classroom}}){.ah-button} |

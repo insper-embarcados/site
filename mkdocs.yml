@@ -184,7 +184,7 @@ nav:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-1
         - ⏰ Preparatório: labs/gpio-pre-lab.md
         - Prática: labs/gpio-pra-lab.md
-      - IRS:
+      - ISR:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
         - ⏰ Preparatório: labs/irq-pre-lab.md
         - Prática: labs/irq-pra-lab.md
