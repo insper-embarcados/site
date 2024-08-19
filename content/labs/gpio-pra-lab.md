@@ -6,6 +6,10 @@
 | [Repositório no classroom]({{lab_gpio_pra_classroom}}) |
 | 💰 70% nota de lab                                     |
 
+!!! warning ""
+    Se o classroom não funcionar, acesse o repositório a seguir, clone e faça a entrega por ele:
+
+    - https://github.com/insper-embarcados/lab-gpio-pra
 
 !!! info
     Pessoal, estamos fazendo uma pesquisa para conhecer mais a experiência de vocês no mutirão. Podem responder à pesquisa abaixo? Isso ajuda a melhorar para os próximos semestres.

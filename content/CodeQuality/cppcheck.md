@@ -116,9 +116,16 @@ Utilizaremos o `cppcheck` para verificar todas as entregas de sistemas embarcado
 Vamos praticar e ver como isso vai funcionar na prática durante a disciplina!
 
 !!! exercise 
-    1. Crie um repositório com o código exemplo acessando o github classroom [emb-rules-cppcheck]({{rules_cppcheck_classroom}})
-    1. Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros: 
+    - Crie um repositório com o código exemplo acessando o github classroom [emb-rules-cppcheck]({{rules_cppcheck_classroom}})
+ 
+    !!! warning ""
+        Se o classroom não funcionar, acesse o repositório a seguir, clone e faça a entrega por ele:
+        
+        - https://github.com/Insper/emb-rules-cppcheck/
+ 
+    - Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros: 
     
     ![](figs/cppcheck-erro.png)
     
-    1. Corrija o código (main.c) e verifique se os erros ainda continuam.
+    - Corrija o código `main.c` e verifique se os erros ainda continuam.
+

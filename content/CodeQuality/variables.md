@@ -126,9 +126,15 @@ O código anterior viola a regra **1.1** nas duas variáveis ( `a` e `b` ) geran
 Vamos praticar um pouco e corrigir as regras básicas de qualidade de código e boas práticas em sistemas embarcados, para isso crie um repositório pelo *github classroom* e então modifique os arquivos conforme indicado.
 
 !!! exercise "Variáveis globais"
-    1. Crie um repositório com o código exemplo acessando o github classroom [emb-rules-basic-variables]({{rules_variables_classroom}})
-    1. Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros.
-    1. Corrija o código (rules_basic_variable.c) e verifique se os erros ainda continuam.
+    - Crie um repositório com o código exemplo acessando o github classroom [emb-rules-basic-variables]({{rules_variables_classroom}})
+    
+    !!! warning ""
+        Se o classroom não funcionar, acesse o repositório a seguir, clone e faça a entrega por ele:
+
+        - https://github.com/Insper/emb-rules-variables
+    
+    - Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros.
+    - Corrija o código (rules_basic_variable.c) e verifique se os erros ainda continuam.
  
     Dica: reescreva a funcão `foo` para um dos casos a seguir:
     

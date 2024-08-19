@@ -1,10 +1,10 @@
-# IRQ - Prática
+# IRS - Prática
 
-| Lab 2 - IRQ - Prática                                 |
-|-------------------------------------------------------|
-| **Prazo**: =={{lab_irq_pra_deadline}}==               |
-| [Repositório no classroom]({{lab_irq_pra_classroom}}) |
-| 💰 70% nota de lab                                    |
+| Lab 2 - IRS - Prática                                             |
+|-------------------------------------------------------------------|
+| **Prazo**: =={{lab_irq_pra_deadline}}==                           |
+| [Entrega pelo classroom]({{lab_irq_pra_classroom}}){.ah-button} |
+| 💰 70% nota de lab                                                |
 
 Neste laboratório, aplicaremos os conceitos de Interrupção de Hardware/GPIO (IRQ). Como desafio, desenvolveremos um telégrafo digital!
 

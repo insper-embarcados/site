@@ -35,8 +35,8 @@ plugins:
 
 extra:
   custom_variables:
-    rules_cppcheck_classroom: https://classroom.github.com/a/KpF7rQ-x
-    rules_variables_classroom: https://classroom.github.com/a/3kCtAOxG
+    rules_cppcheck_classroom: https://classroom.github.com/a/FU5oUkNZ
+    rules_variables_classroom: https://classroom.github.com/a/sXx8vWcl
     rules_isr_classroom: https://classroom.github.com/a/9ZP6ial1
     rules_isr_volatile_classroom: https://classroom.github.com/a/5RQM6NE4
     rules_head_classroom:
@@ -49,8 +49,8 @@ extra:
     lab_gpio_pra_deadline: 19/9 (Antes da aula)
     lab_irq_pre_classroom: https://classroom.github.com/a/GYW_HTi4
     lab_irq_pre_deadline: 19/9 (Antes da aula)
-    lab_irq_pra_classroom:
-    lab_irq_pra_deadline: TBD
+    lab_irq_pra_classroom: https://classroom.github.com/a/BvJWdDWJ
+    lab_irq_pra_deadline: 26/9 (Antes da aula)
 
     lab_timer_pre_classroom:
     lab_timer_pre_deadline:
@@ -184,10 +184,10 @@ nav:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-1
         - ⏰ Preparatório: labs/gpio-pre-lab.md
         - Prática: labs/gpio-pra-lab.md
-      - IRQ:
+      - IRS:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
         - ⏰ Preparatório: labs/irq-pre-lab.md
-#        - Prática: labs/irq-pra-lab.md
+        - Prática: labs/irq-pra-lab.md
 #      - Timer:
 #        - Preparatório: labs/timer-pre-lab.md
 #        - Prática: labs/timer-pra-lab.md

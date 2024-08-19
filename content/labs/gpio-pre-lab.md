@@ -31,9 +31,14 @@ Aqui, iremos aprender sobre os conceitos básicos do microcontrolador.
     
     Acesse o repositório via o link a seguir, clone para a sua máquina e trabalhe nele usando o wokiwi:
     
-    - [classroom firmware]({{lab_gpio_pre_classroom}}) 
-    - [classroom firmware (==para quem clonou vazio==)](https://classroom.github.com/a/vbUks2mA)
+    - [classroom firmware 1 (original)]({{lab_gpio_pre_classroom}}) 
+    - [classroom firmware 2](https://classroom.github.com/a/vbUks2mA)
 
+    !!! warning ""
+        Se o classroom não funcionar, acesse o repositório a seguir, clone e faça a entrega por ele:
+
+        - https://github.com/insper-embarcados/lab-gpio-pre
+    
 Agora execute os exercícios, lembre que você pode consultar os snippets de código dentro de [RP2040/GPIO/snippets](/site/rp2040/rp2040-gpio/#snippets) e enviar o código para o github para validação.
 
 !!! exercise "exe1"
