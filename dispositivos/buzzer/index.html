@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Aps 1 genius - Computação Embarcada - 2.0</title>
+        <title>Buzzer - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -219,14 +219,34 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Dispositivos</span>
     <ul>
       
         
   
-    <li>
-      <a href="../../dispositivos/buzzer/">Buzzer</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Buzzer</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#buzzer_1">Buzzer</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#gerando-som">Gerando som</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#musica">Música</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -242,7 +262,7 @@
         
   
     <li>
-      <a href="../../dispositivos/oled1/">OLED1</a>
+      <a href="../oled1/">OLED1</a>
     </li>
   
 
@@ -250,7 +270,7 @@
         
   
     <li>
-      <a href="../../dispositivos/servo/">Servomotor</a>
+      <a href="../servo/">Servomotor</a>
     </li>
   
 
@@ -258,7 +278,7 @@
         
   
     <li>
-      <a href="../../dispositivos/analogicos/">Análogicos</a>
+      <a href="../analogicos/">Análogicos</a>
     </li>
   
 
@@ -667,26 +687,14 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">APS</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Aps 1 genius</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#rubrica">Rubrica</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
     </li>
   
 
@@ -705,7 +713,7 @@
               
                 
                   
-                    <li>APS</li>
+                    <li>Dispositivos</li>
                   
                 
                 <li></li>
@@ -715,84 +723,119 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="aps-1-genius">APS - 1 - Genius</h1>
+<h1 id="buzzer">Buzzer</h1>
+<p>Músicas monofonicas<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> são aquelas que só possuem uma única nota tocada por vez, como indicado na partitura a seguir:</p>
+<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pop_Goes_the_Weasel_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pop_Goes_the_Weasel_updated.png" width="400" /></a></p>
+<blockquote>
+<p>ref: wikipidia</p>
+</blockquote>
+<p>A música monofonica tem o som como a seguir:</p>
+<figure>
+    <figcaption>Pop Goes the Weasel.ogg (wiki)</figcaption>
+    <audio
+        controls
+        src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Pop_Goes_the_Weasel.ogg">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+</figure>
+
+<p>Esse tipo de música foi muito utilizada nos primeiros videogames, quando a sintetização de músicas ainda estava no começo.  Veja como era feito nos Nintendo, aqui já era possível gerar mais de um tom por vez:</p>
+<iframe width="520" height="320" src="https://www.youtube.com/embed/jvIzIAgRWV0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="buzzer_1">Buzzer</h2>
+<p>Para gerarmos o som é necessário termos algum dispositivo capaz de gerar movimentação no ar, o buzzer é um dispositivo simples que a partir de uma bobina (controlada por um terminal) conseguimos movimentar um disco que por sua vez movimentar o ar. Os buzzers podem ser de duas categorias (piezoelétricos):</p>
+<ul>
+<li><strong>Ativo:</strong> basta energizar o terminal que o dispositivo vibra automaticamente em uma determinada frequência, muito usado para alarmes.</li>
+<li><strong>Passivo:</strong> Um circuito externo (ou microcontrolador) deve gerar a frequência de vibração, usado para gerar som.</li>
+</ul>
+<p>Buzzers são diferentes de altofalantes<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> em vários aspectos (mecânico, eletromecânico): não necessitam de tensão negativa; possuem um espectro de operação menor; baixa resistência; baixa potência ... .</p>
+<p>A conexão do buzzer com um microcontrolador se da por dois pinos: Um conectado no terra (gnd) e outro conectado
+em um pino que o microcontrolador possui controle, conforme ilustração a seguir:</p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/1039615/109496798-e660e380-7a6f-11eb-831d-604cce45f5f6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="https://user-images.githubusercontent.com/1039615/109496798-e660e380-7a6f-11eb-831d-604cce45f5f6.png" width="500" /></a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/77h1JhD9Syw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="gerando-som">Gerando som</h2>
+<p>Podemos fazer com que o buzzer oscile em uma determinada frequência, para isso basta gerarmos um sinal de onda quadrada  no terminal positivo do dispositivo, isso irá fazer com que o piezo movimente na mesma frequência, gerando o tom desejado.</p>
+<div class="admonition tip">
+<p class="admonition-title">Notas</p>
+<p>As notas musicais são definidas pela frequência principal que elas emitem, um Dó-4 é definido por 262 Hz, um Lá-4 por 440Hz e assim por diante (o 4 se refere ao meio do piano). Além da frequência principal, cada instrumento musical emite outras frequências que compõem o som, gerando um som único para cada instrumento.</p>
+<p>Iremos usar a notacao americana para as notas:</p>
 <table>
 <thead>
 <tr>
-<th>APS 1</th>
+<th>Dó</th>
+<th>Ré</th>
+<th>Mi</th>
+<th>Fá</th>
+<th>Sol</th>
+<th>Lá</th>
+<th>Sí</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Prazo</strong>: <mark>30/08 (Sexta)</mark></td>
-</tr>
-<tr>
-<td><strong>Entrega código:</strong> <a href="https://classroom.github.com/a/G1_ZsJG4">classroom</a></td>
-</tr>
-<tr>
-<td><strong>Entrega forms:</strong> <a href="https://forms.gle/Ybg4zvc29i1NJpMs8">google forms</a></td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>A</td>
+<td>B</td>
 </tr>
 </tbody>
 </table>
-<div>
-<iframe height="500" src="https://www.youtube.com/embed/KfF-AZhUkdM?autoplay=0" type="text/html" width="100%"></iframe>
+<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Frequency_vs_name.svg/350px-Frequency_vs_name.svg.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Frequency_vs_name.svg/350px-Frequency_vs_name.svg.png" /></a></p>
+<blockquote>
+<p>Ref: <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Frequency_vs_name.svg/350px-Frequency_vs_name.svg.png">https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Frequency_vs_name.svg/350px-Frequency_vs_name.svg.png</a> Wikipidia </p>
+</blockquote>
 </div>
-<p>O desafio é desenvolver o protótipo do jogo da memória "Genius", com as seguintes características:</p>
-<ul>
-<li>4 (ou mais) LEDs de cores diferentes.</li>
-<li>4 (ou mais) Botões (cada botão corresponde a um LED).</li>
-<li>1 Buzzer (para reproduzir um som)</li>
-</ul>
-<h2 id="rubrica">Rubrica</h2>
-<p>O requisito mínimo do projeto para o conceito C é dele ter funcionamento similar ao do jogo, isso é: </p>
-<ul>
-<li>Para cada botão, um LED e um som diferentes.</li>
-<li>O jogo deve progressivamente ir aumentando a dificuldade.</li>
-<li>Uma resposta visual e sonora para quando acertar ou errar.</li>
-<li>Gera aleatoriamente a sequência cada vez que o sistema é ligado ou o começa um novo jogo.<ul>
-<li>Usar a seed no <code>srand()</code></li>
-</ul>
-</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Qualidade de Código</p>
-<p>O código não deve possuir erros de detectados pelas ferramentas de qualidade de código: <code>cppcheck</code> e <code>embedded-check</code>.</p>
-<p>Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.</p>
+<div class="admonition info">
+<p class="admonition-title">Frequências</p>
+<p>Lembre que uma onda quadrada pode ser decomposta em infinitas senoides pela transformada de Fourier. </p>
+<p><a class="glightbox" href="https://mathworld.wolfram.com/images/eps-gif/FourierSeriesSquareWave_800.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://mathworld.wolfram.com/images/eps-gif/FourierSeriesSquareWave_800.gif" width="300" /></a></p>
+<p>Sendo a componente principal (de maior energia) centrada na frequência da onda quadrada (no nosso caso):</p>
+<p><a class="glightbox" href="https://mathworld.wolfram.com/images/equations/FourierSeriesSquareWave/NumberedEquation3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://mathworld.wolfram.com/images/equations/FourierSeriesSquareWave/NumberedEquation3.gif" /></a></p>
+<p>Portanto o som que iremos escutar será composto da frequência principal mais as harmónicas.</p>
+<blockquote>
+<p>ref: <a href="https://mathworld.wolfram.com/images/eps-gif/FourierSeriesSquareWave_800.gif">https://mathworld.wolfram.com/images/eps-gif/FourierSeriesSquareWave_800.gif</a></p>
+</blockquote>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/3IAMpH4xF9Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 </div>
-<h3 id="c">C+</h3>
-<p>Sistema integrado em protótipo físico, consultar página no site sobre prototipação!.</p>
-<h3 id="b-a">B / A</h3>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui, 
-mandar mensagem ao professor.</p>
-</div>
-<ul>
-<li>(meio conceito) Organizar o código em arquivos <code>.c</code> e <code>.h</code> criando funções para organizar o código.</li>
-<li>(meio conceito) Sistema que exibe pontuação final.</li>
-<li>(meio conceito) Armazena pontuação mesmo quando perder a bateria.<ul>
-<li>Ler sobre memória em: <code>RP2040/Flash</code></li>
-</ul>
-</li>
-<li>(meio conceito) Dado uma certa dificuldade, jogo acende duas luz ou mais luzes por vez!</li>
-<li>(meio conceito) Diferentes modos de jogo:<ul>
-<li>Solo, Dupla, ... </li>
-</ul>
-</li>
-<li>(meio conceito) Implementar o código em formato de máquina de estados</li>
-<li>(meio conceito) Usar alarme de timer para se usuário não apertar o botão em x segundos, perde.</li>
-<li>(meio conceito) Para quem reproduz uma música (tipo mário). </li>
-<li>(meio conceito) <a href="https://www.youtube.com/watch?v=jSZM9Js_zk8">Manual On and Automatic Off</a> <ul>
-<li></li>
-</ul>
-</li>
-</ul>
-<!--
- - (meio conceito) Se fizer um sistema que desliga a energia sozinho e liga quando apertar um botão
--->
+<p>Existem diversas maneiras de gerarmos uma onda quadrada em um pino do microcontrolador, a que estamos sugerindo aqui não envolve nenhum periférico específico do microcontrolador, logo iremos fazer tudo por código.</p>
+<p>Por exemplo, para gerar uma onda quadrada de 1000 Hz:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="musica">Música</h2>
+<p>Eu fiz por anos aula de sax alto e meu professor falava que para começar a tocar uma música bastava: <code>tocar a nota certa no momento certo e não tocar quando não for para tocar</code>, para quem tem prática é fácil, mas para mim não era. Trouxe este assunto para explicar um pouco como iremos reproduzir uma música. Cada música será formada por notas (frequências), pela duração da nota e por um silêncio entre notas (que também tem duração ). Toda essa informação está presente na partitura:</p>
+<p><a class="glightbox" href="https://cdn.statically.io/img/www.musicnotes.com/now/wp-content/uploads/2018/02/4.png?quality=80&amp;f=auto" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://cdn.statically.io/img/www.musicnotes.com/now/wp-content/uploads/2018/02/4.png?quality=80&amp;f=auto" /></a></p>
+<blockquote>
+<p>ref: <a href="https://www.musicnotes.com/now/tips/how-to-read-sheet-music/">https://www.musicnotes.com/now/tips/how-to-read-sheet-music/</a></p>
+</blockquote>
+<p>Portanto para reproduzirmos uma música teremos que para cada intervalo de tempo:</p>
+<ol>
+<li>Reproduzir uma nota (gerar a frequência da nota no pino do buzzer) ou não tocar nada (pausa)</li>
+<li>Manter a nota/pausa pelo tempo determinado</li>
+<li>Ir para o próximo intervalo de tempo</li>
+</ol>
 
 
-
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://en.wikipedia.org/wiki/Monophony">https://en.wikipedia.org/wiki/Monophony</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://en.wikipedia.org/wiki/Loudspeaker">https://en.wikipedia.org/wiki/Loudspeaker</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 </section>
           
         
@@ -800,13 +843,20 @@ mandar mensagem ao professor.</p>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../labs/irq-pra-lab/"
+            <a href="../../utils/utils-volume/"
                class="ah-prev"
-               title="Prática">
+               title="Volume">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Prática</span>
+              <span class="nav-title">Volume</span>
             </a>
           
+          
+            <a href="../oled1/"
+               class="ah-next"
+               title="OLED1">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">OLED1</span>
+            </a>
           
         </div>
       </footer>
