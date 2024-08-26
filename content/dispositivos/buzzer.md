@@ -1,4 +1,5 @@
-# Buzzer
+- # Buzzer
+
 
 
 Músicas monofonicas[^1] são aquelas que só possuem uma única nota tocada por vez, como indicado na partitura a seguir:
@@ -63,6 +64,7 @@ Podemos fazer com que o buzzer oscile em uma determinada frequência, para isso 
 !!! info "Frequências"
     Lembre que uma onda quadrada pode ser decomposta em infinitas senoides pela transformada de Fourier. 
     
+
     ![](https://mathworld.wolfram.com/images/eps-gif/FourierSeriesSquareWave_800.gif){width=300}
     
     Sendo a componente principal (de maior energia) centrada na frequência da onda quadrada (no nosso caso):
@@ -77,15 +79,70 @@ Podemos fazer com que o buzzer oscile em uma determinada frequência, para isso 
 
 Existem diversas maneiras de gerarmos uma onda quadrada em um pino do microcontrolador, a que estamos sugerindo aqui não envolve nenhum periférico específico do microcontrolador, logo iremos fazer tudo por código.
 
-Por exemplo, para gerar uma onda quadrada de 1000 Hz:
-    
+## Gerando a frequência
+
+Para gerar uma onda quadrada da nota Dó (**261.63** Hz) precisamos calcular seu período e definir o tempo em que a mesma ficará em nível lógico alto e baixo (0 e 1):
+
+T = 1/**261,63**
+
+T = 0,0038s
+
+Como normalmente utilizamos com a **Pico W** em C a funções **sleep_ms**  para gerar atraso no código, precisamos então converter esse valor para **milissegundos** ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:
+
+delay = (0,0038*1000 ) / 2
+
+delay ≃ **1,9** ms
+
+
 ```c
 while(1){
     gpio_put(PIN_BUZZER, 1);
-    sleep_us(500);
+    sleep_ms(1,9);
     gpio_put(PIN_BUZZER, 0);
-    sleep_us(500);
+    sleep_ms(1,9);
 }
+```
+
+
+!!! warning "sleep_us"
+    Como podemos observar, utilizando **sleep_ms** temos um limite de frequência das notas músicais que podemos alcançar, por 2 motivos:
+
+	1. Essa função é do tipo int, ou seja, dependendo do valor do delay  a parte fracionária será perdida, mantendo somente a parte inteira;	
+	2. Para frequências acima de 506Hz, o delay utilizado no *sleep_ms* começa a receber valores **abaixo** de 1, fazendo com que seja necessário a utilização da função da **sleep_us** no lugar da *sleep_ms*.
+
+!!! tip
+    **OBS:** Não esquecer de alterar a escala de ms para us:
+	
+	0,000001 **s** =  0,001 **ms** = 1 **us**
+	
+	
+Para o mesmo exemplo com nota Dó (**261.63** Hz), utlizando **sleep_us**, ficaria:	
+```c
+    while(1){
+    gpio_put(PIN_BUZZER, 1);
+    sleep_us(1900);
+    gpio_put(PIN_BUZZER, 0);
+    sleep_us(1900);
+    }
+```
+
+## Gerando a duração
+
+Agora que sabemos como gerar a frequência, precisamos entender como controlamos a duração da mesma.
+
+Por exemplo, para tocar a nota Dó (**261.63** Hz) por 2 segundos, sabendo que o período total é de 3800us, podemos deduzir que:
+
+2.000.000 / 3800 ≃ 526
+
+Ou seja, precisamos repetir esse periodo 526 vezes, logo:
+
+```c
+	for(int i = 0; i < 526 ; i++){
+	gpio_put(PIN_BUZZER, 1);
+	sleep_us(1900);
+	gpio_put(PIN_BUZZER, 0);
+	sleep_us(1900);
+	}
 ```
 
 ## Música
