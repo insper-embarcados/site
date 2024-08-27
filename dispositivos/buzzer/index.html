@@ -242,6 +242,14 @@
               </li>
             
               <li class="ah-toc-item">
+                <a href="#gerando-a-frequencia">Gerando a frequência</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#gerando-a-duracao">Gerando a duração</a>
+              </li>
+            
+              <li class="ah-toc-item">
                 <a href="#musica">Música</a>
               </li>
             
@@ -723,7 +731,11 @@
           </div>
           
             <section class="progress-section show">
+<ul>
+<li>
 <h1 id="buzzer">Buzzer</h1>
+</li>
+</ul>
 <p>Músicas monofonicas<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> são aquelas que só possuem uma única nota tocada por vez, como indicado na partitura a seguir:</p>
 <p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pop_Goes_the_Weasel_updated.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Pop_Goes_the_Weasel_updated.png" width="400" /></a></p>
 <blockquote>
@@ -803,13 +815,52 @@ em um pino que o microcontrolador possui controle, conforme ilustração a segui
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/3IAMpH4xF9Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 </div>
 <p>Existem diversas maneiras de gerarmos uma onda quadrada em um pino do microcontrolador, a que estamos sugerindo aqui não envolve nenhum periférico específico do microcontrolador, logo iremos fazer tudo por código.</p>
-<p>Por exemplo, para gerar uma onda quadrada de 1000 Hz:</p>
+<h2 id="gerando-a-frequencia">Gerando a frequência</h2>
+<p>Para gerar uma onda quadrada da nota Dó (<strong>261.63</strong> Hz) precisamos calcular seu período e definir o tempo em que a mesma ficará em nível lógico alto e baixo (0 e 1):</p>
+<p>T = 1/<strong>261,63</strong></p>
+<p>T = 0,0038s</p>
+<p>Como normalmente utilizamos com a <strong>Pico W</strong> em C a funções <strong>sleep_ms</strong>  para gerar atraso no código, precisamos então converter esse valor para <strong>milissegundos</strong> ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:</p>
+<p>delay = (0,0038*1000 ) / 2</p>
+<p>delay ≃ <strong>1,9</strong> ms</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">sleep_us</p>
+<p>Como podemos observar, utilizando <strong>sleep_ms</strong> temos um limite de frequência das notas músicais que podemos alcançar, por 2 motivos:</p>
+<ol>
+<li>Essa função é do tipo int, ou seja, dependendo do valor do delay  a parte fracionária será perdida, mantendo somente a parte inteira;    </li>
+<li>Para frequências acima de 506Hz, o delay utilizado no <em>sleep_ms</em> começa a receber valores <strong>abaixo</strong> de 1, fazendo com que seja necessário a utilização da função da <strong>sleep_us</strong> no lugar da <em>sleep_ms</em>.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>OBS:</strong> Não esquecer de alterar a escala de ms para us:</p>
+<p>0,000001 <strong>s</strong> =  0,001 <strong>ms</strong> = 1 <strong>us</strong></p>
+</div>
+<p>Para o mesmo exemplo com nota Dó (<strong>261.63</strong> Hz), utlizando <strong>sleep_us</strong>, ficaria:<br />
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div></p>
+<h2 id="gerando-a-duracao">Gerando a duração</h2>
+<p>Agora que sabemos como gerar a frequência, precisamos entender como controlamos a duração da mesma.</p>
+<p>Por exemplo, para tocar a nota Dó (<strong>261.63</strong> Hz) por 2 segundos, sabendo que o período total é de 3800us, podemos deduzir que:</p>
+<p>2.000.000 / 3800 ≃ 526</p>
+<p>Ou seja, precisamos repetir esse periodo 526 vezes, logo:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">526</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <h2 id="musica">Música</h2>
 <p>Eu fiz por anos aula de sax alto e meu professor falava que para começar a tocar uma música bastava: <code>tocar a nota certa no momento certo e não tocar quando não for para tocar</code>, para quem tem prática é fácil, mas para mim não era. Trouxe este assunto para explicar um pouco como iremos reproduzir uma música. Cada música será formada por notas (frequências), pela duração da nota e por um silêncio entre notas (que também tem duração ). Toda essa informação está presente na partitura:</p>
