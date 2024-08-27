@@ -89,7 +89,7 @@ T = 0,0038s
 
 Na **Pico W**, programando em C, geralmente utilizamos a função **sleep_ms** para gerar atraso no código, precisamos então converter esse valor para **milissegundos** ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:
 
-delay = (0,0038*1000 ) ÷ 2
+delay = (0,0038 x 1000 ) ÷ 2
 
 delay ≃ **1,9** ms
 
@@ -103,7 +103,6 @@ while(1){
 }
 ```
 
-
 !!! warning "sleep_us"
     Como podemos observar, utilizando **sleep_ms** temos um limite de frequência das notas músicais que podemos alcançar, por 2 motivos:
 
@@ -114,8 +113,9 @@ while(1){
     **OBS:** Não esquecer de alterar a escala de ms para us:
 	
 	0,000001 **s** =  0,001 **ms** = 1 **us**
-	
-	
+
+
+​	
 Para o mesmo exemplo com a nota Dó (**261.63** Hz), utlizando **sleep_us**, ficaria:	
 ```c
 while(1){
@@ -126,13 +126,13 @@ while(1){
 }
 ```
 
-## Gerando a duração
+## Controlando a duração
 
 Agora que sabemos como gerar a frequência, precisamos entender como controlamos a duração da mesma.
 
-Por exemplo, para tocar a nota Dó (**261.63** Hz) por 2 segundos (2.000.000us), sabendo que o período total é de 3800us, podemos deduzir que:
+Por exemplo, para tocar a nota Dó (**261.63** Hz) por 2 segundos (2.000.000us), sabendo que o período total é de 3800us, precisamos definir quantas vezes é preciso repetir esse ciclo, basta dividir o tempo desejado pela duração de cada ciclo:
 
-2.000.000 ÷ 3800 ≃ 526
+2.000.000 ÷ 3800 ≃ 526 vezes
 
 Ou seja, precisamos repetir esse periodo 526 vezes, logo:
 
