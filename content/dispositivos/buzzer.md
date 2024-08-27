@@ -118,12 +118,12 @@ while(1){
 	
 Para o mesmo exemplo com nota Dó (**261.63** Hz), utlizando **sleep_us**, ficaria:	
 ```c
-    while(1){
+while(1){
     gpio_put(PIN_BUZZER, 1);
     sleep_us(1900);
     gpio_put(PIN_BUZZER, 0);
     sleep_us(1900);
-    }
+}
 ```
 
 ## Gerando a duração
@@ -137,12 +137,12 @@ Por exemplo, para tocar a nota Dó (**261.63** Hz) por 2 segundos, sabendo que o
 Ou seja, precisamos repetir esse periodo 526 vezes, logo:
 
 ```c
-	for(int i = 0; i < 526 ; i++){
-	gpio_put(PIN_BUZZER, 1);
-	sleep_us(1900);
-	gpio_put(PIN_BUZZER, 0);
-	sleep_us(1900);
-	}
+for(int i = 0; i < 526 ; i++){
+    gpio_put(PIN_BUZZER, 1);
+    sleep_us(1900);
+    gpio_put(PIN_BUZZER, 0);
+    sleep_us(1900);
+}
 ```
 
 ## Música
