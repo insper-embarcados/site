@@ -83,13 +83,13 @@ Existem diversas maneiras de gerarmos uma onda quadrada em um pino do microcontr
 
 Para gerar uma onda quadrada da nota Dó (**261.63** Hz) precisamos calcular seu período e definir o tempo em que a mesma ficará em nível lógico alto e baixo (0 e 1):
 
-T = 1/**261,63**
+T = 1 ÷ **261,63**
 
 T = 0,0038s
 
-Como normalmente utilizamos com a **Pico W** em C a funções **sleep_ms**  para gerar atraso no código, precisamos então converter esse valor para **milissegundos** ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:
+Na **Pico W**, programando em C, geralmente utilizamos a função **sleep_ms** para gerar atraso no código, precisamos então converter esse valor para **milissegundos** ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:
 
-delay = (0,0038*1000 ) / 2
+delay = (0,0038*1000 ) ÷ 2
 
 delay ≃ **1,9** ms
 
@@ -116,7 +116,7 @@ while(1){
 	0,000001 **s** =  0,001 **ms** = 1 **us**
 	
 	
-Para o mesmo exemplo com nota Dó (**261.63** Hz), utlizando **sleep_us**, ficaria:	
+Para o mesmo exemplo com a nota Dó (**261.63** Hz), utlizando **sleep_us**, ficaria:	
 ```c
 while(1){
     gpio_put(PIN_BUZZER, 1);
@@ -130,9 +130,9 @@ while(1){
 
 Agora que sabemos como gerar a frequência, precisamos entender como controlamos a duração da mesma.
 
-Por exemplo, para tocar a nota Dó (**261.63** Hz) por 2 segundos, sabendo que o período total é de 3800us, podemos deduzir que:
+Por exemplo, para tocar a nota Dó (**261.63** Hz) por 2 segundos (2.000.000us), sabendo que o período total é de 3800us, podemos deduzir que:
 
-2.000.000 / 3800 ≃ 526
+2.000.000 ÷ 3800 ≃ 526
 
 Ou seja, precisamos repetir esse periodo 526 vezes, logo:
 
