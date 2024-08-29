@@ -128,7 +128,7 @@ int bar(int b){
         }
         ```
         
-    === "(c)"
+    === "\(c\)"
         `pisca.h`
         ```c
         #ifndef PISCA_H
@@ -171,7 +171,22 @@ int bar(int b){
     
     !!! answer
         Usamos `" "` para quando queremos fazer o `include` de um arquivo que pertece ao projeto apenas e `< >` quando o arquivo é uma biblioteca do sistema!
-        
+	
+## Keyword *extern*
+	
+!!! tip
+    Para que seu Head file acesse uma variável global que está na **main.c**, você precisa adicionar a keyword **extern** nessa variável dentro do arquivo head **.c**:
+	
+	https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/
+		
+## Editando o CMakeList.txt
+
+Você também vai precisar adicionar **foo.c** no arquivo CMakeList.txt:
+
+```c
+add_executable(... main.c foo.c ...)
+```
+       
 ## Praticando
 
 Vamos praticar um pouco e corrigir as regras básicas de qualidade de código e boas práticas em sistemas embarcados, para isso crie um repositório pelo *github classroom* e então modifique os arquivos conforme indicado.
