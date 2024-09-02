@@ -46,16 +46,16 @@ extra:
     lab_gpio_pre_classroom: https://classroom.github.com/a/Og2WhTSP
     lab_gpio_pre_deadline:  Antes da próxima aula - 14/9 ou 15/9
     lab_gpio_pra_classroom: https://classroom.github.com/a/QnfriADY
-    lab_gpio_pra_deadline: 19/9 (Antes da aula)
+    lab_gpio_pra_deadline: 19/8 (Antes da aula)
     lab_irq_pre_classroom: https://classroom.github.com/a/GYW_HTi4
-    lab_irq_pre_deadline: 19/9 (Antes da aula)
+    lab_irq_pre_deadline: 19/8 (Antes da aula)
     lab_irq_pra_classroom: https://classroom.github.com/a/BvJWdDWJ
-    lab_irq_pra_deadline: 26/9 (Antes da aula)
+    lab_irq_pra_deadline: 26/8 (Antes da aula)
 
-    lab_timer_pre_classroom:
-    lab_timer_pre_deadline:
-    lab_timer_pra_classroom:
-    lab_timer_pra_deadline:
+    lab_timer_pre_classroom: https://classroom.github.com/a/XOv7V1gR
+    lab_timer_pre_deadline: 09/9 (Antes da aula)
+    lab_timer_pra_classroom: insper-embarcados/pico-base-project
+    lab_timer_pra_deadline: 09/9 (Antes da aula)
 
     lab_rtos_pre_classroom:
     lab_rtos_pre_deadline:
@@ -188,9 +188,9 @@ nav:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
         - ⏰ Preparatório: labs/irq-pre-lab.md
         - Prática: labs/irq-pra-lab.md
-#      - Timer:
-#        - Preparatório: labs/timer-pre-lab.md
-#        - Prática: labs/timer-pra-lab.md
+      - Timer:
+        - Preparatório: labs/timer-pre-lab.md
+        - Prática: labs/timer-pra-lab.md
 #      - RTOS:
 #        - Preparatório: labs/rtos-pre-lab.md
 #        - Prática: labs/rtos-pra-lab.md
