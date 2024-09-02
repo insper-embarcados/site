@@ -246,7 +246,7 @@
               </li>
             
               <li class="ah-toc-item">
-                <a href="#gerando-a-duracao">Gerando a duração</a>
+                <a href="#controlando-a-duracao">Controlando a duração</a>
               </li>
             
               <li class="ah-toc-item">
@@ -690,6 +690,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Timer</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -817,10 +842,10 @@ em um pino que o microcontrolador possui controle, conforme ilustração a segui
 <p>Existem diversas maneiras de gerarmos uma onda quadrada em um pino do microcontrolador, a que estamos sugerindo aqui não envolve nenhum periférico específico do microcontrolador, logo iremos fazer tudo por código.</p>
 <h2 id="gerando-a-frequencia">Gerando a frequência</h2>
 <p>Para gerar uma onda quadrada da nota Dó (<strong>261.63</strong> Hz) precisamos calcular seu período e definir o tempo em que a mesma ficará em nível lógico alto e baixo (0 e 1):</p>
-<p>T = 1/<strong>261,63</strong></p>
+<p>T = 1 ÷ <strong>261,63</strong></p>
 <p>T = 0,0038s</p>
-<p>Como normalmente utilizamos com a <strong>Pico W</strong> em C a funções <strong>sleep_ms</strong>  para gerar atraso no código, precisamos então converter esse valor para <strong>milissegundos</strong> ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:</p>
-<p>delay = (0,0038*1000 ) / 2</p>
+<p>Na <strong>Pico W</strong>, programando em C, geralmente utilizamos a função <strong>sleep_ms</strong> para gerar atraso no código, precisamos então converter esse valor para <strong>milissegundos</strong> ( dividir por 1000) e também dividr por 2 e gerar os respectivos atrasos nos níveis lógico:</p>
+<p>delay = (0,0038 x 1000 ) ÷ 2</p>
 <p>delay ≃ <strong>1,9</strong> ms</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
@@ -842,7 +867,8 @@ em um pino que o microcontrolador possui controle, conforme ilustração a segui
 <p><strong>OBS:</strong> Não esquecer de alterar a escala de ms para us:</p>
 <p>0,000001 <strong>s</strong> =  0,001 <strong>ms</strong> = 1 <strong>us</strong></p>
 </div>
-<p>Para o mesmo exemplo com nota Dó (<strong>261.63</strong> Hz), utlizando <strong>sleep_us</strong>, ficaria:<br />
+<p>​ <br />
+Para o mesmo exemplo com a nota Dó (<strong>261.63</strong> Hz), utlizando <strong>sleep_us</strong>, ficaria:  <br />
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>
@@ -850,10 +876,10 @@ em um pino que o microcontrolador possui controle, conforme ilustração a segui
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
 </code></pre></div></p>
-<h2 id="gerando-a-duracao">Gerando a duração</h2>
+<h2 id="controlando-a-duracao">Controlando a duração</h2>
 <p>Agora que sabemos como gerar a frequência, precisamos entender como controlamos a duração da mesma.</p>
-<p>Por exemplo, para tocar a nota Dó (<strong>261.63</strong> Hz) por 2 segundos, sabendo que o período total é de 3800us, podemos deduzir que:</p>
-<p>2.000.000 / 3800 ≃ 526</p>
+<p>Por exemplo, para tocar a nota Dó (<strong>261.63</strong> Hz) por 2 segundos (2.000.000us), sabendo que o período total é de 3800us, precisamos definir quantas vezes é preciso repetir esse ciclo, basta dividir o tempo desejado pela duração de cada ciclo:</p>
+<p>2.000.000 ÷ 3800 ≃ 526 vezes</p>
 <p>Ou seja, precisamos repetir esse periodo 526 vezes, logo:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">526</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">gpio_put</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
