@@ -53,7 +53,7 @@ Lembrem de sempre executar no Linux e dentro do dev. container! Validar enviando
 
     Aperto longo.
     
-    Só considerar o botão como ativado quando ele for solto após ter sido mantido por um tempo longo pressionado (mais que 500 ms), isso deve ativar/ desativar o piscar do LED. 
+    Só considerar o botão como ativado quando ele for solto após ter sido mantido por um tempo longo pressionado (mais que 500 ms), isso deve ligar e desligar o LED. 
     
     -  Os LED devem sempre começar e terminar no estado apagado!
 

@@ -30,3 +30,4 @@ Perdeu alguma aula? Está perdido? Aqui temos uma breve explicação de cada aul
 
 ## Aula 5 - Segunda
 
+> Lab GPIO IRQ
