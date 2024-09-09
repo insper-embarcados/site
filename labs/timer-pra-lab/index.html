@@ -716,6 +716,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../rtos-pra-lab/">Prática</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -833,8 +841,10 @@
 <p class="admonition-title">No pullup</p>
 <p>O HC-SR04 é um sensor ativo, não devemos ativar o <code>pullup</code> no pino do ECHO! </p>
 </div>
-<h3 id="leitura">Leitura</h3>
-<p>Se o sistema ativado, devem realizar uma leitura a cada 1s (usar alarme do <code>RTC</code> ou alarme do Timer). Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o <code>Echo</code> fica em alto. Além disso, devem usar um alarme do <del>RTC</del> timer para detectar se por algum motivo o sensor não retornou um sinal.</p>
+<h3 id="trigger">Trigger</h3>
+<p>Se o sistema ativado, vocês devem gerar um pulso no pino trigger (pesquisa o tempo do pulso), isso vai fazer com que o sensor comece a leitura. </p>
+<h3 id="echo">Echo</h3>
+<p>Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o <code>Echo</code> fica em alto. Além disso, devem usar um alarme do <del>RTC</del> timer para detectar se por algum motivo o sensor não retornou um sinal.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Leitura correta</label><label for="__tabbed_2_2">Leitura com erro</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
