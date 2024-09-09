@@ -48,7 +48,7 @@ Se o sistema ativado, vocês devem gerar um pulso no pino trigger (pesquisa o te
 
 ### Echo
 
-Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do timer para detectar se por algum motivo o sensor não retornou um sinal.
+Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do ~~RTC~~ timer para detectar se por algum motivo o sensor não retornou um sinal.
 
 === "Leitura correta"
     A imagem a seguir ilustra uma leitura normal do sensor:

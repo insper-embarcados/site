@@ -58,9 +58,9 @@ extra:
     lab_timer_pra_deadline: 09/9 (Antes da aula)
 
     lab_rtos_pre_classroom: https://classroom.github.com/a/q2759a2m
-    lab_rtos_pre_deadline: 09/9 (Antes da aula)
-    lab_rtos_pra_classroom:
-    lab_rtos_pra_deadline:
+    lab_rtos_pre_deadline: 16/9 (Antes da aula)
+    lab_rtos_pra_classroom: https://classroom.github.com/a/K7JS4B75
+    lab_rtos_pra_deadline: 16/9 (Antes da aula)
 
     lab_adc_pwm_pre_classroom:
     lab_adc_pwm_pre_deadline:
@@ -193,7 +193,7 @@ nav:
         -  Prática: labs/timer-pra-lab.md
       - RTOS:
         - ⏰ Preparatório: labs/rtos-pre-lab.md
-#        - Prática: labs/rtos-pra-lab.md
+        - Prática: labs/rtos-pra-lab.md
 #      - ADC/PWM:
 #        - Preparatório: labs/adc-pwm-pre-lab.md
 #        - Prática: labs/adc-pwm-pra-lab.md
