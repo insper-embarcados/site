@@ -62,10 +62,10 @@ extra:
     lab_rtos_pra_classroom: https://classroom.github.com/a/AzDUsFIa
     lab_rtos_pra_deadline: 16/9 (Antes da aula)
 
-    lab_adc_pwm_pre_classroom:
-    lab_adc_pwm_pre_deadline:
-    lab_adc_pwm_pra_classroom:
-    lab_adc_pwm_pra_deadline:
+    lab_adc_pwm_pre_classroom: https://classroom.github.com/a/Q9mObLot
+    lab_adc_pwm_pre_deadline: (23/9) (Antes da aula)
+    lab_adc_pwm_pra_classroom: https://classroom.github.com/a/l5wJ-rbQ
+    lab_adc_pwm_pra_deadline: (23/9) (Antes da aula)
 
     lab_i2c_pre_classroom:
     lab_i2c_pre_deadline:
@@ -82,8 +82,9 @@ extra:
     aps_1_deadline: 30/08 (Sexta)
     aps_1_forms: https://forms.gle/Ybg4zvc29i1NJpMs8
 
-    aps_2_deadline:
-    aps_2_classroom:
+    aps_2_deadline: TBD
+    aps_2_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1710349957892/a51ad9d7ba35bb72689454f3caf839f45bf46044?sender=ub569a9273c6e285461187641
+    aps_2_classroom: https://classroom.github.com/a/m89YrzNI
 
 
 markdown_extensions:
@@ -194,9 +195,9 @@ nav:
       - RTOS:
         - ⏰ Preparatório: labs/rtos-pre-lab.md
         - Prática: labs/rtos-pra-lab.md
-#      - ADC/PWM:
-#        - Preparatório: labs/adc-pwm-pre-lab.md
-#        - Prática: labs/adc-pwm-pra-lab.md
+      - ADC/PWM:
+       - Preparatório: labs/adc-pwm-pre-lab.md
+       - Prática: labs/adc-pwm-pra-lab.md
 #      - I2C:
 #        - Preparatório: labs/i2c-pre-lab.md
 #        - Prática: labs/i2c-pra-lab.md
@@ -216,5 +217,5 @@ nav:
 #          - DMA: labs-expert/labs-expert-firmware-dma.md
 
   - APS:
-      - aps/aps-1-genius.md
-#      - aps/aps-2-controle.md
+    - aps/aps-1-genius.md
+    - aps/aps-2-controle.md
