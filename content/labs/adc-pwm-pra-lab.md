@@ -79,6 +79,7 @@ Onde:
 
 ## Dicas
 
+
 A seguir dicas sobre como executarem o lab:
 
 ###  JY-023 (joystick)
@@ -97,6 +98,7 @@ No gráfico da linear, linha roxa, metade do giro corresponde a metade da resist
     Crie uma função que convertar o valor lido (curva logarítimica) em um valor linear, ou seja, quando o joystick estiver em respouso (ambos os eixos centralizados), o valor lido pelo ADC deverá ser 50% da escala de 0 a 4095, ou seja, aproximadamente 2047.
 
 
+- Alimentar o módulo com `ADC_VREF` da PICO pode diminuir significativamente o ruído no mesmo.
 
 ### Dados
 
