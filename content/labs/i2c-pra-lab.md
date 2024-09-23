@@ -17,6 +17,9 @@ Para isso, vocês precisarão de:
 |--------------------|----------|
 | 1x MPU6050         | R$ 20,00 |
 
+!!! info
+    Você deve usar o python do lab passado, para facilitar, copie ele para esse repositório.
+
 ## Requisitos
 
 Fazer a leitura da IMU6050 formatar os dados corretamente e enviar via serial para a leitura do programa python.
