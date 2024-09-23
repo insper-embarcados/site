@@ -47,8 +47,9 @@ O controle deve ser documentando no README do repositório e deve conter:
     Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui, 
     mandar mensagem ao professor.
 
-- ==(meio conceito) Entrega design antecipada (18/09)==
+- ==(meio conceito) Entrega design antecipada (25/09)==
     - Via README do repositório (pedir para alguém da equipe avaliar)
+    - ==Para valer pedir para alguém da equipe avaliar==.
 - (meio conceito) Controle possui [Haptic Feedback](https://en.wikipedia.org/wiki/Haptic_technology)
 - (meio conceito) Utiliza ADC e IMU juntos no jogo
 - (meio conceito) O jogo deve ser "jogável" com o controle (sem latência, e avalido pela equipe)
