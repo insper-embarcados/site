@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>I2c pra lab - Computação Embarcada - 2.0</title>
+        <title>Prática - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -576,7 +576,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs core</span>
     <ul>
       
@@ -737,6 +737,43 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../i2c-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Prática</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#requisitos">Requisitos</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -775,6 +812,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs core</li>
+                  
+                
+                  
+                    <li>I2C</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -794,14 +839,14 @@
 <td><strong>Prazo</strong>: <mark>None</mark></td>
 </tr>
 <tr>
-<td><a href="None">Repositório no classroom</a></td>
+<td><a href="https://classroom.github.com/a/csbhOuR3">Repositório no classroom</a></td>
 </tr>
 <tr>
 <td>💰 70% nota de lab</td>
 </tr>
 </tbody>
 </table>
-<p>Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o <a href="https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html">spotlight da logitech</a></p>
+<p>Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o <a href="https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html">spotlight da logitech</a>. </p>
 <div>
 <video controls="true" src="https://resource.logitech.com/w_1920,ac_none,f_auto,dpr_1.0,q_auto:best/content/dam/logitech/en/products/presenters/spotlight/spotlight-video-final.mp4" width="100%"></video>
 </div>
@@ -822,6 +867,8 @@
 </table>
 <h2 id="requisitos">Requisitos</h2>
 <p>Fazer a leitura da IMU6050 formatar os dados corretamente e enviar via serial para a leitura do programa python.</p>
+<h3 id="mouse-click">Mouse click</h3>
+<p>Vocês precisarão implementar um "mouse click", que deve ser acionado quando o sistema embarcado perceber uma movimentação repentina na horizontal no sentido para frente, como se estivesse cutucando o ar. Para isso vão precisar identificar esse tipo de movimentação e fazer o envio para o python (que deverá ser modificado).</p>
 <h3 id="firmware-fornecido">Firmware fornecido</h3>
 <p>O Firmware fornecido é inspirado no exemplo <a href="https://github.com/raspberrypi/pico-examples/tree/master/i2c/mpu6050_i2c">oficial da raspberrypi</a> pico para o sensor MPU6050, modificado para fazer uso do Freertos, a conexão deve ser a mesma da indicada no repositório do fabricante:</p>
 <p><a class="glightbox" href="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" /></a></p>
@@ -891,6 +938,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../i2c-pre-lab/"
+               class="ah-prev"
+               title="Preparatório">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Preparatório</span>
+            </a>
+          
+          
+            <a href="../../aps/aps-1-genius/"
+               class="ah-next"
+               title="Aps 1 genius">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Aps 1 genius</span>
+            </a>
           
         </div>
       </footer>
