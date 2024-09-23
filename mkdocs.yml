@@ -196,11 +196,11 @@ nav:
         - ⏰ Preparatório: labs/rtos-pre-lab.md
         - Prática: labs/rtos-pra-lab.md
       - ADC/PWM:
-       - Preparatório: labs/adc-pwm-pre-lab.md
-       - Prática: labs/adc-pwm-pra-lab.md
-#      - I2C:
-#        - Preparatório: labs/i2c-pre-lab.md
-#        - Prática: labs/i2c-pra-lab.md
+        - Preparatório: labs/adc-pwm-pre-lab.md
+        - Prática: labs/adc-pwm-pra-lab.md
+      - I2C:
+        - Preparatório: labs/i2c-pre-lab.md
+        - Prática: labs/i2c-pra-lab.md
 #  - Labs experts:
 #      - Sobre: labs-expert/labs-expert-about.md
 #      - Comunicação:
