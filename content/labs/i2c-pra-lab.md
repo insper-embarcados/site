@@ -6,7 +6,7 @@
 | [Repositório no classroom]({{lab_i2c_pra_classroom}}) |
 | 💰 70% nota de lab                                        |
 
-Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o [spotlight da logitech]( https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html)
+Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o [spotlight da logitech]( https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html). 
 
 !!! video
     ![](https://resource.logitech.com/w_1920,ac_none,f_auto,dpr_1.0,q_auto:best/content/dam/logitech/en/products/presenters/spotlight/spotlight-video-final.mp4)
@@ -20,6 +20,10 @@ Para isso, vocês precisarão de:
 ## Requisitos
 
 Fazer a leitura da IMU6050 formatar os dados corretamente e enviar via serial para a leitura do programa python.
+
+### Mouse click
+
+Vocês precisarão implementar um "mouse click", que deve ser acionado quando o sistema embarcado perceber uma movimentação repentina na horizontal no sentido para frente, como se estivesse cutucando o ar. Para isso vão precisar identificar esse tipo de movimentação e fazer o envio para o python (que deverá ser modificado).
 
 ### Firmware fornecido
 
@@ -39,8 +43,6 @@ while(1) {
     vTaskDelay(pdMS_TO_TICKS(10));
 }
 ```
-
-
 
 ### Fusão de dados
 
@@ -88,7 +90,6 @@ FusionVector accelerometer = {
     .axis.z = acceleration[2] / 16384.0f,
 };      
 ```
-
 
 !!! warning "Atenção!"
     - Notem que a lib necessita saber a taxa de amostragem! `SAMPLE_PERIOD`, vocês precisam ajustar com o valor de vocês!
