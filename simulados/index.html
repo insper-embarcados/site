@@ -11,10 +11,10 @@
     
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script>
       // SETUP GLOBAL CONSTANTS
-      var base_url = '../..';
+      var base_url = '..';
       
       var telemetryEnabled = false;
       var backendUrl = "";
@@ -46,14 +46,14 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     
-    <link rel="stylesheet" href="../../termynal.css">
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    <link rel="stylesheet" href="../termynal.css">
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -64,7 +64,7 @@
   <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
 </svg>
         </button>
-        <a href="../.."
+        <a href=".."
            title="Computação Embarcada - 2.0"
            class="ah-logo"
            aria-label="Computação Embarcada - 2.0">
@@ -98,7 +98,7 @@
               
   
     <li>
-      <a href="../..">Home</a>
+      <a href="..">Home</a>
     </li>
   
 
@@ -106,28 +106,36 @@
               
   
     <li>
-      <a href="../../aulas/">Aulas</a>
+      <a href="../aulas/">Aulas</a>
     </li>
   
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Avaliação</span>
     <ul>
       
         
   
     <li>
-      <a href="../../avaliacao/">Critério</a>
+      <a href="../avaliacao/">Critério</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../../simulados/">Prática</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Prática</span>
+      <ul>
+        
+          
+            
+            
+        
+      </ul>
     </li>
   
 
@@ -144,7 +152,7 @@
         
   
     <li>
-      <a href="../../infra-linux-docker/">Linux ou Mac</a>
+      <a href="../infra-linux-docker/">Linux ou Mac</a>
     </li>
   
 
@@ -152,7 +160,7 @@
         
   
     <li>
-      <a href="../../infra-windows/">Windows</a>
+      <a href="../infra-windows/">Windows</a>
     </li>
   
 
@@ -169,7 +177,7 @@
         
   
     <li>
-      <a href="../../prototipos/prototipos/">Fabricação</a>
+      <a href="../prototipos/prototipos/">Fabricação</a>
     </li>
   
 
@@ -177,7 +185,7 @@
         
   
     <li>
-      <a href="../../prototipos/entradas/">Entradas</a>
+      <a href="../prototipos/entradas/">Entradas</a>
     </li>
   
 
@@ -185,7 +193,7 @@
         
   
     <li>
-      <a href="../../prototipos/saida.md">Saídas</a>
+      <a href="../prototipos/saida.md">Saídas</a>
     </li>
   
 
@@ -202,7 +210,7 @@
         
   
     <li>
-      <a href="../../utils/utils-uinput/">Uinput</a>
+      <a href="../utils/utils-uinput/">Uinput</a>
     </li>
   
 
@@ -210,7 +218,7 @@
         
   
     <li>
-      <a href="../../utils/utils-pyautogui/">pyautogui</a>
+      <a href="../utils/utils-pyautogui/">pyautogui</a>
     </li>
   
 
@@ -218,7 +226,7 @@
         
   
     <li>
-      <a href="../../utils/utils-vjoy/">vjoy</a>
+      <a href="../utils/utils-vjoy/">vjoy</a>
     </li>
   
 
@@ -226,7 +234,7 @@
         
   
     <li>
-      <a href="../../utils/utils-volume/">Volume</a>
+      <a href="../utils/utils-volume/">Volume</a>
     </li>
   
 
@@ -243,7 +251,7 @@
         
   
     <li>
-      <a href="../../dispositivos/buzzer/">Buzzer</a>
+      <a href="../dispositivos/buzzer/">Buzzer</a>
     </li>
   
 
@@ -259,7 +267,7 @@
         
   
     <li>
-      <a href="../../dispositivos/oled1/">OLED1</a>
+      <a href="../dispositivos/oled1/">OLED1</a>
     </li>
   
 
@@ -267,7 +275,7 @@
         
   
     <li>
-      <a href="../../dispositivos/servo/">Servomotor</a>
+      <a href="../dispositivos/servo/">Servomotor</a>
     </li>
   
 
@@ -275,7 +283,7 @@
         
   
     <li>
-      <a href="../../dispositivos/analogicos/">Análogicos</a>
+      <a href="../dispositivos/analogicos/">Análogicos</a>
     </li>
   
 
@@ -308,7 +316,7 @@
         
   
     <li>
-      <a href="../../pico/pico-examples/">pico-examples</a>
+      <a href="../pico/pico-examples/">pico-examples</a>
     </li>
   
 
@@ -316,7 +324,7 @@
         
   
     <li>
-      <a href="../../pico/pico-debugging/">Programando</a>
+      <a href="../pico/pico-debugging/">Programando</a>
     </li>
   
 
@@ -324,7 +332,7 @@
         
   
     <li>
-      <a href="../../pico/pico-wifi/">WIFI</a>
+      <a href="../pico/pico-wifi/">WIFI</a>
     </li>
   
 
@@ -357,7 +365,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-delay/">Delay</a>
+      <a href="../rp2040/rp2040-delay/">Delay</a>
     </li>
   
 
@@ -365,7 +373,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
+      <a href="../rp2040/rp2040-gpio/">GPIO</a>
     </li>
   
 
@@ -373,7 +381,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+      <a href="../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
     </li>
   
 
@@ -381,7 +389,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-timer/">Timer</a>
+      <a href="../rp2040/rp2040-timer/">Timer</a>
     </li>
   
 
@@ -389,7 +397,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-rtc/">RTC</a>
+      <a href="../rp2040/rp2040-rtc/">RTC</a>
     </li>
   
 
@@ -405,7 +413,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-adc/">ADC</a>
+      <a href="../rp2040/rp2040-adc/">ADC</a>
     </li>
   
 
@@ -413,7 +421,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-pwm/">PWM</a>
+      <a href="../rp2040/rp2040-pwm/">PWM</a>
     </li>
   
 
@@ -421,7 +429,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-i2c/">I2C</a>
+      <a href="../rp2040/rp2040-i2c/">I2C</a>
     </li>
   
 
@@ -429,7 +437,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-dma/">DMA</a>
+      <a href="../rp2040/rp2040-dma/">DMA</a>
     </li>
   
 
@@ -437,7 +445,7 @@
         
   
     <li>
-      <a href="../../rp2040/rp2040-uart/">UART</a>
+      <a href="../rp2040/rp2040-uart/">UART</a>
     </li>
   
 
@@ -454,7 +462,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-basic/">RTOS</a>
+      <a href="../freertos/freertos-basic/">RTOS</a>
     </li>
   
 
@@ -462,7 +470,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-tasks/">Tasks</a>
+      <a href="../freertos/freertos-tasks/">Tasks</a>
     </li>
   
 
@@ -470,7 +478,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-vtaskDelay/">VtaskDelay</a>
+      <a href="../freertos/freertos-vtaskDelay/">VtaskDelay</a>
     </li>
   
 
@@ -478,7 +486,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-software-time/">Software Timer</a>
+      <a href="../freertos/freertos-software-time/">Software Timer</a>
     </li>
   
 
@@ -486,7 +494,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-semaphore/">Semaphore</a>
+      <a href="../freertos/freertos-semaphore/">Semaphore</a>
     </li>
   
 
@@ -494,7 +502,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-queue/">Queue</a>
+      <a href="../freertos/freertos-queue/">Queue</a>
     </li>
   
 
@@ -502,7 +510,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-queue-advanced/">Queue struct</a>
+      <a href="../freertos/freertos-queue-advanced/">Queue struct</a>
     </li>
   
 
@@ -510,7 +518,7 @@
         
   
     <li>
-      <a href="../../freertos/freertos-smp/">SMP</a>
+      <a href="../freertos/freertos-smp/">SMP</a>
     </li>
   
 
@@ -527,7 +535,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/topview/">Visão geral</a>
+      <a href="../CodeQuality/topview/">Visão geral</a>
     </li>
   
 
@@ -535,7 +543,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/rules/">Regras</a>
+      <a href="../CodeQuality/rules/">Regras</a>
     </li>
   
 
@@ -543,7 +551,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+      <a href="../CodeQuality/cppcheck/">Cppcheck</a>
     </li>
   
 
@@ -551,7 +559,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/variables/">Variáveis</a>
+      <a href="../CodeQuality/variables/">Variáveis</a>
     </li>
   
 
@@ -559,7 +567,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+      <a href="../CodeQuality/isr-variables/">ISR - variáveis</a>
     </li>
   
 
@@ -567,7 +575,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+      <a href="../CodeQuality/isr-handler/">ISR - handler</a>
     </li>
   
 
@@ -575,7 +583,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/head-file/">Head File</a>
+      <a href="../CodeQuality/head-file/">Head File</a>
     </li>
   
 
@@ -583,7 +591,7 @@
         
   
     <li>
-      <a href="../../CodeQuality/rtos/">RTOS</a>
+      <a href="../CodeQuality/rtos/">RTOS</a>
     </li>
   
 
@@ -593,42 +601,22 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Labs core</span>
     <ul>
       
         
   
     <li>
-      <a href="../pre-lab/">Preparatórios</a>
+      <a href="../labs/pre-lab/">Preparatórios</a>
     </li>
   
 
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Prática</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#desenvolvendo">Desenvolvendo</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#validando-pratica">Validando prática</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#validando-qualidade-de-codigo">Validando qualidade de código</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../labs/pra-lab/">Prática</a>
     </li>
   
 
@@ -641,7 +629,7 @@
         
   
     <li>
-      <a href="../qualidade-codigo-1">⏰ Qualidade de Código</a>
+      <a href="../labs/qualidade-codigo-1">⏰ Qualidade de Código</a>
     </li>
   
 
@@ -649,7 +637,7 @@
         
   
     <li>
-      <a href="../gpio-pre-lab/">⏰ Preparatório</a>
+      <a href="../labs/gpio-pre-lab/">⏰ Preparatório</a>
     </li>
   
 
@@ -657,7 +645,7 @@
         
   
     <li>
-      <a href="../gpio-pra-lab/">Prática</a>
+      <a href="../labs/gpio-pra-lab/">Prática</a>
     </li>
   
 
@@ -674,7 +662,7 @@
         
   
     <li>
-      <a href="../qualidade-codigo-irs">⏰ Qualidade de Código</a>
+      <a href="../labs/qualidade-codigo-irs">⏰ Qualidade de Código</a>
     </li>
   
 
@@ -682,7 +670,7 @@
         
   
     <li>
-      <a href="../irq-pre-lab/">⏰ Preparatório</a>
+      <a href="../labs/irq-pre-lab/">⏰ Preparatório</a>
     </li>
   
 
@@ -690,7 +678,7 @@
         
   
     <li>
-      <a href="../irq-pra-lab/">Prática</a>
+      <a href="../labs/irq-pra-lab/">Prática</a>
     </li>
   
 
@@ -707,7 +695,7 @@
         
   
     <li>
-      <a href="../timer-pre-lab/">⏰ Preparatório</a>
+      <a href="../labs/timer-pre-lab/">⏰ Preparatório</a>
     </li>
   
 
@@ -715,7 +703,7 @@
         
   
     <li>
-      <a href="../timer-pra-lab/">Prática</a>
+      <a href="../labs/timer-pra-lab/">Prática</a>
     </li>
   
 
@@ -732,7 +720,7 @@
         
   
     <li>
-      <a href="../rtos-pre-lab/">⏰ Preparatório</a>
+      <a href="../labs/rtos-pre-lab/">⏰ Preparatório</a>
     </li>
   
 
@@ -740,7 +728,7 @@
         
   
     <li>
-      <a href="../rtos-pra-lab/">Prática</a>
+      <a href="../labs/rtos-pra-lab/">Prática</a>
     </li>
   
 
@@ -757,7 +745,7 @@
         
   
     <li>
-      <a href="../adc-pwm-pre-lab/">Preparatório</a>
+      <a href="../labs/adc-pwm-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -765,7 +753,7 @@
         
   
     <li>
-      <a href="../adc-pwm-pra-lab/">Prática</a>
+      <a href="../labs/adc-pwm-pra-lab/">Prática</a>
     </li>
   
 
@@ -782,7 +770,7 @@
         
   
     <li>
-      <a href="../i2c-pre-lab/">Preparatório</a>
+      <a href="../labs/i2c-pre-lab/">Preparatório</a>
     </li>
   
 
@@ -790,7 +778,7 @@
         
   
     <li>
-      <a href="../i2c-pra-lab/">Prática</a>
+      <a href="../labs/i2c-pra-lab/">Prática</a>
     </li>
   
 
@@ -811,7 +799,7 @@
         
   
     <li>
-      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
+      <a href="../aps/aps-1-genius/">Aps 1 genius</a>
     </li>
   
 
@@ -819,7 +807,7 @@
         
   
     <li>
-      <a href="../../aps/aps-2-controle/">Aps 2 controle</a>
+      <a href="../aps/aps-2-controle/">Aps 2 controle</a>
     </li>
   
 
@@ -838,7 +826,7 @@
               
                 
                   
-                    <li>Labs core</li>
+                    <li>Avaliação</li>
                   
                 
                 <li></li>
@@ -848,33 +836,30 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="lab-pratica">Lab prática</h1>
-<!--intro-start-->
-
-<p>As atividades de laboratório demandam que vocês utilizem a placa física, e a entrega é composta de duas frentes:</p>
+<h1 id="avaliacao-pratica">Avaliação prática</h1>
+<p>Simulados avaliação prática:</p>
 <ul>
-<li>Mostrar o projeto funcionando.</li>
-<li>Código sem qualidade de código.</li>
-</ul>
-<p>Para conseguir executar o código na placa, será necessário seguir os passos descritos em <a href="/site/pico/pico-debugging">Pico W/Programando</a>.</p>
-<h2 id="desenvolvendo">Desenvolvendo</h2>
-<p>Para desenvolver as atividades práticas será necessário utilizar a placa de desenvolvimento. E para isso ter o <code>depbug-probe</code> instalado e o kit junto:</p>
-<p><a class="glightbox" href="/pico/imgs/pico-probe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/pico/imgs/pico-probe.png" width="400" /></a></p>
-<h2 id="validando-pratica">Validando prática</h2>
-<p>Vocês possuem uma semana para terminarem o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consultar <strong>horários disponíveis</strong> para apresentar o laboratório.</p>
-<p><a class="glightbox" href="/site/imgs/agenda-entrega.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/agenda-entrega.png" /></a></p>
-<p>Lembrando que:</p>
-<ul>
-<li>Os laboratórios possuem nota binária: PASS/ FAIL</li>
-<li>Para validar a entrega vocês devem:<ul>
-<li>Entregar código no github (sem falhas de qualidade de código)</li>
-<li>Apresentar protótipo funcionando até data limite</li>
+<li><a href="{{ av_simulado_classroom }}">Simulado</a><ul>
+<li>LED RGB (RTOS, ADC, PWM)</li>
+<li><a href="https://github.com/insper-classroom/24a-emb-av-simulado-av-simulado-led-rgb/tree/solution">Solução</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="validando-qualidade-de-codigo">Validando qualidade de código</h2>
-<p>Você deve obter algo como:</p>
-<p><a class="glightbox" href="../imgs/lab_pra_actions.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_pra_actions.png" /></a></p>
+<p>Provas anteriores:</p>
+<ul>
+<li><a href="https://github.com/insper-classroom/24a-emb-av1">AV1</a><ul>
+<li>Fechadura eletrônica (RTOS, OLED, Motor de passos)</li>
+</ul>
+</li>
+<li><a href="https://github.com/insper-classroom/24a-emb-av2">AV2</a><ul>
+<li>Data Logger (RTOS, OLED, ADC, Serial)</li>
+</ul>
+</li>
+<li><a href="https://github.com/insper-classroom/24a-emb-av3">AV3</a><ul>
+<li>Intensidade sonora (RTOS, ADC, GPIO)</li>
+</ul>
+</li>
+</ul>
 
 
 </section>
@@ -884,26 +869,26 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../pre-lab/"
+            <a href="../avaliacao/"
                class="ah-prev"
-               title="Preparatórios">
+               title="Critério">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Preparatórios</span>
+              <span class="nav-title">Critério</span>
             </a>
           
           
-            <a href="../gpio-pre-lab/"
+            <a href="../infra-linux-docker/"
                class="ah-next"
-               title="⏰ Preparatório">
+               title="Linux ou Mac">
               <span class="nav-label">Next</span>
-              <span class="nav-title">⏰ Preparatório</span>
+              <span class="nav-title">Linux ou Mac</span>
             </a>
           
         </div>
       </footer>
     </div>
     
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../termynal.js"></script>
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 </script></body>
