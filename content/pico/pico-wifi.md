@@ -37,12 +37,12 @@ Vamos utilizar a interface do CYW43439 para fazer um pisca led. O intuito é ent
 
 ### SDK
 
-Para desenvolver aplicações utilizando o Pico W, você pode basear-se em qualquer projeto desenvolvido para o Pico e fazer algumas modificações: 
+Para desenvolver aplicações utilizando o Pico W, vamos utilizar o projeto `infra-test`, mas você pode basear-se em qualquer projeto desenvolvido para o Pico até o momento e fazer as modificações: 
 
 -  O arquivo `CMakeLists.txt` que está na raiz do projeto (onde fica a pasta build). Defina `PICO_BOARD` como `pico_w`:
 
 ```diff
-+set(PICO_BOARD pico_w)
+set(PICO_BOARD pico_w)
 ```
 
 - Já no arquivo `CMakeLists.txt` dentro da pasta do projeto (onde está o arquivo `main.c`) e adicione `pico_cyw43_arch_none` no `target_link_libraries`:
@@ -51,7 +51,7 @@ Para desenvolver aplicações utilizando o Pico W, você pode basear-se em qualq
 target_link_libraries(
                       ....
                       .....
-+                     pico_cyw43_arch_none)
+                    pico_cyw43_arch_none)
 ```
 
 No arquivo 'main.c' adicione no headfile:
@@ -108,7 +108,7 @@ int main() {
 
 ## Snippets
 
-Snippets de código para o WIFI
+Snippets de código para o WIFI.
 
 ### Scan Wi-fi
 
@@ -190,8 +190,13 @@ int main() {
 !!! warning
     Eu gastei um tempinho até fazer os ajustes do cmake para compilar corretamente o exemplo de conexão wifi adaptado a seguir. Além da configuração normal para usar a pico_w, realizei as seguintes configurações:
 
-    - no cmakelist.txt da pasta main: adicionei 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.
-    - Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h) para a pasta main com o nome 'lwipopts.h'.  
+    - No `cmakelist.txt` da pasta `main`: adicione 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. 
+
+    - O suporte ao Wi-Fi na Pico W requer o uso das bibliotecas específicas fornecidas no SDK, por isso altere `pico_cyw43_arch_none` para `pico_cyw43_arch_lwip_threadsafe_background`.
+    
+    Estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.
+
+    - Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h) para a pasta main com o nome `lwipopts.h`.  
 
 
 O código base a seguir irá `tentar` se conectar à internet, se for sucesso o led da placa acende.
@@ -289,7 +294,7 @@ get_wifi_status(cyw43_tcpip_link_status(&cyw43_state, CYW43_ITF_STA));
 
 ### Verificando seu IP
 
-Após conectado é possível verificar o IP alocado para a raspberry pi Pico.
+Após conectado é possível verificar o IP alocado para a raspberry pi Pico. Adicionando o techo de código a seguir na função `get_wifi_status`.
 
 ```C
    char sIP[] = "xxx.xxx.xxx.xxx";  
@@ -297,7 +302,7 @@ Após conectado é possível verificar o IP alocado para a raspberry pi Pico.
     printf ("Conectado, IP %s\n", sIP);  
 ```    
 
-Ao final deste laboratório introdutório é esperado que você tenha entendido o processo de habilitação e conexão com o modulo Wifi da raspiberry pi pico e consiga um resultado semelhante a imagem a seguir.
+Ao final deste laboratório introdutório é esperado que você tenha entendido o processo de modificação do Cmakelist para conexão com o modulo Wifi da raspiberry pi pico W e consiga um resultado semelhante a imagem a seguir.
 
 ![](imgs/wifi-conectado.png)
 
