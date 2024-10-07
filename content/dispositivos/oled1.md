@@ -26,10 +26,11 @@ Os pinos para o OLED (SPI), Botões e LEDS foram mapeados da seguinte maneira:
 !!! warning
     Nenhum pino listado a seguir deve ser utilizado para outra funcionalidade.
 
+<!--
 | Conexão Pico W       | Pino Pico W | Conexão OLED1 | Pino OLED1 |
 | -------------------- | ----------- | ------------- | ---------- |
-| GND                  | 3           | GND           | 2          |
-| VCC                  | 36          | VCC           | 1          |
+| GND                  | 3           | GND           | 19          |
+| VCC                  | 36          | VCC           | 20         |
 | GPIO-9        (SPI1) | 12          | DISPLAY_CS    | 15         |
 | GPIO-10      (SPI1)  | 14          | SPI_SCK       | 18         |
 | GPIO-11      (SPI1)  | 15          | SPI_TX (MOSI) | 16         |
@@ -41,6 +42,23 @@ Os pinos para o OLED (SPI), Botões e LEDS foram mapeados da seguinte maneira:
 | GPIO-26              | 31          | BUTTON 2      | 3          |
 | GPIO-27              | 32          | BUTTON 3      | 4          |
 | GPIO-28              | 34          | BUTTON 1      | 9          |
+-->
+
+| Conexão Pico W       | Conexão OLED1 |
+| -------------------- | ------------- |
+| GND                  | GND           |
+| VCC                  | VCC           |
+| GPIO-9        (SPI1) | DISPLAY_CS    |
+| GPIO-10      (SPI1)  | SPI_SCK       |
+| GPIO-11      (SPI1)  | SPI_TX (MOSI) |
+| GPIO-14              | DISPLAY_RESET |
+| GPIO-15              | DISPLAY_DC    |
+| GPIO-20              | LED 1         |
+| GPIO-21              | LED 2         |
+| GPIO-22              | LED 3         |
+| GPIO-26              | BUTTON 2      |
+| GPIO-27              | BUTTON 3      |
+| GPIO-28              | BUTTON 1      |
 
 ![](imgs/oled1/placa.jpg)
 
