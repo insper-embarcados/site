@@ -848,8 +848,8 @@
 <h2 id="lab">Lab</h2>
 <p>Drivers podem ser entendidos como uma camada de software que desacopla o acesso de uma aplicação a um recurso ou hardware específico.</p>
 <p><a class="glightbox" href="../imgs-firmware/driver-layers.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-firmware/driver-layers.png" /></a></p>
-<p>O termo <code>drivers</code> pode aparecer com diferentes nomes: <code>library</code>, <code>api</code>, <code>framework</code>, mas quando o foco é sistemas embarcados e a abstração se refere a um componente de hardware as opções mais apropriadas são: <code>hardware abstraction layer (HAL)</code> ou <code>driver</code>.</p>
-<p>Os drivers podem ser disponibilizados de diversas maneiras diferentes, mas no final, será composto por uma série de arquivos <code>.h</code> e <code>.c</code> que vão possibilitar a interface com entre a aplicação e o hardware em questão.</p>
+<p>O termo <code>driver</code> pode aparecer com diferentes nomes: <code>library</code>, <code>api</code>, <code>framework</code>, mas quando o foco é sistemas embarcados e a abstração se refere a um componente de hardware as opções mais apropriadas são: <code>hardware abstraction layer (HAL)</code> ou <code>driver</code>.</p>
+<p>Os drivers podem ser disponibilizados de diversas maneiras diferentes, mas no final, será composto por uma série de arquivos <code>.h</code> e <code>.c</code> que vão possibilitar a interface entre a aplicação e o hardware em questão.</p>
 <h3 id="cmake">CMake</h3>
 <p>O universo de desenvolvimento da Raspberry Pi Pico é baseado em <code>CMake</code>, uma ferramenta cross plataforma para automação do processo de <code>build</code> para programas em <code>C</code> e <code>C++</code>.</p>
 <p>Leia esse material para entender como podemos criar uma lib em <code>C</code> no sistema de <code>CMake</code> da Pico:</p>
@@ -859,7 +859,7 @@
 <h3 id="drivers">Drivers</h3>
 <p>Drivers são camadas de software que desacoplam o baixo nível da aplicação possibilitando o reaproveitamento de código entre projetos.</p>
 <h3 id="mpu6050">MPU6050</h3>
-<p>A MPU6050 possui muitos recursos que não foram explorados no laboratório, iremos nessa entrega expandir as opções que podemos usar módulo, por exemplo, o MPU6050 pode detectar queda ou identificar quando alguém dá um <code>tap</code> no sensor. Além disso, podemos configurar a resolução que o acelerômetro vai trabalhar: <code>±2G</code>, <code>±4G</code> (depende da aplicação 2G pode saturar o sinal).</p>
+<p>A MPU6050 possui muitos recursos que não foram explorados no laboratório, iremos nessa entrega expandir as opções que podemos usar com esse módulo, por exemplo, o MPU6050 pode detectar queda ou identificar quando alguém dá um <code>tap</code> no sensor. Além disso, podemos configurar a resolução que o acelerômetro vai trabalhar: <code>±2G</code>, <code>±4G</code> (depende da aplicação, 2G pode saturar o sinal).</p>
 <p>Lembrem de consultarem os manuais da MPU6050 para mais informações:</p>
 <ul>
 <li><a href="https://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/RM-MPU-6000A.pdf">Datasheet - Sparkfun</a></li>
