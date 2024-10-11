@@ -14,9 +14,9 @@ Drivers podem ser entendidos como uma camada de software que desacopla o acesso 
 
 ![](imgs-firmware/driver-layers.png)
 
-O termo `drivers` pode aparecer com diferentes nomes: `library`, `api`, `framework`, mas quando o foco é sistemas embarcados e a abstração se refere a um componente de hardware as opções mais apropriadas são: `hardware abstraction layer (HAL)` ou `driver`.
+O termo `driver` pode aparecer com diferentes nomes: `library`, `api`, `framework`, mas quando o foco é sistemas embarcados e a abstração se refere a um componente de hardware as opções mais apropriadas são: `hardware abstraction layer (HAL)` ou `driver`.
 
-Os drivers podem ser disponibilizados de diversas maneiras diferentes, mas no final, será composto por uma série de arquivos `.h` e `.c` que vão possibilitar a interface com entre a aplicação e o hardware em questão.
+Os drivers podem ser disponibilizados de diversas maneiras diferentes, mas no final, será composto por uma série de arquivos `.h` e `.c` que vão possibilitar a interface entre a aplicação e o hardware em questão.
 
 ### CMake
 
@@ -32,7 +32,7 @@ Drivers são camadas de software que desacoplam o baixo nível da aplicação po
 
 ### MPU6050
 
-A MPU6050 possui muitos recursos que não foram explorados no laboratório, iremos nessa entrega expandir as opções que podemos usar módulo, por exemplo, o MPU6050 pode detectar queda ou identificar quando alguém dá um `tap` no sensor. Além disso, podemos configurar a resolução que o acelerômetro vai trabalhar: `±2G`, `±4G` (depende da aplicação 2G pode saturar o sinal).
+A MPU6050 possui muitos recursos que não foram explorados no laboratório, iremos nessa entrega expandir as opções que podemos usar com esse módulo, por exemplo, o MPU6050 pode detectar queda ou identificar quando alguém dá um `tap` no sensor. Além disso, podemos configurar a resolução que o acelerômetro vai trabalhar: `±2G`, `±4G` (depende da aplicação, 2G pode saturar o sinal).
 
 Lembrem de consultarem os manuais da MPU6050 para mais informações:
 
@@ -56,9 +56,9 @@ Esses arquivos devem ser uma lib do projeto do CMake!
 
 O driver deve suportar o que já possuímos hoje, mas não foi estruturado em forma de driver:
 
-1. Ter um "objeto" de configuração
-2. Permitir configurar pinos e I2C a ser utilizado
-3. Funções que permitam manipular e ler a IMU
+1. Ter um "objeto" de configuração;
+2. Permitir configurar pinos e I2C a ser utilizado;
+3. Funções que permitam manipular e ler a IMU;
 4. Funções para configurar o motion detection.
 
 Para realizar a entrega, você deverá ler:
@@ -68,7 +68,7 @@ Para realizar a entrega, você deverá ler:
 
 ### Geral
 
-Você deve criar as seguintes funções e demonstrar o seu uso em um projeto, notem que as funções retornam um `int`, esse valor deve ser `1` para quando a execução da funções for vem sucedida ou `0` para quando falhar (`timeout por exemplo`).  
+Você deve criar as seguintes funções e demonstrar o seu uso em um projeto, notem que as funções retornam um `int`, esse valor deve ser `1` para quando a execução da funções for bem sucedida ou `0` para quando falhar (`timeout por exemplo`).  
 
 Para deixarmos o driver mais genérico possível, vamos definir uma struct que possui as configurações necessárias para a IMU
 

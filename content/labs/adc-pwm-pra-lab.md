@@ -81,10 +81,15 @@ Onde:
 
 A seguir dicas sobre como executarem o lab:
 
-!!! info
+!!! warning
     - Alimentar o módulo com `ADC_VREF` da PICO.
+	
 
-###  JY-023 (joystick)
+![61CAXEsOkWL._SL1500_](imgs/61CAXEsOkWL._SL1500_.png)
+	
+<!--
+
+###  KY-023 (joystick)
 
 Esse joystick é composto por 2 potênciometros e um  push button encapsulados em no mesmo componente. Os potenciômetros possuemuma curva anti logarítmica, ou seja, o centro do mesmo não representa 50% do valor da resistência, como representado no gráfico abaixo:
 
@@ -94,7 +99,7 @@ No gráfico da linear, linha roxa, metade do giro corresponde a metade da resist
 
 !!! info "Log para Linear"
     Crie uma função que convertar o valor lido (curva logarítimica) em um valor linear, ou seja, quando o joystick estiver em respouso (ambos os eixos centralizados), o valor lido pelo ADC deverá ser 50% da escala de 0 a 4095, ou seja, aproximadamente 2047.
-
+-->
 
 
 ### Dados
