@@ -47,12 +47,28 @@ Para podermos usar isso, teremos que fornecer uma camada de software que permite
 
 ## Entrega
 
-Nessa entrega vocês devem criar um driver chamado MPU6050 com os seguintes arquivos:
+Nessa entrega vocês devem criar um driver chamado MPU6050, para isso é necessário criar uma nova pasta com os seguintes arquivos:
 
-- `MPU6050/mpu6050.h`: Configurações e protótipos
-- `MPU6050/mpu6050.c`: Implementação das funções
+- `CMakeLists.txt`: Gerenciamento de Dependências (Inclusão de Diretórios / Adição de Executáveis e Bibliotecas / Gerenciamento de Dependências / ...):
+- `mpu6050.h`: Configurações e protótipos
+- `mpu6050.c`: Implementação das funções
 
-Esses arquivos devem ser uma lib do projeto do CMake!
+Esses arquivos devem ser uma lib do projeto do CMake, os passos estão no material para criação da [Lib em `C` na Pico via `CMake`](https://community.element14.com/products/raspberry-pi/b/blog/posts/raspberry-pico-and-cmake---create-your-own-c-lib-with-header-files)
+
+!!! warning
+	O MPU6050 tem como dependência a utilização da lib hardware_i2c e ela tem como dependência a lib pico_stdlib, ou seja, você precisará inclui-las na sua lib:
+
+	`CMakeLists.txt`
+	```c
+	+ target_link_libraries(nome_da_LIB hardware_i2c pico_stdlib)
+	```	
+
+	`mpu6050.h`
+	```c
+	+ #include "hardware/i2c.h"
+	+ #include "pico/stdlib.h"
+	```	
+
 
 O driver deve suportar o que já possuímos hoje, mas não foi estruturado em forma de driver:
 
@@ -76,7 +92,7 @@ Para deixarmos o driver mais genérico possível, vamos definir uma struct que p
 // no arquivo .h
 typedef struct imu6050 {
     // configuração do I2C
-    i2c_inst_t i2c;
+    i2c_inst_t *i2c;
     int pin_sda;
     int pin_scl;
  
@@ -88,7 +104,7 @@ typedef struct imu6050 {
 Função que configura o struct de configuração do componente.
 
 ```c
-mpu6050_set_config(imu_c *config, i2c_inst_t i2c, int pin_sda, int pin_scl, int acc_scale) { ... } 
+void mpu6050_set_config(imu_c *config, i2c_inst_t *i2c, int pin_sda, int pin_scl, int acc_scale) { ... } 
 ```
 
 Configura pinos e periférico I2C:
