@@ -280,6 +280,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../dispositivos/hc05/">HC-05</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -888,11 +896,11 @@
 <p>Consulte a página do site da disciplina <a href="/site/pico/pico-examples">Pico W/pico-examples</a> para saber como usar o repositório de exemplos da pico!</p>
 </div>
 <h3 id="sdk">SDK</h3>
-<p>Para desenvolver aplicações utilizando o Pico W, você pode basear-se em qualquer projeto desenvolvido para o Pico e fazer algumas modificações: </p>
+<p>Para desenvolver aplicações utilizando o Pico W, vamos utilizar o projeto <code>infra-test</code>, mas você pode basear-se em qualquer projeto desenvolvido para o Pico até o momento e fazer as modificações: </p>
 <ul>
 <li>O arquivo <code>CMakeLists.txt</code> que está na raiz do projeto (onde fica a pasta build). Defina <code>PICO_BOARD</code> como <code>pico_w</code>:</li>
 </ul>
-<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gi">+set(PICO_BOARD pico_w)</span>
+<div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>set(PICO_BOARD pico_w)
 </code></pre></div>
 <ul>
 <li>Já no arquivo <code>CMakeLists.txt</code> dentro da pasta do projeto (onde está o arquivo <code>main.c</code>) e adicione <code>pico_cyw43_arch_none</code> no <code>target_link_libraries</code>:</li>
@@ -900,7 +908,7 @@
 <div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>target_link_libraries(
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span>                     ....
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span>                     .....
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gi">+                     pico_cyw43_arch_none)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span>                   pico_cyw43_arch_none)
 </code></pre></div>
 <p>No arquivo 'main.c' adicione no headfile:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/cyw43_arch.h&quot;</span>
@@ -946,7 +954,7 @@
 </ul>
 <p><a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/">pico-examples/blob/master/pico_w/</a></p>
 <h2 id="snippets">Snippets</h2>
-<p>Snippets de código para o WIFI</p>
+<p>Snippets de código para o WIFI.</p>
 <h3 id="scan-wi-fi">Scan Wi-fi</h3>
 <p>Vamos implementar uma scan para listar as redes wifi disponíveis para se conectar. O código é adaptado do repositório oficial da raspiberry pi pico W.</p>
 <ul>
@@ -1031,8 +1039,16 @@
 <p class="admonition-title">Warning</p>
 <p>Eu gastei um tempinho até fazer os ajustes do cmake para compilar corretamente o exemplo de conexão wifi adaptado a seguir. Além da configuração normal para usar a pico_w, realizei as seguintes configurações:</p>
 <ul>
-<li>no cmakelist.txt da pasta main: adicionei 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.</li>
-<li>Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do <a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h">repositório de exemplos da pico</a> para a pasta main com o nome 'lwipopts.h'.  </li>
+<li>
+<p>No <code>cmakelist.txt</code> da pasta <code>main</code>: adicione 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. </p>
+</li>
+<li>
+<p>O suporte ao Wi-Fi na Pico W requer o uso das bibliotecas específicas fornecidas no SDK, por isso altere <code>pico_cyw43_arch_none</code> para <code>pico_cyw43_arch_lwip_threadsafe_background</code>.</p>
+</li>
+</ul>
+<p>Estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.</p>
+<ul>
+<li>Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do <a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h">repositório de exemplos da pico</a> para a pasta main com o nome <code>lwipopts.h</code>.  </li>
 </ul>
 </div>
 <p>O código base a seguir irá <code>tentar</code> se conectar à internet, se for sucesso o led da placa acende.</p>
@@ -1150,12 +1166,12 @@
 <div class="language-C highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">get_wifi_status</span><span class="p">(</span><span class="n">cyw43_tcpip_link_status</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cyw43_state</span><span class="p">,</span><span class="w"> </span><span class="n">CYW43_ITF_STA</span><span class="p">));</span>
 </code></pre></div>
 <h3 id="verificando-seu-ip">Verificando seu IP</h3>
-<p>Após conectado é possível verificar o IP alocado para a raspberry pi Pico.</p>
+<p>Após conectado é possível verificar o IP alocado para a raspberry pi Pico. Adicionando o techo de código a seguir na função <code>get_wifi_status</code>.</p>
 <div class="language-C highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">sIP</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xxx.xxx.xxx.xxx&quot;</span><span class="p">;</span><span class="w">  </span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">strcpy</span><span class="w"> </span><span class="p">(</span><span class="n">sIP</span><span class="p">,</span><span class="w"> </span><span class="n">ip4addr_ntoa</span><span class="p">(</span><span class="n">netif_ip4_addr</span><span class="p">(</span><span class="n">netif_list</span><span class="p">)));</span><span class="w">  </span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Conectado, IP %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sIP</span><span class="p">);</span><span class="w">  </span>
 </code></pre></div>
-<p>Ao final deste laboratório introdutório é esperado que você tenha entendido o processo de habilitação e conexão com o modulo Wifi da raspiberry pi pico e consiga um resultado semelhante a imagem a seguir.</p>
+<p>Ao final deste laboratório introdutório é esperado que você tenha entendido o processo de modificação do Cmakelist para conexão com o modulo Wifi da raspiberry pi pico W e consiga um resultado semelhante a imagem a seguir.</p>
 <p><a class="glightbox" href="../imgs/wifi-conectado.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/wifi-conectado.png" /></a></p>
 <h2 id="proximmos-passos">Próximmos passos</h2>
 <p>Agora você já está pronto para desbravar o mundo da conectavidade explorando novas possibilidades.</p>

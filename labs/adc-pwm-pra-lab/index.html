@@ -280,6 +280,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../dispositivos/hc05/">HC-05</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -931,20 +939,27 @@
 </ul>
 <h2 id="dicas">Dicas</h2>
 <p>A seguir dicas sobre como executarem o lab:</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <ul>
 <li>Alimentar o módulo com <code>ADC_VREF</code> da PICO.</li>
 </ul>
 </div>
-<h3 id="jy-023-joystick">JY-023 (joystick)</h3>
-<p>Esse joystick é composto por 2 potênciometros e um  push button encapsulados em no mesmo componente. Os potenciômetros possuemuma curva anti logarítmica, ou seja, o centro do mesmo não representa 50% do valor da resistência, como representado no gráfico abaixo:</p>
-<p><a class="glightbox" href="../imgs/potCurves.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/potCurves.jpg" /></a></p>
-<p>No gráfico da linear, linha roxa, metade do giro corresponde a metade da resistência. Já no da anti logarítmica, vermelha, repare como no começo do giro a progressão da resistência é rapida e brusca, e no final ela se torna bem lenta.</p>
-<div class="admonition info">
-<p class="admonition-title">Log para Linear</p>
-<p>Crie uma função que convertar o valor lido (curva logarítimica) em um valor linear, ou seja, quando o joystick estiver em respouso (ambos os eixos centralizados), o valor lido pelo ADC deverá ser 50% da escala de 0 a 4095, ou seja, aproximadamente 2047.</p>
-</div>
+<p><a class="glightbox" href="../imgs/61CAXEsOkWL._SL1500_.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="61CAXEsOkWL._SL1500_" src="../imgs/61CAXEsOkWL._SL1500_.png" /></a></p>
+<!--
+
+###  KY-023 (joystick)
+
+Esse joystick é composto por 2 potênciometros e um  push button encapsulados em no mesmo componente. Os potenciômetros possuemuma curva anti logarítmica, ou seja, o centro do mesmo não representa 50% do valor da resistência, como representado no gráfico abaixo:
+
+![](imgs/potCurves.jpg)
+
+No gráfico da linear, linha roxa, metade do giro corresponde a metade da resistência. Já no da anti logarítmica, vermelha, repare como no começo do giro a progressão da resistência é rapida e brusca, e no final ela se torna bem lenta.
+
+!!! info "Log para Linear"
+    Crie uma função que convertar o valor lido (curva logarítimica) em um valor linear, ou seja, quando o joystick estiver em respouso (ambos os eixos centralizados), o valor lido pelo ADC deverá ser 50% da escala de 0 a 4095, ou seja, aproximadamente 2047.
+-->
+
 <h3 id="dados">Dados</h3>
 <p>Para o mouse funcionar correto devemos obter um valor <code>0</code> quando o mesmo não está parado e um valor positivo para mover por exemplo para direita (se for o eixo <code>x</code>) e um valor negativo para mover para esquerda. Ou seja, vamos ter que mudar a escala da leitura analógico de <code>0 ... 4095</code> para <code>-255 ... +255</code> e com uma zona morta, como indicado a seguir:</p>
 <p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-escala.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-escala.png" /></a></p>
