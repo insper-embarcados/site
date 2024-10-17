@@ -1,5 +1,6 @@
 # Pyautogui
 
+
 O pyautogui é uma biblioteca que permite emularmos um teclado ou mouse no Windows (até funciona para alguns Linux, mas precisa estar rodando o gerenciador de janelas no X11 e a maioria das ditros modernas utiliza Wayland, que não é compatível).
 
 !!! tip
@@ -10,6 +11,25 @@ O pyautogui é uma biblioteca que permite emularmos um teclado ou mouse no Windo
 Para mais informações consulte a documentacão oficial:
 
 - pyautogui: https://pyautogui.readthedocs.io/en/latest/
+
+### Simulando um controle
+
+Use:
+
+- https://github.com/iosonofabio/virtual_gamepad/blob/master/virtual_gamepad.py
+
+Você pode usar os seguintes eventos:
+
+```
+ ABS_X
+ ABS_Y
+ ABS_RX
+ ABS_RY
+ ABS_Z
+ ABS_RZ
+ ABS_HAT0X
+ ABS_HAT0Y
+```
 
 
 ### Manter tecla pressionada
