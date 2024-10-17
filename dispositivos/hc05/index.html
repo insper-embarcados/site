@@ -883,7 +883,7 @@
 <p>Já no computador iremos usar um programa em python que acessará a porta COM criada pelo sistema operacional para enviar e receber dados do microcontrolador via protocolo Bluetooth. Note que estamos lidando com o Bluetooth de forma "transparente", apenas como "usuários", toda a mágica acontece dentro do HC-05.</p>
 <h2 id="exemplo">Exemplo</h2>
 <p>Conecte o hardware como indicado a seguir:</p>
-<p><a class="glightbox" href="./imgs/HC05/diagrama.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="./imgs/HC05/diagrama.png" /></a></p>
+<p><a class="glightbox" href="../imgs/hc05/diagrama.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/hc05/diagrama.png" /></a></p>
 <p>O exemplo faz uso dos pinos:</p>
 <ul>
 <li><strong>HC-VCC:</strong> 5V (alimentação)</li>
@@ -927,6 +927,7 @@
 </code></pre></div>
 <p>A função <code>hc06_init</code> faz a seguinte inicialização:</p>
 <p>![[state.png]]</p>
+<p><a class="glightbox" href="../imgs/hc05/state.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/hc05/state.png" /></a></p>
 <h3 id="enviando-dados-para-o-bluetooth">Enviando dados para o bluetooth</h3>
 <p>Após iniciado o hardware, basta colocarmos <code>0</code> no pino <code>key</code> e que toda informação enviada para a <code>UART 1</code> será enviada automaticamente para o bluetooth.</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
