@@ -141,7 +141,7 @@ nav:
       - OLED1: dispositivos/oled1.md
       - Servomotor: dispositivos/servo.md
       - Análogicos: dispositivos/analogicos.md
-      - HC-05: dispositivos/hc05.md
+      - HC-06: dispositivos/hc06.md
   - Pico W:
       - Datasheet: https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
       - Hardware: https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
