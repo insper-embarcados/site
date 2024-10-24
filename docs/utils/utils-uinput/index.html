@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Uinput - Computação Embarcada - 2.0</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../termynal.css">
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../.."
+           title="Computação Embarcada - 2.0"
+           class="ah-logo"
+           aria-label="Computação Embarcada - 2.0">
+          Computação Embarcada - 2.0
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../aulas/">Aulas</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Avaliação</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../avaliacao/">Critério</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../simulados/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Infra</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../infra-linux-docker/">Linux ou Mac</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../infra-windows/">Windows</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Utils</span>
+    <ul>
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Uinput</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#adicionando-ou-removendo-botoes">Adicionando ou Removendo Botões</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#code">Code</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../utils-pyautogui/">pyautogui</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../utils-vjoy/">vjoy</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../utils-volume/">Volume</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04">HC-SR04</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/oled1/">OLED1</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/servo/">Servomotor</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/analogicos/">Análogicos</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/hc06/">HC-06</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Pico W</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-examples/">pico-examples</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-debugging/">Programando</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-wifi/">WIFI</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RP2040</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">SDK</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-delay/">Delay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-timer/">Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-rtc/">RTC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://kevinboone.me/picoflash.html">Flash</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-adc/">ADC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-i2c/">I2C</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-dma/">DMA</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-uart/">UART</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">FreeRTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-basic/">RTOS</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-tasks/">Tasks</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-vtaskDelay/">VtaskDelay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-software-time/">Software Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-semaphore/">Semaphore</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue/">Queue</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue-advanced/">Queue struct</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-smp/">SMP</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Code quality</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/topview/">Visão geral</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rules/">Regras</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/variables/">Variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rtos/">RTOS</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Labs core</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">GPIO</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-1">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ISR</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-irs">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Timer</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ADC/PWM</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pre-lab/">Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">APS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-2-controle/">Aps 2 controle</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Utils</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="uinput">UINPUT</h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Material original desenvolvido por <a href="https://github.com/devfernandoa">Fernando Alzueta</a>. </p>
+<p>Emula um teclado, mouse ou joystick para o LINUX. Se você precisa emular um teclado ou mouse no windows, verificar o material sobre pyautogui, ou se precisar emular um joystick no windows, ver sobre o vjoy.</p>
+</div>
+<p>Este código Python é projetado para emular um gamepad usando um microcontrolador conectado via serial (USB ou Bluetooth). Ele usa a biblioteca serial para comunicação serial e a biblioteca uinput para criar um dispositivo virtual do gamepad.</p>
+<p>O código realiza as seguintes operações principais:</p>
+<ul>
+<li>Configuração do Dispositivo Serial: Configura a comunicação serial com a raspberry pico.</li>
+<li>Configuração do Dispositivo de Emulação: Cria um dispositivo virtual de gamepad usando a biblioteca uinput.</li>
+<li>Recepção e Interpretação de Dados: Recebe dados do dispositivo conectado via serial, interpreta esses dados e os emula como entrada de gamepad.</li>
+</ul>
+<h2 id="adicionando-ou-removendo-botoes">Adicionando ou Removendo Botões</h2>
+<p>Para adicionar ou remover botões do gamepad emulado, você precisa ajustar algumas partes específicas do código:</p>
+<h3 id="lista-de-botoes">Lista de Botões</h3>
+<p>As listas buttons e axes definem os botões e eixos disponíveis e seus respectivos códigos. Você pode adicionar ou remover botões e eixos desta lista, conforme necessário.</p>
+<p>Por exemplo, para adicionar um novo botão <code>BTN_C</code>, você pode incluir <code>uinput.BTN_C</code> na lista. Da mesma forma, para remover um botão existente, basta remover o correspondente <code>uinput.BTN_X</code>, por exemplo.
+(A lista completa de botões do uinput está <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/input-event-codes.h?h=v4.7">aqui</a>)</p>
+<h3 id="quantidade-de-botoes">Quantidade de Botões</h3>
+<p>A variável <code>button_quantity</code> representa a quantidade total de botões no seu controlador, excluindo os movimentos do joystick. Certifique-se de ajustar essa variável para refletir corretamente o número de botões no seu controlador, após adicionar ou remover botões.</p>
+<h3 id="rp2050">RP2050</h3>
+<p>Dentro do seu código em C você deve lidar com cada botão e eixo na ordem que está na lista no python, por exemplo, se tenho 4 botões na lista <code>buttons = [uinput.BTN_A, uinput.BTN_B, uinput.BTN_X, uinput.BTN_Y]</code>, eu devo acessá-la utilizando o axis como 0, 1, 2 e 3 para os botões A, B, X e Y do controle, respectivamente. Portanto se você adicionar um botão, você deve contar sempre a posição do novo botão na lista no python e utilizar esse valor no axis do envio.</p>
+<h3 id="exemplo-de-adicao-de-botao">Exemplo de Adição de Botão</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Lista com todos os possíveis sinais que o uinput pode emular:</p>
+<ul>
+<li><a href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h">https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h</a></li>
+</ul>
+</div>
+<p>Suponha que você deseje adicionar um novo botão chamado BTN_Z ao seu gamepad. Você precisaria seguir estas etapas:</p>
+<ol>
+<li>Adicione <code>uinput.BTN_Z</code> à lista de botões.</li>
+<li>Ajuste <code>button_quantity</code> para refletir a nova quantidade total de botões no seu controlador.</li>
+</ol>
+<p>Código modificado:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">adc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span><span class="w"> </span><span class="n">adc_t</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">write_package</span><span class="p">(</span><span class="n">adc_t</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">msb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">lsb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">axis</span><span class="p">);</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="n">msb</span><span class="p">);</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="n">lsb</span><span class="p">);</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="p">(</span><span class="n">HC06_UART_ID</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="code">Code</h2>
+<p>Código em python que emula um joystick</p>
+<div class="language-py highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">serial</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">uinput</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">&#39;/dev/ttyACM0&#39;</span><span class="p">,</span> <span class="mi">9600</span><span class="p">)</span> <span class="c1"># Mude a porta para rfcomm0 se estiver usando bluetooth no linux</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Caso você esteja usando windows você deveria definir uma porta fixa para seu dispositivo (para facilitar sua vida mesmo)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Siga esse tutorial https://community.element14.com/technologies/internet-of-things/b/blog/posts/standard-serial-over-bluetooth-on-windows-10 e mude o código acima para algo como: ser = serial.Serial(&#39;COMX&#39;, 9600) (onde X é o número desejado)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># (Mais códigos aqui https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/input-event-codes.h?h=v4.7)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">buttons</span> <span class="o">=</span> <span class="p">[</span><span class="n">uinput</span><span class="o">.</span><span class="n">BTN_A</span><span class="p">,</span> <span class="c1"># 0</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_B</span><span class="p">,</span> <span class="c1"># 1</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_X</span><span class="p">,</span> <span class="c1"># 2</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_Y</span><span class="p">,</span> <span class="c1"># 3</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_TL</span><span class="p">,</span> <span class="c1"># 4</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_TR</span><span class="p">,</span> <span class="c1"># 5</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_TL2</span><span class="p">,</span> <span class="c1"># 6</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_TR2</span><span class="p">,</span> <span class="c1"># 7</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_SELECT</span><span class="p">,</span> <span class="c1"># 8</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_START</span><span class="p">,</span> <span class="c1"># 9</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_THUMBL</span><span class="p">,</span> <span class="c1"># 10</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_THUMBR</span><span class="p">,</span> <span class="c1"># 11</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_DPAD_UP</span><span class="p">,</span> <span class="c1"># 12</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">uinput</span><span class="o">.</span><span class="n">BTN_DPAD_DOWN</span><span class="p">,</span> <span class="c1"># 13</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="c1"># uinput.BTN_DPAD_LEFT,</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="c1"># uinput.BTN_DPAD_RIGHT,</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>          <span class="p">]</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">uinput</span><span class="o">.</span><span class="n">ABS_X</span><span class="p">,</span> <span class="n">uinput</span><span class="o">.</span><span class="n">ABS_Y</span><span class="p">]</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">button_quantity</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># Quantidade de botões no controlador (sem contar com o joystick)</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="c1"># Criando gamepad emulado</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="n">device</span> <span class="o">=</span> <span class="n">uinput</span><span class="o">.</span><span class="n">Device</span><span class="p">(</span><span class="n">buttons</span> <span class="o">+</span> <span class="n">axes</span><span class="p">)</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># Função para analisar os dados recebidos do dispositivo externo</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">def</span> <span class="nf">parse_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="sd">    Esta função analisa os dados recebidos do dispositivo externo e retorna o botão e o valor correspondentes.</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="sd">    Argumentos:</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="sd">    data (bytes): Os dados recebidos do dispositivo externo.</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="sd">    Retorna:</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="sd">    int, int: O número do botão e o valor do botão.</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>    <span class="n">button</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Axis no C, o botão apertado</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s1">&#39;little&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Valor do botão (Apertado, não apertado ou algum outro estado)</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;button: </span><span class="si">{</span><span class="n">button</span><span class="si">}</span><span class="s2">, value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>    <span class="k">return</span> <span class="n">button</span><span class="p">,</span> <span class="n">value</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="k">def</span> <span class="nf">emulate_controller</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="sd">    Esta função emula a entrada do controlador no sistema com base no botão e valor recebidos.</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="sd">    Argumentos:</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="sd">    button (int): O número do botão a ser emulado.</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="sd">    value (int): O valor do botão.</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="sd">    Retorna:</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="sd">    None</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>    <span class="k">if</span> <span class="n">button</span> <span class="o">&lt;</span> <span class="n">button_quantity</span><span class="p">:</span>  <span class="c1"># Se o botão estiver entre os botões declarados</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>        <span class="n">device</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">buttons</span><span class="p">[</span><span class="n">button</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Se não, ele é um eixo</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>        <span class="n">device</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">button</span> <span class="o">-</span> <span class="n">button_quantity</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>    <span class="c1"># Pacote de sync</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Waiting for sync package...&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>            <span class="n">data</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>            <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xff</span><span class="s1">&#39;</span><span class="p">:</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>                <span class="k">break</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>        <span class="c1"># Lendo 4 bytes da uart</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>        <span class="n">button</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">parse_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>        <span class="n">emulate_controller</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Program terminated by user&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>    <span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../../prototipos/entradas/"
+               class="ah-prev"
+               title="Entradas">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Entradas</span>
+            </a>
+          
+          
+            <a href="../utils-pyautogui/"
+               class="ah-next"
+               title="pyautogui">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">pyautogui</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+    
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
