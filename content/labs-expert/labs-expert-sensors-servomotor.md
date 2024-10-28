@@ -37,11 +37,26 @@ Você deve escolher dois sensores do listados a seguir, todos irão gerar uma va
 
 ## Entrega
 
-Você deve entregar um sistema que possui dois servos motores e dois sensores analógicos (listados a seguir), onde cada um irá ajustar a posição de um servomotor diferente. Por sua vez, o movimento do motor terá que influenciar mecanicamente um objeto, como alguns exemplos abaixo:
+Você deverá efetuar uma montagem mecânica utilizando no mínimo 2 servomotores, a sugestão é que você replique o mecanismo Pan-Tilt conforme o projeto do link abaixo:
 
-1. [Tutorial - Robô de Papel](https://labdegaragem.com/profiles/blogs/tutorial-robo-de-papel-faca-o-seu-garabot-controlado-por-ir)
-2. [Robotic Eyebrows](http://www.pyroelectro.com/tutorials/robotic_eyebrows/)
-3. [Arduino-Controlled Robotic Hand](https://www.youtube.com/watch?v=QH8MPCCrpbg)
+https://www.thingiverse.com/thing:708819
+
+
+
+O controle desse mecanismo deverá ser feito utilizando no mínimo 2 dos sensores apresentados:
+
+- [LDR](https://insper-embarcados.github.io/site/dispositivos/analogicos/#ldr)
+- [Termistor NTC](https://insper-embarcados.github.io/site/dispositivos/analogicos/#termistor-ntc)
+- [Strain gauge](https://insper-embarcados.github.io/site/dispositivos/analogicos/#strain-gauge)
+- [SHARP](https://insper-embarcados.github.io/site/dispositivos/analogicos/#sharp)
+
+
+
+Existem outros projetos utilizando 2 servomotores, disponíveis no próprio [Thingiverse](https://www.thingiverse.com/):
+
+https://www.thingiverse.com/search?q=servo+pan+tilt&page=1
+
+
 
 **Requisitos:**
 
@@ -50,8 +65,8 @@ Você deve entregar um sistema que possui dois servos motores e dois sensores an
 2. Cada um dos sensores deverá estar ligado a um pino ADC diferente.
 3. Controlar mecanicamente algum objeto, com um objetivo.
 
-Dicas:
+**Dicas:**
 
-1. Primeiro faća o servomotor funcionar, utilize dois potenciometros como controle da posição
-1. Substitua os potenciometros pelos sensores listados a seguir
 1. Monte a parte mecânica.
+1. Faça o servomotor funcionar, utilize dois potenciômetros como controle da posição;
+1. Substitua os potenciômetros pelos sensores listados;
