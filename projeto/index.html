@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Infra - Computação Embarcada - 2.0</title>
+        <title>Index - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -792,14 +792,30 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Projeto</span>
     <ul>
       
         
   
-    <li>
-      <a href="../projeto/">Index</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Index</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#projeto">Projeto</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#outras-fontes">Outras fontes</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -959,6 +975,10 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Projeto</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -966,164 +986,54 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="infra">Infra</h1>
-<p>A disciplina vai ser executada em Linux, preferência para Ubuntu 22.04, o mesmo que será usado na disciplina de sistemas hardware software, mas os softwares que iremos usar são diferentes!</p>
-<h2 id="pre-configuracao-para-vm">Pré-configuração para VM</h2>
-<p>Para máquinas virtuais, é recomendado o uso do <code>Oracle VM Virtual Box</code>.</p>
-<p>Antes de iniciar a máquina virtual é necessário fazer a seguinte configuração para garantir que a Raspberry Pico seja indentificada dentro da VM:</p>
-<p><a class="glightbox" href="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="embarcadosvirtualbox" src="https://github.com/insper-embarcados/site/assets/82840303/2f7f82e0-9d30-4af0-b4f3-365bbda418fc" /></a></p>
-<ol>
-<li>Abra as Configurações -&gt; USB</li>
-<li>Verifique se o controlador USB está habilitado.</li>
-<li>Clique no símbolo do "USB +" para adicionar a Raspberry Pi Pico.</li>
-</ol>
-<h2 id="parte-1-gcc-sdk-and-examples">Parte 1 - gcc, sdk and examples</h2>
-<p>Crie uma pasta chamada <code>pico</code> na raiz do seu usuário, vamos instalar todos os softwares nesse local!</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>pico
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pico
-</code></pre></div>
-<ol>
-<li>Toolchain</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>gcc-arm-none-eabi<span class="w"> </span>libnewlib-arm-none-eabi<span class="w"> </span>libstdc++-arm-none-eabi-newlib
-</code></pre></div>
-<ol>
-<li>SDK</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/pico-sdk.git
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>git<span class="w"> </span>-C<span class="w"> </span>pico-sdk<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
-</code></pre></div>
-<p>Adicione o caminho recém clonado ao <code>.bashrc</code></p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PICO_SDK_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/pico/pico-sdk<span class="w"> </span>&gt;<span class="w"> </span>~/.bashrc
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
-<ol>
-<li>Clone o pico examples</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/pico-examples
-</code></pre></div>
-<h3 id="testando">Testando</h3>
-<p>Agora devemos ser capazes de compilar o repositório de exemplos:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pico-examples
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>mkdir<span class="w"> </span>build
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>$<span class="w"> </span>cmake<span class="w"> </span>..
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>$<span class="w"> </span>make<span class="w"> </span>blink
-</code></pre></div>
-<p>Você deve obter algo como:</p>
-<script async id="asciicast-5PjMJmsDpfMx1oFwKsppp7w8F" src="https://asciinema.org/a/5PjMJmsDpfMx1oFwKsppp7w8F.js"></script>
-
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Não seguir se não funcionar!</p>
-</div>
-<h2 id="parte-2-debug-probe">Parte 2 - debug-probe</h2>
-<p>Vamos instalar o OpenOCD necessário para usarmos o <code>pico-probe</code>.</p>
-<ol>
-<li>Volte para a pasta das ferramentas:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/pico
-</code></pre></div>
-<ol>
-<li>Instale as dependências: </li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>automake<span class="w"> </span>autoconf<span class="w"> </span>build-essential<span class="w"> </span>texinfo<span class="w"> </span>libtool<span class="w"> </span>libftdi-dev<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>pkg-config
-</code></pre></div>
-<ol>
-<li>Compilnando e instalando o PicoProbe</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/openocd.git<span class="w"> </span>--branch<span class="w"> </span>rp2040-v0.12.0<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--no-single-branch
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>openocd
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>$<span class="w"> </span>./bootstrap
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>$<span class="w"> </span>./configure
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>$<span class="w"> </span>make<span class="w"> </span>-j4
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div>
-<ol>
-<li>Configure a permissão do usb:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">&quot;*CMSIS-DAP*&quot;</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;664&quot;</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/udev/rules.d/99-debug-probe.rules
-</code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>trigger
-</code></pre></div>
-<ol>
-<li>Instale o <code>gdb</code> crosscompile:</li>
-</ol>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ sudo apt install gdb-multiarch
-</code></pre></div>
-<h3 id="testando_1">Testando</h3>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Inserir imagem debug-probe</p>
-</div>
-<p>Plugue o debug-probe no computador e execute:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>openocd<span class="w"> </span>-f<span class="w"> </span>interface/cmsis-dap.cfg<span class="w"> </span>-f<span class="w"> </span>target/rp2040.cfg<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;adapter speed 5000&quot;</span>
-</code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Correto</label><label for="__tabbed_1_2">Fail</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><a class="glightbox" href="../imgs/openocd-ok.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/openocd-ok.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<p><a class="glightbox" href="../imgs/openocd-fail.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/openocd-fail.png" /></a></p>
-</div>
-</div>
-</div>
-<h2 id="parte-3-wokwi-cli">Parte 3 - Wokwi-cli</h2>
-<p>Wokwi é um simulador de microcontroladores, iremos usar em algumas atividades de laboratório.</p>
-<ol>
-<li>Instale o software:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://wokwi.com/ci/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-</code></pre></div>
-<h3 id="testando_2">Testando</h3>
-<p>Execute no terminal <code>wokwi-cli --help</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nv">$wokwi</span>-cli<span class="w"> </span>--help
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Wokwi<span class="w"> </span>CLI<span class="w"> </span>v0.9.0<span class="w"> </span><span class="o">(</span>abc2bb2a3530<span class="o">)</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span>USAGE
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">      </span>$<span class="w"> </span>wokwi-cli<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>path/to/project<span class="o">]</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span>OPTIONS
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">  </span>....
-</code></pre></div>
-<h2 id="parte-4-vscode">Parte 4 - vscode</h2>
-<p>Instale o vscode no Linux:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>--classic<span class="w"> </span>code<span class="w"> </span>
-</code></pre></div>
-<h3 id="testando_3">Testando</h3>
-<p>Abra o vscode! </p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>code<span class="w"> </span>.
-</code></pre></div>
-<h2 id="parte-5-configurando-vscode-e-testando">Parte 5 - Configurando vscode e testando</h2>
-<p>Volte para a pasta base:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/pico
-</code></pre></div>
-<p>Clone o repositório de teste e abra no vscode:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:insper-embarcados/infra-test.git
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>infra-test
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>$<span class="w"> </span>code<span class="w"> </span>.
-</code></pre></div>
-<p>Agora vamos carregar as extensões necessárias. No vscode execute:</p>
-<ol>
-<li><code>file</code> -&gt; <code>Preferences</code> -&gt; <code>Profiles</code> -&gt; <code>Import Profile ...</code></li>
-<li><code>Select File</code></li>
-<li><code>pico.code-profile</code></li>
-<li>Crie um novo profile chamado <code>pico</code></li>
-<li>Aguarde as extensões serem instaladas</li>
-<li>Quando pedir pelo compilador escolha qualquer versão do <code>arm-none-eabi</code>. </li>
-<li>
-<p>Agora compile o projeto clicando no botão <code>Build</code> (barra inferior), você deve obter o seguinte resultado:</p>
+<h1 id="projeto-aberto">Projeto aberto!</h1>
+<p>Agora é com vocês, já passaram por dois projetos e entenderam de que são capazes de fazerme coisas muito legais e complexas. Ter ideia não é fácil, então nós fizemos uma curadoria de algumas ideias, que vocês podem escolher fazer, ou usar para ter novas ideias:</p>
 <ul>
-<li>no terminal <code>[build] Build finished with exit code 0</code></li>
-<li>pasta built criada no diretório com o arquivo <code>test/main.uf2</code></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1G-PC3vaRSkxljorcNbnRracTNgGwdA5xolt-NPy4ndI/edit?gid=0#gid=0">Ideias</a></li>
+</ul>
+<p>Outra coisa que ajuda ter ideias é saber o que vocês vão poder aprender na trilha de especializacão, a seguir temos um resumo:</p>
+<p><a class="glightbox" href="imgs/trilhas.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="imgs/trilhas.png" /></a></p>
+<p>A seguir um breve resumo:</p>
+<ul>
+<li><strong>Comunicação</strong>: Aprender a utilizar outras formas de comunicação entre o uC e outro dispositivo.<ul>
+<li>WIFI: Como usar o wifi da nossa placa, enviar e receber dados de um servidor.</li>
+<li>Blutooth: Nossa placa possuiu um blutooth muito melhor do que o HC-06, conseguimos fazer coisas como criar uma caixinha de som!</li>
 </ul>
 </li>
-</ol>
-<iframe width="700" height="415" src="https://www.youtube.com/embed/aouIrh3FCn4?si=pbTZrMpU57Gs2F7Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+<li><strong>Processamento Digital de Sinais (DSP)</strong>: Focada em como adquirir, tratar e processar sinais em sistemas embarcados, essa trilha avança até a aplicação de Inteligência Artificial.<ul>
+<li>Áudio: Aprender como coletar áudio e reproduzir o som em um falante.</li>
+<li>IA: Aprender a treinar uma rede neural e executar ela na plaquinha, vamos usar a nossa IMU como entrada da rede.</li>
+</ul>
+</li>
+<li><strong>Sensores e Atuadores</strong>: Esta trilha aprofunda a compreensão sobre como podemos detectar e controlar o mundo físico usando módulos. Frequentemente, esses módulos requerem o uso de protocolos machine-to-machine (M2M), como I2C, SPI, entre outros.<ul>
+<li>Servo: Aprender a criar um </li>
+</ul>
+</li>
+<li><strong>Firmware</strong>: Uma das principais preocupações em sistemas embarcados são os requisitos energéticos, segurança e confiabilidade. Esta trilha se dedica a aprofundar o entendimento sobre como desenvolver códigos eficientes.</li>
+</ul>
+<p>As trilhas foram criadas com base na experiência da equipe e também utilizando como referência informações disponíveis sobre o desenvolvimento de produtos com sistemas embarcados, uma das referências utilizadas é um survey da <code>embedded.com</code>:</p>
+<p><a class="glightbox" href="imgs/about-expert-survey.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="imgs/about-expert-survey.png" width="400" /></a></p>
+<h2 id="projeto">Projeto</h2>
+<p>O projeto precisa:</p>
+<ul>
+<li>Ser em grupos de três! </li>
+<li>Ter coisas das três trilhas.</li>
+</ul>
+<p>Nota final:</p>
+<ul>
+<li>Vamos ter uma rubrica por especialidade.</li>
+<li>A nota final vai ser individual onde a trilha na qual você faz parte conta mais para a sua nota:<ul>
+<li>2/4 sua especialidade, &frac14; outras especialidades.</li>
+</ul>
+</li>
+</ul>
+<h2 id="outras-fontes">Outras fontes</h2>
+<p>Existem outras boas fontes de ideias:</p>
+<ul>
+<li><a href="https://hackaday.io/discover">hackaday</a></li>
+<li><a href="https://www.tindie.com/">tindie</a></li>
+<li><a href="https://blog.adafruit.com/page/2/">adafruit</a></li>
+</ul>
 
 
 </section>
@@ -1133,6 +1043,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../labs/i2c-pra-lab/"
+               class="ah-prev"
+               title="Prática">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Prática</span>
+            </a>
+          
+          
+            <a href="../labs-expert/labs-expert-about/"
+               class="ah-next"
+               title="Sobre">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Sobre</span>
+            </a>
           
         </div>
       </footer>
