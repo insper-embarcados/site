@@ -894,6 +894,10 @@
                 <a href="#entrega">Entrega</a>
               </li>
             
+              <li class="ah-toc-item">
+                <a href="#requisitos">Requisitos</a>
+              </li>
+            
         
       </ul>
     </li>
@@ -1011,6 +1015,7 @@
 </table>
 <p>Neste laboratório, iremos criar um sistema capaz de ajustar a posição de um servomotor através da seleção de diferentes sensores!</p>
 <h2 id="lab">Lab</h2>
+<p><a class="glightbox" href="../imgs-sensores/pan-tilt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-sensores/pan-tilt.png" /></a></p>
 <p>Sistema embarcados são responsáveis por ler e controlar o mundo externo e fazer isso é muitas vezes desafiador pois precisamos usar sensores e atuadores externos, esses dispositivos possuem diferentes interfaces e características distintas. Nessa série de laboratórios da especialidade de sensores e atuadores iremos explorar um pouco esse vasto mundo e fornecer ferramentas a vocês para facilitar esse processo.  </p>
 <h3 id="servomotor">Servomotor</h3>
 <p>Uma de controlarmos posição de um objeto é utilizando um motor chamado de <code>servomotor</code>, ele diferente do motor de passo, recebe como entrada a posição e automaticamente (ele possui uma malha fechada interna), faz com que o rotor vá direto para a posição definida. Servo motores são muitos utilizados, podemos listar alguns exemplos:</p>
@@ -1020,36 +1025,41 @@
 <li>Posicionamento de câmeras</li>
 <li>Fechaduras automáticas</li>
 </ul>
-<p>Nesse laboratório vocês irão criar um sistema (DIVERTIDO) usando dois servomotores e dois sensores analógicos. </p>
-<p><a class="glightbox" href="https://m.media-amazon.com/images/I/61zmykS365L._AC_SL1500_.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://m.media-amazon.com/images/I/61zmykS365L._AC_SL1500_.jpg" width="400px" /></a></p>
-<p>Para entender como o servo motor funciona, consulte o material no site da disiplina:</p>
+<p>Para entender como o servo motor funciona, consulte o material no site da disciplina:</p>
 <ul>
 <li><a href="/site/dispositivos/servo">Dispositivos/Servomotor</a></li>
 </ul>
 <h3 id="sensores-e-sensores-e-mais-sensores">Sensores e sensores e mais sensores</h3>
-<p>Você deve escolher dois sensores do listados a seguir, todos irão gerar uma variação da tensão dado uma grandeza externa. Para uma lista dos sesnores disponíveis, consulte o site disciplina:</p>
+<p>Você deve escolher dois sensores do listados a seguir, todos irão gerar uma variação da tensão dado uma grandeza externa. Para uma lista dos sensores disponíveis, consulte o site disciplina:</p>
 <ul>
 <li><a href="/site/dispositivos/analogicos">Dispositivos/Analogicos</a></li>
 </ul>
 <h2 id="entrega">Entrega</h2>
-<p>Você deve entregar um sistema que possui dois servos motores e dois sensores analógicos (listados a seguir), onde cada um irá ajustar a posição de um servomotor diferente. Por sua vez, o movimento do motor terá que influenciar mecanicamente um objeto, como alguns exemplos abaixo:</p>
+<p>Você deverá efetuar uma montagem mecânica utilizando no mínimo 2 servomotores, a sugestão é que você replique o mecanismo Pan-Tilt conforme o projeto do link abaixo:</p>
+<p><a href="https://www.thingiverse.com/thing:708819">https://www.thingiverse.com/thing:708819</a></p>
+<p>O controle desse mecanismo deverá ser feito utilizando no mínimo 2 dos sensores apresentados:</p>
+<ul>
+<li><a href="https://insper-embarcados.github.io/site/dispositivos/analogicos/#ldr">LDR</a></li>
+<li><a href="https://insper-embarcados.github.io/site/dispositivos/analogicos/#termistor-ntc">Termistor NTC</a></li>
+<li><a href="https://insper-embarcados.github.io/site/dispositivos/analogicos/#strain-gauge">Strain gauge</a></li>
+<li><a href="https://insper-embarcados.github.io/site/dispositivos/analogicos/#sharp">SHARP</a></li>
+</ul>
+<p>Existem outros projetos utilizando 2 servomotores, disponíveis no próprio <a href="https://www.thingiverse.com/search?q=servo+pan+tilt&amp;page=1">Thingiverse</a>.</p>
+<h2 id="requisitos">Requisitos</h2>
+<p>Requisitos do laboratório:</p>
 <ol>
-<li><a href="https://labdegaragem.com/profiles/blogs/tutorial-robo-de-papel-faca-o-seu-garabot-controlado-por-ir">Tutorial - Robô de Papel</a></li>
-<li><a href="http://www.pyroelectro.com/tutorials/robotic_eyebrows/">Robotic Eyebrows</a></li>
-<li><a href="https://www.youtube.com/watch?v=QH8MPCCrpbg">Arduino-Controlled Robotic Hand</a></li>
-</ol>
-<p><strong>Requisitos:</strong></p>
-<ol>
-<li>Possuir no mínimo dois servos</li>
+<li>Construir um pan-tilt com dois servos</li>
+<li>Controlar o pan-tilt com o thumb joystick </li>
+<li>Agregar um sensor <strong>NOVO</strong> ao pan-tilt</li>
+<li>Enviar a leitura do sensor via UART (dados já processados)</li>
 <li>Implementar o sistema com RTOS.</li>
-<li>Cada um dos sensores deverá estar ligado a um pino ADC diferente.</li>
-<li>Controlar mecanicamente algum objeto, com um objetivo.</li>
 </ol>
-<p>Dicas:</p>
+<p><strong>Dicas:</strong></p>
 <ol>
-<li>Primeiro faća o servomotor funcionar, utilize dois potenciometros como controle da posição</li>
-<li>Substitua os potenciometros pelos sensores listados a seguir</li>
+<li>Imprima o pan-tilt</li>
 <li>Monte a parte mecânica.</li>
+<li>Faça o servomotor funcionar, utilize dois potenciômetros como controle da posição;</li>
+<li>Substitua os potenciômetros pelos sensores listados;</li>
 </ol>
 
 
