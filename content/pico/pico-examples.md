@@ -10,7 +10,7 @@ A raspberry pi fundation disponibiliza oficialmente uma série de códigos exemp
     No termminal:
     
     ```
-    git cehckout c95295f830a68a4854f822f07ef1b9b5abc3079e
+    git checkout c95295f830a68a4854f822f07ef1b9b5abc3079e
     ```
 
 ## Usando exemplos

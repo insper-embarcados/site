@@ -8,6 +8,11 @@
 
 Neste laboratório iremos criar um sistema capaz de captar um sinal de áudio com um microfone e reproduzir o sinal lido em um speaker! 
 
+!!! info "Pico Examples"
+    Para conseguir rodar códigos do pico exemples, consulte a página a página:
+    
+    - https://insper-embarcados.github.io/site/pico/pico-examples/
+
 ## Lab
 
 Fazer a leitura de um microfone é fácil, basta configurar o 'ADC' para ler o valor que o microfone gera, criar uma base de tempo para controlar a frequência de amostragem dos dados, e fazer a captura periódicamente. Para saber como usar um microfone na pico, consulte:
