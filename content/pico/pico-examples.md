@@ -4,21 +4,20 @@ A raspberry pi fundation disponibiliza oficialmente uma série de códigos exemp
 
 - https://github.com/raspberrypi/pico-examples
 
+!!! tip
+    A pico atualizou a biblioteca dela, vocês vão precisar dar um checkout para uma versão antiga do pico examples:
 
-
-
-
-
+    No termminal:
+    
+    ```
+    git cehckout c95295f830a68a4854f822f07ef1b9b5abc3079e
+    ```
 
 ## Usando exemplos
 
+Para usar o exemplos na nossa infra é preciso clonar o repositório e criar um diretório chamado `.devcontainer` com o arquivo `devcontainer.json` com o  seguinte conteúdo:
 
-
-### .devcontainer/
-
-Para usar o exemplos na nossa infra é preciso clonar o repositório e criar um diretórrio chamado `.devcontainer` com o arquivo `devcontainer.json` com o  seguinte conteúdo:
-
-- [devcontainer.json](
+- [./devcontainer/devcontainer.json](
 https://github.com/insper-embarcados/pico-base-project/blob/main/.devcontainer/devcontainer.json)
 
 !!! tip
@@ -34,13 +33,11 @@ cmake_minimum_required(VERSION 3.12)
 +set(PICO_BOARD pico_w)
 ```
 
-
-
 ### .vscode/
 
 Para gravar e debugar (RUN AND DEBUG) os exemplos dentro do vscode na nossa infra, é preciso também fazer o download do repositório no link abaixo e descompactar o mesmo no repositório clonado:
 
-- [.vscode.zip](https://insper-my.sharepoint.com/:u:/g/personal/marcoasma_insper_edu_br/EY1GhgGok2lJgQcrGaubDMsBBjT1rsQQA2Yry2DCxlvrSQ?e=Im28Cq)
+- [.vscode/.vscode.zip](https://insper-my.sharepoint.com/:u:/g/personal/marcoasma_insper_edu_br/EY1GhgGok2lJgQcrGaubDMsBBjT1rsQQA2Yry2DCxlvrSQ?e=Im28Cq)
 
 !!! tip
     Todos os códigos que disponibilizamos para vocês na disciplina possuem esse diretório, vocês podem apenas copiar o mesmo para o repositório clonado.
