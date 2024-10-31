@@ -1010,8 +1010,15 @@
 </tbody>
 </table>
 <p>Neste laboratório vamos explorar os recursos de conectividade <code>Wi-Fi</code> da <code>Raspberry Pi Pico W</code>. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Antes de seguir, consulte o material de wifi em:100%</p>
+<ul>
+<li><a href="/site/pico/pico-wifi">Pico W/WIFI</a></li>
+</ul>
+</div>
 <h2 id="lab">Lab</h2>
-<p>Sistemas embarcados devem muitas vezes se comunicarem com outros dispositivos, ou se conectarem a internet. Muitas são as soluções que podemos assumir para a comunicação, que vão desde de protocolos proprietários de comunicacão de rádio frequência (por exemplo uma <a href="https://www.polar.com/br/sensores/sensor-de-frequencia-cardiaca/h9">sensor de frequência cardíaca</a> ) ou o uso de comunicacoes como: WIFI, bluetooth, 4G, Ethernet. Recentemente muitas soluções surgiram para a comunicação de longas distâncias e com baixo consumo energético como: LoRA ou Sigfox.</p>
+<p>Sistemas embarcados devem muitas vezes se comunicarem com outros dispositivos, ou se conectarem a internet. Muitas são as soluções que podemos assumir para a comunicação, que vão desde de protocolos proprietários de comunicacão de rádio frequência (por exemplo uma <a href="https://www.polar.com/br/sensores/sensor-de-frequencia-cardiaca/h9">sensor de frequência cardíaca</a>) ou o uso de comunicacoes como: WIFI, bluetooth, 4G, Ethernet. Recentemente muitas soluções surgiram para a comunicação de longas distâncias e com baixo consumo energético como: LoRA ou Sigfox.</p>
 <p>O nosso kit de desenvolvimento possui além do microcontrolador rp2040 (o que temos programado até agora), um outro dispositivo chamado de <code>CYW43439</code> que funciona como uma placa de rede e implementa tanto a comunicação wifi quanto bluetooth:</p>
 <p><a class="glightbox" href="../imgs-com/pico-cyw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/pico-cyw.png" /></a></p>
 <p>O WIFI é uma solução importante e utilizada em muitos produtos, mas possui uma série de problemas que devem ser levadas em consideração:</p>
@@ -1041,10 +1048,6 @@
 <li><a href="https://zapier.com/">Zapier</a></li>
 </ul>
 <h2 id="entrega">Entrega</h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Atualizado</p>
-</div>
 <p>Um sistema embarcado que se conecta a um servidor local (flask) e envia periodicamente dados de uma leitura analógica. O servidor deve imprimir (ou exibir em html) os valores lidos.</p>
 <!--
 A entrega deve ser um sistema embarcado com WIFI na qual você é capaz de ler dados de um potenciometro e enviar as informacoes para uma planilha do google sheets, simulando um dataloger.

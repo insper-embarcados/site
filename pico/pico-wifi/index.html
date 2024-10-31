@@ -995,11 +995,12 @@
           
             <section class="progress-section show">
 <h1 id="pico-w">Pico - W</h1>
-<p>O <code>Raspberry Pi Pico</code> e o <code>Pico W</code> são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não haviamos falado da existencia dessa versão Pico W. O <code>Raspberry Pi Pico W</code> é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.</p>
+<p>O <code>Raspberry Pi Pico</code> e o <code>Pico W</code> são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não havíamos falado da existência dessa versão Pico W. O <code>Raspberry Pi Pico W</code> é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.</p>
 <p><a class="glightbox" href="../imgs/pico-cyw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/pico-cyw.png" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Datasheet Pico W: <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf</a></p>
+<p>Datasheet Pico W: 
+- <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf</a></p>
 </div>
 <h2 id="chip-cyw43439">Chip CYW43439</h2>
 <p>Ambas as versões, Pico e Pico W, utilizam o mesmo microcontrolador RP2040. A principal diferença está na inclusão do chip CYW43439 da Infineon no Pico W, que adiciona as seguintes funcionalidades wireless:</p>
@@ -1013,7 +1014,7 @@
 </ul>
 </li>
 </ul>
-<p>Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados para comunicação com o CYW43439 e foram substituídos pelo GPIO presente no CY43439. Esses podem ser controládos pelo usuário, são eles:</p>
+<p>Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados para comunicação com o CYW43439 e foram substituídos pelo GPIO presente no CY43439. Esses podem ser controlados pelo usuário, são eles:</p>
 <ul>
 <li><code>WL_GPIO2</code> – (Entrada) Sentido VBUS. ALTO quando VBUS está presente (Veja o datasheet)</li>
 <li><code>WL_GPIO1</code> – (Saída) Controla o pino SMPS Power Save integrado (Veja o datasheet)</li>
@@ -1174,7 +1175,7 @@
 <p>Eu gastei um tempinho até fazer os ajustes do cmake para compilar corretamente o exemplo de conexão wifi adaptado a seguir. Além da configuração normal para usar a pico_w, realizei as seguintes configurações:</p>
 <ul>
 <li>
-<p>No <code>cmakelist.txt</code> da pasta <code>main</code>: adicione 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. </p>
+<p>No <code>cmakelist.txt</code> da pasta <code>main</code>: adicione <code>target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )</code>. </p>
 </li>
 <li>
 <p>O suporte ao Wi-Fi na Pico W requer o uso das bibliotecas específicas fornecidas no SDK, por isso altere <code>pico_cyw43_arch_none</code> para <code>pico_cyw43_arch_lwip_threadsafe_background</code>.</p>
@@ -1182,10 +1183,10 @@
 </ul>
 <p>Estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.</p>
 <ul>
-<li>Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do <a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h">repositório de exemplos da pico</a> para a pasta main com o nome <code>lwipopts.h</code>.  </li>
+<li>Na pasta de projeto main: criei uma cópida do arquivo <code>lwipopts_examples_common.h</code> do <a href="https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h">repositório de exemplos da pico</a> para a pasta main com o nome <code>lwipopts.h</code>.  </li>
 </ul>
 </div>
-<p>O código base a seguir irá <code>tentar</code> se conectar à internet, se for sucesso o led da placa acende.</p>
+<p>O código base a seguir irá <strong>tentar</strong> se conectar à internet, se for sucesso o led da placa acende.</p>
 <div class="language-C highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/stdlib.h&quot;</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pico/cyw43_arch.h&quot;</span>
