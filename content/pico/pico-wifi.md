@@ -1,11 +1,12 @@
 # Pico - W
 
-O `Raspberry Pi Pico` e o `Pico W` são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não haviamos falado da existencia dessa versão Pico W. O `Raspberry Pi Pico W` é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.
+O `Raspberry Pi Pico` e o `Pico W` são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não havíamos falado da existência dessa versão Pico W. O `Raspberry Pi Pico W` é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.
 
 ![](imgs/pico-cyw.png)
 
 !!! tip
-    Datasheet Pico W: [https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
+    Datasheet Pico W: 
+    - [https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
 
 ## Chip CYW43439
 
@@ -19,7 +20,7 @@ Ambas as versões, Pico e Pico W, utilizam o mesmo microcontrolador RP2040. A pr
     - Suporte para Bluetooth LE Central and Peripheral roles
     - Suporte para Bluetooth Classic
 
-Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados para comunicação com o CYW43439 e foram substituídos pelo GPIO presente no CY43439. Esses podem ser controládos pelo usuário, são eles:
+Na Pico W, alguns pinos internos (usuário não tem acesso) são direcionados para comunicação com o CYW43439 e foram substituídos pelo GPIO presente no CY43439. Esses podem ser controlados pelo usuário, são eles:
 
 - `WL_GPIO2` – (Entrada) Sentido VBUS. ALTO quando VBUS está presente (Veja o datasheet)
 - `WL_GPIO1` – (Saída) Controla o pino SMPS Power Save integrado (Veja o datasheet)
@@ -190,16 +191,16 @@ int main() {
 !!! warning
     Eu gastei um tempinho até fazer os ajustes do cmake para compilar corretamente o exemplo de conexão wifi adaptado a seguir. Além da configuração normal para usar a pico_w, realizei as seguintes configurações:
 
-    - No `cmakelist.txt` da pasta `main`: adicione 'target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )'. 
+    - No `cmakelist.txt` da pasta `main`: adicione `target_include_directories(main PRIVATE ${CMAKE_CURRENT_LIST_DIR} )`. 
 
     - O suporte ao Wi-Fi na Pico W requer o uso das bibliotecas específicas fornecidas no SDK, por isso altere `pico_cyw43_arch_none` para `pico_cyw43_arch_lwip_threadsafe_background`.
     
     Estou assumindo que você está compilando a pasta de projeto main, caso contrario substitua pelo nome da pasta do seu projeto.
 
-    - Na pasta de projeto main: criei uma cópida do arquivo 'lwipopts_examples_common.h' do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h) para a pasta main com o nome `lwipopts.h`.  
+    - Na pasta de projeto main: criei uma cópida do arquivo `lwipopts_examples_common.h` do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi/lwipopts_examples_common.h) para a pasta main com o nome `lwipopts.h`.  
 
 
-O código base a seguir irá `tentar` se conectar à internet, se for sucesso o led da placa acende.
+O código base a seguir irá **tentar** se conectar à internet, se for sucesso o led da placa acende.
 
 ```C
 #include <stdio.h>
