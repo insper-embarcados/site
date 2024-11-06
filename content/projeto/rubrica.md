@@ -6,6 +6,8 @@ Idealmente, vocês desenvolverão o projeto em trios. Nesse caso, a nota final s
 
 ![](imgs/nota-final.png)
 
+--------------
+
 ## Comunicação
 
 O objetivo é que você seja capaz de estabelecer uma comunicação ponto a ponto com outro dispositivo (como um PC, servidor ou outra placa), enviando ou recebendo informações por essa rede.
@@ -15,7 +17,7 @@ O objetivo é que você seja capaz de estabelecer uma comunicação ponto a pont
 - Envia **OU** recebe dados.
 - Utiliza WiFi, Bluetooth ou USB nativos da placa Pico W.
 - Documenta o protocolo de comunicação utilizado.
-
+  
 ### Ganhando Pontos
 
 Cada item a seguir adiciona meio ponto:
@@ -25,6 +27,9 @@ Cada item a seguir adiciona meio ponto:
 - Implementa mecanismos de otimização de dados (ex.: compressão de dados).
 - Estabelece comunicação segura com criptografia.
 - Implementa otimizações de energia.
+- ==Você pode propor **uma** rubrica que vale ponto (validar com a equipe).== 
+
+--------------
 
 ## Firmware
 
@@ -43,6 +48,10 @@ A expectativa é que você estruture o firmware seguindo boas práticas, promove
 - Adota e documenta um padrão de estilo seguido em todo o código.
 - Utiliza DMA.
 - Implementa estratégias de economia de energia.
+- ==Você pode propor **uma** rubrica que vale ponto (validar com a equipe).== 
+
+
+--------------
 
 ## DSP
 
@@ -59,6 +68,9 @@ Na especialidade de DSP, espera-se que você seja capaz de amostrar sinais anal�
 - Geração de um sinal.
 - Processamento em tempo real de sinais.
 - Uso de FFT (Transformada Rápida de Fourier) para análise de frequências.
+- ==Você pode propor **uma** rubrica que vale ponto (validar com a equipe).== 
+
+--------------
 
 ## Sensores e Atuadores
 
@@ -72,8 +84,10 @@ Nesta especialidade, você deve ser capaz de usar novos dispositivos e criar sol
 
 ### Ganhando Pontos
 
+- Sensor e atuador não vistos.
 - Implementa calibração de sensores e detecção de falhas.
 - Implementa filtros básicos para leituras de sensores (ex.: filtro de média móvel).
 - Otimiza o consumo de energia em sensores e atuadores, reduzindo leituras em modo de baixa energia.
 - Realiza fusão de dados de múltiplos sensores.
-- Desenvolvimento de algoritmos de controle (ex.: PID) para controle de atuadores.
+- Desenvolvimento de algoritmos de controle ([PID](https://www.zhinst.com/ch/en/resources/principles-of-pid-controllers?mc_cid=e977a1041f)) para controle de atuadores.
+- ==Você pode propor **uma** rubrica que vale ponto (validar com a equipe).== 
