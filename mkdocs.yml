@@ -76,7 +76,7 @@ extra:
     lab_expert_1_deadline: 04/11
     
     lab_expert_2_classroom: https://classroom.github.com/a/ZtlYq6bB
-    lab_expert_2_deadline: 13/11
+    lab_expert_2_deadline: 11/11
 
     aps_1_classroom: https://classroom.github.com/a/G1_ZsJG4
     aps_1_deadline: 30/08 (Sexta)
@@ -205,7 +205,8 @@ nav:
         - ⏰ Preparatório: labs/i2c-pre-lab.md
         - Prática: labs/i2c-pra-lab.md
   - Projeto:
-      - projeto/index.md
+      - Sobre: projeto/index.md
+      - Rubrica: projeto/rubrica.md
   - Labs experts:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:
