@@ -9,7 +9,7 @@
 Neste laboratório, iremos criar uma aplicação que faz as leituras de um sensor bme280 e mostrar os valores aferidos em um display LCD TFT com driver ili9341, ambos utilizando protocolo SPI.
 
 !!! warning "Placa Adaptadora para o LCD"
-    Você poderá utilizar a placa adaptadora do LCD para utilizar juntamento com  placa da OLED:
+    Você poderá utilizar a placa adaptadora do LCD para utilizar juntamente com a placa da OLED:
 	
 	![](imgs-bme280-ili9341/placa_adaptadora.jpg){width=400px}
 	
