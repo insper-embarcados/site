@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -832,6 +833,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -1015,7 +1024,7 @@
 <p>A resolução do sinal vai implicar na quantização do sinal, quantização é o processo de convertermos um valor que é constante em amplitude em um valor que é discreto em amplitude. Por exemplo, se o nosso ADC foi configurado para ler um valor entre [0, 3.3]V e ele possui, por exemplo, 12 bits de resolução, isso vai implicar que cada bit equivale a:</p>
 <p>$bit = \frac{3.3 \, V}{2^{12}} = 0.8 \, mV$  </p>
 <p>O gráfico a seguir detalha o processo de quantização:</p>
-<p><a class="glightbox" href="https://www.allaboutcircuits.com/uploads/articles/quantisation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.allaboutcircuits.com/uploads/articles/quantisation.png" /></a></p>
+<p><a class="glightbox" href="https://www.allaboutcircuits.com/uploads/articles/quantisation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.allaboutcircuits.com/uploads/articles/quantisation.png" /></a></p>
 <blockquote>
 <p>Ref: <a href="https://www.allaboutcircuits.com/technical-articles/understanding-analog-to-digital-converters-deciphering-resolution-and-sampl/">Understanding Analog-to-Digital Converters: Deciphering Resolution and Sampling Rate</a></p>
 </blockquote>
@@ -1035,9 +1044,9 @@
 <li>Five input mux</li>
 </ul>
 <p>Notem que o ADC possui 5 entradas, mas só podemos realizar a conversão de apenas uma por vez! Ou seja, a taxa máxima de <code>500 ksps</code> cai para <code>100 ksps</code> se usarmos as quatro portas. Outro detalhe é que a entrada <code>4</code> do mux não está conectada a um pino, mas sim a um sensor de temperatura interno do uC.</p>
-<p><a class="glightbox" href="../imgs/adc.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/adc.png" /></a></p>
+<p><a class="glightbox" href="../imgs/adc.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/adc.png" /></a></p>
 <p>Na Pico, os pinos do ADC são: <code>GP28</code>, <code>GP27</code> e <code>GP26</code>. Notem que a entrada <code>3</code> do mux do ADC não está disponível na PICO, seria o pino (<code>GP29</code>) da RP2040.</p>
-<p><a class="glightbox" href="../imgs/adc-pico.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/adc-pico.png" /></a></p>
+<p><a class="glightbox" href="../imgs/adc-pico.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/adc-pico.png" /></a></p>
 <h2 id="sdk">SDK</h2>
 <p>Para usar o PWM você deve modificar o <code>CMakeLists.txt</code> adicionando <code>hardware_adc</code> no <code>target_link_libraries</code>:</p>
 <div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>target_link_libraries(
@@ -1109,6 +1118,5 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

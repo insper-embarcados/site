@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -836,6 +837,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -1005,7 +1014,8 @@
 <h1 id="rubrica-do-projeto">Rubrica do Projeto</h1>
 <p>A nota final será composta pela avaliação do grupo nas especialidades que o projeto explora. A especialidade escolhida individualmente terá o maior peso na nota final (cada aluno terá uma nota diferente dos demais). As rubricas são dependentes apenas da especialidade escolhida, não do projeto em si.</p>
 <p>Idealmente, vocês desenvolverão o projeto em trios. Nesse caso, a nota final será composta pela média entre a nota da sua especialidade e a média das outras especialidades do grupo. Para outros casos, consulte o esquema a seguir:</p>
-<p><a class="glightbox" href="../imgs/nota-final.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/nota-final.png" /></a></p>
+<p><a class="glightbox" href="../imgs/nota-final.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/nota-final.png" /></a></p>
+<hr />
 <h2 id="comunicacao">Comunicação</h2>
 <p>O objetivo é que você seja capaz de estabelecer uma comunicação ponto a ponto com outro dispositivo (como um PC, servidor ou outra placa), enviando ou recebendo informações por essa rede.</p>
 <h3 id="c-minimo">C (Mínimo)</h3>
@@ -1022,7 +1032,9 @@
 <li>Implementa mecanismos de otimização de dados (ex.: compressão de dados).</li>
 <li>Estabelece comunicação segura com criptografia.</li>
 <li>Implementa otimizações de energia.</li>
+<li><mark>Você pode propor <strong>uma</strong> rubrica que vale ponto (validar com a equipe).</mark> </li>
 </ul>
+<hr />
 <h2 id="firmware">Firmware</h2>
 <p>A expectativa é que você estruture o firmware seguindo boas práticas, promovendo a redução de erros, a eficiência (em processamento e energia) e facilitando futuras alterações.</p>
 <h3 id="c-minimo_1">C (Mínimo)</h3>
@@ -1038,7 +1050,9 @@
 <li>Adota e documenta um padrão de estilo seguido em todo o código.</li>
 <li>Utiliza DMA.</li>
 <li>Implementa estratégias de economia de energia.</li>
+<li><mark>Você pode propor <strong>uma</strong> rubrica que vale ponto (validar com a equipe).</mark> </li>
 </ul>
+<hr />
 <h2 id="dsp">DSP</h2>
 <p>Na especialidade de DSP, espera-se que você seja capaz de amostrar sinais analógicos do mundo real, processá-los e extrair informações. Você pode utilizar técnicas modernas de processamento de sinais, como IA, ou métodos clássicos, como filtros e FFT.</p>
 <h3 id="c-minimo_2">C (Mínimo)</h3>
@@ -1052,7 +1066,9 @@
 <li>Geração de um sinal.</li>
 <li>Processamento em tempo real de sinais.</li>
 <li>Uso de FFT (Transformada Rápida de Fourier) para análise de frequências.</li>
+<li><mark>Você pode propor <strong>uma</strong> rubrica que vale ponto (validar com a equipe).</mark> </li>
 </ul>
+<hr />
 <h2 id="sensores-e-atuadores">Sensores e Atuadores</h2>
 <p>Nesta especialidade, você deve ser capaz de usar novos dispositivos e criar soluções mais integradas entre hardware e usuário, dominando o uso de sensores e atuadores.</p>
 <h3 id="c-minimo_3">C (Mínimo)</h3>
@@ -1063,11 +1079,13 @@
 </ul>
 <h3 id="ganhando-pontos_3">Ganhando Pontos</h3>
 <ul>
+<li>Sensor e atuador não vistos.</li>
 <li>Implementa calibração de sensores e detecção de falhas.</li>
 <li>Implementa filtros básicos para leituras de sensores (ex.: filtro de média móvel).</li>
 <li>Otimiza o consumo de energia em sensores e atuadores, reduzindo leituras em modo de baixa energia.</li>
 <li>Realiza fusão de dados de múltiplos sensores.</li>
-<li>Desenvolvimento de algoritmos de controle (ex.: PID) para controle de atuadores.</li>
+<li>Desenvolvimento de algoritmos de controle (<a href="https://www.zhinst.com/ch/en/resources/principles-of-pid-controllers?mc_cid=e977a1041f">PID</a>) para controle de atuadores.</li>
+<li><mark>Você pode propor <strong>uma</strong> rubrica que vale ponto (validar com a equipe).</mark> </li>
 </ul>
 
 
@@ -1086,11 +1104,11 @@
             </a>
           
           
-            <a href="../../labs-expert/labs-expert-about/"
+            <a href="../entrega-1/"
                class="ah-next"
-               title="Sobre">
+               title="Entrega 1">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Sobre</span>
+              <span class="nav-title">Entrega 1</span>
             </a>
           
         </div>
@@ -1099,6 +1117,5 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

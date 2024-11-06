@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -828,6 +829,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -1063,7 +1072,7 @@
 </figure>
 
 <p>Note que existem dois tipos de sinal: Curto e Longo. O desafio deste laboratório será gerarmos automaticamente esses dois tons.</p>
-<p><a class="glightbox" href="../imgs/lab-irq-pra-morse.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-irq-pra-morse.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-irq-pra-morse.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-irq-pra-morse.png" /></a></p>
 <h2 id="requisitos">Requisitos</h2>
 <p>Seu projeto deve possuir dois botões (<code>btn1</code> e <code>btn2</code>) e um buzzer. Cada botão deve reproduzir um tom diferente (indicamos <code>freq1</code>, <code>freq2</code>). O código deve fazer uso de IRQ para a leitura dos botões. O <code>btn1</code> deve reproduzir <code>freq1</code> por um determinado tempo, e o <code>btn2</code> deve reproduzir <code>freq2</code> pelo triplo do tempo do outro botão. A ideia é que não precisemos contar o tempo na nossa cabeça (curto/longo); o sistema faz isso por nós!</p>
 <table>
@@ -1147,6 +1156,5 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

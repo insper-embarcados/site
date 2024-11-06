@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -828,6 +829,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -996,7 +1005,7 @@
             <section class="progress-section show">
 <h1 id="servo-motor">Servo Motor</h1>
 <p>Um servomotor é um dispositivo que pode girar um determinado ângulo de acordo com o sinal que recebe. Ele possui três fios: um para fornecer energia (VCC), um para aterramento (GND) e um para o sinal de controle.</p>
-<p><a class="glightbox" href="../imgs-ppm-servomotor/Tipos_de_Servomotor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Tipos de Servomotor" src="../imgs-ppm-servomotor/Tipos_de_Servomotor.jpg" width="500px" /></a></p>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/Tipos_de_Servomotor.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Tipos de Servomotor" src="../imgs-ppm-servomotor/Tipos_de_Servomotor.jpg" width="500px" /></a></p>
 <h3 id="controlando-o-servomotor">Controlando o servomotor</h3>
 <p>Como foi estudado no LAB 5, podemos controlar o brilho de um LED através de uma técnica chamada de Pulse Width Modulation (PWM). Essa técnica permite que um sinal digital seja modulado em largura de pulso, variando a razão entre o tempo em que o sinal está em nível alto (<code>1</code>) e o tempo em que está em nível baixo (<code>0</code>). Isso resulta em um sinal com uma largura de pulso variável, o que permite controlar a média de potência entregue ao dispositivo. <a href="https://insper-embarcados.github.io/site/rp2040/rp2040-pwm/">Relembre sobre o PWM</a></p>
 <p>Podemos usar o PWM para gerar um outro tipo de sinal o Pulse Position Modulation (PPM) que é uma técnica onde a informação é codificada na posição do pulso em relação a um intervalo de tempo fixo. Em um sinal PPM, um pulso é enviado em momentos específicos durante um período fixo, e a posição desses pulsos em relação ao início do período é usada para representar dados:</p>
@@ -1004,7 +1013,7 @@
 <li><a href="https://www.geeksforgeeks.org/pulse-position-modulation-ppm/">https://www.geeksforgeeks.org/pulse-position-modulation-ppm/</a></li>
 </ul>
 <p>A maioria dos servomotores utiliza o PPM. Normalmente, aplicam essa técnica através de pulsos PWM com uma frequência de cerca de 50 Hz (ou um período de 20 ms), e a largura do pulso determina a posição desejada do servomotor. Um pulso de 1 ms geralmente representa a posição mínima, um pulso de 1,5 ms representa a posição central e um pulso de 2 ms representa a posição máxima, embora esses valores possam variar dependendo do fabricante e do modelo específico do servomotor.</p>
-<p><a class="glightbox" href="../imgs-ppm-servomotor/ppmSERVO.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PPM Servomotor" src="../imgs-ppm-servomotor/ppmSERVO.jpg" /></a></p>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/ppmSERVO.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="PPM Servomotor" src="../imgs-ppm-servomotor/ppmSERVO.jpg" /></a></p>
 <p>Para entender melhor, acesse:</p>
 <ul>
 <li><a href="https://blog.wokwi.com/learn-servo-motor-using-wokwi-logic-analyzer/">https://blog.wokwi.com/learn-servo-motor-using-wokwi-logic-analyzer/</a></li>
@@ -1015,11 +1024,9 @@
 <li><a href="https://github.com/Thomas-Kleist/Pico-Servo">https://github.com/Thomas-Kleist/Pico-Servo</a></li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<div class="language-text highlight"><pre><span></span><code>Lembrando que para poder utilizar o exemplo com a nossa infra, você precisará seguir os passsos em:
-
-https://insper-embarcados.github.io/site/pico/pico-examples/
-</code></pre></div>
+<p class="admonition-title">Warning<p>Lembrando que para poder utilizar o exemplo com a nossa infra, você precisará seguir os passsos em:</p>
+<p><a href="https://insper-embarcados.github.io/site/pico/pico-examples/">https://insper-embarcados.github.io/site/pico/pico-examples/</a></p>
+</p>
 </div>
 
 
@@ -1051,6 +1058,5 @@ https://insper-embarcados.github.io/site/pico/pico-examples/
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

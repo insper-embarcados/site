@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -812,6 +813,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -1028,7 +1037,7 @@
 <h2 id="lab">Lab</h2>
 <p>Sistemas embarcados devem muitas vezes se comunicarem com outros dispositivos, ou se conectarem a internet. Muitas são as soluções que podemos assumir para a comunicação, que vão desde de protocolos proprietários de comunicacão de rádio frequência (por exemplo uma <a href="https://www.polar.com/br/sensores/sensor-de-frequencia-cardiaca/h9">sensor de frequência cardíaca</a>) ou o uso de comunicacoes como: WIFI, bluetooth, 4G, Ethernet. Recentemente muitas soluções surgiram para a comunicação de longas distâncias e com baixo consumo energético como: LoRA ou Sigfox.</p>
 <p>O nosso kit de desenvolvimento possui além do microcontrolador rp2040 (o que temos programado até agora), um outro dispositivo chamado de <code>CYW43439</code> que funciona como uma placa de rede e implementa tanto a comunicação wifi quanto bluetooth:</p>
-<p><a class="glightbox" href="../imgs-com/pico-cyw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/pico-cyw.png" /></a></p>
+<p><a class="glightbox" href="../imgs-com/pico-cyw.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/pico-cyw.png" /></a></p>
 <p>O WIFI é uma solução importante e utilizada em muitos produtos, mas possui uma série de problemas que devem ser levadas em consideração:</p>
 <ul>
 <li>Alto consumo energético</li>
@@ -1048,7 +1057,7 @@
 </div>
 <h3 id="servicos">Serviços</h3>
 <p>O sistema embarcado pode se comportar de duas maneiras, como um web server ou como um cliente, normalmente a segunda opção é a mais utilizada por limitações e seguranças da rede (o seu roteador bloqueia que qualquer dispositivo externo a sua rede se conecte em um dispositivo interno).  </p>
-<p><a class="glightbox" href="../imgs-com/server.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/server.png" /></a></p>
+<p><a class="glightbox" href="../imgs-com/server.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/server.png" /></a></p>
 <p>Muitas são as soluções que podemos empregar para criar esse web server (pode criar o seu próprio serviço, lembre de tec web!), mas como queremos facilitar a nossa vida, podemos usar recursos como:</p>
 <ul>
 <li><a href="https://nodered.org/">Node-red</a></li>
@@ -1097,6 +1106,5 @@ Para isso você deverá:
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

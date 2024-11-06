@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -844,6 +845,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -1023,7 +1032,7 @@
 </ul>
 <h2 id="topologia">Topologia</h2>
 <p>Para usar o I2C, é necessário conectar os dispositivos em uma infraestrutura de barramento, geralmente utilizando resistores de pull-up na linha de dados (SDA) e na linha de clock (SCL). O sinal de clock (SCL) é sempre gerado pelo dispositivo controlador, que é o dispositivo que inicia e controla as comunicações. O sinal de dados (SDA) pode ser manipulado tanto pelo dispositivo controlador quanto pelo dispositivo com o qual ele está se comunicando.</p>
-<p><a class="glightbox" href="../imgs/I2C-Components-with-pull-up-resistors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="I2C-Components-with-pull-up-resistors" src="../imgs/I2C-Components-with-pull-up-resistors.png" /></a></p>
+<p><a class="glightbox" href="../imgs/I2C-Components-with-pull-up-resistors.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="I2C-Components-with-pull-up-resistors" src="../imgs/I2C-Components-with-pull-up-resistors.png" /></a></p>
 <p>É possível conectar um único dispositivo controlador a vários dispositivos em paralelo, formando uma topologia conhecida como "varal". Para possibilitar essa conexão, cada dispositivo é identificado por um endereço de 7 bits único.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1031,7 +1040,7 @@
 </div>
 <h2 id="protocolo">Protocolo</h2>
 <p>A comunicação no protocolo I2C é baseada em transações de controlador e dispositivo. O dispositivo controlador inicia e controla as comunicações, enquanto os dispositivos respondem às solicitações do controlador.</p>
-<p><a class="glightbox" href="../imgs/i2c.drawio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="i2c.drawio" src="../imgs/i2c.drawio.png" /></a></p>
+<p><a class="glightbox" href="../imgs/i2c.drawio.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="i2c.drawio" src="../imgs/i2c.drawio.png" /></a></p>
 <!--
 Abaixo disponibilizo uma visão geral do protocolo
 
@@ -1050,11 +1059,11 @@ Abaixo disponibilizo uma visão geral do protocolo
 <p>O controlador é responsável por gerar o clock e controlar a transferência de dados. O dispositivo é responsável por transmitir ou receber dados do controlador. O reconhecimento dos dados é enviado pelo dispositivo que está recebendo os dados, podendo ser tanto um controlador quanto um dispositivo. O protocolo I2C também permite que vários controladores residam no barramento I2C.</p>
 <p>Cada dispositivo possui um endereço único que é determinado pela estrutura do sistema ou pelo dispositivo na linha. Quando um controlador deseja se comunicar com um dispositivo, o controlador transmite uma condição de START, seguida pelo endereço do dispositivo e um bit de controle (R/W) para determinar se o controlador deseja transmitir dados ou receber dados do dispositivo. O dispositivo então envia um pulso de reconhecimento (ACK) após o endereço.</p>
 <p>Se o controlador (controlador-transmissor) estiver escrevendo para o dispositivo (dispositivo-receptor), o receptor recebe um byte de dados. Essa transação continua até que o controlador termine a transmissão com uma condição de STOP. Se o controlador estiver lendo de um dispositivo (controlador-receptor), o dispositivo transmite (dispositivo-transmissor) um byte de dados para o controlador, e o controlador então reconhece a transação com o pulso ACK. Essa transação continua até que o controlador termine a transmissão, e então o controlador emite uma condição de STOP.</p>
-<p><a class="glightbox" href="../imgs/i2cCOMPORTAMENTO.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="i2cCOMPORTAMENTO" src="../imgs/i2cCOMPORTAMENTO.png" /></a></p>
+<p><a class="glightbox" href="../imgs/i2cCOMPORTAMENTO.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="i2cCOMPORTAMENTO" src="../imgs/i2cCOMPORTAMENTO.png" /></a></p>
 <h2 id="rp2040-pico">RP2040 / PICO</h2>
 <p>O RP2040, possui duas interfaces I2C idênticas (I2C0 e I2C1). Ambas são capazes de gerar sinais de clock, iniciar e encerrar comunicações (no modo mestre), apresentam filas de até dezesseis posições para entrada e saída, e suportam o uso de DMA. No modo dispositivo ("slave"), as interfaces podem verificar os endereços e disparar uma interrupção quando uma comunicação do mestre é recebida.</p>
 <p>Os pinos do RP2040 utilizados para comunicação I2C são configuráveis. A imagem abaixo apresenta as opções disponíveis:</p>
-<p><a class="glightbox" href="../imgs/picow-I2C-pinout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="picow-I2C-pinout" src="../imgs/picow-I2C-pinout.png" /></a></p>
+<p><a class="glightbox" href="../imgs/picow-I2C-pinout.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="picow-I2C-pinout" src="../imgs/picow-I2C-pinout.png" /></a></p>
 <h2 id="sdk">SDK</h2>
 <p>Para usar o I2C você deve modificar o <code>CMakeLists.txt</code> adicionando <code>hardware_adc</code> no <code>target_link_libraries</code>:</p>
 <div class="language-diff highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>target_link_libraries(
@@ -1106,6 +1115,5 @@ Abaixo disponibilizo uma visão geral do protocolo
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -824,6 +825,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -1038,7 +1047,7 @@
 <li>Arquivo: <code>exe1/main.c</code></li>
 </ul>
 <p>O código fornecido configura o registrador <code>0x6B</code>:<code>PWR_MGMT_1</code> colocando o valor <code>1</code> no bit <code>7:DEVICE_RESET</code>, fazendo com que o dispositivo reinicie e opere com os valores de fábrica.</p>
-<p><a class="glightbox" href="../imgs/lab-i2c-pre-exe1-register.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-i2c-pre-exe1-register.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-i2c-pre-exe1-register.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-i2c-pre-exe1-register.png" /></a></p>
 <p>Agora, consultando o <a href="https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf">manual</a>, acesse o <code>ACCEL_CONFIG</code> e configure o acelerômetro para operar no range de 4G.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -1071,7 +1080,7 @@
 <div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>printf(&quot;BMP280 ID: 0x%X \n&quot;, buffer[0]);
 </code></pre></div>
 <p>Consulte o <a href="https://cdn-shop.adafruit.com/datasheets/BST-BMP280-DS001-11.pdf">manual do BMP280</a> e extraia a informação do endereço padrão desse sensor e do endereço do registrador que possui o ID.</p>
-<p><a class="glightbox" href="../imgs/lab-i2c-pre-exe3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-i2c-pre-exe3.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-i2c-pre-exe3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-i2c-pre-exe3.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1108,6 +1117,5 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

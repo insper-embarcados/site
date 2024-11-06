@@ -50,10 +50,11 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -828,6 +829,14 @@
   
 
       
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega 1</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
@@ -996,9 +1005,9 @@
             <section class="progress-section show">
 <h1 id="symmetric-multiprocessing-smp">Symmetric Multiprocessing (SMP)</h1>
 <p>Existem diversos jeitos de usarmos um RTOS com microprocessador multicore. Dois métodos populares são o Asymmetric Multiprocessing (<code>AMP</code>) e o Symmetric Multiprocessing (<code>SMP</code>), como indicado a seguir:</p>
-<p><a class="glightbox" href="../imgs/amp-smp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/amp-smp.png" /></a></p>
+<p><a class="glightbox" href="../imgs/amp-smp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/amp-smp.png" /></a></p>
 <p>A primeira alternativa (<code>AMP</code>) consiste em executar dois <code>FreeRTOS</code> independentes em cada um dos processadores do microcontrolador, onde cada RTOS pode possuir suas próprias tasks. A comunicação entre as <code>tasks</code> de diferentes cores pode ser complicada; uma solução é o uso do recurso que o RP2040 fornece para comunicação entre os COREs, utilizando uma FIFO:</p>
-<p><a class="glightbox" href="../imgs/rp2040-SIO.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/rp2040-SIO.png" width="600" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-SIO.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/rp2040-SIO.png" width="600" /></a></p>
 <p><mark>Até agora nós temos utilizado um único CORE da CPU, ignorando o outro completamente.</mark></p>
 <h2 id="smp">SMP</h2>
 <div>
@@ -1093,6 +1102,5 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
