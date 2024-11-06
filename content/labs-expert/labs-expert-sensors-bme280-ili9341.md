@@ -8,6 +8,13 @@
 
 Neste laboratório, iremos criar uma aplicação que faz as leituras de um sensor bme280 e mostrar os valores aferidos em um display LCD TFT com driver ili9341, ambos utilizando protocolo SPI.
 
+!!! warning "Placa Adaptadora para o LCD"
+    Você poderá utilizar a placa adaptadora do LCD para utilizar juntamento com  placa da OLED:
+	
+	![](imgs-bme280-ili9341/placa_adaptadora.jpg){width=400px}
+	
+	- https://insper-embarcados.github.io/site/dispositivos/oled1/#placa-adaptadora
+
 ## Definições
 
 Durante o curso realizamos várias aplicações com procolo UART, principalmente para enviar dados da Pico W para o PC e vice-versa, contudo para comunicações com outros dispositivos como sensores por exemplos a velocidade e integridade dos dados se torna mais necessário, para isso, foram criados outros tipos de protocolo, e um deles é o SPI.
