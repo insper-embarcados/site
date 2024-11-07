@@ -86,6 +86,8 @@ extra:
     aps_2_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1710349957892/a51ad9d7ba35bb72689454f3caf839f45bf46044?sender=ub569a9273c6e285461187641
     aps_2_classroom: https://classroom.github.com/a/TsMnSy0c
 
+    projeto_classroom: https://classroom.github.com/a/HdVVrDzo
+
 
 markdown_extensions:
   - footnotes
@@ -205,10 +207,9 @@ nav:
       - I2C:
         - ⏰ Preparatório: labs/i2c-pre-lab.md
         - Prática: labs/i2c-pra-lab.md
-  - Projeto:
-      - Sobre: projeto/index.md
-      - Rubrica: projeto/rubrica.md
-      - Entrega 1: projeto/entrega-1.md
+  - APS:
+    - aps/aps-1-genius.md
+    - aps/aps-2-controle.md
   - Labs experts:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:
@@ -223,7 +224,8 @@ nav:
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
           - DMA: labs-expert/labs-expert-firmware-dma.md
+  - Projeto:
+      - Sobre: projeto/index.md
+      - Rubrica: projeto/rubrica.md
+      - Entrega: projeto/entrega-1.md
 
-  - APS:
-    - aps/aps-1-genius.md
-    - aps/aps-2-controle.md

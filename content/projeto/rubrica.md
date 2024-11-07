@@ -20,7 +20,7 @@ O objetivo é que você seja capaz de estabelecer uma comunicação ponto a pont
   
 ### Ganhando Pontos
 
-Cada item a seguir adiciona meio ponto:
+Cada item a seguir adiciona meio conceito:
 
 - Envia **E** recebe dados pela rede.
 - Gerencia a conexão de forma eficiente (reconexão automática, tratamento de erros).
@@ -42,6 +42,8 @@ A expectativa é que você estruture o firmware seguindo boas práticas, promove
 - Documenta o firmware com diagramas de blocos (RTOS).
 
 ### Ganhando Pontos
+
+Cada item a seguir adiciona meio conceito:
 
 - Compatível com o padrão MISRA-C.
 - Isola outras especializações (ex.: comunicação, sensores) em diferentes tarefas.
@@ -65,6 +67,8 @@ Na especialidade de DSP, espera-se que você seja capaz de amostrar sinais anal�
 
 ### Ganhando Pontos
 
+Cada item a seguir adiciona meio conceito:
+
 - Geração de um sinal.
 - Processamento em tempo real de sinais.
 - Uso de FFT (Transformada Rápida de Fourier) para análise de frequências.
@@ -83,6 +87,8 @@ Nesta especialidade, você deve ser capaz de usar novos dispositivos e criar sol
 - Documenta o funcionamento dos módulos e as bibliotecas usadas para cada sensor e atuador.
 
 ### Ganhando Pontos
+
+Cada item a seguir adiciona meio conceito:
 
 - Sensor e atuador não vistos.
 - Implementa calibração de sensores e detecção de falhas.
