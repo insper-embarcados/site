@@ -1,4 +1,4 @@
-# Linux / Windows / Mac
+# Linux / Windows / macOS
 
 === "Linux"
     Ubuntu 22.04? Só seguir a instalação. 

@@ -124,7 +124,7 @@ nav:
       - Critério: avaliacao.md
       - Prática: simulados.md
   - Infra:
-    - Linux / Windows /  Mac: infra-linux-docker.md
+    - Linux / Windows /  macOS: infra-linux-docker.md
     #- Windows: infra-windows.md
   - Prototipando:
     - Fabricação: prototipos/prototipos.md
