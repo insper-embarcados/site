@@ -1,15 +1,22 @@
 # Linux/ Mac
 
-=== "MAC"
+=== "Linux"
+    Ubuntu 22.04? Só seguir a instalação. 
+    
+    ==Algum outro Linux? Deve funcionar, só o passo de instalação do docker que deve ser diferente==.
+
+=== "Windows"
+    Fazer o desenvolvimento usando uma VM Ubuntu:
+    
+    1. Indicamos a [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+    2. Após instalar a VM, instale o ubuntu e siga o tutorial
+	
+=== "macOS"
     Fazer o desenvolvimento usando uma VM Ubuntu:
     
     1. Indicamos a [UTM](https://mac.getutm.app/)
     2. Após instalar a VM, instale o ubuntu e siga o tutorial
 
-=== "Linux"
-    Ubuntu 22.04? Só seguir a instalação. 
-    
-    ==Algum outro Linux? Deve funcionar, só o passo de instalação do docker que deve ser diferente==.
     
 ## Ubuntu 22.04
 

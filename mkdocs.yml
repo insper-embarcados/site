@@ -125,7 +125,7 @@ nav:
       - Prática: simulados.md
   - Infra:
     - Linux ou Mac: infra-linux-docker.md
-    - Windows: infra-windows.md
+    #- Windows: infra-windows.md
   - Prototipando:
     - Fabricação: prototipos/prototipos.md
     - Entradas: prototipos/entradas.md
