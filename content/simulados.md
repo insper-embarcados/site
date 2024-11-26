@@ -25,7 +25,7 @@ Três provas, precisa passar em uma. Avaliação é binária: Fez o que foi pedi
 
 # Praticando
 
-- [Simulado]({{av_simulado_classroom}})
+- [Simulado](https://github.com/insper-classroom/24a-emb-av-simulado-av-simulado-led-rgb/tree/main)
     - LED RGB (RTOS, ADC, PWM)
     - [Solução](https://github.com/insper-classroom/24a-emb-av-simulado-av-simulado-led-rgb/tree/solution)
 - [AV1](https://github.com/insper-classroom/24a-emb-av1)
