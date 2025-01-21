@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1029,14 +1028,14 @@
 <h2 id="na-pratica">Na prática</h2>
 <p>A principal utilização de um UART para transmissão e recebimento de dados está demonstrado na Figura 1, nela é possível ver duas UART diferentes, e entre elas há uma comunicação bidirecional, atraveś dos pinos RX e TX podemos transferir neste caso até 1 byte de informações. </p>
 <p>Figura 1 - Transmissão e recepção UART </p>
-<p><a class="glightbox" href="../imgs/rp2040-uart-buscommunication.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="uart_transmission" src="../imgs/rp2040-uart-buscommunication.png" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-uart-buscommunication.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="uart_transmission" src="../imgs/rp2040-uart-buscommunication.png" /></a></p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> </li>
 </ul>
 <h3 id="transmissao-na-pratica">Transmissão na prática</h3>
 <p>No contexto da UART, o pacote de dados transmitido segue a estrutura da Figura 2, nela é possível ver que temos o <strong>Start Bit</strong>, o <strong>Data Frame ou Word data</strong>, o <strong>Parity Bits</strong> e o <strong>Stop Bits</strong>. Falaremos um pouco sobre eles a seguir.</p>
 <p>Figura 2 - Bits protocolo UART</p>
-<p><a class="glightbox" href="../imgs/rp2040-uart-transmission.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="uart_intern" src="../imgs/rp2040-uart-transmission.png" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-uart-transmission.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="uart_intern" src="../imgs/rp2040-uart-transmission.png" /></a></p>
 <ul>
 <li>
 <p><strong>Start Bit</strong>: Quando <strong>não</strong> está transmitindo, o UART fica em nível lógico alto, e <strong>quando transmite</strong> o UART muda de nível lógico alto para nível lógico baixo. O UART que receberá os dados vai detectar a mudança de HIGH para LOW voltage de quem está transmitindo e começará a leitura dos bits precisamente de acordo com o baud rate. </p>
@@ -1055,7 +1054,7 @@
 </ul>
 <h3 id="exemplo-de-transmissao">Exemplo de transmissão:</h3>
 <p>A figura a seguir demonstramos a transferência de 2 pacotes de dados:</p>
-<p><a class="glightbox" href="../imgs/rp2040-uart-exampletransmission.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="uart_transfering" src="../imgs/rp2040-uart-exampletransmission.png" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-uart-exampletransmission.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="uart_transfering" src="../imgs/rp2040-uart-exampletransmission.png" /></a></p>
 <ul>
 <li>
 <p>O primeiro pacote contendo <strong>0xA0</strong> hexadecimal, que é igual a <strong>10100000</strong> em binário e que em ASCII é o equivalente ao símbolo <strong>á</strong>.</p>
@@ -1071,7 +1070,7 @@ E finalmente, quando tivemos o Stop Bit, neste caso dois, finalizamos a primeira
 Se tivermos no dispositivo receptor UART algo que convertesse os bits recebidos para caracteres, teríamos recebido os caracteres <strong>á</strong> e <strong>g</strong> em sequência.</p>
 <h2 id="rp2040-pico">RP2040 / PICO</h2>
 <p>No microcontrolador que estamos utilizando - o RP2040 -, conseguimos utilizar até duas instâncias do periférico UART. Na figura 4 é demonstrado o periférico UART da RP2040, onde há a localização do mesmo dentro do chip.</p>
-<p><a class="glightbox" href="../imgs/rp2040-uart.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="uart_intern" src="../imgs/rp2040-uart.png" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-uart.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="uart_intern" src="../imgs/rp2040-uart.png" /></a></p>
 <h3 id="na-pratica_1">Na Prática</h3>
 <p>Será abordado neste tópico algumas funções essenciais do nosso <strong>SDK RP2040</strong> para utilizarmos o <strong>periférico UART</strong>.</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="n">uart_init</span><span class="p">(</span><span class="n">art_inst_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">uart</span><span class="p">,</span><span class="w"> </span><span class="n">uint</span><span class="w"> </span><span class="n">baudrate</span><span class="p">)</span>
@@ -1100,7 +1099,7 @@ Se tivermos no dispositivo receptor UART algo que convertesse os bits recebidos 
 </li>
 </ul>
 <p>É possível ver na figura 5 quais pinos podem fornecer a função de UART, podemos utilizar apenas 2 interfaces, a UART0 e a UART1.</p>
-<p><a class="glightbox" href="../imgs/rp2040-uart-uartpins.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="uart_pins" src="../imgs/rp2040-uart-uartpins.png" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-uart-uartpins.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="uart_pins" src="../imgs/rp2040-uart-uartpins.png" /></a></p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="n">uart_putc_raw</span><span class="w"> </span><span class="p">(</span><span class="n">uart_inst_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">uart</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
 </code></pre></div>
 <ul>
@@ -1243,5 +1242,6 @@ Se tivermos no dispositivo receptor UART algo que convertesse os bits recebidos 
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

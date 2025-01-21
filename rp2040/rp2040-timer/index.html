@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1004,7 +1003,7 @@
 </ul>
 <p>A base de tempo da rp2040 é de <code>1us</code>  e o temporizador possui 4 alarmes e emite uma interrupção separada para cada alarme. Os alarmes correspondem aos 32 bits inferiores do contador de 64 bits, o que significa que eles podem ser disparados no máximo a 2^32 microssegundos no futuro. Isso é equivalente ao período máximo de <code>~72 minutes</code>.</p>
 <h2 id="high-level-apis">High Level APIs</h2>
-<p><a class="glightbox" href="../imgs/timer-api.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/timer-api.png" /></a></p>
+<p><a class="glightbox" href="../imgs/timer-api.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/timer-api.png" /></a></p>
 <p>Iremos acessar o timer usando a biblioteca de alto nível da rp2040, existe uma forma de configurar o timer diretamente acessando o periférico, mas ai a fica a cargo do desenvolvedor lidar com uma série de detalhes. Este conjunto de APIs está disponível no <code>sdk</code> da pico, não precisamos fazer nada para usarmos.</p>
 <h2 id="snippets">Snippets</h2>
 <p>Snippets relacionados ao uso do timer via iso das funções diponíveis no <em>high level api</em>.</p>
@@ -1164,5 +1163,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

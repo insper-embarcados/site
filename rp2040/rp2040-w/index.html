@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -977,7 +976,7 @@
             <section class="progress-section show">
 <h1 id="pico-w">Pico - W</h1>
 <p>O <code>Raspberry Pi Pico</code> e o <code>Pico W</code> são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não haviamos falado da existencia dessa versão Pico W. O <code>Raspberry Pi Pico W</code> é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.</p>
-<p><a class="glightbox" href="../imgs/compare-front-pico-vs-pico-w.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/compare-front-pico-vs-pico-w.png" /></a></p>
+<p><a class="glightbox" href="../imgs/compare-front-pico-vs-pico-w.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/compare-front-pico-vs-pico-w.png" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Datasheet Pico W: <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf</a></p>
@@ -1055,7 +1054,7 @@
 <p class="admonition-title">Tip</p>
 <p>acesse a documentação SDK Oficial para ter mais detalhes: </p>
 <p><a href="https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/group__pico__cyw43__arch.html#ga7a05bd21f02a0effadbba1e8266b8771">https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/index.html</a></p>
-<p><a class="glightbox" href="../imgs/lib_cyw43.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lib_cyw43.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lib_cyw43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lib_cyw43.png" /></a></p>
 </div>
 <h3 id="wifi-e-bluetooth">Wifi e Bluetooth</h3>
 <ul>
@@ -1078,5 +1077,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

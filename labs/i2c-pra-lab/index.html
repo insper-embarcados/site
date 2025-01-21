@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1043,7 +1042,7 @@
 <p>Vocês precisarão implementar um "mouse click", que deve ser acionado quando o sistema embarcado perceber uma movimentação repentina na horizontal no sentido para frente, como se estivesse cutucando o ar. Para isso vão precisar identificar esse tipo de movimentação e fazer o envio para o python (que deverá ser modificado).</p>
 <h3 id="firmware-fornecido">Firmware fornecido</h3>
 <p>O Firmware fornecido é inspirado no exemplo <a href="https://github.com/raspberrypi/pico-examples/tree/master/i2c/mpu6050_i2c">oficial da raspberrypi</a> pico para o sensor MPU6050, modificado para fazer uso do Freertos, a conexão deve ser a mesma da indicada no repositório do fabricante:</p>
-<p><a class="glightbox" href="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" /></a></p>
+<p><a class="glightbox" href="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" /></a></p>
 <p>O firmware faz leituras periódicas do sensor e imprime os valores de aceleração, giro e temperatura (interna do chip) no terminal:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">mpu6050_read_raw</span><span class="p">(</span><span class="n">acceleration</span><span class="p">,</span><span class="w"> </span><span class="n">gyro</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temp</span><span class="p">);</span>
@@ -1056,7 +1055,7 @@
 </code></pre></div>
 <h3 id="fusao-de-dados">Fusão de dados</h3>
 <p>Os dados brutos de aceleração e giro não são muito fáceis de se usar, pois precisam ser "fundidos" para fornecerem informacoes mais úteis, uma dessas informacoes que podemos obter da fusão dos dados é chamada de "orientacão" (<code>roll, pitch e yaw</code>).</p>
-<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png" /></a></p>
+<p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png" /></a></p>
 <p>Existem diversos algortímos que realizam essa fusão de dados, e IMUs mais poderosas podem fazer isso internamente, mas não é o caso da nossa (IMUs que fazem fusão são um pouco mais caras!). Para obtermos a orientacão iremos usar uma biblioteca escrita em C para sistemas embarcados chamada de <a href="https://github.com/xioTechnologies/Fusion">xioTechnologies/Fusion</a>. A biblioteca já foi importada para vocês, ser necessário apenas utilizar.</p>
 <p>Consulte o exemplo fornecido pelo desenvolvedor de como utilizar a lib:</p>
 <ul>
@@ -1131,5 +1130,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

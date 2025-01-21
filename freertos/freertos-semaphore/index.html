@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1024,7 +1023,7 @@
 </div>
 <p>Filas / mutex são uma ferramenta fundamental de sincronização em programação concorrente e sistemas operacionais, utilizados para gerenciar o acesso a recursos compartilhados por múltiplas tarefas. Eles funcionam como um contador que regula quantas tarefas podem acessar um determinado recurso simultaneamente.</p>
 <p>Quando uma tarefa deseja acessar um recurso que é gerenciado por um semáforo, ela precisa realizar uma operação de "espera" (<code>wait</code>). Esta operação verifica se o contador do semáforo é maior que zero, o que indica que o recurso está disponível. Se for o caso, a tarefa decrementa o contador e ganha acesso ao recurso. Caso contrário, se o contador for zero, isso indica que não há recursos disponíveis no momento, e a tarefa é colocada em um estado de espera até que um recurso seja liberado.</p>
-<p><a class="glightbox" href="https://www.freertos.org/fr-content-src/uploads/2018/07/binary-semaphore.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.freertos.org/fr-content-src/uploads/2018/07/binary-semaphore.gif" /></a></p>
+<p><a class="glightbox" href="https://www.freertos.org/fr-content-src/uploads/2018/07/binary-semaphore.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.freertos.org/fr-content-src/uploads/2018/07/binary-semaphore.gif" /></a></p>
 <h2 id="para-que-serve">Para que serve?</h2>
 <p>O semáforo veio para substituir o uso de flags, no sistema barematal nós fazíamos algo como:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">btn_callback</span><span class="p">(</span><span class="n">uint</span><span class="w"> </span><span class="n">gpio</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">events</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1235,5 +1234,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

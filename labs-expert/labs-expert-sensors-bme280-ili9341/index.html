@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1026,7 +1025,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Placa Adaptadora para o LCD</p>
 <p>Você poderá utilizar a placa adaptadora do LCD para utilizar juntamente com a placa da OLED:</p>
-<p><a class="glightbox" href="../imgs-bme280-ili9341/placa_adaptadora.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-bme280-ili9341/placa_adaptadora.jpg" width="400px" /></a></p>
+<p><a class="glightbox" href="../imgs-bme280-ili9341/placa_adaptadora.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-bme280-ili9341/placa_adaptadora.jpg" width="400px" /></a></p>
 <ul>
 <li><a href="https://insper-embarcados.github.io/site/dispositivos/oled1/#placa-adaptadora">https://insper-embarcados.github.io/site/dispositivos/oled1/#placa-adaptadora</a></li>
 </ul>
@@ -1037,10 +1036,10 @@
 <p>O protocolo SPI (Serial Peripheral Interface) é realmente muito útil em comunicações entre microcontroladores e dispositivos periféricos, como sensores. Ele oferece uma comunicação serial síncrona de alta velocidade e é adequado para transferências de dados rápidas e confiáveis em curta distância, você pode encontrar mais detalhes sobre o protocolo no seguinte link:</p>
 <p><a href="https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all">https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all</a></p>
 <h3 id="lcd-tft-ili9341">LCD TFT ili9341</h3>
-<p><a class="glightbox" href="../imgs-bme280-ili9341/tft_lcd_ili9341.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-bme280-ili9341/tft_lcd_ili9341.jpg" width="400px" /></a></p>
+<p><a class="glightbox" href="../imgs-bme280-ili9341/tft_lcd_ili9341.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-bme280-ili9341/tft_lcd_ili9341.jpg" width="400px" /></a></p>
 <p>A principal característica do TFT LCD ili9341 é sua alta resolução e capacidade de exibir cores vivas. Ele geralmente possui uma resolução de 320x240 pixels e é capaz de exibir milhares de cores, o que o torna ideal para aplicações gráficas. Outra vantagem desse display é a sua capacidade de ser controlado por interfaces comuns, como SPI (Serial Peripheral Interface), o que simplifica ainda mais o processo de comunicação com dispositivos externos.</p>
 <h3 id="bme280">BME280</h3>
-<p><a class="glightbox" href="../imgs-bme280-ili9341/bosch_bme280.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-bme280-ili9341/bosch_bme280.jpg" width="400px" /></a></p>
+<p><a class="glightbox" href="../imgs-bme280-ili9341/bosch_bme280.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-bme280-ili9341/bosch_bme280.jpg" width="400px" /></a></p>
 <p>O BME280 pode ser usado para fazer leituras de pressão, umidade e temperatura. </p>
 <p>Intervalos:</p>
 <ul>
@@ -1102,5 +1101,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

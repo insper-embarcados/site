@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../termynal.css">
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -991,7 +990,7 @@
 <ol>
 <li>Abra os "Recursos Opcionais" do Windows, conforme imagem abaixo:</li>
 </ol>
-<p><a class="glightbox" href="../imgs/tutorial_win_optionalfeatures.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/tutorial_win_optionalfeatures.png" /></a></p>
+<p><a class="glightbox" href="../imgs/tutorial_win_optionalfeatures.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/tutorial_win_optionalfeatures.png" /></a></p>
 <ol>
 <li>
 <p>Em seguida clique em "More Windows features" ou "Mais Recursos do Windows" (ptbr) conforme a última opção na imagem.</p>
@@ -1000,7 +999,7 @@
 <p>Agora procure o "Subsistema do Windows para Linux" (WSL) conforme na imagem, clique no Quadrado, verifique se ficou azul e de um OK.</p>
 </li>
 </ol>
-<p><a class="glightbox" href="../imgs/infra_windows_wslfeature.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/infra_windows_wslfeature.png" /></a></p>
+<p><a class="glightbox" href="../imgs/infra_windows_wslfeature.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs/infra_windows_wslfeature.png" /></a></p>
 <ol>
 <li>
 <p>O Windows começará a instalar o WSL, após o processo acabar a tela ficará parecida com a imagem a seguir, clique em "Reiniciar Agora".</p>
@@ -1043,7 +1042,7 @@ Se tiver algum problema, contate um técnico ou o professor da disciplina.
 </code></pre></div>
 <p>Sempre que você quiser utilizar o WSL com Ubuntu 22 você pode pesquisar no Windows pelo software "Ubuntu 22.04.3 LTS" e abri-lo.</p>
 <p>Reinicie o computador e tente abrir o "Ubuntu 22.04.3 LTS", se tudo tiver dado certo você precisará definir um usuário e senha, e a tela a ser exibida será:</p>
-<p><a class="glightbox" href="./imgs/windowsinfra_wslok.png.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="./imgs/windowsinfra_wslok.png.png" /></a></p>
+<p><a class="glightbox" href="./imgs/windowsinfra_wslok.png.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="./imgs/windowsinfra_wslok.png.png" /></a></p>
 <p>Parabéns, agora você tem um WSL Ubuntu instalado e prontinho para uso!!</p>
 <p>Agora vamos instalar o USBIPD, responsável por fazer a interface de conexão entre o dispositivo USB no windows com o WSL/Ubuntu.</p>
 <div class="admonition exercise self-progress" data-slug="infra_windows/exercise_2" id="exercise_2_0">
@@ -1060,7 +1059,7 @@ Se tiver algum problema, contate um técnico ou o professor da disciplina.
 <p>Digite o comando usbipd list, aparecerá algo parecido com a imagem abaixo:</p>
 </li>
 </ol>
-<p><a class="glightbox" href="../imgs/usbipd_list.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="usbipd list" src="../imgs/usbipd_list.png" /></a></p>
+<p><a class="glightbox" href="../imgs/usbipd_list.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="usbipd list" src="../imgs/usbipd_list.png" /></a></p>
 <p>Note que há informações sobre os periféricos conectados ao nosso computador, neste caso eu tenho 4, e há informações sobre qual barramento os mesmos estão conectados "1-" e o números dos dispositivos "-1".</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -1126,10 +1125,10 @@ gedit ~/.bashrc
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Diagrama</label><label for="__tabbed_2_2">Real</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="/site/pico/imgs/pico-probe.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe.png" /></a></p>
+<p><a class="glightbox" href="/site/pico/imgs/pico-probe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="/site/pico/imgs/pico-probe-real.jpeg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe-real.jpeg" /></a></p>
+<p><a class="glightbox" href="/site/pico/imgs/pico-probe-real.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe-real.jpeg" /></a></p>
 </div>
 </div>
 </div>
@@ -1151,7 +1150,7 @@ gedit ~/.bashrc
 <p>usbipd list</p>
 </li>
 </ol>
-<p><a class="glightbox" href="./imgs/usbipd_list.png.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="./imgs/usbipd_list.png.png" /></a></p>
+<p><a class="glightbox" href="./imgs/usbipd_list.png.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="./imgs/usbipd_list.png.png" /></a></p>
 <p>Procure pelo DEVICE de nome CMSIS-DAP e identifique seu <em>VID:PID, no meu caso por exemplo é o 2e8a:000c</em>.</p>
 <ol>
 <li>usbipd bind -i "VIP:PID" # sem as aspas</li>
@@ -1227,11 +1226,11 @@ gedit ~/.bashrc
 <form class="exercise-form">
 <p>Vamos compilar o projeto!</p>
 <p>Clique em build na barra inferior:</p>
-<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
+<p><a class="glightbox" href="../imgs/vscode-build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build.png" /></a></p>
 <p>Escolha o compilador <code>arm-none-eabi</code></p>
-<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
+<p><a class="glightbox" href="../imgs/vscode-arm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-arm.png" /></a></p>
 <p>Você deve obter:</p>
-<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
+<p><a class="glightbox" href="../imgs/vscode-build-done.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-build-done.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1244,7 +1243,7 @@ gedit ~/.bashrc
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Selecione o programa que iremos depurar</p>
-<p><a class="glightbox" href="../imgs/config-debug.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-debug.png" /></a></p>
+<p><a class="glightbox" href="../imgs/config-debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-debug.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1255,7 +1254,7 @@ gedit ~/.bashrc
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Inicialize o software</p>
-<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
+<p><a class="glightbox" href="../imgs/config-run.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-run.png" /></a></p>
 <p><mark>Você deve obter o Hello world</mark> no serial</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -1267,7 +1266,7 @@ gedit ~/.bashrc
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Abra o serial monitor (terminal)</p>
-<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
+<p><a class="glightbox" href="../imgs/config-serial.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/config-serial.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1290,5 +1289,6 @@ gedit ~/.bashrc
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

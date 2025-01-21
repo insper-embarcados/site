@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1014,25 +1013,25 @@
 </ul>
 <p>A seguir uma lista dos sensores disponíveis no lab:</p>
 <h2 id="ldr">LDR</h2>
-<p><a class="glightbox" href="../imgs-ppm-servomotor/ldrPico.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="LDR Pico" src="../imgs-ppm-servomotor/ldrPico.png" /></a></p>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/ldrPico.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LDR Pico" src="../imgs-ppm-servomotor/ldrPico.png" /></a></p>
 <p>O LDR (Light Dependent Resistor), também conhecido como fotorresistor, é um tipo de sensor passivo. Isso significa que ele não requer energia externa para funcionar e não produz energia própria. Em vez disso, sua resistência elétrica varia em resposta à intensidade da luz incidente. Para entender melhor, consulte:</p>
 <ul>
 <li><a href="https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview">https://learn.sparkfun.com/tutorials/photocell-hookup-guide/photocell-overview</a></li>
 </ul>
 <h2 id="termistor-ntc">Termistor NTC</h2>
-<p><a class="glightbox" href="../imgs-ppm-servomotor/termistor.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Termistor" src="../imgs-ppm-servomotor/termistor.jpg" /></a></p>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/termistor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Termistor" src="../imgs-ppm-servomotor/termistor.jpg" /></a></p>
 <p>Um termistor NTC é composto de um material semicondutor cuja resistência elétrica diminui quando a temperatura aumenta. Isso significa que ele possui um coeficiente de temperatura negativo, daí o nome "Negative Temperature Coefficient". Quando a temperatura aumenta, os elétrons do material semicondutor ganham energia térmica, o que aumenta sua mobilidade e reduz a resistência elétrica do termistor. Para entender melhor, consulte:</p>
 <ul>
 <li><a href="https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/">https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/</a></li>
 </ul>
 <h2 id="strain-gauge">Strain gauge</h2>
-<p><a class="glightbox" href="https://blog.endaq.com/hs-fs/hubfs/Blog-Images/Strain%20Gauges/example-of-a-strain-gauge.png?width=437&amp;name=example-of-a-strain-gauge.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://blog.endaq.com/hs-fs/hubfs/Blog-Images/Strain%20Gauges/example-of-a-strain-gauge.png?width=437&amp;name=example-of-a-strain-gauge.png" /></a></p>
+<p><a class="glightbox" href="https://blog.endaq.com/hs-fs/hubfs/Blog-Images/Strain%20Gauges/example-of-a-strain-gauge.png?width=437&amp;name=example-of-a-strain-gauge.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://blog.endaq.com/hs-fs/hubfs/Blog-Images/Strain%20Gauges/example-of-a-strain-gauge.png?width=437&amp;name=example-of-a-strain-gauge.png" /></a></p>
 <p>É dispositivo cuja resistência elétrica que varia com a deformação, pode ser utilizado para medir uma série de coisas, desde o quanto uma rachadura em uma parede está aumentando, se um eixo está sofrendo deformação. Ele não desenvolvido para medir "peso",  mas podemos usar para ter uma noção de quanto de forca foi aplicado nele.</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Strain_gauge">https://en.wikipedia.org/wiki/Strain_gauge</a></li>
 </ul>
 <h2 id="sharp">SHARP</h2>
-<p><a class="glightbox" href="../imgs-ppm-servomotor/sharpSENSOR.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="SHARP SENSOR" src="../imgs-ppm-servomotor/sharpSENSOR.jpg" /></a></p>
+<p><a class="glightbox" href="../imgs-ppm-servomotor/sharpSENSOR.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SHARP SENSOR" src="../imgs-ppm-servomotor/sharpSENSOR.jpg" /></a></p>
 <p>Sendo o mais genérico dos apresentados, esse tipo sensor de ele possui diversas aplicações como: sensor de proximidade, sensor de distância e sensor de movimento. Esse tipo de sensor emite luz infravermelha em direção a um objeto e mede o tempo que leva para a luz refletida retornar ao sensor. Ele possui um circuito integrado que calcula essa distância até o objeto com base no ângulo de inclinação do feixe de luz refletido. Os sensores Sharp geralmente fornecem uma saída analógica que é proporcional à distância medida até o objeto. Essa saída analógica pode variar de acordo com o modelo específico do sensor, mas geralmente é uma tensão ou corrente que varia de acordo com a distância. Para entender melhor, consulte:</p>
 <ul>
 <li><a href="https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/">https://www.makerguides.com/sharp-gp2y0a710k0f-ir-distance-sensor-arduino-tutorial/</a></li>
@@ -1067,5 +1066,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

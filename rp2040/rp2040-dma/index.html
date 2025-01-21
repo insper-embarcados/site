@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1082,23 +1081,23 @@ O DMA não é uma coisa nova...<br><br>
 <ul>
 <li>Memória para periférico: Um periférico sinaliza ao DMA quando precisa enviar mais dados. O DMA lê os dados de um array da RAM ou flash, e escreve no periférico utilizando o método FIFO (First In, First Out).</li>
 </ul>
-<p><a class="glightbox" href="../imgs/dma-memtoper.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-dma" src="../imgs/dma-memtoper.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/dma-memtoper.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-dma" src="../imgs/dma-memtoper.gif" /></a></p>
 <ul>
 <li>Periférico para memória: Neste modo, o periférico manda um sinal para o DMA quando os dados são recebidos. O DMA lê os dados do periférico por meio do método FIFO, e então escreve os mesmos em um array na RAM do microcontrolador.</li>
 </ul>
-<p><a class="glightbox" href="../imgs/dma-pertomem.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-dma" src="../imgs/dma-pertomem.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/dma-pertomem.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-dma" src="../imgs/dma-pertomem.gif" /></a></p>
 <ul>
 <li>Memória para memória: O DMA transfere dados entre dois buffers na RAM.</li>
 </ul>
-<p><a class="glightbox" href="../imgs/dma-memtomem.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-dma" src="../imgs/dma-memtomem.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/dma-memtomem.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-dma" src="../imgs/dma-memtomem.gif" /></a></p>
 <h3 id="componentes-envolvidos">Componentes Envolvidos:</h3>
 <p>Analisando a estrutura do nosso microcontrolador RP2040 na Figura 1, observamos que o DMA está conectado diretamente ao Bus Fabric, cuja função é fazer a comunicação entre os componentes da RP2040.</p>
 <p>Figura 1 - Arquitetura do RP2040</p>
-<p><a class="glightbox" href="../imgs/rp2040-arch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-arch" src="../imgs/rp2040-arch.png" title="Figura 1" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-arch.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-arch" src="../imgs/rp2040-arch.png" title="Figura 1" /></a></p>
 <h3 id="o-que-e-o-bus-fabric">O que é o "Bus Fabric"?</h3>
 <p>Na figura 2, vocês podem ver os componentes do Bus Fabric da RP2040 em amarelo e com quais partes do nosso microcontrolador ele se interliga, repare que o DMA está representado no canto superior direito. O Bus Fabric serve para interligar endereços e transportar dados através do chip. AHB-lite Crossbar é um barramento que trabalha com um protocolo AHB-lite (AMBA 3 AHB-lite), o qual o Bus Fabric faz uso. O DMA utiliza os barramentos do Bus Fabric para transmitir dados.</p>
 <p>Figura 2 - RP2040 Bus Fabric</p>
-<p><a class="glightbox" href="../imgs/rp2040-bus-fabric.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="rp2040-bus-fabric" src="../imgs/rp2040-bus-fabric.png" title="Figura 2" /></a></p>
+<p><a class="glightbox" href="../imgs/rp2040-bus-fabric.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rp2040-bus-fabric" src="../imgs/rp2040-bus-fabric.png" title="Figura 2" /></a></p>
 <p>Abaixo, na figura 3, é possível observar a estrutura interna do DMA. O mesmo possui conexões separadas de leitura e escrita que são ligadas diretamente ao Bus Fabric, e realizam a transferência de dados. <strong>A taxa de transferência de dados através de um DMA é superior ao que um dos processadores do RP2040 conseguiria realizar</strong>.</p>
 <ul>
 <li>
@@ -1112,7 +1111,7 @@ O DMA não é uma coisa nova...<br><br>
 </li>
 </ul>
 <p>Figura 3 - DMA</p>
-<p><a class="glightbox" href="../imgs/dma_intern.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="dma_intern" src="../imgs/dma_intern.png" title="Figura 3" /></a></p>
+<p><a class="glightbox" href="../imgs/dma_intern.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dma_intern" src="../imgs/dma_intern.png" title="Figura 3" /></a></p>
 <h3 id="modos-de-operacao-do-dma-utilizando-a-rp2040">Modos de Operação do DMA utilizando a RP2040:</h3>
 <p>O DMA pode operar como leitura e escrita, sendo que na RP2040 o limite de leitura e escrita do DMA é um array de até 32 bits de comprimento a cada ciclo de clock. Há 12 canais independentes na RP2040, cada um deles verificando uma sequência de transferência de dados.
 Cada um dos 12 canais tem seu pŕoprio registrador de controle e status, no qual o sofware pode programar e monitorar o progresso da transferência de dados dos canais. Quando vários canais estão ativos ao mesmo tempo, o DMA divide a largura de banda igualmente entre os canais.</p>
@@ -1210,7 +1209,7 @@ Cada um dos 12 canais tem seu pŕoprio registrador de controle e status, no qual
 </code></pre></div>
 <p>Cria um array com nome <strong>dst[]</strong> com o tamanho da mensagem em <strong>src[]</strong>, que no caso são 24 caracteres mais o caractere nulo, totalizando 25 caracteres, conforme mostrado na figura 4. <strong>dst[]</strong> será o array de destino, por isso estamos criando ele com o mesmo tamanho do array de origem (<strong>src[]</strong>).</p>
 <p>Figura 4 - Conteúdo do array src[]</p>
-<p><a class="glightbox" href="../imgs/dma-hello-dma-src.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="dma_intern" src="../imgs/dma-hello-dma-src.png" /></a></p>
+<p><a class="glightbox" href="../imgs/dma-hello-dma-src.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dma_intern" src="../imgs/dma-hello-dma-src.png" /></a></p>
 <ul>
 <li><strong>Adentrando o main(): Selecionando o canal</strong></li>
 </ul>
@@ -1411,5 +1410,6 @@ e pensando que cada caractere precisa de no mínimo 8 bits para ser representado
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

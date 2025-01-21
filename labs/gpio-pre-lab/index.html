@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1076,7 +1075,7 @@
 <h4 id="codigo">Código</h4>
 <p>Faça os dois LEDs do <code>exe1</code> piscarem ao mesmo tempo! O código fornecido já funciona com o LED vermelho, agora você deve fazer o mesmo com o amarelo. <mark>Lembre de manter o vermelho piscando junto!</mark></p>
 <h4 id="funcionalidade-esperada">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe1.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe1.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe1.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe1.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1101,7 +1100,7 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Botao 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="funcionalidade-esperada_1">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe2.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe2.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe2.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe2.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1120,7 +1119,7 @@
 <p>Exemplo: Ambos os leds estão apagados, quando o botão vermelho for apertado, acenda o LED Vermelho. Se o Botão for apertado e solto novamente, apague o LED Vermelho. Faça o mesmo para o Verde!. </p>
 <p>Lembre de configurar todos os pinos como Entrada ou Saída.</p>
 <h4 id="funcionalidade-esperada_2">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe3.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe3.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe3.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe3.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1138,7 +1137,7 @@
 <p>Toda vez que o Btn Vermelho for apertado, faca os LEDs acenderem na ordem: Vermelho, Roxo, Azul e Verde. <mark>Só acenda um LED por vez!</mark>.</p>
 <p>Utilize um delay de <code>300ms</code> entre os estados.</p>
 <h4 id="funcionalidade-esperada_3">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe4.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe4.gif" /></a></p>
+<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe4.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe4.gif" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -1175,5 +1174,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

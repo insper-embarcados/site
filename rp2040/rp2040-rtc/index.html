@@ -50,11 +50,10 @@
     
     <link rel="stylesheet" href="../../termynal.css">
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   <body>
     <div class="ah-main-container">
       <header class="ah-header">
@@ -1105,7 +1104,7 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p><a class="glightbox" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSarKUSO8fk3HzK7CMIDW8KkChF-hckjqTA&amp;usqp=CAU" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSarKUSO8fk3HzK7CMIDW8KkChF-hckjqTA&amp;usqp=CAU" /></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a class="glightbox" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSarKUSO8fk3HzK7CMIDW8KkChF-hckjqTA&amp;usqp=CAU" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSarKUSO8fk3HzK7CMIDW8KkChF-hckjqTA&amp;usqp=CAU" /></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1137,5 +1136,6 @@
     
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
     
-  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>
