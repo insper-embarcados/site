@@ -120,7 +120,7 @@ Agora que já temos toda a infra instalada, vamos testar!
 
     Observe se o output é "Hello, world!"
 
-    ![](/site/imgs/infra-2.0-output.png) 
+    ![](/site/imgs/infra-2.0-serial-output.png) 
 
 
 
