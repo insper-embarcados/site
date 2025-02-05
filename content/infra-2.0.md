@@ -66,53 +66,64 @@ Agora que já temos toda a infra instalada, vamos testar!
     Clone o repositório com códigos de teste
 
     ```bash
-    git clone https://github.com/insper-embarcados/infra-test.git
+    git clone   https://github.com/insper-embarcados/pico-base-project
     ```
 
 !!! exercise
     Abra o respositório no vscode
 
     ```bash
-    code infra-test/
+    code pcio-base-project
     ```
 
     ==Clique em "yes" na sugestão abaixo!==
     ![](/site/imgs/vscode-extension-pico-import.png)
 
+    Espere até que o ambiente seja configurado.
 
-!!! exercise 
-    Após tudo carregado, vamos compilar o projeto!
 
-    Clique em build na barra inferior:
 
-    ![](imgs/vscode-build.png)
+!!! exercise
 
-    Escolha o compilador `arm-none-eabi`
+    Após o ambiente ser configurado, aparecerá um tela parecida com essa:
 
-    ![](imgs/vscode-arm.png)
+    ==Clique no símbolo da extensão da Raspberry Pi Pico==
+    ![](/site/imgs/infra-2.0-ambiente-configurado.png)
 
-    Você deve obter:
+!!! exercise
 
-    ![](imgs/vscode-build-done.png)
+    Após o ambiente ser configurado, aparecerá um tela parecida com essa:
 
-### Programando e depurando
+    ![](/site/imgs/infra-2.0-depurando.png)   
+
+    1. Clique em "Debug Project"
+    2. Clique em Pico Debug (Cortex-Debug)
+
+
+!!! exercise
+
+    Espere até que a seguinte tela apareça e clique no botão "Play". 
+
+    ![](/site/imgs/infra-2.0-rodando.png) 
+
+
+!!! exercise
+
+    Conforme imagem abaixo:
+
+    ![](/site/imgs/infra-2.0-serial-monitor.png) 
+
+    1. Clique em Serial Monitor
+    2. Clique em Start Monitoring
+
+!!! exercise
+
+    Observe se o output é "Hello, world!"
+
+    ![](/site/imgs/infra-2.0-output.png) 
+
+
+
     
-Agora vamos programar a placa!
-    
-!!! exercise
-    Selecione o programa que iremos depurar
 
-    ![](imgs/config-debug.png)
 
-!!! exercise
-    Inicialize o software
-
-    ![](imgs/config-run.png)
-
-    ==Você deve obter o Hello world== no serial
-
-!!! exercise
-    Abra o serial monitor (terminal)
-
-    ![](imgs/config-serial.png)
-  
