@@ -73,7 +73,7 @@ Agora que já temos toda a infra instalada, vamos testar!
     Abra o respositório no vscode
 
     ```bash
-    code pcio-base-project
+    code pico-base-project/
     ```
 
     ==Clique em "yes" na sugestão abaixo!==
