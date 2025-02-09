@@ -1,18 +1,9 @@
 # Sobre preparatório
 <!--intro-start-->
 
-!!! info
-    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png){width=100px, align=left}
-    
-    Realizar dentro do Linux com o seu ambiente já pre configurado. 
-    
-    - Se você ainda não configurou, siga os passos em [Útil/infra](/site/infra-linux-docker)
-
-    Acesse a atividade pelo link do classroom no topo da página.
-
 ## Desenvolvendo os exercícios
 
-A disciplina utilizará atividades preparatórias que ajudarão vocês no desenvolvimento dos laboratórios. Essas atividades devem ser realizadas no VSCode e, geralmente, ==não necessitam do uso da placa de desenvolvimento==. O objetivo é desacoplar um pouco os elementos; com o simulador, é possível praticar apenas o código e alguns aspectos da conexão de hardware, sem a complexidade de montar os componentes eletrônicos.
+A disciplina utilizará atividades preparatórias que ajudarão vocês no desenvolvimento dos laboratórios. Essas atividades devem ser realizadas no VSCode e ==não necessitam do uso da placa de desenvolvimento==. O objetivo é desacoplar um pouco os elementos; com o simulador, é possível praticar apenas o código e alguns aspectos da conexão de hardware, sem a complexidade de montar os componentes eletrônicos.
 
 !!! video
     ![](https://youtu.be/io7dd_pljyY?si=92IFG-zSnb-w1wX_)

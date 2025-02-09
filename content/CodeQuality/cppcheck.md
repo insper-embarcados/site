@@ -118,11 +118,6 @@ Vamos praticar e ver como isso vai funcionar na prática durante a disciplina!
 !!! exercise 
     - Crie um repositório com o código exemplo acessando o github classroom [emb-rules-cppcheck]({{rules_cppcheck_classroom}})
  
-    !!! warning ""
-        Se o classroom não funcionar, acesse o repositório a seguir, clone e faça a entrega por ele:
-        
-        - https://github.com/Insper/emb-rules-cppcheck/
- 
     - Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros: 
     
     ![](figs/cppcheck-erro.png)

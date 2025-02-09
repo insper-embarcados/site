@@ -6,11 +6,6 @@
 | [Repositório no classroom]({{lab_gpio_pra_classroom}}) |
 | 💰 70% nota de lab                                     |
 
-!!! warning ""
-    Se o classroom não funcionar, acesse o repositório a seguir, clone e faça a entrega por ele:
-
-    - https://github.com/insper-embarcados/lab-gpio-pra
-
 !!! info
     Pessoal, estamos fazendo uma pesquisa para conhecer mais a experiência de vocês no mutirão. Podem responder à pesquisa abaixo? Isso ajuda a melhorar para os próximos semestres.
 
@@ -19,18 +14,19 @@
 ## Sobre os laboratórios prática
 
 !!! exercise
-    Antes de seguir, ler sobre as atividades práticas de lab:
-    
-    - [Labs/Prática](/site/labs/pra-lab/)
+    Antes de seguir, leia sobre as atividades práticas de lab em  [Labs Core/Prática](/site/labs/pra-lab/)
 
 ## Atividade
 
-!!! video
-    ![](https://youtu.be/xx529vCDUPM)
-
 Nesse laboratório vocês irão aplicar os conceitos do pré lab (leitura e acionamento de um pino) para controlar um motor de passos. 
 
-A ideia geral é que vocês possuam um botão um LED e o motor de passos conectado na placa, toda vez que o botão for pressionado o LED deve acender e o motor girar 360 graus para uma direção de sua escolha.
+A ideia geral é que vocês possuam um botão um LED e o motor de passos conectado na placa, toda vez que o botão for pressionado o LED deve acender e o motor girar 360 graus para uma direção de sua escolha. O sistema deve funcionar alimentando por bateria (não aceitaremos demos com ele ligado no PC).
+
+![](imgs/lab-gpio-diagrama.png)
+
+
+!!! video
+    ![](https://youtu.be/xx529vCDUPM)
 
 Para isso, vocês vão precisar de:
 

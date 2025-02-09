@@ -35,11 +35,11 @@ plugins:
 
 extra:
   custom_variables:
-    rules_cppcheck_classroom: https://classroom.github.com/a/FU5oUkNZ
-    rules_variables_classroom: https://classroom.github.com/a/sXx8vWcl
-    rules_isr_classroom: https://classroom.github.com/a/9ZP6ial1
-    rules_isr_volatile_classroom: https://classroom.github.com/a/5RQM6NE4
-    rules_head_classroom: https://classroom.github.com/a/2m6a9oth
+    rules_cppcheck_classroom: https://classroom.github.com/a/BjRjIS-A
+    rules_variables_classroom: https://classroom.github.com/a/lqL67cLX
+    rules_isr_classroom:
+    rules_isr_volatile_classroom:
+    rules_head_classroom:
 
     aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
@@ -125,9 +125,7 @@ nav:
   - Avaliação:
       - Critério: avaliacao.md
       - Prática: simulados.md
-  - Infra:
-    - Linux / Windows /  macOS: infra-linux-docker.md
-    #- Windows: infra-windows.md
+  - Infra: infra-pico.md
   - Prototipando:
     - Fabricação: prototipos/prototipos.md
     - Entradas: prototipos/entradas.md
