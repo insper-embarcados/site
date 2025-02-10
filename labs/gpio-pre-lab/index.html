@@ -139,7 +139,7 @@
               
   
     <li>
-      <a href="../../infra-pico/">Infra</a>
+      <a href="../../infra-2.0/">Infra</a>
     </li>
   
 
@@ -620,6 +620,14 @@
         
   
     <li>
+      <a href="https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641">Apresentação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
       <a href="../qualidade-codigo-1">⏰ Qualidade de Código</a>
     </li>
   
@@ -657,139 +665,6 @@
   </li>
 
       
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">ISR</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../qualidade-codigo-irs">⏰ Qualidade de Código</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../irq-pre-lab/">⏰ Preparatório</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../irq-pra-lab/">Prática</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">Timer</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../timer-pre-lab/">⏰ Preparatório</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../timer-pra-lab/">Prática</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">RTOS</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../rtos-pre-lab/">⏰ Preparatório</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../rtos-pra-lab/">Prática</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">ADC/PWM</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../adc-pwm-pre-lab/">⏰ Preparatório</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../adc-pwm-pra-lab/">Prática</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">I2C</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../i2c-pre-lab/">⏰ Preparatório</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../i2c-pra-lab/">Prática</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
     </ul>
   </li>
 
@@ -803,14 +678,6 @@
   
     <li>
       <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../aps/aps-2-controle/">Aps 2 controle</a>
     </li>
   
 
@@ -1044,7 +911,7 @@
 <form class="exercise-form">
 <p>Acesse o repositório via o link a seguir, clone para a sua máquina e trabalhe nele usando o wokiwi:</p>
 <ul>
-<li><a href="https://classroom.github.com/a/Og2WhTSP">classroom firmware 1 (original)</a> </li>
+<li><a href="https://classroom.github.com/a/Jp65tbLl">classroom firmware 1 (original)</a> </li>
 </ul>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -1126,6 +993,31 @@
 <p>Utilize um delay de <code>300ms</code> entre os estados.</p>
 <h4 id="funcionalidade-esperada_3">Funcionalidade esperada</h4>
 <p><a class="glightbox" href="../imgs/lab_gpio_pre_exe4.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab_gpio_pre_exe4.gif" /></a></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="labs/gpio-pre-lab/exercise_8" id="exercise_8_0">
+<p class="admonition-title">exe5</p>
+<form class="exercise-form">
+<ul>
+<li>Arquivo: <code>exe5/main.c</code></li>
+<li>Teste: Aperta um dos botões e contar apenas uma vez!</li>
+</ul>
+<p>Bouncing é um problema encontrado em botões mecânicos, um botão pode ser entendido como um sistema massa mola, que quando apertado vibra e pelo microcontrolador ser muito rápido, ele interpreta isso como várias apertadas.</p>
+<p><a class="glightbox" href="https://www.picotech.com/library/wp-content/uploads/2024/10/threshold_bouncing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.picotech.com/library/wp-content/uploads/2024/10/threshold_bouncing.png" /></a></p>
+<p>Leia mais a respeito <a href="https://www.picotech.com/library/blog/what-is-switch-bounce-how-to-implement-debounce">aqui</a></p>
+<h4 id="codigo_4">Código</h4>
+<p>Imprima via printf quantas vezes foi <mark>realmente</mark> o botão foi apertado, implemente um código de <strong>debouncing</strong> que filtra a vibracão do botão.</p>
+<h4 id="funcionalidade-esperada_4">Funcionalidade esperada</h4>
+<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe5.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img .width="100" alt="" src="../imgs/lab_gpio_pre_exe5.gif" /></a></p>
+<h4 id="dica">Dica</h4>
+<p>Quanto tempo o botão fica vibrando vai depender de diversos fatores, o nosso simulador trabalha da <a href="https://docs.wokwi.com/pt-BR/parts/wokwi-pushbutton">seguinte maneira</a>:</p>
+<blockquote>
+<p>Quando a chave é fechada, os dois contatos realmente se separam e se reconectam, normalmente 10 a 100 vezes durante um período de cerca de 1ms.</p>
+</blockquote>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
