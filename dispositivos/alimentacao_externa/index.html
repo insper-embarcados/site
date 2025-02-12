@@ -709,6 +709,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ISR</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-irs">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -905,7 +930,7 @@
 <h1 id="alimentacao-externa">Alimentação Externa</h1>
 </li>
 </ul>
-<p>Para garantir seu funcionamento adequado, é fundamental fornecer uma alimentação estável dentro da faixa de tensão permitida (1,8V a 5,5V / CC). Neste guia, exploraremos as diversas formas de alimentar a Raspberry Pi Pico e suas vantagens.</p>
+<p>Para garantir seu funcionamento adequado, é fundamental fornecer uma alimentação estável dentro da faixa de tensão permitida (<mark>1,8V a 5,5V</mark>). Neste guia, exploraremos as diversas formas de alimentar a Raspberry Pi Pico e suas vantagens.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>As tensões operacionais seguras estão entre 1,8 V e 5,5 V.</p>
@@ -945,12 +970,26 @@
 <h4 id="31-power-banks">3.1 Power Banks</h4>
 <h4 id="32-baterias-li-ionli-po">3.2 Baterias Li-Ion/Li-Po</h4>
 <h4 id="33-pilhas-aaaaa-ou-baterias-recarregaveis">3.3 Pilhas AA/AAA ou Baterias Recarregáveis</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Esquema</th>
+<th style="text-align: center;">Imagem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><a class="glightbox" href="../imgs/alimentacao_externa/PICO_PILHA_AA.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/alimentacao_externa/PICO_PILHA_AA.jpg" width="400" /></a></td>
+<td style="text-align: center;"><a class="glightbox" href="../imgs/alimentacao_externa/Foto_PILHAS_AA.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/alimentacao_externa/Foto_PILHAS_AA.jpeg" width="400" /></a></td>
+</tr>
+</tbody>
+</table>
 <h4 id="34-fontes-de-energia-acima-de-5v">3.4 Fontes de Energia acima de 5V</h4>
 <p>Quando uma fonte de alimentação não fornece tensão na faixa permitida, como por exemplo, Baterias 9V ou Fonte 12V, é possível utilizar reguladores de tensão para ajustar a saída. Existem dois tipos principais:</p>
 <p>AMS1117 (3.3V) → Converte tensões maiores em 3.3V.</p>
-<p><a class="glightbox" href="../imgs/alimentacao_externa/asm1117_3v3.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/alimentacao_externa/asm1117_3v3.jpg" width="400" /></a></p>
+<p><a class="glightbox" href="../imgs/alimentacao_externa/asm1117_3v3.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/alimentacao_externa/asm1117_3v3.jpg" width="200" /></a></p>
 <p>7805 (5V) → Converte tensões maiores em 5V.</p>
-<p><a class="glightbox" href="../imgs/alimentacao_externa/7805_5v.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/alimentacao_externa/7805_5v.jpg" width="400" /></a></p>
+<p><a class="glightbox" href="../imgs/alimentacao_externa/7805_5v.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/alimentacao_externa/7805_5v.jpg" width="200" /></a></p>
 <h1 id="4-referencias">4. Referências</h1>
 <ul>
 <li><a href="https://projects.raspberrypi.org/en/projects/introduction-to-the-pico/12">Powering your Pico</a></li>
