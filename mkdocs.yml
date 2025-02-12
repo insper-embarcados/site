@@ -190,7 +190,7 @@ nav:
         - Apresentação: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
         - ⏰ Qualidade de Código: labs/qualidade-codigo-1
         - ⏰ Preparatório: labs/gpio-pre-lab.md
-#        - Prática: labs/gpio-pra-lab.md
+        - Prática: labs/gpio-pra-lab.md
 #      - ISR:
 #        - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
 #        - ⏰ Preparatório: labs/irq-pre-lab.md
