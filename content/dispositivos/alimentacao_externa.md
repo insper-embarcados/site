@@ -45,17 +45,21 @@ A Pico permite a alimentação diretamente através dos pinos:
 
 #### 3.3 Pilhas AA/AAA ou Baterias Recarregáveis
 
+Esquema             |  Imagem
+:-------------------------:|:-------------------------:
+![](imgs/alimentacao_externa/PICO_PILHA_AA.jpg){width=400}  |  ![](imgs/alimentacao_externa/Foto_PILHAS_AA.jpeg){width=400}
+
 #### 3.4 Fontes de Energia acima de 5V
 
 Quando uma fonte de alimentação não fornece tensão na faixa permitida, como por exemplo, Baterias 9V ou Fonte 12V, é possível utilizar reguladores de tensão para ajustar a saída. Existem dois tipos principais:
 
 AMS1117 (3.3V) → Converte tensões maiores em 3.3V.
 
-![](imgs/alimentacao_externa/asm1117_3v3.jpg){width=400}
+![](imgs/alimentacao_externa/asm1117_3v3.jpg){width=200}
 
 7805 (5V) → Converte tensões maiores em 5V.
 
-![](imgs/alimentacao_externa/7805_5v.jpg){width=400}
+![](imgs/alimentacao_externa/7805_5v.jpg){width=200}
 
 # 4. Referências
 
