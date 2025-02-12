@@ -99,7 +99,7 @@ O código anterior viola a regra **1.1** nas duas variáveis ( `a` e `b` ) geran
         - Declara `a` e `b` local, e acessa `a` com ponteiro
 
         ``` c 
-        void foo(int &a) {
+        void foo(int *a) {
             *a = *a + 1; // acessa ponteiro
         }
         
