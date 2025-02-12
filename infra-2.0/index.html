@@ -848,23 +848,25 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Windows</label><label for="__tabbed_1_3">macOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Instale os pacotes via apt:</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cmake<span class="w"> </span>libnewlib-arm-none-eabi<span class="w"> </span>libstdc++-arm-none-eabi-newlib<span class="w"> </span>gdb-multiarch<span class="w"> </span>git<span class="w"> </span>udev<span class="w"> </span>python3<span class="w"> </span>automake<span class="w"> </span>autoconf<span class="w"> </span>build-essential<span class="w"> </span>texinfo<span class="w"> </span>libtool<span class="w"> </span>libftdi-dev<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>pkg-config<span class="w"> </span>libftdi1-2<span class="w"> </span>libhidapi-hidraw0<span class="w"> </span>make<span class="w"> </span>python3-pytest<span class="w"> </span>openocd
+<ol>
+<li>Instale os pacotes, uma linha de comando por vez.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cmake<span class="w"> </span>gcc-arm-none-eabi<span class="w"> </span>libnewlib-arm-none-eabi<span class="w"> </span>libstdc++-arm-none-eabi-newlib<span class="w"> </span>gdb-multiarch<span class="w"> </span>git<span class="w"> </span>udev<span class="w"> </span>python3
 </code></pre></div>
-<p>Instale o vscode (debian, não use outra versão!). Execute um comando por vez!</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt-get install wget gpg
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; packages.microsoft.gpg
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>echo &quot;deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main&quot; |sudo tee /etc/apt/sources.list.d/vscode.list &gt; /dev/null
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>rm -f packages.microsoft.gpg
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>sudo apt install apt-transport-https
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>sudo apt update
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>sudo apt install code # or code-insiders
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>automake<span class="w"> </span>autoconf<span class="w"> </span>build-essential<span class="w"> </span>texinfo<span class="w"> </span>libtool<span class="w"> </span>libftdi-dev<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>pkg-config<span class="w"> </span>libftdi1-2<span class="w"> </span>libhidapi-hidraw0<span class="w"> </span>make<span class="w"> </span>python3-pytest
 </code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openocd
+</code></pre></div>
+<ol>
+<li>
+<p>Instale o VSCode de acordo com o seguinte link:
+<a href="https://linuxhint.com/install-visual-studio-code-ubuntu22-04/">Instalar VSCode</a></p>
+</li>
+<li>
+<p>Instalar a extensão "Raspberry Pi Pico" no VsCode, conforme imagem abaixo:
+<a class="glightbox" href="/site/imgs/vscode-extension-pico.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/vscode-extension-pico.png" /></a></p>
+</li>
+</ol>
 </div>
 <div class="tabbed-block">
 <p>Fazer o desenvolvimento usando uma VM Ubuntu:</p>
@@ -878,7 +880,7 @@
 <ol>
 <li>Instalar open-ocd</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>install<span class="w"> </span>open-ocd
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew<span class="w"> </span>install<span class="w"> </span>open-ocd
 </code></pre></div>
 <ol>
 <li>Baixar e instalar VSCode (.zip) de acordo com a arquitetura do seu computador (caso não saiba, peça ajuda ao técnico):
@@ -902,10 +904,10 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Diagrama</label><label for="__tabbed_2_2">Real</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../pico/imgs/pico-probe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img .width="300" alt="" src="../pico/imgs/pico-probe.png" /></a></p>
+<p><a class="glightbox" href="/site/pico/imgs/pico-probe.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p><a class="glightbox" href="../pico/imgs/pico-probe-real.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../pico/imgs/pico-probe-real.jpeg" /></a></p>
+<p><a class="glightbox" href="/site/pico/imgs/pico-probe-real.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/pico/imgs/pico-probe-real.jpeg" /></a></p>
 </div>
 </div>
 </div>
@@ -921,7 +923,7 @@
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Clone o repositório com códigos de teste</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/insper-embarcados/pico-base-project
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w">   </span>https://github.com/insper-embarcados/pico-base-project
 </code></pre></div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -932,8 +934,12 @@
 <div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_3" id="exercise_3_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
-<p>Instale todas as extensões que forem pedidas</p>
-<p><a class="glightbox" href="../imgs/vscode-extensions.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-extensions.png" /></a></p>
+<p>Abra o respositório no vscode</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>code<span class="w"> </span>pico-base-project/
+</code></pre></div>
+<p><mark>Clique em "yes" na sugestão abaixo!</mark>
+<a class="glightbox" href="/site/imgs/vscode-extension-pico-import.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/vscode-extension-pico-import.png" /></a></p>
+<p>Espere até que o ambiente seja configurado.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -943,12 +949,9 @@
 <div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_4" id="exercise_4_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
-<p>Abra o repositório no vscode</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>code<span class="w"> </span>pico-base-project/
-</code></pre></div>
-<p><mark>Clique em "yes" na sugestão abaixo!</mark>
-<a class="glightbox" href="../imgs/vscode-extension-pico-import.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/vscode-extension-pico-import.png" /></a></p>
-<p>Espere até que o ambiente seja configurado.</p>
+<p>Após o ambiente ser configurado, aparecerá um tela parecida com essa:</p>
+<p><mark>Clique no símbolo da extensão da Raspberry Pi Pico</mark>
+<a class="glightbox" href="/site/imgs/infra-2.0-ambiente-configurado.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/infra-2.0-ambiente-configurado.png" /></a></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -959,19 +962,7 @@
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Após o ambiente ser configurado, aparecerá um tela parecida com essa:</p>
-<p><mark>Clique no símbolo da extensão da Raspberry Pi Pico</mark>
-<a class="glightbox" href="../imgs/infra-2.0-ambiente-configurado.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/infra-2.0-ambiente-configurado.png" /></a></p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_6" id="exercise_6_0">
-<p class="admonition-title">Exercise</p>
-<form class="exercise-form">
-<p>Após o ambiente ser configurado, aparecerá um tela parecida com essa:</p>
-<p><a class="glightbox" href="../imgs/infra-2.0-depurando.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/infra-2.0-depurando.png" /></a>   </p>
+<p><a class="glightbox" href="/site/imgs/infra-2.0-depurando.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/infra-2.0-depurando.png" /></a>   </p>
 <ol>
 <li>Clique em "Debug Project"</li>
 <li>Clique em Pico Debug (Cortex-Debug)</li>
@@ -982,22 +973,22 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_7" id="exercise_7_0">
+<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_6" id="exercise_6_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Espere até que a seguinte tela apareça e clique no botão "Play". </p>
-<p><a class="glightbox" href="../imgs/infra-2.0-rodando.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/infra-2.0-rodando.png" /></a> </p>
+<p><a class="glightbox" href="/site/imgs/infra-2.0-rodando.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/infra-2.0-rodando.png" /></a> </p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_8" id="exercise_8_0">
+<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_7" id="exercise_7_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Conforme imagem abaixo:</p>
-<p><a class="glightbox" href="../imgs/infra-2.0-serial-monitor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/infra-2.0-serial-monitor.png" /></a> </p>
+<p><a class="glightbox" href="/site/imgs/infra-2.0-serial-monitor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/infra-2.0-serial-monitor.png" /></a> </p>
 <ol>
 <li>Clique em Serial Monitor</li>
 <li>Clique em Start Monitoring</li>
@@ -1008,11 +999,11 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_9" id="exercise_9_0">
+<div class="admonition exercise self-progress" data-slug="infra-2.0/exercise_8" id="exercise_8_0">
 <p class="admonition-title">Exercise</p>
 <form class="exercise-form">
 <p>Observe se o output é "Hello, world!"</p>
-<p><a class="glightbox" href="../imgs/infra-2.0-serial-output.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/infra-2.0-serial-output.png" /></a> </p>
+<p><a class="glightbox" href="/site/imgs/infra-2.0-serial-output.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="/site/imgs/infra-2.0-serial-output.png" /></a> </p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />

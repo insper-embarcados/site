@@ -991,31 +991,22 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="labs/gpio-pre-lab/exercise_8" id="exercise_8_0">
-<p class="admonition-title">exe5</p>
-<form class="exercise-form">
-<ul>
-<li>Arquivo: <code>exe5/main.c</code></li>
-<li>Teste: Aperta um dos botões e contar apenas uma vez!</li>
-</ul>
-<p>Bouncing é um problema encontrado em botões mecânicos, um botão pode ser entendido como um sistema massa mola, que quando apertado vibra e pelo microcontrolador ser muito rápido, ele interpreta isso como várias apertadas.</p>
-<p><a class="glightbox" href="https://www.picotech.com/library/wp-content/uploads/2024/10/threshold_bouncing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://www.picotech.com/library/wp-content/uploads/2024/10/threshold_bouncing.png" /></a></p>
-<p>Leia mais a respeito <a href="https://www.picotech.com/library/blog/what-is-switch-bounce-how-to-implement-debounce">aqui</a></p>
-<h4 id="codigo_4">Código</h4>
-<p>Imprima via printf quantas vezes foi <mark>realmente</mark> o botão foi apertado, implemente um código de <strong>debouncing</strong> que filtra a vibracão do botão.</p>
-<h4 id="funcionalidade-esperada_4">Funcionalidade esperada</h4>
-<p><a class="glightbox" href="../imgs/lab_gpio_pre_exe5.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img .width="100" alt="" src="../imgs/lab_gpio_pre_exe5.gif" /></a></p>
-<h4 id="dica">Dica</h4>
-<p>Quanto tempo o botão fica vibrando vai depender de diversos fatores, o nosso simulador trabalha da <a href="https://docs.wokwi.com/pt-BR/parts/wokwi-pushbutton">seguinte maneira</a>:</p>
-<blockquote>
-<p>Quando a chave é fechada, os dois contatos realmente se separam e se reconectam, normalmente 10 a 100 vezes durante um período de cerca de 1ms.</p>
-</blockquote>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
+<p>!!! exercise "exe5"
+    - Arquivo: <code>exe5/main.c</code>
+    - Teste: Aperta um dos botões e contar apenas uma vez!</p>
+<div class="language-text highlight"><pre><span></span><code>Bouncing é um problema encontarado em botões mecânicos, um botão pode ser entendido como um sistema massa mola, que quando apertado
+vibra e pelo microcontrolador ser muito rápido, ele interpreta isso como várias apertadas.
+
+#### Código
+
+Imprima via printf quantas vezes o botão foi apertado, implemente um código de **debouncing** que filtra a vibracão do botão.
+
+![](https://raw.githubusercontent.com/OnionIoT/Onion-Docs/master/Omega2/Kit-Guides/img/switch-bouncing.gif)
+
+#### Funcionalidade esperada
+
+![](imgs/lab_gpio_pre_exe5.gif)
+</code></pre></div>
 
 
 </section>
