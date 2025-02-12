@@ -43,44 +43,45 @@ extra:
 
     aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
-    lab_gpio_pre_classroom: https://classroom.github.com/a/Og2WhTSP
-    lab_gpio_pre_deadline:  Antes da próxima aula - 14/9 ou 15/9
-    lab_gpio_pra_classroom: https://classroom.github.com/a/QnfriADY
-    lab_gpio_pra_deadline: 19/8 (Antes da aula)
-    lab_irq_pre_classroom: https://classroom.github.com/a/GYW_HTi4
+    lab_gpio_pre_classroom: https://classroom.github.com/a/Jp65tbLl
+    lab_gpio_pre_deadline:  Antes da próxima aula - 12/2 ou 13/2
+    lab_gpio_pra_classroom: https://classroom.github.com/a/dkHwXPrC
+    lab_gpio_pra_deadline: 17/2 (Antes da aula)
+
+    lab_irq_pre_classroom:
     lab_irq_pre_deadline: 19/8 (Antes da aula)
-    lab_irq_pra_classroom: https://classroom.github.com/a/BvJWdDWJ
-    lab_irq_pra_deadline: 26/8 (Antes da aula)
+    lab_irq_pra_classroom:
+    lab_irq_pra_deadline:
 
-    lab_timer_pre_classroom: https://classroom.github.com/a/XOv7V1gR
-    lab_timer_pre_deadline: 09/9 (Antes da aula)
-    lab_timer_pra_classroom: https://classroom.github.com/a/C9JbpHMx
-    lab_timer_pra_deadline: 09/9 (Antes da aula)
+    lab_timer_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate
+    lab_timer_pre_deadline: xx (Antes da aula)
+    lab_timer_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_timer_pra_deadline: xx (Antes da aula)
 
-    lab_rtos_pre_classroom: https://classroom.github.com/a/q2759a2m
-    lab_rtos_pre_deadline: 16/9 (Antes da aula)
-    lab_rtos_pra_classroom: https://classroom.github.com/a/AzDUsFIa
-    lab_rtos_pra_deadline: 16/9 (Antes da aula)
+    lab_rtos_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_rtos_pre_deadline: xx (Antes da aula)
+    lab_rtos_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_rtos_pra_deadline: xx (Antes da aula)
 
-    lab_adc_pwm_pre_classroom: https://classroom.github.com/a/Q9mObLot
-    lab_adc_pwm_pre_deadline: (23/9) (Antes da aula)
-    lab_adc_pwm_pra_classroom: https://classroom.github.com/a/l5wJ-rbQ
-    lab_adc_pwm_pra_deadline: (23/9) (Antes da aula)
+    lab_adc_pwm_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_adc_pwm_pre_deadline: (xx/xx) (Antes da aula)
+    lab_adc_pwm_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_adc_pwm_pra_deadline: (xx/xx) (Antes da aula)
 
-    lab_i2c_pre_classroom: https://classroom.github.com/a/cFgh6XjH
-    lab_i2c_pre_deadline:
-    lab_i2c_pra_classroom: https://classroom.github.com/a/csbhOuR3
-    lab_i2c_pra_deadline:
+    lab_i2c_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_i2c_pre_deadline: (xx/xx) (Antes da aula)
+    lab_i2c_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_i2c_pra_deadline: (xx/xx) (Antes da aula)
 
-    lab_expert_1_classroom: https://classroom.github.com/a/RDpt2xV1
-    lab_expert_1_deadline: 04/11
+    lab_expert_1_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_expert_1_deadline: (xx/xx) (Antes da aula)
     
-    lab_expert_2_classroom: https://classroom.github.com/a/ZtlYq6bB
-    lab_expert_2_deadline: 11/11
+    lab_expert_2_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    lab_expert_2_deadline: (xx/xx) (Antes da aula)
 
-    aps_1_classroom: https://classroom.github.com/a/G1_ZsJG4
-    aps_1_deadline: 30/08 (Sexta)
-    aps_1_forms: https://forms.gle/Ybg4zvc29i1NJpMs8
+    aps_1_classroom: https://classroom.github.com/a/ImFZKpfs
+    aps_1_deadline: 10/04 (sefunda)
+    aps_1_forms:  https://insper-embarcados.github.io/site/LinkNeedsUpdate/
 
     aps_2_deadline: TBD
     aps_2_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1710349957892/a51ad9d7ba35bb72689454f3caf839f45bf46044?sender=ub569a9273c6e285461187641
@@ -125,7 +126,7 @@ nav:
   - Avaliação:
       - Critério: avaliacao.md
       - Prática: simulados.md
-  - Infra: infra-pico.md
+  - Infra: infra-2.0.md
   - Prototipando:
     - Fabricação: prototipos/prototipos.md
     - Entradas: prototipos/entradas.md
@@ -186,28 +187,29 @@ nav:
       - Preparatórios: labs/pre-lab.md
       - Prática: labs/pra-lab.md
       - GPIO:
+        - Apresentação: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
         - ⏰ Qualidade de Código: labs/qualidade-codigo-1
         - ⏰ Preparatório: labs/gpio-pre-lab.md
-        - Prática: labs/gpio-pra-lab.md
-      - ISR:
-        - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
-        - ⏰ Preparatório: labs/irq-pre-lab.md
-        - Prática: labs/irq-pra-lab.md
-      - Timer:
-        - ⏰ Preparatório: labs/timer-pre-lab.md
-        -  Prática: labs/timer-pra-lab.md
-      - RTOS:
-        - ⏰ Preparatório: labs/rtos-pre-lab.md
-        - Prática: labs/rtos-pra-lab.md
-      - ADC/PWM:
-        - ⏰ Preparatório: labs/adc-pwm-pre-lab.md
-        - Prática: labs/adc-pwm-pra-lab.md
-      - I2C:
-        - ⏰ Preparatório: labs/i2c-pre-lab.md
-        - Prática: labs/i2c-pra-lab.md
+#        - Prática: labs/gpio-pra-lab.md
+#      - ISR:
+#        - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
+#        - ⏰ Preparatório: labs/irq-pre-lab.md
+#        - Prática: labs/irq-pra-lab.md
+#      - Timer:
+#        - ⏰ Preparatório: labs/timer-pre-lab.md
+#        -  Prática: labs/timer-pra-lab.md
+#      - RTOS:
+#        - ⏰ Preparatório: labs/rtos-pre-lab.md
+#        - Prática: labs/rtos-pra-lab.md
+#      - ADC/PWM:
+#        - ⏰ Preparatório: labs/adc-pwm-pre-lab.md
+#        - Prática: labs/adc-pwm-pra-lab.md
+#      - I2C:
+#        - ⏰ Preparatório: labs/i2c-pre-lab.md
+#        - Prática: labs/i2c-pra-lab.md
   - APS:
     - aps/aps-1-genius.md
-    - aps/aps-2-controle.md
+#   - aps/aps-2-controle.md
   - Labs experts:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:

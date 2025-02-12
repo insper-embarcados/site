@@ -80,7 +80,7 @@ Agora execute os exercícios, lembre que você pode consultar os snippets de có
     #### Funcionalidade esperada
     
     ![](imgs/lab_gpio_pre_exe3.gif)
-    
+   
 !!! exercise "exe4"
     - Arquivo: `exe4/main.c`
     - Teste: Verifica se os LEDs acendem na ordem certa.
@@ -94,3 +94,21 @@ Agora execute os exercícios, lembre que você pode consultar os snippets de có
     #### Funcionalidade esperada
     
     ![](imgs/lab_gpio_pre_exe4.gif)
+    
+    
+ !!! exercise "exe5"
+    - Arquivo: `exe5/main.c`
+    - Teste: Aperta um dos botões e contar apenas uma vez!
+    
+    Bouncing é um problema encontarado em botões mecânicos, um botão pode ser entendido como um sistema massa mola, que quando apertado
+    vibra e pelo microcontrolador ser muito rápido, ele interpreta isso como várias apertadas.
+    
+    #### Código
+
+    Imprima via printf quantas vezes o botão foi apertado, implemente um código de **debouncing** que filtra a vibracão do botão.
+    
+    ![](https://raw.githubusercontent.com/OnionIoT/Onion-Docs/master/Omega2/Kit-Guides/img/switch-bouncing.gif)
+    
+    #### Funcionalidade esperada
+    
+    ![](imgs/lab_gpio_pre_exe5.gif)

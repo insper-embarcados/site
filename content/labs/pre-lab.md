@@ -5,6 +5,9 @@
 
 A disciplina utilizará atividades preparatórias que ajudarão vocês no desenvolvimento dos laboratórios. Essas atividades devem ser realizadas no VSCode e ==não necessitam do uso da placa de desenvolvimento==. O objetivo é desacoplar um pouco os elementos; com o simulador, é possível praticar apenas o código e alguns aspectos da conexão de hardware, sem a complexidade de montar os componentes eletrônicos.
 
+!!! warning
+    Ao abrir o projeto, você deve importar o mesmo na extensão da rasp pico!!
+
 !!! video
     ![](https://youtu.be/io7dd_pljyY?si=92IFG-zSnb-w1wX_)
 
