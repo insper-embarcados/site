@@ -1,6 +1,7 @@
 - # Alimentação Externa
 
-Para garantir seu funcionamento adequado, é fundamental fornecer uma alimentação estável dentro da faixa de tensão permitida (1,8V a 5,5V / CC). Neste guia, exploraremos as diversas formas de alimentar a Raspberry Pi Pico e suas vantagens.
+Para garantir seu funcionamento adequado, é fundamental fornecer uma alimentação estável dentro da faixa de tensão permitida (==1,8V a 5,5V==). Neste guia, exploraremos as diversas formas de alimentar a Raspberry Pi Pico e suas vantagens.
+
 !!! warning
 	As tensões operacionais seguras estão entre 1,8 V e 5,5 V.
 
