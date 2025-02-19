@@ -50,8 +50,8 @@ extra:
 
     lab_irq_pre_classroom: https://classroom.github.com/a/AivrNaAv
     lab_irq_pre_deadline: 17/2 (Antes da aula)
-    lab_irq_pra_classroom:
-    lab_irq_pra_deadline:
+    lab_irq_pra_classroom: https://classroom.github.com/a/G_UOd_L_
+    lab_irq_pra_deadline: 2402 (Antes da aula)
 
     lab_timer_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate
     lab_timer_pre_deadline: xx (Antes da aula)
@@ -194,7 +194,7 @@ nav:
       - ISR:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
         - ⏰ Preparatório: labs/irq-pre-lab.md
-#        - Prática: labs/irq-pra-lab.md
+        - Prática: labs/irq-pra-lab.md
 #      - Timer:
 #        - ⏰ Preparatório: labs/timer-pre-lab.md
 #        -  Prática: labs/timer-pra-lab.md
