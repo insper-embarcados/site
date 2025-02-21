@@ -18,7 +18,12 @@ Para desenvolver as atividades práticas será necessário utilizar a placa de d
 
 Vocês possuem uma semana para terminarem o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consultar **horários disponíveis** para apresentar o laboratório.
 
-![](/site/imgs/agenda-entrega.png)
+
+| Horário         | Segunda-feira           | Terça-feira         | Quarta-feira        | Quinta-feira            | Sexta-feira                 |
+|-----------------|-------------------------|---------------------|---------------------|-------------------------|-----------------------------|
+| **09:45-12:00** | Marco ==(Arquitetura)== |                     |                     | Corsi ==(Arquitetura)== | Corsi ==(PD1 6andar TI23)== |
+| **18:00-19:00** |                         | Daniel ==(Ágil 2)== | Daniel ==(Ágil 2)== | Daniel ==(Ágil 2)==     |                             |
+
 
 Lembrando que:
 
