@@ -6,6 +6,9 @@
 | **Entrega código:** [classroom]({{aps_1_classroom}}) |
 | **Entrega forms:** [google forms]({{aps_1_forms}})|
 
+!!! info
+    A APS pode ser feita individual ou em dupla
+
 !!! video
     ![](https://www.youtube.com/watch?v=KfF-AZhUkdM)
 
@@ -24,17 +27,14 @@ O requisito mínimo do projeto para o conceito C é dele ter funcionamento simil
 - Uma resposta visual e sonora para quando acertar ou errar.
 - Gera aleatoriamente a sequência cada vez que o sistema é ligado ou o começa um novo jogo.
     - Usar a seed no `srand()`
-    
+- ==Sistema integrado em protótipo físico, consultar página no site sobre prototipação!==
+ 
 !!! tip "Qualidade de Código"
     O código não deve possuir erros de detectados pelas ferramentas de qualidade de código: `cppcheck` e `embedded-check`.
     
     Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.
 
-### C+
-
-Sistema integrado em protótipo físico, consultar página no site sobre prototipação!.
-
-### B / A
+### Ganhando nota
 
 !!! tip
     Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui, 
