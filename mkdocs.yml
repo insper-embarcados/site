@@ -39,7 +39,7 @@ extra:
     rules_variables_classroom: https://classroom.github.com/a/lqL67cLX
     rules_isr_classroom:  https://classroom.github.com/a/x9VPOR0A
     rules_isr_volatile_classroom: https://classroom.github.com/a/OgT_j7CK
-    rules_head_classroom:
+    rules_head_classroom: https://classroom.github.com/a/jlPI8II_
 
     aula_1_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641
 
@@ -53,10 +53,10 @@ extra:
     lab_irq_pra_classroom: https://classroom.github.com/a/G_UOd_L_
     lab_irq_pra_deadline: 24/02 (Antes da aula)
 
-    lab_timer_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate
-    lab_timer_pre_deadline: xx (Antes da aula)
+    lab_timer_pre_classroom:  https://classroom.github.com/a/0YnLy3Wz
+    lab_timer_pre_deadline: 09/03 (Antes da aula)
     lab_timer_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_timer_pra_deadline: xx (Antes da aula)
+    lab_timer_pra_deadline: 16/03 (Antes da aula)
 
     lab_rtos_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_rtos_pre_deadline: xx (Antes da aula)
@@ -195,9 +195,10 @@ nav:
         - ⏰ Qualidade de Código: labs/qualidade-codigo-irs
         - ⏰ Preparatório: labs/irq-pre-lab.md
         - Prática: labs/irq-pra-lab.md
-#      - Timer:
-#        - ⏰ Preparatório: labs/timer-pre-lab.md
-#        -  Prática: labs/timer-pra-lab.md
+      - Timer:
+        - ⏰ Qualidade de Código: CodeQuality/head-file.md
+        - ⏰ Preparatório: labs/timer-pre-lab.md
+        -  Prática: labs/timer-pra-lab.md
 #      - RTOS:
 #        - ⏰ Preparatório: labs/rtos-pre-lab.md
 #        - Prática: labs/rtos-pra-lab.md
