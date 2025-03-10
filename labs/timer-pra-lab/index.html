@@ -1001,11 +1001,12 @@
 <h3 id="trigger">Trigger</h3>
 <p>Se o sistema ativado, vocês devem gerar um pulso no pino trigger (pesquisa o tempo do pulso), isso vai fazer com que o sensor comece a leitura. </p>
 <h3 id="echo">Echo</h3>
-<p>Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o <code>Echo</code> fica em alto. Além disso, devem usar um alarme do <del>RTC</del> timer para detectar se por algum motivo o sensor não retornou um sinal.</p>
+<p>Para detectar quanto tempo o pino do <code>echo</code> ficou em <code>1</code>, configure uma IRS de subida e descida no GPIO que está conectado o pino. Utilize a API de tempo absoluto para calcular o DT entre a subida e a descida do pino. </p>
+<h4 id="falha">Falha</h4>
+<p>O sensor não é perfeito e muitas vezes falha, por isso você deve implementar um mecanismo de deteccão de falhas, ele deve funcionar detectando quando o <code>echo</code> não fica por um tempo em <code>1</code>. Para isso utilize um alarme de timer como indicado a seguir:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Leitura correta</label><label for="__tabbed_2_2">Leitura com erro</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>A imagem a seguir ilustra uma leitura normal do sensor:</p>
 <p><a class="glightbox" href="../imgs/lab-timer-pra-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-timer-pra-1.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -1020,7 +1021,7 @@
 <li><code>Start</code>: Inicializa a leitura</li>
 <li><code>Stop</code>: Para a leitura</li>
 </ul>
-<p>Em modo start o sistema deve produzir um log no terminal com a hora, minuto e segundo que a leitura foi realizada e o valor da distância:</p>
+<p>Em modo start o sistema deve produzir um log no terminal com a hora, minuto e segundo (usar o RTC para isso) que a leitura foi realizada e o valor da distância:</p>
 <div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>22:10:01 - 100 cm
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>22:10:02 -  89 cm
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>22:10:03 -  70 cm
@@ -1028,7 +1029,8 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>....
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>23:03:01 - Falha
 </code></pre></div>
-<p>Resultado esperado:</p>
+<h3 id="resultado">Resultado</h3>
+<p>A seguir o resultado esperado desse lab.</p>
 <div>
 <iframe height="500" src="https://www.youtube.com/embed/Qf8_zQEEllA?autoplay=0" type="text/html" width="100%"></iframe>
 </div>
@@ -1041,7 +1043,6 @@
 </li>
 <li>Implemente a detecção de falha.<ul>
 <li>Para testar basta desconectar qualquer fio do sensor!</li>
-<li>VOcê </li>
 </ul>
 </li>
 <li>Adicione o RTC (atualize o print).<ul>
