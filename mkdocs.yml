@@ -199,8 +199,8 @@ nav:
         - ⏰ Qualidade de Código: CodeQuality/head-file.md
         - ⏰ Preparatório: labs/timer-pre-lab.md
         -  Prática: labs/timer-pra-lab.md
-#      - RTOS:
-#        - ⏰ Preparatório: labs/rtos-pre-lab.md
+      - RTOS:
+        - ⏰ Preparatório: labs/rtos-pre-lab.md
 #        - Prática: labs/rtos-pra-lab.md
 #      - ADC/PWM:
 #        - ⏰ Preparatório: labs/adc-pwm-pre-lab.md
