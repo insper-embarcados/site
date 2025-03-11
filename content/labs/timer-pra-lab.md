@@ -48,11 +48,13 @@ Se o sistema ativado, vocês devem gerar um pulso no pino trigger (pesquisa o te
 
 ### Echo
 
-Vocês devem utilizar o periférico de timer para fazer a leitura do tempo que o `Echo` fica em alto. Além disso, devem usar um alarme do ~~RTC~~ timer para detectar se por algum motivo o sensor não retornou um sinal.
+Para detectar quanto tempo o pino do `echo` ficou em `1`, configure uma IRS de subida e descida no GPIO que está conectado o pino. Utilize a API de tempo absoluto para calcular o DT entre a subida e a descida do pino. 
+
+#### Falha
+
+O sensor não é perfeito e muitas vezes falha, por isso você deve implementar um mecanismo de deteccão de falhas, ele deve funcionar detectando quando o `echo` não fica por um tempo em `1`. Para isso utilize um alarme de timer como indicado a seguir:
 
 === "Leitura correta"
-    A imagem a seguir ilustra uma leitura normal do sensor:
-
     ![](imgs/lab-timer-pra-1.png)
 === "Leitura com erro"
     E a imagem a seguir ilustra uma falha no sensor, nesse caso o alarme estoura e o sistema fornece uma mensagem de erro.
@@ -66,7 +68,7 @@ O usuário deve ser capaz de controlar algumas opções do sistema pelo terminal
 - `Start`: Inicializa a leitura
 - `Stop`: Para a leitura
 
-Em modo start o sistema deve produzir um log no terminal com a hora, minuto e segundo que a leitura foi realizada e o valor da distância:
+Em modo start o sistema deve produzir um log no terminal com a hora, minuto e segundo (usar o RTC para isso) que a leitura foi realizada e o valor da distância:
 
 ```
 22:10:01 - 100 cm
@@ -77,11 +79,12 @@ Em modo start o sistema deve produzir um log no terminal com a hora, minuto e se
 23:03:01 - Falha
 ```
 
-Resultado esperado:
+### Resultado
+
+A seguir o resultado esperado desse lab.
 
 !!! video
     ![](https://www.youtube.com/watch?v=Qf8_zQEEllA)
-
 
 ### Dicas
 
@@ -91,7 +94,6 @@ A seguir algumas dicas de como fazer, você pode ou não seguir:
     - Para cancelar um alarme use `cancel_alarm(alarm);`
 1. Implemente a detecção de falha.
     - Para testar basta desconectar qualquer fio do sensor!
-    - VOcê 
 1. Adicione o RTC (atualize o print).
     - Você deve incluir o RTC no projeto, para isso consulte a página do RTC (configurando `cmake`)
 1. Implemente a parte de leitura da serial.

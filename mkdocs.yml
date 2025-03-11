@@ -54,12 +54,12 @@ extra:
     lab_irq_pra_deadline: 24/02 (Antes da aula)
 
     lab_timer_pre_classroom:  https://classroom.github.com/a/0YnLy3Wz
-    lab_timer_pre_deadline: 09/03 (Antes da aula)
+    lab_timer_pre_deadline: 13/03 (Antes da aula)
     lab_timer_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_timer_pra_deadline: 16/03 (Antes da aula)
 
-    lab_rtos_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_rtos_pre_deadline: xx (Antes da aula)
+    lab_rtos_pre_classroom: https://classroom.github.com/a/Y-9NZ1ob
+    lab_rtos_pre_deadline: 16/03 (Antes da aula)
     lab_rtos_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_rtos_pra_deadline: xx (Antes da aula)
 
