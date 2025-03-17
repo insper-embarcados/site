@@ -59,9 +59,9 @@ extra:
     lab_timer_pra_deadline: 16/03 (Antes da aula)
 
     lab_rtos_pre_classroom: https://classroom.github.com/a/Y-9NZ1ob
-    lab_rtos_pre_deadline: 16/03 (Antes da aula)
-    lab_rtos_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_rtos_pra_deadline: xx (Antes da aula)
+    lab_rtos_pre_deadline: 19/03 (Antes da aula)
+    lab_rtos_pra_classroom: https://classroom.github.com/a/d1GWFHwe
+    lab_rtos_pra_deadline: 24/03 (Antes da aula)
 
     lab_adc_pwm_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_adc_pwm_pre_deadline: (xx/xx) (Antes da aula)
@@ -80,8 +80,9 @@ extra:
     lab_expert_2_deadline: (xx/xx) (Antes da aula)
 
     aps_1_classroom: https://classroom.github.com/a/ImFZKpfs
-    aps_1_deadline: 14/03 (Sexta)
-    aps_1_forms:  https://insper-embarcados.github.io/site/LinkNeedsUpdate/
+    aps_1_deadline: 17/03 (Segunda)
+    aps_1_forms: https://docs.google.com/forms/d/e/1FAIpQLSfv1hQ_QKUiqt5iliXRv4FWq22iXFKc-JChkXblAd-5YSqCXQ/viewform?usp=dialog
+
 
     aps_2_deadline: TBD
     aps_2_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1710349957892/a51ad9d7ba35bb72689454f3caf839f45bf46044?sender=ub569a9273c6e285461187641
@@ -201,7 +202,7 @@ nav:
         -  Prática: labs/timer-pra-lab.md
       - RTOS:
         - ⏰ Preparatório: labs/rtos-pre-lab.md
-#        - Prática: labs/rtos-pra-lab.md
+        - Prática: labs/rtos-pra-lab.md
 #      - ADC/PWM:
 #        - ⏰ Preparatório: labs/adc-pwm-pre-lab.md
 #        - Prática: labs/adc-pwm-pra-lab.md
