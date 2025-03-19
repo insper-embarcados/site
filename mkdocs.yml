@@ -60,7 +60,7 @@ extra:
 
     lab_rtos_pre_classroom: https://classroom.github.com/a/Y-9NZ1ob
     lab_rtos_pre_deadline: 19/03 (Antes da aula)
-    lab_rtos_pra_classroom: https://classroom.github.com/a/d1GWFHwe
+    lab_rtos_pra_classroom:  https://classroom.github.com/a/zu08XixY
     lab_rtos_pra_deadline: 24/03 (Antes da aula)
 
     lab_adc_pwm_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
@@ -84,9 +84,9 @@ extra:
     aps_1_forms: https://docs.google.com/forms/d/e/1FAIpQLSfv1hQ_QKUiqt5iliXRv4FWq22iXFKc-JChkXblAd-5YSqCXQ/viewform?usp=dialog
 
 
-    aps_2_deadline: TBD
+    aps_2_deadline: 17/04
     aps_2_mural: https://app.mural.co/t/elementos9119/m/elementos9119/1710349957892/a51ad9d7ba35bb72689454f3caf839f45bf46044?sender=ub569a9273c6e285461187641
-    aps_2_classroom: https://classroom.github.com/a/TsMnSy0c
+    aps_2_classroom: https://classroom.github.com/a/lFuCz5eX
 
     projeto_classroom: https://classroom.github.com/a/HdVVrDzo
 
@@ -211,7 +211,7 @@ nav:
 #        - Prática: labs/i2c-pra-lab.md
   - APS:
     - aps/aps-1-genius.md
-#   - aps/aps-2-controle.md
+    - aps/aps-2-controle.md
   - Labs experts:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:
