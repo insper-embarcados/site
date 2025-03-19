@@ -940,7 +940,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Prazo</strong>: <mark>TBD</mark></td>
+<td><strong>Prazo</strong>: <mark>17/04</mark></td>
 </tr>
 <tr>
 <td><strong>Entrega código:</strong> <a href="https://classroom.github.com/a/TsMnSy0c">classroom</a></td>
@@ -953,34 +953,40 @@
 <div>
 <iframe height="500" src="https://www.youtube.com/embed/uCgnWqoP4MM?autoplay=0" type="text/html" width="100%"></iframe>
 </div>
-<p>O desafio é desenvolver um protótipo de um controle bluetooth para um jogo de computador. </p>
+<p>O desafio é desenvolver um protótipo de um controle para um jogo de computador. </p>
 <h2 id="rubrica">Rubrica</h2>
 <p>A ideia do controle é:</p>
 <ul>
 <li>Ser desenvolvido para um jogo específico</li>
 <li>Deve possuir um protótipo mecânico customizado para o jogo em questão</li>
-<li>Fazer uso de RTOS</li>
+<li>Estruturado utilizando RTOS (não pode mais utilizar variáveis globais bua bua bua)!</li>
 </ul>
 <p>O controle deve possuir pelo menos:</p>
 <ul>
 <li>Botão de liga/desliga</li>
-<li>Informação visual se o controle está conectado ou não</li>
-<li>2x entradas analógicas (ou a IMU)</li>
+<li>Informação visual se o controle está conectado ao computador ou não</li>
+<li>2x entradas analógicas (ou uma IMU)</li>
 <li>4x entradas digitais <ul>
-<li>Usar IRS</li>
+<li>Todas operando com callback / interrupcão.</li>
 </ul>
 </li>
+</ul>
+<p>Funcionalidade esperada:</p>
+<ul>
+<li>O jogo deve ser "jogável" com o controle (sem latência, e avalido pela equipe)</li>
+<li>Todo hardware estar integrado no controle (bateria e tudo mais) </li>
 </ul>
 <p>O controle deve ser documentando no README do repositório e deve conter:</p>
 <ul>
 <li>Jogo</li>
 <li>Ideia do controle</li>
 <li>Inputs e Outputs (sensores e atuadores)</li>
+<li>Protocolo utilizado</li>
 <li>Diagrama de blocos explicativo do firmware<ul>
 <li>Indicando tasks, filas, semáforos e IRS</li>
 </ul>
 </li>
-<li>Imagens do controle e links para arquivos ou outras coisas úteis</li>
+<li>Imagens do controle (proposta e real), e links para arquivos ou outras coisas úteis</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Qualidade de Código</p>
@@ -994,19 +1000,25 @@
 mandar mensagem ao professor.</p>
 </div>
 <ul>
-<li><mark>(meio conceito) Entrega design antecipada (25/09)</mark><ul>
+<li>
+<p><mark>(meio conceito) Entrega design antecipada (24/03)</mark></p>
+<ul>
 <li>Via README do repositório (pedir para alguém da equipe avaliar)</li>
 <li><mark>Para valer pedir para alguém da equipe avaliar</mark>.</li>
 </ul>
 </li>
-<li>(meio conceito) Controle possui <a href="https://en.wikipedia.org/wiki/Haptic_technology">Haptic Feedback</a></li>
+<li>
+<p><mark>(um conceito)</mark> Fazer a comunicação via bluetooth</p>
+<ul>
+<li>Indicar visualmente se o controle está conectado no PC</li>
+<li>Indicar visualmente se o controle está conectado ao software</li>
+</ul>
+</li>
 <li>(meio conceito) Utiliza ADC e IMU juntos no jogo</li>
-<li>(meio conceito) O jogo deve ser "jogável" com o controle (sem latência, e avalido pela equipe)</li>
-<li>(meio conceito) Controle recebe informações do PC/jogo e faz alguma coisa (exe: jogador morre e controle vibra)</li>
-<li>(meio conceito) Hardware integrado no controle (bateria e tudo mais) </li>
 <li>(meio conceito) Utiliza algum componente não visto em sala de aula</li>
 <li>(meio conceito) Botão de macro (salva, e reproduz uma série de comandos)</li>
 <li>(meio conceito) Envia com a entrega vídeo TOP/ stonks do controle nível quickstarter  </li>
+<li>(meio conceito) Controle recebe informações do PC/jogo e faz alguma coisa (exe: jogador morre e controle vibra)</li>
 </ul>
 
 
