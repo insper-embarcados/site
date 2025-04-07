@@ -63,13 +63,13 @@ extra:
     lab_rtos_pra_classroom:  https://classroom.github.com/a/zu08XixY
     lab_rtos_pra_deadline: 24/03 (Antes da aula)
 
-    lab_adc_pwm_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_adc_pwm_pre_deadline: (xx/xx) (Antes da aula)
-    lab_adc_pwm_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_adc_pwm_pra_deadline: (xx/xx) (Antes da aula)
+    lab_adc_pwm_pre_classroom: https://classroom.github.com/a/X66vrdwm
+    lab_adc_pwm_pre_deadline: 24/03
+    lab_adc_pwm_pra_classroom: https://classroom.github.com/a/MJb_RtSl
+    lab_adc_pwm_pra_deadline: 14/04 (Antes da aula)
 
-    lab_i2c_pre_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_i2c_pre_deadline: (xx/xx) (Antes da aula)
+    lab_i2c_pre_classroom: https://classroom.github.com/a/fWnzHtdf
+    lab_i2c_pre_deadline: 14/04 (Antes da aula)
     lab_i2c_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_i2c_pra_deadline: (xx/xx) (Antes da aula)
 
@@ -203,11 +203,11 @@ nav:
       - RTOS:
         - ⏰ Preparatório: labs/rtos-pre-lab.md
         - Prática: labs/rtos-pra-lab.md
-#      - ADC/PWM:
-#        - ⏰ Preparatório: labs/adc-pwm-pre-lab.md
-#        - Prática: labs/adc-pwm-pra-lab.md
-#      - I2C:
-#        - ⏰ Preparatório: labs/i2c-pre-lab.md
+      - ADC/PWM:
+        - ⏰ Preparatório: labs/adc-pwm-pre-lab.md
+        - Prática: labs/adc-pwm-pra-lab.md
+      - I2C:
+        - ⏰ Preparatório: labs/i2c-pre-lab.md
 #        - Prática: labs/i2c-pra-lab.md
   - APS:
     - aps/aps-1-genius.md
