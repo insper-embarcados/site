@@ -1050,32 +1050,29 @@
 <p>Onde cada um dos termos do datagrama é um composto por 8 bits que indica:</p>
 <ul>
 <li><code>AXIS</code>: 0 ou 1 para indicar eixo <code>X</code> ou eixo <code>Y</code>.</li>
-<li><code>VAL_1</code>: Byte <mark>mais significativo</mark> (MSB)do valor do movimento do eixo</li>
 <li><code>VAL_0</code>: Byte <mark>menos significativo</mark> (LSB) do valor do movimento do </li>
+<li><code>VAL_1</code>: Byte <mark>mais significativo</mark> (MSB) do valor do movimento do eixo</li>
 <li><code>EOP</code>: -1 indica fim de pacote</li>
 </ul>
 <p>Exemplo:</p>
 <ul>
 <li>Movimentar o mouse no eixo X para a posição 845 (direita)</li>
 </ul>
-<p><code>00000000 00000011 01001101 11111111</code></p>
+<p><code>00000000 01001101 00000011 11111111</code></p>
 <blockquote>
 <p>Notem que o valor de 845 em binário é: <code>00000011 01001101</code>!</p>
 </blockquote>
 <ul>
 <li>Movimentar o mouse no eixo Y para a posição -55 (baixo)</li>
 </ul>
-<p><code>00000001 11111111 11001001 11111111</code></p>
+<p><code>00000001 11001001 11111111 11111111</code></p>
 <blockquote>
 <p>Notem que o valor de -55 em binário é: <code>11111111 11001001</code>!</p>
 </blockquote>
 <h4 id="executando-o-programa">Executando o programa</h4>
-<p>Primeiro devemos configurar qual porta o programa irá usar, você deve colocar a mesma que usa no monitor serial!</p>
-<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ser = serial.Serial(&#39;/dev/ttyACM0&#39;, 115200)
-</code></pre></div>
 <p>Depois devemos instalar as dependências: <code>pip3 install -r requirements.txt</code>, aconselhamos fazer isso em um ambiente virtual. </p>
 <p>Agora é só executar o programa que ficará esperando por dados na serial no formato indicado anteriormente e irá mexer o mouse.</p>
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>main.py
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>main.py
 </code></pre></div>
 <h3 id="firmware">firmware</h3>
 <p>Para garantirmos a integridade do sinal analógico, vocês devem aplicar uma média móvel antes de fazer o envio do dado para a fila, mais com o intuito de trabalhar RTOS do que ser realmente necessário, iremos estruturar o firmware da seguinte maneira:</p>
@@ -1094,7 +1091,7 @@
 <li>Alimentar o módulo com <code>ADC_VREF</code> da PICO.</li>
 </ul>
 </div>
-<p><a class="glightbox" href="../imgs/61CAXEsOkWL._SL1500_.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="61CAXEsOkWL._SL1500_" src="../imgs/61CAXEsOkWL._SL1500_.png" /></a></p>
+<p><a class="glightbox" href="../imgs/61CAXEsOkWL._SL1500_.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="61CAXEsOkWL._SL1500_" src="../imgs/61CAXEsOkWL._SL1500_.png" width="400" /></a></p>
 <!--
 
 ###  KY-023 (joystick)
@@ -1111,17 +1108,17 @@ No gráfico da linear, linha roxa, metade do giro corresponde a metade da resist
 
 <h3 id="dados">Dados</h3>
 <p>Para o mouse funcionar correto devemos obter um valor <code>0</code> quando o mesmo não está parado e um valor positivo para mover por exemplo para direita (se for o eixo <code>x</code>) e um valor negativo para mover para esquerda. Ou seja, vamos ter que mudar a escala da leitura analógico de <code>0 ... 4095</code> para <code>-255 ... +255</code> e com uma zona morta, como indicado a seguir:</p>
-<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-escala.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-escala.png" /></a></p>
+<p><a class="glightbox" href="../imgs/lab-adc-pwm-pra-escala.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-adc-pwm-pra-escala.png" /></a>{}</p>
 <div class="admonition danger">
 <p class="admonition-title">Zona morta</p>
 <p>A zona morta define um valor que não deve ser realizado o envio para o python, ou se enviado o valor deve ser sempre 0. Isso é necessário por variações mecânicas que o potenciômetro possui, que quando solto o seu valor não é necessariamente 2095.</p>
 </div>
 <h3 id="xqueueadc"><code>xQueueADC</code></h3>
 <p>A fila <code>xQueueADC</code> deverá ser uma fila de <code>structs</code> para podermos separar se o dado pertence ao eixo <code>x</code> ou <code>y</code>, para isso sugerimos criar a seguinte <code>struct</code>:</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">adc</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span><span class="w"> </span><span class="n">adc_t</span><span class="p">;</span>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">adc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">axis</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span><span class="w"> </span><span class="n">adc_t</span><span class="p">;</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
