@@ -31,31 +31,25 @@ AXIS VAL_1 VAL_0 EOP
 Onde cada um dos termos do datagrama é um composto por 8 bits que indica:
 
 - `AXIS`: 0 ou 1 para indicar eixo `X` ou eixo `Y`.
-- `VAL_1`: Byte ==mais significativo== (MSB)do valor do movimento do eixo
 - `VAL_0`: Byte ==menos significativo== (LSB) do valor do movimento do 
+- `VAL_1`: Byte ==mais significativo== (MSB) do valor do movimento do eixo
 - `EOP`: -1 indica fim de pacote
 
 Exemplo:
 
 - Movimentar o mouse no eixo X para a posição 845 (direita)
 
-`00000000 00000011 01001101 11111111`
+`00000000 01001101 00000011 11111111`
 
 > Notem que o valor de 845 em binário é: `00000011 01001101`!
 
 - Movimentar o mouse no eixo Y para a posição -55 (baixo)
 
-`00000001 11111111 11001001 11111111`
+`00000001 11001001 11111111 11111111`
 
 > Notem que o valor de -55 em binário é: `11111111 11001001`!
 
 #### Executando o programa
-
-Primeiro devemos configurar qual porta o programa irá usar, você deve colocar a mesma que usa no monitor serial!
-
-```
-ser = serial.Serial('/dev/ttyACM0', 115200)
-```
 
 Depois devemos instalar as dependências: `pip3 install -r requirements.txt`, aconselhamos fazer isso em um ambiente virtual. 
 
@@ -85,7 +79,7 @@ A seguir dicas sobre como executarem o lab:
     - Alimentar o módulo com `ADC_VREF` da PICO.
 	
 
-![61CAXEsOkWL._SL1500_](imgs/61CAXEsOkWL._SL1500_.png)
+![61CAXEsOkWL._SL1500_](imgs/61CAXEsOkWL._SL1500_.png){width=400}
 	
 <!--
 
@@ -106,7 +100,7 @@ No gráfico da linear, linha roxa, metade do giro corresponde a metade da resist
 
 Para o mouse funcionar correto devemos obter um valor `0` quando o mesmo não está parado e um valor positivo para mover por exemplo para direita (se for o eixo `x`) e um valor negativo para mover para esquerda. Ou seja, vamos ter que mudar a escala da leitura analógico de `0 ... 4095` para `-255 ... +255` e com uma zona morta, como indicado a seguir:
 
-![](imgs/lab-adc-pwm-pra-escala.png)
+![](imgs/lab-adc-pwm-pra-escala.png){}
 
 !!! danger "Zona morta"
     A zona morta define um valor que não deve ser realizado o envio para o python, ou se enviado o valor deve ser sempre 0. Isso é necessário por variações mecânicas que o potenciômetro possui, que quando solto o seu valor não é necessariamente 2095.
