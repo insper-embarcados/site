@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>I2c pra lab - Computação Embarcada - 2.0</title>
+        <title>Prática - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -592,7 +592,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs core</span>
     <ul>
       
@@ -770,7 +770,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">I2C</span>
     <ul>
       
@@ -778,6 +778,34 @@
   
     <li>
       <a href="../i2c-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Prática</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#requisitos">Requisitos</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#firmware-fornecido">Firmware fornecido</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#fusao-de-dados">Fusão de dados</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -974,6 +1002,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs core</li>
+                  
+                
+                  
+                    <li>I2C</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -990,10 +1026,10 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Prazo</strong>: <mark>(xx/xx) (Antes da aula)</mark></td>
+<td><strong>Prazo</strong>: <mark>23/04 (Antes da aula)</mark></td>
 </tr>
 <tr>
-<td><a href="https://insper-embarcados.github.io/site/LinkNeedsUpdate/">Repositório no classroom</a></td>
+<td><a href="https://classroom.github.com/a/bo7goMPS">Repositório no classroom</a></td>
 </tr>
 <tr>
 <td>💰 70% nota de lab</td>
@@ -1024,66 +1060,72 @@
 <p>Você deve usar o python do lab passado, para facilitar, copie ele para esse repositório.</p>
 </div>
 <h2 id="requisitos">Requisitos</h2>
-<p>Fazer a leitura da IMU6050 formatar os dados corretamente e enviar via serial para a leitura do programa python.</p>
-<h3 id="mouse-click">Mouse click</h3>
+<p>No lugar do joystick, agora você deve fazer a leitura da IMU6050 formatar os dados corretamente e enviar via serial para a leitura do programa python.</p>
 <p>Vocês precisarão implementar um "mouse click", que deve ser acionado quando o sistema embarcado perceber uma movimentação repentina na horizontal no sentido para frente, como se estivesse cutucando o ar. Para isso vão precisar identificar esse tipo de movimentação e fazer o envio para o python (que deverá ser modificado).</p>
-<h3 id="firmware-fornecido">Firmware fornecido</h3>
+<p><a class="glightbox" href="../imgs/lab-i2c-diagrama.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/lab-i2c-diagrama.png" /></a></p>
+<h2 id="firmware-fornecido">Firmware fornecido</h2>
 <p>O Firmware fornecido é inspirado no exemplo <a href="https://github.com/raspberrypi/pico-examples/tree/master/i2c/mpu6050_i2c">oficial da raspberrypi</a> pico para o sensor MPU6050, modificado para fazer uso do Freertos, a conexão deve ser a mesma da indicada no repositório do fabricante:</p>
 <p><a class="glightbox" href="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/raspberrypi/pico-examples/raw/master/i2c/mpu6050_i2c/mpu6050_i2c_bb.png" /></a></p>
 <p>O firmware faz leituras periódicas do sensor e imprime os valores de aceleração, giro e temperatura (interna do chip) no terminal:</p>
 <div class="language-c highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">mpu6050_read_raw</span><span class="p">(</span><span class="n">acceleration</span><span class="p">,</span><span class="w"> </span><span class="n">gyro</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temp</span><span class="p">);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Acc. X = %d, Y = %d, Z = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gyro. X = %d, Y = %d, Z = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Temp. = %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">340.0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">36.53</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="fusao-de-dados">Fusão de dados</h3>
+<div class="admonition exercise self-progress" data-slug="labs/i2c-pra-lab/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Exercise</p>
+<form class="exercise-form">
+<p>Execute o código e verifique se ele funciona.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="fusao-de-dados">Fusão de dados</h2>
 <p>Os dados brutos de aceleração e giro não são muito fáceis de se usar, pois precisam ser "fundidos" para fornecerem informacoes mais úteis, uma dessas informacoes que podemos obter da fusão dos dados é chamada de "orientacão" (<code>roll, pitch e yaw</code>).</p>
 <p><a class="glightbox" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png" /></a></p>
 <p>Existem diversos algortímos que realizam essa fusão de dados, e IMUs mais poderosas podem fazer isso internamente, mas não é o caso da nossa (IMUs que fazem fusão são um pouco mais caras!). Para obtermos a orientacão iremos usar uma biblioteca escrita em C para sistemas embarcados chamada de <a href="https://github.com/xioTechnologies/Fusion">xioTechnologies/Fusion</a>. A biblioteca já foi importada para vocês, ser necessário apenas utilizar.</p>
-<p>Consulte o exemplo fornecido pelo desenvolvedor de como utilizar a lib:</p>
+<p>A lib que iremos utilizar é a:</p>
 <ul>
 <li><a href="https://github.com/xioTechnologies/Fusion/blob/main/Examples/Simple/main.c">https://github.com/xioTechnologies/Fusion/blob/main/Examples/Simple/main.c</a></li>
 </ul>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define SAMPLE_PERIOD (0.01f) </span><span class="c1">// replace this with actual sample period</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">FusionAhrs</span><span class="w"> </span><span class="n">ahrs</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">FusionAhrsInitialise</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ahrs</span><span class="p">);</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// this loop should repeat each time new gyroscope data is available</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">FusionVector</span><span class="w"> </span><span class="n">gyroscope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">};</span><span class="w"> </span><span class="c1">// replace this with actual gyroscope data in degrees/s</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">FusionVector</span><span class="w"> </span><span class="n">accelerometer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">};</span><span class="w"> </span><span class="c1">// replace this with actual accelerometer data in g</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="n">FusionAhrsUpdateNoMagnetometer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ahrs</span><span class="p">,</span><span class="w"> </span><span class="n">gyroscope</span><span class="p">,</span><span class="w"> </span><span class="n">accelerometer</span><span class="p">,</span><span class="w"> </span><span class="n">SAMPLE_PERIOD</span><span class="p">);</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">FusionEuler</span><span class="w"> </span><span class="n">euler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FusionQuaternionToEuler</span><span class="p">(</span><span class="n">FusionAhrsGetQuaternion</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ahrs</span><span class="p">));</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Roll %0.1f, Pitch %0.1f, Yaw %0.1f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">euler</span><span class="p">.</span><span class="n">angle</span><span class="p">.</span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="n">euler</span><span class="p">.</span><span class="n">angle</span><span class="p">.</span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">euler</span><span class="p">.</span><span class="n">angle</span><span class="p">.</span><span class="n">yaw</span><span class="p">);</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">}</span>
-</code></pre></div>
-<p>Os dados do acc e do giro não estão em unidades de gravidade e de aceleracao, como necessitado para o algortímo de fusão de dados, use a conversão a seguir para fazer a compatibiliade:</p>
-<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">FusionVector</span><span class="w"> </span><span class="n">gyroscope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">131.0f</span><span class="p">,</span><span class="w"> </span><span class="c1">// Conversão para graus/s</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">131.0f</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">131.0f</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">};</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">FusionVector</span><span class="w"> </span><span class="n">accelerometer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">16384.0f</span><span class="p">,</span><span class="w"> </span><span class="c1">// Conversão para g</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">16384.0f</span><span class="p">,</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">16384.0f</span><span class="p">,</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">};</span><span class="w">      </span>
+<p>A seguir um exemplo de como ler a MPU e realizar a fusão dos dados:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">mpu6050_task</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="c1">// .... </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="c1">// configuracao da mpu e i2c</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">FusionAhrs</span><span class="w"> </span><span class="n">ahrs</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">FusionAhrsInitialise</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ahrs</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="n">mpu6050_read_raw</span><span class="p">(</span><span class="n">acceleration</span><span class="p">,</span><span class="w"> </span><span class="n">gyro</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">temp</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="n">FusionVector</span><span class="w"> </span><span class="n">gyroscope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">          </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">131.0f</span><span class="p">,</span><span class="w"> </span><span class="c1">// Conversão para graus/s</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">          </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">131.0f</span><span class="p">,</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">          </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gyro</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">131.0f</span><span class="p">,</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="p">};</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="n">FusionVector</span><span class="w"> </span><span class="n">accelerometer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">          </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">16384.0f</span><span class="p">,</span><span class="w"> </span><span class="c1">// Conversão para g</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">          </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">16384.0f</span><span class="p">,</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">          </span><span class="p">.</span><span class="n">axis</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acceleration</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">16384.0f</span><span class="p">,</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="p">};</span><span class="w">      </span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">      </span><span class="n">FusionAhrsUpdateNoMagnetometer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ahrs</span><span class="p">,</span><span class="w"> </span><span class="n">gyroscope</span><span class="p">,</span><span class="w"> </span><span class="n">accelerometer</span><span class="p">,</span><span class="w"> </span><span class="n">SAMPLE_PERIOD</span><span class="p">);</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">FusionEuler</span><span class="w"> </span><span class="n">euler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FusionQuaternionToEuler</span><span class="p">(</span><span class="n">FusionAhrsGetQuaternion</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ahrs</span><span class="p">));</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Roll %0.1f, Pitch %0.1f, Yaw %0.1f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">euler</span><span class="p">.</span><span class="n">angle</span><span class="p">.</span><span class="n">roll</span><span class="p">,</span><span class="w"> </span><span class="n">euler</span><span class="p">.</span><span class="n">angle</span><span class="p">.</span><span class="n">pitch</span><span class="p">,</span><span class="w"> </span><span class="n">euler</span><span class="p">.</span><span class="n">angle</span><span class="p">.</span><span class="n">yaw</span><span class="p">);</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">      </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Atenção!</p>
 <ul>
 <li>Notem que a lib necessita saber a taxa de amostragem! <code>SAMPLE_PERIOD</code>, vocês precisam ajustar com o valor de vocês!</li>
-<li>As variáveis <code>gyroscope</code> e <code>accelerometer</code> devem ser atualizadas com o valor lido da IMU!</li>
-<li>Reparem no tipo de variável que é lido da IMU com o que é exigido no Fusion</li>
 <li>Esse exemplo não faz uso de bussolá (pois nossa IMU não possui), isso acrescenta um <em>drift</em> no resultado, ou seja, mesmo com a IMU parada vamos notar um "movimento" (a bussolá tenta corrigir isso). </li>
 </ul>
 </div>
@@ -1096,6 +1138,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../i2c-pre-lab/"
+               class="ah-prev"
+               title="⏰ Preparatório">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">⏰ Preparatório</span>
+            </a>
+          
+          
+            <a href="../../aps/aps-1-genius/"
+               class="ah-next"
+               title="Aps 1 genius">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Aps 1 genius</span>
+            </a>
           
         </div>
       </footer>
