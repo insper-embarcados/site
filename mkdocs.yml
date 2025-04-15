@@ -70,8 +70,8 @@ extra:
 
     lab_i2c_pre_classroom: https://classroom.github.com/a/fWnzHtdf
     lab_i2c_pre_deadline: 14/04 (Antes da aula)
-    lab_i2c_pra_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_i2c_pra_deadline: (xx/xx) (Antes da aula)
+    lab_i2c_pra_classroom: https://classroom.github.com/a/bo7goMPS
+    lab_i2c_pra_deadline: 23/04 (Antes da aula)
 
     lab_expert_1_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_expert_1_deadline: (xx/xx) (Antes da aula)
@@ -209,7 +209,7 @@ nav:
         - Prática: labs/adc-pwm-pra-lab.md
       - I2C:
         - ⏰ Preparatório: labs/i2c-pre-lab.md
-#        - Prática: labs/i2c-pra-lab.md
+        - Prática: labs/i2c-pra-lab.md
   - APS:
     - aps/aps-1-genius.md
     - aps/aps-2-controle.md

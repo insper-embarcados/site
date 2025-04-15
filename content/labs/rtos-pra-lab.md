@@ -10,7 +10,7 @@
     - Ler sobre o [Dispositivos/OLED1](/site/dispositivos/oled1) antes de seguir.
     
 !!! warning
-    Agora surgem novas regras, consulte a página: [CodeQuality/RTOS](site/CodeQuality/rtos) para saber as regras que serão aplicadas.
+    Agora surgem novas regras, consulte a página: [CodeQuality/RTOS](/site/CodeQuality/rtos) para saber as regras que serão aplicadas.
     
 O projeto exemplo fornecido possui um RTOS e duas `tasks`, sendo que só uma está ativada. O código exemplo fornece uma demo de como utilizar a placa OLED1 e as bibliotécas gráficas.
 
