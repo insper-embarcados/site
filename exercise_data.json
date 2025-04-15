@@ -1,6 +1,40 @@
 {
   "course": "Active Handout Example 2022",
   "exercises": {
+    "infra-2.0/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_1"
+      },
+      "exercise_2": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_2"
+      },
+      "exercise_3": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_3"
+      },
+      "exercise_4": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_4"
+      },
+      "exercise_5": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_5"
+      },
+      "exercise_6": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_6"
+      },
+      "exercise_7": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_7"
+      },
+      "exercise_8": {
+        "tags": [],
+        "slug": "infra-2.0/exercise_8"
+      }
+    },
     "infra-linux-docker/": {
       "exercise_1": {
         "tags": [],
