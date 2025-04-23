@@ -1,0 +1,38 @@
+{
+  "userAdmonitions": {
+    "warning": {
+      "type": "warning",
+      "color": "242, 209, 44",
+      "icon": {
+        "name": "lucide-message-square-warning",
+        "type": "obsidian"
+      },
+      "command": false,
+      "title": "warning",
+      "injectColor": true,
+      "noTitle": true,
+      "copy": true
+    }
+  },
+  "syntaxHighlight": false,
+  "copyButton": false,
+  "version": "10.3.2",
+  "autoCollapse": false,
+  "defaultCollapseType": "open",
+  "injectColor": true,
+  "parseTitles": true,
+  "dropShadow": true,
+  "hideEmpty": false,
+  "open": {
+    "admonitions": true,
+    "icons": true,
+    "other": true,
+    "advanced": true
+  },
+  "icons": [],
+  "useFontAwesome": true,
+  "rpgDownloadedOnce": false,
+  "msDocConverted": false,
+  "useSnippet": false,
+  "snippetPath": "custom-admonitions.8151ea"
+}

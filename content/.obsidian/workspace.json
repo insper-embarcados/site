@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "df0a2bcb2c999c46",
+    "type": "split",
+    "children": [
+      {
+        "id": "edf4cfe3e8e8c447",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "510c8dbbe972ed3a",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dispositivos/hc05.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "hc05"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9d41aea5234b6e87",
+    "type": "split",
+    "children": [
+      {
+        "id": "d05b5e794da636b4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "358f46e7822b2c40",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c7022c80e185e5c3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "db2602c72f6c2dcb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b7ab03fb56d115ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "8cc17b650e1d0fa3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "110d96325944b073",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "dispositivos/hc05.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for hc05"
+            }
+          },
+          {
+            "id": "3c1bac6adb101af9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "dispositivos/hc05.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from hc05"
+            }
+          },
+          {
+            "id": "9da54b15b77b78ed",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9664f5787d92a155",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "dispositivos/hc05.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of hc05"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "510c8dbbe972ed3a",
+  "lastOpenFiles": [
+    "labs/imgs/61CAXEsOkWL._SL1500_.png",
+    "dispositivos/imgs/hc05/state.png",
+    "dispositivos/imgs/hc05/Pasted image.png",
+    "dispositivos/imgs/hc05/diagrama.png",
+    "dispositivos/hc05.md",
+    "imgs.md"
+  ]
+}
