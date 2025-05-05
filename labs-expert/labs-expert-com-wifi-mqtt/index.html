@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>WIFI - Computação Embarcada - 2.0</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../termynal.css">
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../.."
+           title="Computação Embarcada - 2.0"
+           class="ah-logo"
+           aria-label="Computação Embarcada - 2.0">
+          Computação Embarcada - 2.0
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../aulas/">Aulas</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Avaliação</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../avaliacao/">Critério</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../simulados/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  
+    <li>
+      <a href="../../infra-2.0/">Infra</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Utils</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-uinput/">Uinput</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-pyautogui/">pyautogui</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-vjoy/">vjoy</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-volume/">Volume</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/alimentacao_externa/">Alimentação Externa</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/analogicos/">Análogicos</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/cd4051/">CD4051</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/hc06/">HC-06 (Bluetooth)</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04">HC-SR04 (Ultrassom)</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/oled1/">OLED1</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/servo/">Servomotor</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Pico W</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-examples/">pico-examples</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-debugging/">Programando</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-wifi/">WIFI</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RP2040</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">SDK</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-delay/">Delay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-timer/">Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-rtc/">RTC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://kevinboone.me/picoflash.html">Flash</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-adc/">ADC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-i2c/">I2C</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-dma/">DMA</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-uart/">UART</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">FreeRTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-basic/">RTOS</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-tasks/">Tasks</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-vtaskDelay/">VtaskDelay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-software-time/">Software Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-semaphore/">Semaphore</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue/">Queue</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue-advanced/">Queue struct</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-smp/">SMP</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Code quality</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/topview/">Visão geral</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rules/">Regras</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/variables/">Variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rtos/">RTOS</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Labs core</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">GPIO</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641">Apresentação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-1">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ISR</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-irs">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Timer</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ADC/PWM</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">APS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-2-controle/">Aps 2 controle</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Labs experts</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-about/">Sobre</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Comunicação</span>
+    <ul>
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">WIFI</span>
+      <ul>
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#broker">Broker</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#firmware">Firmware</a>
+              </li>
+            
+        
+          
+            
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-com-bt/">Bluetooth</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">DSP</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-dsp-audio/">Áudio</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-dsp-ia/">IA</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Sensores/Atuadores</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-sensors-servomotor/">Servomotor</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-sensors-bme280-ili9341/">LCD / BME280</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Firmware</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-firmware-driver/">Driver</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-firmware-dma/">DMA</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Projeto</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../projeto/">Sobre</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../projeto/rubrica/">Rubrica</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Labs experts</li>
+                  
+                
+                  
+                    <li>Comunicação</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<table>
+<thead>
+<tr>
+<th># Expert - Wi-Fi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deadline</strong>: (xx/xx) (Antes da aula)</td>
+</tr>
+<tr>
+<td><a href="https://insper-embarcados.github.io/site/LinkNeedsUpdate/">Repositório no Classroom</a></td>
+</tr>
+<tr>
+<td>💰 100% nota de lab</td>
+</tr>
+</tbody>
+</table>
+<p>Neste laboratório, vamos explorar os recursos de conectividade <code>Wi-Fi</code> da <code>Raspberry Pi Pico W</code> e aprender sobre MQTT.</p>
+<h2 id="pico-w">Pico W</h2>
+<p>Sistemas embarcados muitas vezes precisam se comunicar com outros dispositivos ou se conectar à internet. Existem várias soluções possíveis para essa comunicação, que vão desde protocolos proprietários de rádio frequência (por exemplo, um <a href="https://www.polar.com/br/sensores/sensor-de-frequencia-cardiaca/h9">sensor de frequência cardíaca</a>) até o uso de tecnologias como: Wi-Fi, Bluetooth, 4G e Ethernet. Recentemente, surgiram muitas soluções para comunicação de longas distâncias e baixo consumo energético, como LoRa ou Sigfox.</p>
+<p>A Raspberry Pi possui diversas placas de desenvolvimento, e uma delas, a Pico W, conta além do microcontrolador RP2040 (que temos programado até agora), com um outro dispositivo chamado <code>CYW43439</code>, que funciona como uma placa de rede e implementa tanto a comunicação Wi-Fi quanto Bluetooth:</p>
+<p><a class="glightbox" href="../imgs-com/pico-cyw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-com/pico-cyw.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Para fazer esta trilha você deve utilizar a placa PICO W.</p>
+<h2 id="mqtt">MQTT</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+</div>
+<p>Antes de seguir, consulte o material de Wi-Fi:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>- [Pico W/Wi-Fi](/site/pico/pico-wifi)
+</code></pre></div>
+<p>Ao trabalharmos com Wi-Fi e internet, podemos optar por diferentes protocolos de comunicação, entre eles o HTTP/HTTPS, muito popular em serviços web. Porém, para sistemas embarcados, esse protocolo apresenta alguns problemas, como consumo elevado de recursos (memória e processamento), latência relativamente alta e overhead significativo devido ao tamanho dos cabeçalhos e à necessidade de manter conexões estáveis – o que pode ser inviável em dispositivos com restrições severas de hardware e energia.</p>
+<p>Pensando nisso, diversas soluções foram criadas, e uma bastante popular atualmente é o MQTT, um protocolo leve de publicação/assinatura projetado para comunicação eficiente em redes instáveis ou de baixa largura de banda, ideal para aplicações IoT e sistemas embarcados com recursos limitados.</p>
+<p>Enquanto o HTTP usa um modelo requisição-resposta (com métodos como GET e POST), que exige que o cliente sempre inicie a comunicação e aguarde a resposta do servidor, o MQTT opera em um modelo de publicação/assinatura mediado por um broker, permitindo comunicação assíncrona e contínua. Além disso, o MQTT é muito mais eficiente em termos de overhead de dados: enquanto um HTTP POST pode adicionar dezenas ou centenas de bytes extras em cabeçalhos, uma mensagem MQTT pode ter apenas alguns bytes, tornando-o mais adequado para conexões intermitentes e dispositivos com baixo poder computacional. Outra diferença importante é que o MQTT mantém a conexão persistente, possibilitando atualizações em tempo real sem a necessidade de novas requisições – ao contrário do HTTP, que precisa abrir e fechar a conexão a cada requisição.</p>
+<p>No MQTT, a comunicação é organizada por meio de "tópicos", que funcionam como canais hierárquicos onde as mensagens são publicadas e assinadas. Um tópico é identificado por uma string de texto separada por barras (por exemplo: sensor/temperatura/sala1). Os dispositivos que publicam enviam mensagens para um tópico específico, enquanto os dispositivos assinantes recebem automaticamente qualquer mensagem publicada nesse tópico. Esse sistema permite que múltiplos dispositivos se comuniquem de forma desacoplada: o publicador não precisa saber quem vai receber a mensagem, e o assinante não precisa saber quem está enviando. Além disso, o MQTT suporta curingas como + (para um nível da hierarquia) e # (para múltiplos níveis), permitindo grande flexibilidade na assinatura de tópicos.</p>
+<h2 id="exemplo">Exemplo</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O Wi-Fi do Insper utiliza uma autenticação complexa por certificado, o que impede nossa plaquinha de utilizar
+a rede. Temos uma rede disponível no laboratório para vocês utilizarem.</p>
+<p>Se não estiver no laboratório, utilize seu celular como roteador.</p>
+<p><mark>Lembre-se de conectar o computador e o embarcado na mesma rede.</mark></p>
+</div>
+<p>O exemplo fornecido foi "copiado" da lista de exemplos oficiais da Raspberry Pi Pico W, com pequenas modificações para poder ser compilado fora do ambiente de exemplos. O código é grande e mais complicado do que vocês estão acostumados, pois envolve diversas bibliotecas (socket, Wi-Fi, lwIP...).</p>
+<p>O exemplo possui duas etapas:</p>
+<ul>
+<li>Um broker: servidor que irá hospedar os dados do MQTT.</li>
+<li>Firmware: código embarcado que se conecta ao broker.</li>
+</ul>
+<h3 id="broker">Broker</h3>
+<p>Podemos entender o MQTT como o Git e o broker como o GitHub. Existem diversos brokers online que oferecem muitos recursos – um interessante é o <a href="https://thingsboard.io/">https://thingsboard.io/</a>. Mas, neste exemplo, iremos usar um broker mais simples e que funciona localmente: o <a href="https://mosquitto.org/">Mosquitto</a>, gerenciado pela Eclipse Foundation.</p>
+<p>No README do repositório há os passos para fazer o Mosquitto funcionar.</p>
+<h3 id="firmware">Firmware</h3>
+<p>Neste exemplo, a Pico fica constantemente lendo a temperatura interna e enviando as informações para um tópico "/temperature", isso acontece na função <code>publish_temperature</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>static void publish_temperature(MQTT_CLIENT_DATA_T *state) {
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    static float old_temperature;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    const char *temperature_key = full_topic(state, &quot;/temperature&quot;);
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    float temperature = read_onboard_temperature(TEMPERATURE_UNITS);
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    if (temperature != old_temperature) {
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        old_temperature = temperature;
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        // Publish temperature on /temperature topic
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        char temp_str[16];
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        snprintf(temp_str, sizeof(temp_str), &quot;%.2f&quot;, temperature);
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        INFO_printf(&quot;Publishing %s to %s\n&quot;, temp_str, temperature_key);
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        mqtt_publish(state-&gt;mqtt_client_inst, temperature_key, temp_str, strlen(temp_str), MQTT_PUBLISH_QOS, MQTT_PUBLISH_RETAIN, pub_request_cb, state);
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    }
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>}
+</code></pre></div>
+<p>Código que lida com comunicação geralmente utiliza callbacks para executar ações. No caso deste exemplo, o código configura para que a função <code>publish_temperature</code> seja chamada a cada <code>#define TEMP_WORKER_TIME_S 10</code> (10 segundos).</p>
+<p>O MQTT também permite que a placa se inscreva em um tópico e, sempre que houver alguma mudança no valor do tópico no broker, o sistema embarcado é notificado. No caso do exemplo, nosso microcontrolador se inscreve nos tópicos: <code>/led</code>, <code>/print</code>, <code>/ping</code> e <code>/exit</code>, na função a seguir:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>static void sub_unsub_topics(MQTT_CLIENT_DATA_T* state, bool sub) {
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    mqtt_request_cb_t cb = sub ? sub_request_cb : unsub_request_cb;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    mqtt_sub_unsub(state-&gt;mqtt_client_inst, full_topic(state, &quot;/led&quot;), MQTT_SUBSCRIBE_QOS, cb, state, sub);
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    mqtt_sub_unsub(state-&gt;mqtt_client_inst, full_topic(state, &quot;/print&quot;), MQTT_SUBSCRIBE_QOS, cb, state, sub);
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    mqtt_sub_unsub(state-&gt;mqtt_client_inst, full_topic(state, &quot;/ping&quot;), MQTT_SUBSCRIBE_QOS, cb, state, sub);
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    mqtt_sub_unsub(state-&gt;mqtt_client_inst, full_topic(state, &quot;/exit&quot;), MQTT_SUBSCRIBE_QOS, cb, state, sub);
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>}
+</code></pre></div>
+<p>E o dado é processado em:</p>
+<div class="language-c highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mqtt_incoming_data_cb</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">u8_t</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">u16_t</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">u8_t</span><span class="w"> </span><span class="n">flags</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">MQTT_CLIENT_DATA_T</span><span class="o">*</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MQTT_CLIENT_DATA_T</span><span class="o">*</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#if MQTT_UNIQUE_TOPIC</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">basic_topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">topic</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">mqtt_client_info</span><span class="p">.</span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cp">#else</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">basic_topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">topic</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cp">#endif</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">strncpy</span><span class="p">(</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">len</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">DEBUG_printf</span><span class="p">(</span><span class="s">&quot;Topic: %s, Message: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">basic_topic</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/led&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lwip_stricmp</span><span class="p">((</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;On&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">strcmp</span><span class="p">((</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">            </span><span class="n">control_led</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lwip_stricmp</span><span class="p">((</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Off&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">strcmp</span><span class="p">((</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">            </span><span class="n">control_led</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">basic_topic</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/print&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="n">INFO_printf</span><span class="p">(</span><span class="s">&quot;%.*s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">basic_topic</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/ping&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">11</span><span class="p">];</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%u&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">to_ms_since_boot</span><span class="p">(</span><span class="n">get_absolute_time</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="n">mqtt_publish</span><span class="p">(</span><span class="n">state</span><span class="o">-&gt;</span><span class="n">mqtt_client_inst</span><span class="p">,</span><span class="w"> </span><span class="n">full_topic</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/uptime&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="n">MQTT_PUBLISH_QOS</span><span class="p">,</span><span class="w"> </span><span class="n">MQTT_PUBLISH_RETAIN</span><span class="p">,</span><span class="w"> </span><span class="n">pub_request_cb</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">basic_topic</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/exit&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="n">state</span><span class="o">-&gt;</span><span class="n">stop_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// stop the client when ALL subscriptions are stopped</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="n">sub_unsub_topics</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// unsubscribe</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="entrega">Entrega</h2>
+<p><a class="glightbox" href="../imgs/mqtt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs/mqtt.png" /></a></p>
+<p>Um sistema embarcado que possua Wi-Fi e utilize o protocolo MQTT para enviar a um broker (Mosquitto) leituras periódicas de luminosidade do ambiente e permita acender um LED localmente.</p>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../labs-expert-about/"
+               class="ah-prev"
+               title="Sobre">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Sobre</span>
+            </a>
+          
+          
+            <a href="../labs-expert-com-bt/"
+               class="ah-next"
+               title="Bluetooth">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Bluetooth</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
