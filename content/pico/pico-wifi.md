@@ -8,6 +8,7 @@ O `Raspberry Pi Pico` e o `Pico W` são bem semelhantes. Para a grande maioria d
     Datasheet Pico W: 
     - [https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
 
+
 ## Chip CYW43439
 
 Ambas as versões, Pico e Pico W, utilizam o mesmo microcontrolador RP2040. A principal diferença está na inclusão do chip CYW43439 da Infineon no Pico W, que adiciona as seguintes funcionalidades wireless:
@@ -303,21 +304,12 @@ Após conectado é possível verificar o IP alocado para a raspberry pi Pico. Ad
     printf ("Conectado, IP %s\n", sIP);  
 ```    
 
-Ao final deste laboratório introdutório é esperado que você tenha entendido o processo de modificação do Cmakelist para conexão com o modulo Wifi da raspiberry pi pico W e consiga um resultado semelhante a imagem a seguir.
-
 ![](imgs/wifi-conectado.png)
 
 ## Próximmos passos
 
-Agora você já está pronto para desbravar o mundo da conectavidade explorando novas possibilidades.
+Agora você já está pronto para desbravar o mundo do WIFI explorando novas possibilidades.
 
 Sugestão:
 
 - Explore os exemplos de wifi do [repositório de exemplos da pico](https://github.com/raspberrypi/pico-examples/blob/master/pico_w/wifi)
-
-### tcp Client
-
-Comece pelo exemplo tcp_client. Algumas dicas: O raspiberry pi pico será um cliente que fará uma conexão ao servidor (código python com socket). Rode o servidor, no cliente ajuste o ip e porta correto referente ao server. 
-
-
-

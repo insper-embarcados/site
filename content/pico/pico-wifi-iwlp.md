@@ -2,7 +2,6 @@
 
 `lwip` é uma implementaćão open source da pilha TPC/IP com foco em sistemas embarcados.
 
-
 - https://www.raspberrypi.com/documentation/pico-sdk/networking.html#pico_lwip
 
 ## Alternando entre lwip e cyw43

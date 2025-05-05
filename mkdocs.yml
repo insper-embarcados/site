@@ -216,7 +216,7 @@ nav:
   - Labs experts:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:
-          - WIFI: labs-expert/labs-expert-com-wifi.md
+          - WIFI: labs-expert/labs-expert-com-wifi-mqtt.md
           - Bluetooth: labs-expert/labs-expert-com-bt.md
       - DSP:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
