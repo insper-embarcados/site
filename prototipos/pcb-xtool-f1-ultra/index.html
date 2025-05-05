@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Áudio - Computação Embarcada - 2.0</title>
+        <title>Pcb xtool f1 ultra - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -152,7 +152,7 @@
         
   
     <li>
-      <a href="../../prototipos/prototipos/">Fabricação</a>
+      <a href="../prototipos/">Fabricação</a>
     </li>
   
 
@@ -160,7 +160,7 @@
         
   
     <li>
-      <a href="../../prototipos/entradas/">Entradas</a>
+      <a href="../entradas/">Entradas</a>
     </li>
   
 
@@ -168,7 +168,7 @@
         
   
     <li>
-      <a href="../../prototipos/saida.md">Saídas</a>
+      <a href="../saida.md">Saídas</a>
     </li>
   
 
@@ -832,14 +832,14 @@
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Labs experts</span>
     <ul>
       
         
   
     <li>
-      <a href="../labs-expert-about/">Sobre</a>
+      <a href="../../labs-expert/labs-expert-about/">Sobre</a>
     </li>
   
 
@@ -852,7 +852,7 @@
         
   
     <li>
-      <a href="../labs-expert-com-wifi-mqtt/">WIFI</a>
+      <a href="../../labs-expert/labs-expert-com-wifi-mqtt/">WIFI</a>
     </li>
   
 
@@ -860,7 +860,7 @@
         
   
     <li>
-      <a href="../labs-expert-com-bt/">Bluetooth</a>
+      <a href="../../labs-expert/labs-expert-com-bt/">Bluetooth</a>
     </li>
   
 
@@ -870,34 +870,14 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">DSP</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Áudio</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#audio">Áudio</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#exemplo">Exemplo</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#entrega">Entrega</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../labs-expert/labs-expert-dsp-audio/">Áudio</a>
     </li>
   
 
@@ -905,7 +885,7 @@
         
   
     <li>
-      <a href="../labs-expert-dsp-ia/">IA</a>
+      <a href="../../labs-expert/labs-expert-dsp-ia/">IA</a>
     </li>
   
 
@@ -922,7 +902,7 @@
         
   
     <li>
-      <a href="../labs-expert-sensors-servomotor/">Servomotor</a>
+      <a href="../../labs-expert/labs-expert-sensors-servomotor/">Servomotor</a>
     </li>
   
 
@@ -930,7 +910,7 @@
         
   
     <li>
-      <a href="../labs-expert-sensors-bme280-ili9341/">LCD / BME280</a>
+      <a href="../../labs-expert/labs-expert-sensors-bme280-ili9341/">LCD / BME280</a>
     </li>
   
 
@@ -947,7 +927,7 @@
         
   
     <li>
-      <a href="../labs-expert-firmware-driver/">Driver</a>
+      <a href="../../labs-expert/labs-expert-firmware-driver/">Driver</a>
     </li>
   
 
@@ -955,7 +935,7 @@
         
   
     <li>
-      <a href="../labs-expert-firmware-dma/">DMA</a>
+      <a href="../../labs-expert/labs-expert-firmware-dma/">DMA</a>
     </li>
   
 
@@ -1010,14 +990,6 @@
             <ul class="ah-breadcrumbs">
               
                 
-                  
-                    <li>Labs experts</li>
-                  
-                
-                  
-                    <li>DSP</li>
-                  
-                
                 <li></li>
             </ul>
             
@@ -1025,82 +997,7 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="expert-dsp-audio">Expert - DSP - Áudio</h1>
-<table>
-<thead>
-<tr>
-<th>Lab Expert - DSP - Áudio</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Deadline</strong>: (xx/xx) (Antes da aula)</td>
-</tr>
-<tr>
-<td><a href="https://insper-embarcados.github.io/site/LinkNeedsUpdate/">Repositório no classroom</a></td>
-</tr>
-<tr>
-<td>💰 100% nota de lab</td>
-</tr>
-</tbody>
-</table>
-<p>Neste laboratório iremos criar um sistema capaz de captar um sinal de áudio com um microfone e reproduzir o sinal lido em um speaker! </p>
-<div class="admonition info">
-<p class="admonition-title">Pico Examples</p>
-<p>Para conseguir rodar códigos do pico examples, consulte a página a página:</p>
-<ul>
-<li><a href="https://github.com/insper-embarcados/pico-audio">https://github.com/insper-embarcados/pico-audio</a></li>
-</ul>
-</div>
-<h2 id="audio">Áudio</h2>
-<p>Fazer a leitura de um microfone é fácil, basta configurar o 'ADC' para ler o valor que o microfone gera, criar uma base de tempo para controlar a frequência de amostragem dos dados, e fazer a captura periódicamente. Para saber como usar um microfone na pico, consulte:</p>
-<ul>
-<li><a href="https://github.com/raspberrypi/pico-examples/tree/master/adc/microphone_adc">pico-examples/adc/microphone_adc</a></li>
-</ul>
-<p>Agora o desafio é como fazemos para gerar o áudio, a maioria dos microcontroladores possui o conversor analógico para digital, mas poucos possuem um digital para analógico (DAC), que iria facilitar muito a nossa vida, já que poderíamos simplesmente copiar o valor do ADC para DAC e buuumm!!, teríamos um som sendo gerado no pino, ai bastaria amplificar o sinal e pronto, teríamos um áudio sendo reproduzido!</p>
-<p><a class="glightbox" href="../imgs-dsp/adc-dac.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/adc-dac.png" /></a></p>
-<p>Como não temos o DAC, poderíamos pensar em algumas alternativas:</p>
-<ul>
-<li>Usar um <code>codec de áudio</code> externo para fazer a conversão</li>
-<li>Conectar um conversor digital para analogico (DAC) </li>
-</ul>
-<p>Mas existe uma alternativa mais fácil e que não demanda o uso de um novo dispositivo, a alternativa envolve criarmos um DAC a partir de um PWM e um <code>filtro passa-baixa</code> passivo composto de um resistor e capacitor:</p>
-<p><a class="glightbox" href="../imgs-dsp/adc-pwm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/adc-pwm.png" /></a></p>
-<p>O repositório a seguir possui uma bom exemplo e demonstração de como gerar um áudio usando essa técnica na nossa pico! Inclusive com exemplo de como reproduzir uma música!</p>
-<ul>
-<li><a href="https://github.com/rgrosset/pico-pwm-audio/tree/main">https://github.com/rgrosset/pico-pwm-audio/tree/main</a></li>
-</ul>
-<p>No lugar de usar o filtro indicado no repositório, vocês devem usar esse como alternativa: </p>
-<p><a class="glightbox" href="../imgs-dsp/pwm-filter.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/pwm-filter.png" width="300" /></a></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Outras referências: </p>
-<ul>
-<li><a href="http://antirez.com/news/143">http://antirez.com/news/143</a></li>
-<li><a href="http://www.openmusiclabs.com/learning/digital/pwm-dac.1.html">http://www.openmusiclabs.com/learning/digital/pwm-dac.1.html</a></li>
-<li><a href="https://gregchadwick.co.uk/blog/playing-with-the-pico-pt3/">https://gregchadwick.co.uk/blog/playing-with-the-pico-pt3/</a></li>
-</ul>
-</div>
-<h2 id="exemplo">Exemplo</h2>
-<p>O código exemplo coleta 2s de áudio e na sequência o reproduz, e possui a seguinte estrutura:</p>
-<p><a class="glightbox" href="../imgs-dsp/mic-audio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/mic-audio.png" /></a></p>
-<p>Você deve realizar a montagem do microfone, conectando no PIN 27:</p>
-<p><a class="glightbox" href="https://github.com/raspberrypi/pico-examples/raw/master/adc/microphone_adc/microphone_adc_bb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://github.com/raspberrypi/pico-examples/raw/master/adc/microphone_adc/microphone_adc_bb.png" width="400" /></a></p>
-<p>E depois da saída de áudio conectando no PIN 26:</p>
-<p><a class="glightbox" href="../imgs-dsp/pwm-out.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-dsp/pwm-out.png" /></a></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Notem que estamos utilizando um amplificador (azul) para podermos ligar o falante.</p>
-</div>
-<h2 id="entrega">Entrega</h2>
-<p>Você deve entregar um sistema capaz de detectar quando uma pessoa começa a falar e, então, armazenar um áudio de 4 segundos de duração, aplicar um filtro passa-baixas no áudio e reproduzi-lo via PWM.</p>
-<ul>
-<li>Faça a conexão do hardware.</li>
-<li>Execute o exemplo fornecido.</li>
-<li>Aplique um filtro no valor lido pelo ADC.</li>
-<li>Modifique o código para detectar quando alguém começou a falar.</li>
-<li>Reproduza o áudio.</li>
-</ul>
+<p>Aqui será descrito como utilizar a f1 ultra para fazer pcbs.</p>
 
 
 </section>
@@ -1110,20 +1007,6 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../labs-expert-com-bt/"
-               class="ah-prev"
-               title="Bluetooth">
-              <span class="nav-label">Previous</span>
-              <span class="nav-title">Bluetooth</span>
-            </a>
-          
-          
-            <a href="../labs-expert-dsp-ia/"
-               class="ah-next"
-               title="IA">
-              <span class="nav-label">Next</span>
-              <span class="nav-title">IA</span>
-            </a>
           
         </div>
       </footer>
