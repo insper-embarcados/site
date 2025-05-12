@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Labs expert com bt 2 - Computação Embarcada - 2.0</title>
+        <title>Bluetooth - Computação Embarcada - 2.0</title>
       
     
     <link rel="stylesheet"
@@ -832,7 +832,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Labs experts</span>
     <ul>
       
@@ -845,7 +845,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Comunicação</span>
     <ul>
       
@@ -859,8 +859,36 @@
       
         
   
-    <li>
-      <a href="../labs-expert-com-bt/">Bluetooth</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Bluetooth</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#definicoes">Definições</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#comunicacao-bluetooth-le">Comunicação Bluetooth LE</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#btstack">btstack</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#pico">PICO</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#entrega">Entrega</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -990,6 +1018,14 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Labs experts</li>
+                  
+                
+                  
+                    <li>Comunicação</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -997,15 +1033,105 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="bluetooth">Bluetooth</h1>
-<p><code>bash git clone https://github.com/raspberrypi/pico-sdk.git --branch develop
- cd pico-sdk
- git submodule update --init
- cd ..
- git clone https://github.com/raspberrypi/pico-examples.git --branch develop</code></p>
-<p>cmake -DPICO_BOARD=pico_w -DWIFI_SSID="Your Network" -DWIFI_PASSWORD="Your Password" ..
-Using PICO_SDK_PATH from environment ('../../pico-sdk')
-PICO_SDK_PATH is /home/pi/pico/pico-sdk</p>
+<h1 id="expert-bluetooth">Expert - Bluetooth</h1>
+<table>
+<thead>
+<tr>
+<th>Lab Expert - Bluetooth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deadline</strong>: (xx/xx) (Antes da aula)</td>
+</tr>
+<tr>
+<td><a href="https://insper-embarcados.github.io/site/LinkNeedsUpdate/">Repositório no Classroom</a></td>
+</tr>
+<tr>
+<td>💰 100% nota de lab</td>
+</tr>
+</tbody>
+</table>
+<p>Neste laboratório vamos explorar os recursos de conectividade <code>Bluetooth</code> da <code>Raspberry Pi Pico W</code>. </p>
+<h3 id="definicoes">Definições</h3>
+<p>Já conhecemos a tecnologia Bluetooth, inclusive usamos em nosso curso por meio do módulo HC05/HC06. </p>
+<p>Se já conhecemos e usamos bluetooth, por que vamos voltar nesse assunto? Bem, é chegada a hora de aprofundarmos nosso conhecimento um pouco mais na tecnologia bluetooth e aproveitar para conhecer como usar o modulo bluetooth da pico W.</p>
+<p>A Raspberry Pi Pico W possui a versão 5.2 do Bluetooth, que é a especificação do módulo CYW43439 de wifi/bt. O modulo possui o modo BLE (Bluetooth Low Energy) que oferece melhorias em termos de velocidade, alcance e eficiência energética. </p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>CYW43439 (Pico W)</th>
+<th>HC-05/HC-06</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Versão Bluetooth</td>
+<td>Bluetooth 5.2</td>
+<td>Bluetooth 2.0</td>
+</tr>
+<tr>
+<td>Modos de Operação</td>
+<td>BLE (Bluetooth Low Energy)</td>
+<td>Bluetooth Clássico</td>
+</tr>
+<tr>
+<td>Taxa de Transferência</td>
+<td>Mais alta devido ao BLE e Bluetooth 5.2</td>
+<td>Limitada (Bluetooth 2.0)</td>
+</tr>
+<tr>
+<td>Energia</td>
+<td>Mais eficiente (BLE)</td>
+<td>Menos eficiente</td>
+</tr>
+<tr>
+<td>Alcance</td>
+<td>Maior alcance (BLE e Bluetooth 5.2)</td>
+<td>Menor alcance</td>
+</tr>
+<tr>
+<td>Facilidade de Uso</td>
+<td>Mais complexo, mas mais funcionalidades</td>
+<td>Mais simples, ideal para iniciantes</td>
+</tr>
+<tr>
+<td>Modos de Conexão</td>
+<td>Central e Periférico</td>
+<td>Mestre (HC-05) e Escravo</td>
+</tr>
+<tr>
+<td>Interfacing</td>
+<td>SPI</td>
+<td>UART (serial)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comunicacao-bluetooth-le">Comunicação Bluetooth LE</h3>
+<p>Bluetooth Low Energy (BLE) foi introduzido como parte da especificação Bluetooth 4.0, projetado para oferecer uma alternativa de baixo consumo de energia ao Bluetooth clássico, e tenta ser uma alternativa para aplicações que requerem comunicação sem fio eficiente em termos de energia, como dispositivos vestíveis, sensores e dispositivos IoT (Internet das Coisas).</p>
+<p>A medida que começamos a nos aprofundar no sistema bluetooth, vamos nos deparar com uma verdadeira sopa de letrinhas, isso por que o sistema bluetooth é bem complexo e requer conhecimento e diversos protocolos aplicados em diversas camadas. </p>
+<p>De acordo com a propria especificação, o sistema Bluetooth é composto por um Host, um Controlador Primário e zero ou mais Controladores Secundários. Uma implementação mínima do sistema core Bluetooth BR/EDR cobre as quatro camadas mais baixas e os protocolos associados definidos pela especificação Bluetooth, bem como um protocolo de camada de serviço comum; o Service Discovery Protocol (SDP). Os requisitos gerais do perfil são especificados no Generic Access Profile (GAP). O sistema core BR/EDR inclui suporte para Alternate MAC/PHYs (AMPs), incluindo um AMP Manager Protocol e Protocol Adaptation Layers (PALs) que suportam MAC/PHYs referenciados externamente. Uma implementação mínima de um sistema core apenas Bluetooth LE cobre as quatro camadas mais baixas e os protocolos associados definidos pela especificação Bluetooth, bem como dois protocolos comuns de camada de serviço; o Security Manager (SM) e o Attribute Protocol (ATT). Os requisitos gerais do perfil são especificados no Generic Attribute Profile (GATT) e no Generic Access Profile (GAP).</p>
+<h2 id="btstack">btstack</h2>
+<p>A pico W utiliza da stack opensource <a href="https://github.com/bluekitchen/btstack">btsatck</a> que implementa os protocolos bluetooth comentandos anteriormente. </p>
+<p><a class="glightbox" href="https://bluekitchen-gmbh.com/wp-content/uploads/2025/04/slider-1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://bluekitchen-gmbh.com/wp-content/uploads/2025/04/slider-1.jpg" /></a></p>
+<p>A stack possui diversos exemplos e estão disponíveis no repositório ofical da pico de exemplos:</p>
+<ul>
+<li><a href="https://github.com/raspberrypi/pico-examples/tree/master/pico_w/bt">https://github.com/raspberrypi/pico-examples/tree/master/pico_w/bt</a></li>
+</ul>
+<p>Os exemplos são todos muito bem documentados no site da stack:</p>
+<ul>
+<li><a href="https://bluekitchen-gmbh.com/btstack/#examples/examples/">https://bluekitchen-gmbh.com/btstack/#examples/examples/</a></li>
+</ul>
+<h2 id="pico">PICO</h2>
+<p>O problema é que executar esses exemplos é um pesadelo, então para facilitar a nossa vida já configuramos um repositório com um exemplo da pico simulando um teclado/mouse</p>
+<ul>
+<li><a href="https://github.com/insper-embarcados/pico-bluetooth-hid">https://github.com/insper-embarcados/pico-bluetooth-hid</a></li>
+</ul>
+<p>Ao execcutar esse exemplo a pico vira um device bluetooth com nome <code>HID Keyboard Demo</code> (que é definido <a href="https://github.com/insper-embarcados/pico-bluetooth-hid/blob/6ff3aee36b4a619c2d9e8927a8ab1f90d525dff8/hid/hid_keyboard_demo.c#L421C1-L421C63">nessa linha</a>). Uma vez conectado no computador, abra o monitor serial e digite uma sequência de caracteres, a PICO irá reproduzir essa mesma sequência, como se você estivesse apertando as teclas.</p>
+<h2 id="entrega">Entrega</h2>
+<p>A entrega deve ser um sistema com 4 botões que eumulem as teclas <code>A</code>, <code>S</code>, <code>W</code>, <code>D</code> via bluetooth. Um LED azul deve ficar piscando enquanto nenhum device está pareado, e ficar aceso quando um computador se conectar na pico.</p>
+<p><a class="glightbox" href="../imgs-blt/lab-blt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../imgs-blt/lab-blt.png" /></a></p>
 
 
 </section>
@@ -1015,6 +1141,20 @@ PICO_SDK_PATH is /home/pi/pico/pico-sdk</p>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../labs-expert-com-wifi-mqtt/"
+               class="ah-prev"
+               title="WIFI">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">WIFI</span>
+            </a>
+          
+          
+            <a href="../labs-expert-dsp-audio/"
+               class="ah-next"
+               title="Áudio">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Áudio</span>
+            </a>
           
         </div>
       </footer>
