@@ -73,8 +73,8 @@ extra:
     lab_i2c_pra_classroom: https://classroom.github.com/a/bo7goMPS
     lab_i2c_pra_deadline: 23/04 (Antes da aula)
 
-    lab_expert_1_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
-    lab_expert_1_deadline: (xx/xx) (Antes da aula)
+    lab_expert_1_classroom: https://classroom.github.com/a/tLCnicB9
+    lab_expert_1_deadline: 14/05
     
     lab_expert_2_classroom: https://insper-embarcados.github.io/site/LinkNeedsUpdate/
     lab_expert_2_deadline: (xx/xx) (Antes da aula)
@@ -217,7 +217,7 @@ nav:
       - Sobre: labs-expert/labs-expert-about.md
       - Comunicação:
           - WIFI: labs-expert/labs-expert-com-wifi-mqtt.md
-          - Bluetooth: labs-expert/labs-expert-com-bt.md
+          - Bluetooth: labs-expert/labs-expert-com-bt-2.md
       - DSP:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
           - IA: labs-expert/labs-expert-dsp-ia.md
