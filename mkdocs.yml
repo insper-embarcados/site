@@ -226,7 +226,7 @@ nav:
           - LCD / BME280: labs-expert/labs-expert-sensors-bme280-ili9341.md
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
-          - DMA: labs-expert/labs-expert-firmware-dma.md
+          - DMA: labs-expert/labs-expert-firmware-dma-2.md
   - Projeto:
       - Sobre: projeto/index.md
       - Rubrica: projeto/rubrica.md
