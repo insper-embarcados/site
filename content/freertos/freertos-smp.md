@@ -34,9 +34,10 @@ Para mais informações, consulte o site do FreeRTOS sobre o SMP:
 ### `FreeRTOSConfig.h`
 
 !!! info
-    Esta configuração só funciona com a nova versão da biblioteca `pico-base-rtos` lançada em 10 de maio de 2024. Portanto, o `SMP` não funcionará em laboratórios e projetos anteriores.
+    Esta configuração só funciona com versões específicas do freertos, use como base o código:
+    
+    - https://github.com/Evlers/pico-freertos
 
-    - [pico-base-rtos GitHub](https://github.com/insper-embarcados/pico-base-rtos)
 
 Para ativarmos o `SMP` em nossos projetos, precisamos editar o arquivo `freertos/FreeRTOSConfig.h` modificando as seguintes linhas:
 
