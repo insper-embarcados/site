@@ -330,6 +330,12 @@
         "slug": "labs/gpio-pre-lab/exercise_7"
       }
     },
+    "labs/i2c-pra-lab/": {
+      "exercise_1": {
+        "tags": [],
+        "slug": "labs/i2c-pra-lab/exercise_1"
+      }
+    },
     "labs/i2c-pre-lab/": {
       "exercise_1": {
         "tags": [],

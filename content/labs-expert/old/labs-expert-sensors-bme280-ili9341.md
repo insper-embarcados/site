@@ -1,16 +1,17 @@
-# Expert - BME280 / ili9341
+# Expert - ili9341 c/ Touch Resistivo
 
-| Lab Expert - BME280 / ili9341                              |
-| ------------------------------------------------------------ |
-| **Deadline**: {{lab_expert_2_deadline}} |
+| Lab Expert - ili9341 c/ Touch Resistivo                |
+| ------------------------------------------------------ |
+| **Deadline**: {{lab_expert_2_deadline}}                |
 | [Repositório no Classroom]({{lab_expert_2_classroom}}) |
-| 💰 100% nota de laboratório                                   |
+| 💰 100% nota de laboratório                             |
 
-Neste laboratório, iremos criar uma aplicação que faz as leituras de um sensor bme280 e mostrar os valores aferidos em um display LCD TFT com driver ili9341, ambos utilizando protocolo SPI.
+Neste laboratório, iremos utilizar o display LCD com driver ili9341 para mostrar informações de sensores. 
 
 !!! warning "Placa Adaptadora para o LCD"
-    Você poderá utilizar a placa adaptadora do LCD para utilizar juntamente com a placa da OLED:
+    Desenvolvemos duas placas (PicoDock / TFT LCD - Dock) que facilita as conexões da PICO com o LCD (ili9341):
 	
+
 	![](imgs-bme280-ili9341/placa_adaptadora.jpg){width=400px}
 	
 	- https://insper-embarcados.github.io/site/dispositivos/oled1/#placa-adaptadora

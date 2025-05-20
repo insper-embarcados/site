@@ -223,7 +223,7 @@ nav:
           - IA: labs-expert/labs-expert-dsp-ia2.md
       - Sensores/Atuadores:
           - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
-          - LCD / BME280: labs-expert/labs-expert-sensors-bme280-ili9341.md
+          - LCD c/ Touch Resistivo: labs-expert/labs-expert-sensors-ili9341-resistive.md
       - Firmware:
           - Driver: labs-expert/labs-expert-firmware-driver.md
           - DMA: labs-expert/labs-expert-firmware-dma-2.md
