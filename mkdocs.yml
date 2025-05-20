@@ -220,7 +220,7 @@ nav:
           - Bluetooth: labs-expert/labs-expert-com-bt-2.md
       - DSP:
           - Áudio: labs-expert/labs-expert-dsp-audio.md
-          - IA: labs-expert/labs-expert-dsp-ia.md
+          - IA: labs-expert/labs-expert-dsp-ia2.md
       - Sensores/Atuadores:
           - Servomotor: labs-expert/labs-expert-sensors-servomotor.md
           - LCD / BME280: labs-expert/labs-expert-sensors-bme280-ili9341.md
