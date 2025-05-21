@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>IA - Computação Embarcada - 2.0</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../termynal.css">
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../.."
+           title="Computação Embarcada - 2.0"
+           class="ah-logo"
+           aria-label="Computação Embarcada - 2.0">
+          Computação Embarcada - 2.0
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../aulas/">Aulas</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Avaliação</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../avaliacao/">Critério</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../simulados/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  
+    <li>
+      <a href="../../infra-2.0/">Infra</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Prototipando</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../prototipos/prototipos/">Fabricação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/entradas/">Entradas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../prototipos/saida.md">Saídas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Utils</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-uinput/">Uinput</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-pyautogui/">pyautogui</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-vjoy/">vjoy</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../utils/utils-volume/">Volume</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Dispositivos</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/alimentacao_externa/">Alimentação Externa</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/analogicos/">Análogicos</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/buzzer/">Buzzer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/cd4051/">CD4051</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/hc06/">HC-06 (Bluetooth)</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://perrobotica.fandom.com/pt-br/wiki/Sensor_de_dist%C3%A2ncia_Hcsr04">HC-SR04 (Ultrassom)</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/oled1/">OLED1</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../dispositivos/servo/">Servomotor</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Pico W</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg">Hardware</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-examples/">pico-examples</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-debugging/">Programando</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../pico/pico-wifi/">WIFI</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RP2040</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">Datasheet</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html">SDK</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-delay/">Delay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-gpio/">GPIO</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-gpio-irq/">GPIO IRQ</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-timer/">Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-rtc/">RTC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="https://kevinboone.me/picoflash.html">Flash</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-adc/">ADC</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-pwm/">PWM</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-i2c/">I2C</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-dma/">DMA</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../rp2040/rp2040-uart/">UART</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">FreeRTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-basic/">RTOS</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-tasks/">Tasks</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-vtaskDelay/">VtaskDelay</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-software-time/">Software Timer</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-semaphore/">Semaphore</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue/">Queue</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-queue-advanced/">Queue struct</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../freertos/freertos-smp/">SMP</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Code quality</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/topview/">Visão geral</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rules/">Regras</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/cppcheck/">Cppcheck</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/variables/">Variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-variables/">ISR - variáveis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/isr-handler/">ISR - handler</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/rtos/">RTOS</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Labs core</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/pre-lab/">Preparatórios</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/pra-lab/">Prática</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">GPIO</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="https://app.mural.co/t/elementos9119/m/elementos9119/1708285630708/f7182e10dd73d346d8a1e216545399fffbf036f4?sender=ub569a9273c6e285461187641">Apresentação</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-1">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/gpio-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ISR</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/qualidade-codigo-irs">⏰ Qualidade de Código</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/irq-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Timer</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../CodeQuality/head-file/">Head File</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/timer-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">RTOS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/rtos-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">ADC/PWM</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/adc-pwm-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">I2C</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pre-lab/">⏰ Preparatório</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../labs/i2c-pra-lab/">Prática</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">APS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-1-genius/">Aps 1 genius</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../aps/aps-2-controle/">Aps 2 controle</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Labs experts</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-about/">Sobre</a>
+    </li>
+  
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Comunicação</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-com-wifi-mqtt/">WIFI</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-com-bt-2/">Bluetooth</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">DSP</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-dsp-audio/">Áudio</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">IA</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#conceitos-importantes">Conceitos Importantes</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#instalacao">Instalação</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#pratica-do-laboratorio">Prática do Laboratório</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#entrega">Entrega</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#referencias">Referências:</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Sensores/Atuadores</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-sensors-servomotor/">Servomotor</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-sensors-ili9341-resistive/">LCD c/ Touch Resistivo</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Firmware</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../labs-expert-firmware-driver/">Driver</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../labs-expert-firmware-dma-2/">DMA</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Projeto</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../projeto/">Sobre</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../projeto/rubrica/">Rubrica</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../projeto/entrega-1/">Entrega</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Labs experts</li>
+                  
+                
+                  
+                    <li>DSP</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="expert-dsp-inteligencia-artificial">Expert - DSP - Inteligência Artificial</h1>
+<table>
+<thead>
+<tr>
+<th>Lab Expert - DSP - IA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deadline</strong>: (xx/xx) (Antes da aula)</td>
+</tr>
+<tr>
+<td><a href="https://insper-embarcados.github.io/site/LinkNeedsUpdate/">Repositório no Classroom</a></td>
+</tr>
+<tr>
+<td>💰 100% nota de lab</td>
+</tr>
+</tbody>
+</table>
+<p>Neste laboratório você utilizará a <strong>Raspberry Pi Pico W</strong> junto com o sensor <strong>MPU6050 IMU</strong> para classificar movimentos de um acelerômetro no espaço utilizando a plataforma <strong>Edge Impulse</strong>. Iremos treinar um modelo capaz de identificar os seguintes padrões de movimento:</p>
+<ul>
+<li>idle (parado)</li>
+<li>updown (cima-baixo)</li>
+<li>wave (acenando)</li>
+</ul>
+<p>Ao final, seu dispositivo embarcado será capaz de fazer inferência local desses movimentos, sem necessidade de conexão com a internet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Utilize como código base o repositório a seguir, após criado o classroom copie os códigos do lab-exp-dsp-ia para o criado pelo classroom:</p>
+<ul>
+<li><a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></li>
+</ul>
+</div>
+<h2 id="conceitos-importantes">Conceitos Importantes</h2>
+<h3 id="edge-computing">Edge Computing</h3>
+<p><strong>Edge Computing</strong> é uma arquitetura de TI onde os dados são processados o mais próximo possível da sua origem ("na borda"). Isso resulta em:</p>
+<ul>
+<li>Latência reduzida</li>
+<li>Menor tráfego de dados para a nuvem</li>
+<li>Maior confiabilidade e velocidade em aplicações críticas</li>
+</ul>
+<blockquote>
+<p>"Uma fábrica moderna com 2.000 equipamentos pode gerar 2.200 terabytes de dados por mês. Processar esses dados localmente é mais rápido e econômico."<br />
+Fonte: <a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">RedHat - O que é Edge Computing?</a></p>
+</blockquote>
+<h3 id="edge-impulse">Edge Impulse</h3>
+<p>O <strong>Edge Impulse</strong> é uma plataforma que ajuda desenvolvedores a criar modelos de machine learning para dispositivos embarcados de forma acessível e escalável.</p>
+<h3 id="edge-impulse-cli">Edge Impulse CLI</h3>
+<p>Ferramenta de linha de comando usada para configurar e conectar dispositivos ao Edge Impulse. Veja a <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli">documentação oficial</a>.</p>
+<h2 id="instalacao">Instalação</h2>
+<blockquote>
+<p>IMPORTANTE: Para instalar corretamente siga os passos descritos na documentação oficial. 
+<a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation">https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation</a></p>
+</blockquote>
+<p>Basicamente as etapas são:</p>
+<ol>
+<li>
+<p>Criar uma conta no <a href="https://edgeimpulse.com/">Edge Impulse</a>.</p>
+</li>
+<li>
+<p><strong>Python 3</strong> instalado no computador.</p>
+</li>
+<li>
+<p>Instale <strong>Node.js</strong> v20 ou superior no computador.</p>
+</li>
+</ol>
+<h4 id="instalacao-linuxmac">Instalação linux/MAC</h4>
+<p>etapas para instalaçao em Linux/MAC:</p>
+<p>bash
+curl -sL <a href="https://deb.nodesource.com/setup_20.x">https://deb.nodesource.com/setup_20.x</a> | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v</p>
+<p>Verifique o diretório de instalação do Node.</p>
+<p>bash
+npm config get prefix</p>
+<blockquote>
+<p>Se retornar <strong>/usr/local/</strong>, rode os seguintes comandos para mudar o diretório padrão do npm.</p>
+<p>bash
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo 'export PATH=~/.npm-global/bin:$PATH' &gt;&gt; ~/.profile
+</p>
+<p>No MAC com zsh,</p>
+<p>bash
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo 'export PATH=~/.npm-global/bin:$PATH' &gt;&gt; ~/.zprofile
+</p>
+</blockquote>
+<ol>
+<li>Instale o edge-impulse-cli.</li>
+</ol>
+<p>bash
+npm install -g edge-impulse-cli
+reboot</p>
+<hr />
+<h4 id="instalacao-windows">Instalação Windows</h4>
+<p>etapas para instalação WINDOWS</p>
+<ol>
+<li>
+<p>Crie uma conta no edge-impulse</p>
+</li>
+<li>
+<p>Instale python3 no computador</p>
+</li>
+<li>
+<p>Instale Node.js (Instale o "tools for native modules" caso sugerido)</p>
+</li>
+<li>
+<p>Reinicie o computador e rode o seguinte comando através do PowerShell:</p>
+</li>
+</ol>
+<blockquote>
+<p>npm install -g edge-impulse-cli --force</p>
+</blockquote>
+<h2 id="pratica-do-laboratorio">Prática do Laboratório</h2>
+<p>Neste laboratório, você conectará o sensor MPU6050 à Raspberry Pi Pico W utilizando a interface I2C para capturar dados de movimento (aceleração e giroscópio). Esses dados serão enviados em tempo real ao Edge Impulse utilizando a ferramenta edge-impulse-data-forwarder. Com isso, será possível criar um conjunto de dados rotulado para treinar um modelo de classificação de movimentos diretamente na nuvem.</p>
+<p>O modelo resultante será exportado como biblioteca C++ e incluído no firmware que será executado localmente na Pico W, permitindo inferência offline dos movimentos idle, updown e wave com indicação visual através de um LED RGB.</p>
+<p>Projeto base recomendado:
+- <a href="https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition">Continuous Motion Recognition</a></p>
+<p>Fluxo de trabalho:</p>
+<p><a class="glightbox" href="../imgs-dsp/ia-edgeflux.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="edge impulse workflow" src="../imgs-dsp/ia-edgeflux.png" /></a></p>
+<p>Demonstração:</p>
+<div>
+<iframe height="500" src="https://www.youtube.com/embed/Yk3hq3IcJR4?autoplay=0" type="text/html" width="100%"></iframe>
+</div>
+<h3 id="detalhes-tecnicos">Detalhes Técnicos</h3>
+<ul>
+<li>Clone o repositório de código base <a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></li>
+</ul>
+<p><a class="glightbox" href="../imgs-dsp/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs-dsp/image.png" /></a></p>
+<ul>
+<li>Carregue na placa o código base mpu-data-forwarding na Raspberry Pico. disponível no repositório base, deve ser utilizado para ler os dados da Pico W e encaminhá-los via serial.</li>
+<li>Vamos usar o edge-impulse-cli para enviar os dados da Pico W para o Edge Impulse, em um terminal, use o comando edge-impulse-data-forwarder.</li>
+<li>Leia a <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder">documentação do data forwarder</a></li>
+<li>Durante a coleta de dados, garanta que está em execução o código mpu-data-forwarder do repositório base</li>
+<li>No deploy, configure para exportar como biblioteca C++.</li>
+</ul>
+<h2 id="entrega">Entrega</h2>
+<h3 id="o-que-deve-ser-entregue">O que deve ser entregue</h3>
+<ul>
+<li>Modelo treinado com 3 classes: idle, wave, updown</li>
+<li>Projeto embarcado funcional com classificação local</li>
+<li>LED RGB indicando o estado classificado (pinos GP15, GP16, GP17)</li>
+<li>Frequência de amostragem: 62.5 Hz</li>
+<li>Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são <strong>tflite-model, model-parameters e o edge-impulse-sdk</strong>, não inclua o restante para não desconfigurar o projeto.</li>
+<li>Verifique no código onde está conectado os pinos SDA e SCL do módulo I2C.</li>
+</ul>
+<h4 id="substituir-bibliotecas-no-projeto">Substituir bibliotecas no projeto:</h4>
+<ul>
+<li>Inclua apenas: tflite-model, model-parameters, edge-impulse-sdk</li>
+<li>Substitua os arquivos do projeto base pelos do deploy no Edge Impulse</li>
+</ul>
+<p><a class="glightbox" href="../imgs-dsp/ia-deploy.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="edge impulse workflow" src="../imgs-dsp/ia-deploy.png" /></a></p>
+<blockquote>
+<p>É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de <strong>Deploy</strong> no site do <strong>Edge Impulse</strong>, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione.</p>
+</blockquote>
+<h2 id="referencias">Referências:</h2>
+<p><a href="https://edgeimpulse.com/about">https://edgeimpulse.com/about</a></p>
+<p><a href="https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing">https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing</a></p>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../labs-expert-dsp-audio/"
+               class="ah-prev"
+               title="Áudio">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Áudio</span>
+            </a>
+          
+          
+            <a href="../labs-expert-sensors-servomotor/"
+               class="ah-next"
+               title="Servomotor">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Servomotor</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="../../termynal.js"></script>
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
