@@ -97,7 +97,7 @@ reboot
  
 ---
 
-#### Instalação linux/MAC
+#### Instalação Windows
 
 etapas para instalação WINDOWS
 
