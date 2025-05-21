@@ -97,6 +97,20 @@ reboot
  
 ---
 
+#### Instalação linux/MAC
+
+etapas para instalação WINDOWS
+
+1. Crie uma conta no edge-impulse
+
+2. Instale python3 no computador
+
+3. Instale Node.js (Instale o "tools for native modules" caso sugerido)
+
+4. Reinicie o computador e rode o seguinte comando através do PowerShell:
+
+> npm install -g edge-impulse-cli --force
+
 ## Prática do Laboratório
 
 Neste laboratório, você conectará o sensor MPU6050 à Raspberry Pi Pico W utilizando a interface I2C para capturar dados de movimento (aceleração e giroscópio). Esses dados serão enviados em tempo real ao Edge Impulse utilizando a ferramenta edge-impulse-data-forwarder. Com isso, será possível criar um conjunto de dados rotulado para treinar um modelo de classificação de movimentos diretamente na nuvem.
