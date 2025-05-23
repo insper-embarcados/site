@@ -9,8 +9,10 @@
 Neste laboratório iremos utilizar a MPU6050 IMU (aquele mesmo mesmo módulo utilizado no laboratório [6 - i2c](https://insper-embarcados.github.io/site/labs/i2c-pra-lab/)) para classificar movimentos de um acelerômetro no espaço. Com o módulo I2C conectado à Raspberry Pico, utilizaremos o software Edge Impulse para treinar e classificar movimentos, tais como *idle* (parado), *updown* (cima-baixo) e *wave* (acenando). No final do laboratório teremos o nosso dispositivo na borda processando todos os dados, sem a necessidade de internet.
 
 !!! tip
-    Vocês devem utilizar como código base o repositório a seguir, após criado o classroom copie os códigos do `lab-exp-dsp-ia` para o criado pelo classroom:
+    Vocês devem utilizar como código base dos repositórios a seguir, utilize o  `lab-exp-dsp-ia-mpu-forwarder` para fazer a captura dos dados da imu para nuvem, e quando finalizar o laboratório e tiver gerado o modelo utilize o `lab-exp-dsp-ia` para deploy do seu modelo e teste, mais informações sobre como fazer isso a seguir.
     
+    - https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder
+
     - https://github.com/insper-embarcados/lab-exp-dsp-ia
 
 ### Definições

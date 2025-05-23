@@ -15,8 +15,10 @@ Neste laboratório você utilizará a **Raspberry Pi Pico W** junto com o sensor
 Ao final, seu dispositivo embarcado será capaz de fazer inferência local desses movimentos, sem necessidade de conexão com a internet.
 
 !!! tip
-    Utilize como código base o repositório a seguir, após criado o classroom copie os códigos do lab-exp-dsp-ia para o criado pelo classroom:
+    Vocês devem utilizar os repositórios a seguir, utilize o  `lab-exp-dsp-ia-mpu-forwarder` para fazer a captura dos dados da imu para o edge-impulse, e quando finalizar o laboratório e tiver gerado o modelo utilize o `lab-exp-dsp-ia` para deploy do seu modelo e teste, mais informações sobre como fazer isso a seguir.
     
+    - https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder
+
     - https://github.com/insper-embarcados/lab-exp-dsp-ia
 
 ## Conceitos Importantes
@@ -131,11 +133,11 @@ Demonstração:
 
 ### Detalhes Técnicos
 
-- Clone o repositório de código base [https://github.com/insper-embarcados/lab-exp-dsp-ia](https://github.com/insper-embarcados/lab-exp-dsp-ia)
+- Clone os repositórios: [https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder](https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder) e o [https://github.com/insper-embarcados/lab-exp-dsp-ia](https://github.com/insper-embarcados/lab-exp-dsp-ia)
 
 ![alt text](./imgs-dsp/image.png)
 
-- Carregue na placa o código base mpu-data-forwarding na Raspberry Pico. disponível no repositório base, deve ser utilizado para ler os dados da Pico W e encaminhá-los via serial.
+- Carregue na placa o código base mpu-forwarder na Raspberry Pico. disponível no repositório com mesmo nome, deve ser utilizado para ler os dados da Pico W e encaminhá-los via serial.
 - Vamos usar o edge-impulse-cli para enviar os dados da Pico W para o Edge Impulse, em um terminal, use o comando edge-impulse-data-forwarder.
 - Leia a [documentação do data forwarder](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder)
 - Durante a coleta de dados, garanta que está em execução o código mpu-data-forwarder do repositório base
@@ -149,10 +151,10 @@ Demonstração:
 - Projeto embarcado funcional com classificação local
 - LED RGB indicando o estado classificado (pinos GP15, GP16, GP17)
 - Frequência de amostragem: 62.5 Hz
-- Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
+- Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu repositório clonado `lab-exp-dsp-ia` são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
 - Verifique no código onde está conectado os pinos SDA e SCL do módulo I2C.
 
-#### Substituir bibliotecas no projeto:
+#### Substituir bibliotecas no projeto lab-exp-dsp-ia:
 
 - Inclua apenas: tflite-model, model-parameters, edge-impulse-sdk
 - Substitua os arquivos do projeto base pelos do deploy no Edge Impulse
