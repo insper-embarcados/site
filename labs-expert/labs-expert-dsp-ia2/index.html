@@ -1061,9 +1061,14 @@
 <p>Ao final, seu dispositivo embarcado será capaz de fazer inferência local desses movimentos, sem necessidade de conexão com a internet.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Utilize como código base o repositório a seguir, após criado o classroom copie os códigos do lab-exp-dsp-ia para o criado pelo classroom:</p>
+<p>Vocês devem utilizar os repositórios a seguir, utilize o  <code>lab-exp-dsp-ia-mpu-forwarder</code> para fazer a captura dos dados da imu para o edge-impulse, e quando finalizar o laboratório e tiver gerado o modelo utilize o <code>lab-exp-dsp-ia</code> para deploy do seu modelo e teste, mais informações sobre como fazer isso a seguir.</p>
 <ul>
-<li><a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></li>
+<li>
+<p><a href="https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder">https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder</a></p>
+</li>
+<li>
+<p><a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></p>
+</li>
 </ul>
 </div>
 <h2 id="conceitos-importantes">Conceitos Importantes</h2>
@@ -1161,11 +1166,11 @@ reboot</p>
 </div>
 <h3 id="detalhes-tecnicos">Detalhes Técnicos</h3>
 <ul>
-<li>Clone o repositório de código base <a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></li>
+<li>Clone os repositórios: <a href="https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder">https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder</a> e o <a href="https://github.com/insper-embarcados/lab-exp-dsp-ia">https://github.com/insper-embarcados/lab-exp-dsp-ia</a></li>
 </ul>
 <p><a class="glightbox" href="../imgs-dsp/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../imgs-dsp/image.png" /></a></p>
 <ul>
-<li>Carregue na placa o código base mpu-data-forwarding na Raspberry Pico. disponível no repositório base, deve ser utilizado para ler os dados da Pico W e encaminhá-los via serial.</li>
+<li>Carregue na placa o código base mpu-forwarder na Raspberry Pico. disponível no repositório com mesmo nome, deve ser utilizado para ler os dados da Pico W e encaminhá-los via serial.</li>
 <li>Vamos usar o edge-impulse-cli para enviar os dados da Pico W para o Edge Impulse, em um terminal, use o comando edge-impulse-data-forwarder.</li>
 <li>Leia a <a href="https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder">documentação do data forwarder</a></li>
 <li>Durante a coleta de dados, garanta que está em execução o código mpu-data-forwarder do repositório base</li>
@@ -1178,10 +1183,10 @@ reboot</p>
 <li>Projeto embarcado funcional com classificação local</li>
 <li>LED RGB indicando o estado classificado (pinos GP15, GP16, GP17)</li>
 <li>Frequência de amostragem: 62.5 Hz</li>
-<li>Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu projeto são <strong>tflite-model, model-parameters e o edge-impulse-sdk</strong>, não inclua o restante para não desconfigurar o projeto.</li>
+<li>Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu repositório clonado <code>lab-exp-dsp-ia</code> são <strong>tflite-model, model-parameters e o edge-impulse-sdk</strong>, não inclua o restante para não desconfigurar o projeto.</li>
 <li>Verifique no código onde está conectado os pinos SDA e SCL do módulo I2C.</li>
 </ul>
-<h4 id="substituir-bibliotecas-no-projeto">Substituir bibliotecas no projeto:</h4>
+<h4 id="substituir-bibliotecas-no-projeto-lab-exp-dsp-ia">Substituir bibliotecas no projeto lab-exp-dsp-ia:</h4>
 <ul>
 <li>Inclua apenas: tflite-model, model-parameters, edge-impulse-sdk</li>
 <li>Substitua os arquivos do projeto base pelos do deploy no Edge Impulse</li>
