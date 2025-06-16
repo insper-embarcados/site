@@ -130,6 +130,101 @@ Snippets de código usando `queue`.
 
 ### Task-Task
 
+```c
+
+//fila
+QueueHandle_t xQueueInput;
+
+void led_1_task(void *p) {
+
+    int number = 0;
+    int finished = 1;
+
+    for (;;) {
+
+          if (finished == 1) {
+          //Recebe número da main para começar tarefa
+            if (xQueueReceive(xQueueInput, &number, pdMS_TO_TICKS(500)) == pdTRUE) {
+                finished = 2;
+            }
+        }
+
+        //Aguarda receber número da main ou da task_2_led para executar
+        if (finished == 2 || xQueueReceive(xQueueLed1, &number, pdMS_TO_TICKS(500)) == pdTRUE) {
+
+            //Muda finished para 0, indicando que o número atual está sendo processado
+            if (finished == 2) {
+                finished = 0;
+            }
+
+            if (number > 0) {
+
+              //Pisca LED amarelo e decrementa o número
+                gpio_put(LED_PIN_Y, 1);
+                vTaskDelay(pdMS_TO_TICKS(500));
+                gpio_put(LED_PIN_Y, 0);
+                vTaskDelay(pdMS_TO_TICKS(500));
+
+                number--;
+
+                if (number >= 0) {
+                  //Manda novo valor do número para a led_2_task
+                    xQueueSend(xQueueLed2, &number, 0);
+                }
+            }
+
+            if (number < 1) {
+              //Finaliza operação para receber próximo número na fila xQueueInput
+                finished = 1;
+            }
+        }
+    }
+}
+
+void led_2_task(void *p) {
+    int number = 0;
+
+    for (;;) {
+
+        //Aguarda receber número da task_1_led para executar
+        if (xQueueReceive(xQueueLed2, &number, pdMS_TO_TICKS(500)) == pdTRUE) {
+            if (number > 0) {
+
+              //Pisca LED azul e decrementa o número
+                gpio_put(LED_PIN_B, 1);
+                vTaskDelay(pdMS_TO_TICKS(500));
+                gpio_put(LED_PIN_B, 0);
+                vTaskDelay(pdMS_TO_TICKS(500));
+
+                number--;
+
+                if (number >= 0) {
+                  //Manda novo valor do número de volta para a led_1_task
+                    xQueueSend(xQueueLed1, &number, 0);
+                }
+            }
+        }
+    }
+}
+
+void main(void) {
+
+  //Cria fila de imput
+  xQueueInput = xQueueCreate(32, sizeof(int) );
+  int number = 8;
+
+
+  if (xQueueButId == NULL){
+      printf("falha em criar a fila \n");
+  }
+  else{
+    //Envia número para a fila xQueueInput
+    xQueueSend(xQueueInput, &number, 0);
+  }
+
+}
+
+```
 
 ### IRQ-TASK
 
