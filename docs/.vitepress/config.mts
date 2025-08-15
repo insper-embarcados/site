@@ -5,7 +5,7 @@ import {defineConfig} from '@lando/vitepress-theme-default-plus/config'
 export default defineConfig({
   title: "Computação Embarcada",
   description: "Sistemas embarcados movem o mundo",
-  base: "/site-vitepress/",
+  base: "/site/",
   markdown: {
       math: true
   },
@@ -77,7 +77,23 @@ export default defineConfig({
             { text: 'Variáveis', link: '/qualidade/variables' },
             { text: 'ISR', link: '/qualidade/isr-handler' }
           ]
+        },
+        {
+          text: 'labs/gpio',
+          items: [
+            { text: 'Entrega', link: '/labs/gpio' },
+            {
+              text: 'Leitura',
+              items: [
+                { text: 'Rules', link: '/qualidade/rules' },
+                { text: 'Cppcheck', link: '/qualidade/cppcheck' },
+                { text: 'Variáveis', link: '/qualidade/variables' },
+                { text: 'ISR', link: '/qualidade/isr-handler' }
+              ]
+            }
+          ]
         }
+
       ]
     },
     socialLinks: [

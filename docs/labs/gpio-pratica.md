@@ -13,7 +13,7 @@ Enviar no PrairiLearn
 ::::
 :::: third
 ::: box Nota
-50% da nota do laboratório
+70% da nota do laboratório
 :::
 ::::
 :::: third

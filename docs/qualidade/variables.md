@@ -16,24 +16,6 @@ hero:
 
 # Variáveis
 
-::::: center
-:::: third
-::: box-blue 1. Link para entrega 📦
-Acessar [github classroom](https://....)
-:::
-::::
-:::: third
-::: box 2. Deadline
-xx/08
-:::
-::::
-:::: third
-::: box Nota
-15% da nota do laboratório
-:::
-::::
-:::::
-
 Programas para sistemas embarcados devem seguir algumas diretrizes fundamentais de qualidade de código, refletindo as melhores práticas no uso de microcontroladores e da linguagem de programação C. É importante lembrar que um sistema embarcado interage diretamente com o mundo real, onde falhas podem impactar significativamente nossa realidade.
 
 Existem várias normas estabelecidas para orientar os desenvolvedores na criação de firmwares mais confiáveis, abordando inclusive problemas associados à especificação da linguagem C. 
@@ -165,13 +147,4 @@ O código letra C!
 
 ### Praticando
 
-Vamos praticar um pouco e corrigir as regras básicas de qualidade de código e boas práticas em sistemas embarcados, para isso crie um repositório pelo *github classroom* e então modifique os arquivos conforme indicado.
-
-- Crie um repositório com o código exemplo acessando o github classroom
-- Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros.
-- Corrija o código `rules_basic_variable.c` e verifique se os erros ainda continuam.
-
-Dica: reescreva a função `foo` para um dos casos a seguir:
-
-- `int foo(int a)`
-- `void foo(int *a)`
+Vamos praticar e ver como isso vai funcionar na prática durante a disciplina! Na entrega de pré lab do GPIO o `exe0_variables` vai ser sobre isso.

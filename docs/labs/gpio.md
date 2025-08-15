@@ -10,53 +10,58 @@ hero:
 
 Neste laboratório, iremos aprender como acionar e ler os pinos digitais do microcontrolador. Junto com isso, aprenderemos boas práticas de desenvolvimento de firmware.
 
-## Preparatório <Badge type="info" text="50% da nota de lab" /> 
+## Leitura obrigaratória
 
-Entregas que devem ser realizadas antes da aula de laboratório. Note que este laboratório possui 3 atividades de pré-lab, todas com entregas.
-
-Comece pelos dois exercícios de qualidade de código:
+Comece pela leitura sobre qualidade de código:
 
 ::::: center
 :::: third
-::: box-blue 1. Qualidade de código
-Acessar [cppcheck](/qualidade/cppcheck)
+::: card  📖 Leitura 1: [cppcheck](/qualidade/cppcheck)
 :::
 ::::
 :::: third
-::: box-blue 2. Qualidade de código
-Acessar [variáveis](/qualidade/variables)
+::: card Leitura 2: [variáveis](/qualidade/variables)
+::::
+:::: third
+::::
+:::::
+
+As próximas leituras são sobre os conceitos básicos do microcontrolador. Para isso, é necessário que vocês realizem algumas leituras prévias.
+
+::::: center
+:::: third
+:::card 📖 Leitura 3: [delay](/consulta/delay)
+:::
+::::
+:::: third
+:::card  📖 Leitura 4 [GPIO](/consulta/gpio)
 :::
 ::::
 :::: third
 ::::
 :::::
 
-Agora, iremos aprender sobre os conceitos básicos do microcontrolador. Para isso, é necessário que vocês realizem algumas leituras prévias.
+Agora que vocês já entenderam um pouco sobre qualidade de código, delay/sleep e GPIO, vamos praticar e colocar em uso, primeiro no preparatório que utiliza um ambiente virtual apenas, e depois na atividades prática.
+
+## Preparatório <Badge type="info" text="30% da nota de lab" /> 
+
+Entregas que devem ser realizadas antes da aula de laboratório (quarta feira).
 
 ::::: center
-:::: third
-:::card 📖 Leitura 1
-[O que é delay e como ele funciona](/consulta/delay)
+:::: third 
+::: box-blue 1. Classroom
+[Acessar preparatório](https://....)
 :::
 ::::
 :::: third
-:::card  📖 Leitura 2
-[Detalhes sobre o GPIO](/consulta/gpio)
+::: box-yellow 2. Entrega final
+Enviar no PrairiLearn
 :::
 ::::
 :::: third
-::::
-:::::
-
-Agora que vocês já entenderam um pouco sobre delay/sleep e GPIO, vamos praticar um pouco.
-
-::::: center
-:::: third
-::: box-blue 3. Exercício
-Acessar [exercícios](https://classroom)
+::: box Nota
+30% da nota do laboratório
 :::
-::::
-:::: third
 ::::
 :::: third
 ::::
@@ -67,14 +72,23 @@ Acessar [exercícios](https://classroom)
 Entrega que deve ser **iniciada** na aula de laboratório e entregue até o próximo lab.
 
 ::::: center
-:::: third
-::: box-blue 4. Prática
+:::: third 
+::: box-blue 1. Prática
 Acessar [prática](/labs/gpio-pratica)
 :::
 ::::
 :::: third
+::: box-yellow 2. Entrega final
+Enviar no PrairiLearn
+:::
+::::
+:::: third
+::: box Nota
+30% da nota do laboratório
+:::
 ::::
 :::: third
 ::::
 :::::
+
 

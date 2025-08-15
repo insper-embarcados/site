@@ -6,24 +6,6 @@ next:
 
 # Cppcheck
 
-::::: center
-:::: third
-::: box-blue 1. Link para entrega 📦
-Acessar [github classroom](https://....)
-:::
-::::
-:::: third
-::: box 2. Deadline
-xx/08
-:::
-::::
-:::: third
-::: box Nota
-15% da nota do laboratório
-:::
-::::
-:::::
-
 ::: tip Rule 1.0
 O código não deve possuir erros detectados pelo `cppcheck`.
 :::
@@ -139,13 +121,4 @@ nofile:0:0: information: Cppcheck cannot find all the include files (use --check
 
 Utilizaremos o `cppcheck` para verificar todas as entregas de sistemas embarcados de vocês. O analisador será executado automaticamente no repositório do github de cada aluno. Cada novo código submetido será verificado. Para a atividade valer nota é `obrigatório` que não haja erros no código. 
 
-Vamos praticar e ver como isso vai funcionar na prática durante a disciplina!
-
-- Crie um repositório com o código exemplo acessando o github classroom: {{$frontmatter.rules_cppcheck_classroom}}
-
-- Analise o log do actions e verifique que o cppcheck executou e encontrou alguns erros: 
-
-![](figs/cppcheck-erro.png){width=500}
-
-- Corrija o código `main.c` e verifique se os erros ainda continuam (dica: edite o código no próprio github).
-
+Vamos praticar e ver como isso vai funcionar na prática durante a disciplina! Na entrega de pré lab do GPIO o `exe0_cppcheck` vai ser sobre isso.
