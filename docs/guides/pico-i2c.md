@@ -1,4 +1,12 @@
-## Introdução ao I2C
+---
+tags:
+  - comunicação chip a chip
+  - periféricos
+description: I2C (Inter-Integrated Circuit) é uma das formas de comunicacão entre chips.
+---
+
+# I2C 
+
 O I2C (Inter-Integrated Circuit) é um protocolo de comunicação serial síncrona que permite a comunicação entre microcontroladores e dispositivos periféricos utilizando apenas dois pinos: um chamado de **SDA** (Serial Data Line) e uma linha de clock **SCL** (Serial Clock Line). Ele foi desenvolvido pela Philips Semiconductor (atualmente NXP Semiconductors) nos anos 80.
 
 Breve lista de alguns sensores que possuem comunicação I2C:
@@ -14,7 +22,7 @@ Breve lista de alguns sensores que possuem comunicação I2C:
 
 Para usar o I2C, é necessário conectar os dispositivos em uma infraestrutura de barramento, geralmente utilizando resistores de pull-up na linha de dados (SDA) e na linha de clock (SCL). O sinal de clock (SCL) é sempre gerado pelo dispositivo controlador, que é o dispositivo que inicia e controla as comunicações. O sinal de dados (SDA) pode ser manipulado tanto pelo dispositivo controlador quanto pelo dispositivo com o qual ele está se comunicando.
 
-![I2C-Components-with-pull-up-resistors](imgs/I2C-Components-with-pull-up-resistors.png)
+![I2C-Components-with-pull-up-resistors](pico-imgs/I2C-Components-with-pull-up-resistors.png)
 
 É possível conectar um único dispositivo controlador a vários dispositivos em paralelo, formando uma topologia conhecida como "varal". Para possibilitar essa conexão, cada dispositivo é identificado por um endereço de 7 bits único.
 
@@ -26,7 +34,7 @@ Notem que o protocolo I2C exige que a linha tenha um `pull-up`
 
 A comunicação no protocolo I2C é baseada em transações de controlador e dispositivo. O dispositivo controlador inicia e controla as comunicações, enquanto os dispositivos respondem às solicitações do controlador.
 
-![i2c.drawio](imgs/i2c.drawio.png)
+![i2c.drawio](pico-imgs/i2c.drawio.png)
 
 <!--
 Abaixo disponibilizo uma visão geral do protocolo
@@ -49,15 +57,15 @@ Cada dispositivo possui um endereço único que é determinado pela estrutura do
 
 Se o controlador (controlador-transmissor) estiver escrevendo para o dispositivo (dispositivo-receptor), o receptor recebe um byte de dados. Essa transação continua até que o controlador termine a transmissão com uma condição de STOP. Se o controlador estiver lendo de um dispositivo (controlador-receptor), o dispositivo transmite (dispositivo-transmissor) um byte de dados para o controlador, e o controlador então reconhece a transação com o pulso ACK. Essa transação continua até que o controlador termine a transmissão, e então o controlador emite uma condição de STOP.
 
-![i2cCOMPORTAMENTO](imgs/i2cCOMPORTAMENTO.png)
+![i2cCOMPORTAMENTO](pico-imgs/i2cCOMPORTAMENTO.png)
 
-## RP2040
+## RP2350
 
 O RP2040 possui duas interfaces I2C idênticas (I2C0 e I2C1). Ambas são capazes de gerar sinais de clock, iniciar e encerrar comunicações (no modo mestre), apresentam filas de até dezesseis posições para entrada e saída, e suportam o uso de DMA. No modo dispositivo ("slave"), as interfaces podem verificar os endereços e disparar uma interrupção quando uma comunicação do mestre é recebida.
 
 Os pinos do RP2040 utilizados para comunicação I2C são configuráveis. A imagem abaixo apresenta as opções disponíveis:
 
-![picow-I2C-pinout](imgs/picow-I2C-pinout.png)
+![picow-I2C-pinout](pico-imgs/picow-I2C-pinout.png)
 
 ## SDK
 

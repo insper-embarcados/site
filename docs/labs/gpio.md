@@ -16,11 +16,11 @@ Comece pela leitura sobre qualidade de código:
 
 ::::: center
 :::: third
-::: card  📖 Leitura 1: [cppcheck](/qualidade/cppcheck)
+::: card  📖 Leitura 1: [cppcheck](/guides/qualidade-cppcheck)
 :::
 ::::
 :::: third
-::: card Leitura 2: [variáveis](/qualidade/variables)
+::: card Leitura 2: [variáveis](/guides/qualidade-variables)
 ::::
 :::: third
 ::::
@@ -30,11 +30,11 @@ As próximas leituras são sobre os conceitos básicos do microcontrolador. Para
 
 ::::: center
 :::: third
-:::card 📖 Leitura 3: [delay](/consulta/delay)
+:::card 📖 Leitura 3: [delay](/guides/pico-delay)
 :::
 ::::
 :::: third
-:::card  📖 Leitura 4 [GPIO](/consulta/gpio)
+:::card  📖 Leitura 4 [GPIO](/guides/pico-gpio)
 :::
 ::::
 :::: third
@@ -50,7 +50,7 @@ Entregas que devem ser realizadas antes da aula de laboratório (quarta feira).
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[Acessar preparatório](https://....)
+[:memo: Preparatório](https://classroom.github.com/a/wKgeR0Q_)
 :::
 ::::
 :::: third
@@ -73,8 +73,8 @@ Entrega que deve ser **iniciada** na aula de laboratório e entregue até o pró
 
 ::::: center
 :::: third 
-::: box-blue 1. Prática
-Acessar [prática](/labs/gpio-pratica)
+::: box-blue 1. Descrição
+:memo: [Prática](/labs/gpio-pratica)
 :::
 ::::
 :::: third
@@ -84,7 +84,7 @@ Enviar no PrairiLearn
 ::::
 :::: third
 ::: box Nota
-30% da nota do laboratório
+70% da nota do laboratório
 :::
 ::::
 :::: third

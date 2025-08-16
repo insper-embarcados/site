@@ -1,3 +1,10 @@
+---
+tags:
+  - periféricos
+  - comunicação chip a chip
+description: Um protocolo assíncrono muito utilizado para comunicacão entre chips.
+---
+
 # UART
 
 UART é um dos protocolos mais utilizados para comunicação em sistemas digitais, o que inclui computadores, microcontroladores e sistemas embarcados. **UART** significa **Universal Asynchronous Receiver-Transmitter**, e é um protocolo de comunicação utilizado em hardware que permite uma comunicação assíncrona - comunicação que não ocorre ao mesmo tempo entre os dispositivos - e com velocidade de transmissão configurável.
@@ -25,7 +32,7 @@ A principal utilização de um UART para transmissão e recebimento de dados est
 
 Figura 1 - Transmissão e recepção UART 
 
-![uart_transmission](imgs/rp2040-uart-buscommunication.png)
+![uart_transmission](pico-imgs/rp2040-uart-buscommunication.png)
 
 ### Transmissão na prática
 
@@ -33,7 +40,7 @@ No contexto da UART, o pacote de dados transmitido segue a estrutura da Figura 2
 
 Figura 2 - Bits protocolo UART
 
-![uart_intern](imgs/rp2040-uart-transmission.png)
+![uart_intern](pico-imgs/rp2040-uart-transmission.png)
 
 - **Start Bit**: Quando **não** está transmitindo, o UART fica em nível lógico alto, e **quando transmite** o UART muda de nível lógico alto para nível lógico baixo. O UART que receberá os dados vai detectar a mudança de HIGH para LOW voltage de quem está transmitindo e começará a leitura dos bits precisamente de acordo com o baud rate. 
 
@@ -49,7 +56,7 @@ Figura 2 - Bits protocolo UART
 
 A figura a seguir demonstra a transferência de 2 pacotes de dados:
 
-![uart_transfering](imgs/rp2040-uart-exampletransmission.png)
+![uart_transfering](pico-imgs/rp2040-uart-exampletransmission.png)
 
 - O primeiro pacote contendo **0xA0** hexadecimal, que é igual a **10100000** em binário e que em ASCII é o equivalente ao símbolo **á**.
 
@@ -61,11 +68,11 @@ Observamos também que o data frame começou a ser transmitido depois que o Star
 E finalmente, quando tivemos o Stop Bit, neste caso dois, finalizamos a primeira transferência e iniciamos a outra.
 Se tivermos no dispositivo receptor UART algo que convertesse os bits recebidos para caracteres, teríamos recebido os caracteres **á** e **g** em sequência.
 
-## RP2040
+## RP2350
 
 No microcontrolador que estamos utilizando - o RP2040 -, conseguimos utilizar até duas instâncias do periférico UART. Na figura 4 é demonstrado o periférico UART da RP2040, onde há a localização do mesmo dentro do chip.
 
-![uart_intern](imgs/rp2040-uart.png)
+![uart_intern](pico-imgs/rp2040-uart.png)
 
 ### Na Prática
 
@@ -94,7 +101,7 @@ gpio_set_function(uint gpio, enum gpio_function fn)
 
 É possível ver na figura 5 quais pinos podem fornecer a função de UART, podemos utilizar apenas 2 interfaces, a UART0 e a UART1.
 
-![uart_pins](imgs/rp2040-uart-uartpins.png)
+![uart_pins](pico-imgs/rp2040-uart-uartpins.png)
 
 ```c
     uart_putc_raw (uart_inst_t * uart, char c)

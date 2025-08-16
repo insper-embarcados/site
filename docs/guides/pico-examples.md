@@ -1,3 +1,9 @@
+---
+tags:
+  - ambiente de desenvolvimento
+description: Como usar os exemplos oficiais da pico
+---
+
 # Pico examples
 
 A Raspberry Pi Foundation disponibiliza oficialmente uma série de códigos de exemplo para a nossa placa. Acesse o repositório no GitHub para saber mais:

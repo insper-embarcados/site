@@ -1,3 +1,10 @@
+---
+tags:
+  - periféricos
+  - interrupção
+description: Conversor Digital/Analógico, lendo valores diferentes de 1/0 do mundo real.
+---
+
 # ADC
 
 - https://resources.pcb.cadence.com/blog/2023-adc-sampling-rate
@@ -34,7 +41,7 @@ Nem tudo está perdido, se aplicarmos um filtro no sinal podemos remover o ruíd
 
 Ao realizarmos uma amostragem de um sinal analógico devemos nos preocupar em realizar uma amostragem periódica no tempo (a matemática fica mais fácil com isso), isso significa que o tempo entre uma amostragem e outra deve ser constante. Além disso, temos que lembrar do teorema de Nyquist, que diz que um sinal analógico deve ser amostrado pelo menos no dobro da frequência máxima (lembra do Fourier?) de um sinal; na prática, esse valor deve ser muito maior que o dobro da frequência máxima.
 
-## RP2040
+## RP2350
 
 O nosso microcontrolador possui um ADC com as seguintes características: 
 
@@ -44,11 +51,11 @@ O nosso microcontrolador possui um ADC com as seguintes características:
 
 Notem que o ADC possui 5 entradas, mas só podemos realizar a conversão de apenas uma por vez! Ou seja, a taxa máxima de `500 ksps` cai para `100 ksps` se usarmos as quatro portas. Outro detalhe é que a entrada `4` do mux não está conectada a um pino, mas sim a um sensor de temperatura interno do uC.
 
-![](imgs/adc.png)
+![](pico-imgs/adc.png)
 
 Na Pico, os pinos do ADC são: `GP28`, `GP27` e `GP26`. Notem que a entrada `3` do mux do ADC não está disponível na PICO, seria o pino (`GP29`) da RP2040.
 
-![](imgs/adc-pico.png)
+![](pico-imgs/adc-pico.png)
 
 ## SDK
 

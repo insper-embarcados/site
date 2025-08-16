@@ -1,3 +1,9 @@
+---
+tags:
+  - periféricos
+description: Pulse Width Modulation (PWM), uma das formas utilziadas para controlar motores DCs e intensidade de LEDs.
+---
+
 # PWM
 
 Pulse Width Modulation (PWM) é uma forma de onda digital periódica que permite modular o tempo em que o sinal permanece em nível alto.
@@ -28,7 +34,7 @@ while(1) {
 
 O nosso microcontrolador possui um periférico dedicado a gerar sinais de PWM:
 
-![](imgs/pwm.png)
+![](pico-imgs/pwm.png)
 
 Do manual do RP2040, podemos extrair a informação de que o periférico é capaz de gerar 16 sinais independentes de PWM em qualquer um dos pinos do GPIO:
 

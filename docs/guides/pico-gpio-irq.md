@@ -1,3 +1,11 @@
+---
+tags:
+  - periféricos
+  - interrupção
+description: Otimizando o uso do GPIO via interrupção.
+
+---
+
 # GPIO - IRQ
 
 Em computação, frequentemente surge a necessidade de realizar ações com base em eventos. Esses eventos podem ser classificados como internos ou externos ao processador/microcontrolador. Por exemplo, o término de um cálculo realizado por um dos núcleos de um processador multicore ou a detecção de um overflow de memória são exemplos de eventos internos ao CORE (processador). Por outro lado, a notificação de um novo pacote recebido pela comunicação Ethernet ilustra um evento externo ao CORE.

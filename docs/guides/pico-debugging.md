@@ -1,3 +1,9 @@
+---
+tags:
+  - ambiente de desenvolvimento
+description: Programando e depurando a pico, como usar o debug-probe.
+---
+
 # Programando
 
 ::: info 
@@ -15,19 +21,19 @@ Primeiro, faça a conexão como indicado a seguir:
 
 :::tabs
 == tab Montagem
-![](imgs/pico-probe.png)
+![](pico-imgs/pico-probe.png)
 == tab Imagem
-![](imgs/pico-probe-real.jpeg)
+![](pico-imgs/pico-probe-real.jpeg)
 :::
 
 Selecione o programa que iremos depurar:
 
-![](imgs/config-debug.png)
+![](pico-imgs/config-debug.png)
 
 Inicialize o software:
 
-![](imgs/config-run.png)
+![](pico-imgs/config-run.png)
 
 Abra o serial monitor (terminal):
 
-![](imgs/config-serial.png)
+![](pico-imgs/config-serial.png)

@@ -1,3 +1,10 @@
+---
+tags:
+  - periféricos
+  - interrupção
+description: Timer é um hardware dedicado para contar tempo, otimizando o uso dos recursos do uc.
+---
+
 # Timer
 
 O timer é um periférico responsável por contar tempo, normalmente utiliza o clock do próprio micro-controladador para isso. O timer da pico possui os seguintes usos:
@@ -10,7 +17,7 @@ A base de tempo da rp2040 é de `1us`  e o temporizador possui 4 alarmes e emite
 
 ## High Level APIs
 
-![](imgs/timer-api.png)
+![](pico-imgs/timer-api.png)
 
 Iremos acessar o timer usando a biblioteca de alto nível da rp2040, existe uma forma de configurar o timer diretamente acessando o periférico, mas ai a fica a cargo do desenvolvedor lidar com uma série de detalhes. Este conjunto de APIs está disponível no `sdk` da pico, não precisamos fazer nada para usarmos.
 

@@ -1,3 +1,9 @@
+---
+tags:
+  - software
+description: Funções que geram atraso (sleep_ms, sleep_us).
+---
+
 # Delay
 
 

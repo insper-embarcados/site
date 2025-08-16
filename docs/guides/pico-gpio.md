@@ -1,3 +1,9 @@
+---
+tags:
+  - periféricos
+description: GPIO (General Purpose Input/Output), escrevendo e lendo os pinos digitais do uc.
+---
+
 #  GPIO 
 
 Material de apoio: 
@@ -29,16 +35,16 @@ O periférico é responsável por controlar digitalmente um pino da rasp pico e 
 
 O GPIO opera como um mux, permitindo que outros periféricos internos do microcontrolador também acessem os pinos, como ilustrado na figura abaixo extraído do manual:
 
-![](imgs/gpio-logic.svg)
+![](pico-imgs/gpio-logic.svg)
 
 ::: warning
 Conforme manual respeite a tensão máxima de `3.3V` no pino da rasp pico:
 
-![](imgs/gpio-electrical.svg)
+![](pico-imgs/gpio-electrical.svg)
 
 E a corrente máxima nos pinos (entrada ou saída) em `50mA`:
 
-![](imgs/rp2040-ioh.svg)
+![](pico-imgs/rp2040-ioh.svg)
 :::
 
 ### Na prática?
@@ -115,7 +121,7 @@ int main() {
 :::
 
 ::: half
-![](imgs/gpio-snippet-led.png)
+![](pico-imgs/gpio-snippet-led.png)
 :::
 
 
@@ -149,7 +155,7 @@ int main() {
 :::
 
 ::: half
-![](imgs/gpio-snippet-pir.png)
+![](pico-imgs/gpio-snippet-pir.png)
 :::
 
     
@@ -186,7 +192,7 @@ int main() {
 :::
 
 ::: half
-![](imgs/gpio_snippet-btn.png)
+![](pico-imgs/gpio_snippet-btn.png)
 :::
 
 

@@ -2,8 +2,8 @@
 
 ::::: center
 :::: third 
-::: box-blue 1. Link 
-[github classroom](https://....)
+::: box-blue 1. Classroom
+[:memo: Prática](https://classroom.github.com/a/h7l_xyIZ)
 :::
 ::::
 :::: third
@@ -23,6 +23,10 @@ Enviar no PrairiLearn
 Neste laboratório, vocês irão aplicar os conceitos do pré-lab (leitura e acionamento de um pino) para controlar um motor de passos.
 
 A ideia geral é que vocês tenham um botão, um LED e o motor de passos conectado na placa. Toda vez que o botão for pressionado, o LED deve acender e o motor girar 360 graus para uma direção de sua escolha. O sistema deve funcionar alimentado por bateria (não aceitaremos demonstrações com ele ligado no PC).
+
+::: info
+Acesse [Consulta/programando](/guides/pico-debugging) para saber como programar a placa.
+:::
 
 :::tabs
 == Montagem

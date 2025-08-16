@@ -1,3 +1,11 @@
+---
+tags:
+  - software
+  - periféricos
+description: Direct Memory Access é uma forma de otimizar a transferência de dados.
+
+---
+
 # DMA
 
 DMA (Direct Memory Access) é um controlador especializado em transferir dados, com ele conseguimos transferir dados entre periféricos e memórias de computadores sem depender da CPU, o que acaba trazendo diversos benefícios para sistemas computacionais e também para aplicações de soluções embarcadas. 
@@ -51,22 +59,22 @@ Abaixo há a descrição do fluxo de dados utilizando o controlador DMA e també
 
 - Memória para periférico: Um periférico sinaliza ao DMA quando precisa enviar mais dados. O DMA lê os dados de um array da RAM ou flash, e escreve no periférico utilizando o método FIFO (First In, First Out).
 
-![rp2040-dma](imgs/dma-memtoper.gif)
+![rp2040-dma](pico-imgs/dma-memtoper.gif)
 
 - Periférico para memória: Neste modo, o periférico manda um sinal para o DMA quando os dados são recebidos. O DMA lê os dados do periférico por meio do método FIFO, e então escreve os mesmos em um array na RAM do microcontrolador.
 
-![rp2040-dma](imgs/dma-pertomem.gif)
+![rp2040-dma](pico-imgs/dma-pertomem.gif)
 
 - Memória para memória: O DMA transfere dados entre dois buffers na RAM.
 
-![rp2040-dma](imgs/dma-memtomem.gif)
+![rp2040-dma](pico-imgs/dma-memtomem.gif)
 
 ### Componentes Envolvidos:
 Analisando a estrutura do nosso microcontrolador RP2040 na Figura 1, observamos que o DMA está conectado diretamente ao Bus Fabric, cuja função é fazer a comunicação entre os componentes da RP2040.
 
 Figura 1 - Arquitetura do RP2040
 
-![rp2040-arch](imgs/rp2040-arch.png "Figura 1")
+![rp2040-arch](pico-imgs/rp2040-arch.png "Figura 1")
 
 ### O que é o "Bus Fabric"?
   
@@ -74,7 +82,7 @@ Na figura 2, vocês podem ver os componentes do Bus Fabric da RP2040 em amarelo 
 
 Figura 2 - RP2040 Bus Fabric
 
-![rp2040-bus-fabric](imgs/rp2040-bus-fabric.png "Figura 2")
+![rp2040-bus-fabric](pico-imgs/rp2040-bus-fabric.png "Figura 2")
   
 Abaixo, na figura 3, é possível observar a estrutura interna do DMA. O mesmo possui conexões separadas de leitura e escrita que são ligadas diretamente ao Bus Fabric, e realizam a transferência de dados. **A taxa de transferência de dados através de um DMA é superior ao que um dos processadores do RP2040 conseguiria realizar**.
 
@@ -84,7 +92,7 @@ Abaixo, na figura 3, é possível observar a estrutura interna do DMA. O mesmo p
 
 Figura 3 - DMA
 
-![dma_intern](imgs/dma_intern.png "Figura 3")
+![dma_intern](pico-imgs/dma_intern.png "Figura 3")
 
 ### Modos de Operação do DMA utilizando a RP2040:
 
@@ -209,7 +217,7 @@ Cria um array com nome **dst[]** com o tamanho da mensagem em **src[]**, que no 
 
 Figura 4 - Conteúdo do array src[]
 
-![dma_intern](imgs/dma-hello-dma-src.png)
+![dma_intern](pico-imgs/dma-hello-dma-src.png)
 
 - **Adentrando o main(): Selecionando o canal**
 
@@ -304,15 +312,11 @@ e pensando que cada caractere precisa de no mínimo 8 bits para ser representado
 
 6. O **sexto parâmetro** define se o dma vai começar imediatamente a transmissão.
 
-
-
-
 Nesta parte do código a seguir, é definido que a prioridade é do DMA fazer a transferência dado que não precisamos fazer nada com o processador, então neste meio tempo o processador ficará esperando, sem fazer nada enquanto o DMA faz a transferência.
 
 ```c 
 dma_channel_wait_for_finish_blocking(chan);
 ```
-
 
 **Printando o valor do array de destino dos dados**
 
@@ -322,10 +326,6 @@ puts(dst);
 ```
 
 Aqui printamos os valores que foram copiados para o array **dst[]** (destino). 
-
-
-
-
 
 ## Referências:
 

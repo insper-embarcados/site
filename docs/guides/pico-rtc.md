@@ -1,3 +1,9 @@
+---
+tags:
+  - periféricos
+description: RTC (Real Time Clock) é um hardware dedicado para servir como um relógio.
+---
+
 # RTC - Real Time Clock
 
 O RTC é um periférico que muitos microcontroladores possuem e foi desenvolvido para contar o tempo como um relógio e calendário. A base de tempo do RTC é de 1 segundo e, a partir de uma data definida como inicial, ele passa a fazer todas as contas de horas e dias. Em produtos, o RTC é normalmente alimentado por um sistema de baterias independentes, geralmente uma bateria [CR padrão].

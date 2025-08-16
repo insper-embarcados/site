@@ -1,8 +1,14 @@
+---
+tags:
+  - comunicação
+description: Comunicando a pico na internet via wifi.
+---
+
 # Pico - W
 
 O `Raspberry Pi Pico` e o `Pico W` são bem semelhantes. Para a grande maioria dos projetos não haverá diferença, tanto que até o momento não havíamos falado da existência dessa versão Pico W. O `Raspberry Pi Pico W` é uma versão do Pico que inclui conectividade wireless de 2.4GHz, isso abre oportunidades para uma variedade maior de aplicações.
 
-![](imgs/pico-cyw.png)
+![](pico-imgs/pico-cyw.png)
 
 ::: tip
 Datasheet Pico W: 
@@ -36,7 +42,7 @@ O led on-board é controlado pelo GPIO25 no Pico padrão. No Pico W, este GPIO �
 Vamos utilizar a interface do CYW43439 para fazer um pisca led. O intuito é entender as configurações básicas para desenvolvimento de aplicações utilizando a versão Pico W.  
 
 ::: info
-Consulte a página do site da disciplina [Pico W/pico-examples](/consulta/pico-examples) para saber como usar o repositório de exemplos da pico!
+Consulte a página do site da disciplina [Consulta/pico-examples](/guides/pico-examples) para saber como usar o repositório de exemplos da pico!
 :::
 
 ### SDK
@@ -101,7 +107,7 @@ int main() {
 Acesse a documentação SDK Oficial para ter mais detalhes: 
     [https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/index.html](https://lorenz-ruprecht.at/docu/pico-sdk/1.4.0/html/group__pico__cyw43__arch.html#ga7a05bd21f02a0effadbba1e8266b8771)
 
-![](imgs/lib_cyw43.png)
+![](pico-imgs/lib_cyw43.png)
 :::
 
 ### Wifi e Bluetooth
@@ -306,7 +312,7 @@ Após conectado é possível verificar o IP alocado para a raspberry pi Pico. Ad
     printf ("Conectado, IP %s\n", sIP);  
 ```
 
-![](imgs/wifi-conectado.png)
+![](pico-imgs/wifi-conectado.png)
 
 ## Próximmos passos
 
@@ -314,4 +320,5 @@ Agora você já está pronto para desbravar o mundo do WIFI explorando novas pos
 
 Sugestão:
 
-- Explore os exemplos de wifi do [repositório de exemplos da pico](/consulta/pico-examples)
+- Explore os exemplos de wifi do [Consulta/pico-examples](/guides/pico-examples)
+
