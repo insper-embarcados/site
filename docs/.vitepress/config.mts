@@ -82,7 +82,7 @@ export default defineConfig({
             { text: 'I2C', link: '/guides/pico-i2c' },
             { text: 'DMA', link: '/guides/pico-dma' },
             { text: 'UART', link: '/guides/pico-uart' },
-            { text: 'WIFI', link: '/guides/pico-pico-wifi' },
+            { text: 'WIFI', link: '/guides/pico-wifi' },
           ]
         },
         {
