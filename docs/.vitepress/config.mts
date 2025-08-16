@@ -32,16 +32,11 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       {
-        text: 'Guides',
+        text: 'Consulta',
         link: '/guides/',
         activeMatch: '/guides',
       },
       { text: 'Entregas', link: '/entregas/' },
-      {
-        text: 'Guides',
-        link: '/guides',
-        activeMatch: '/guides',
-      },
     ],
     sidebar: {
       '/entregas/': [

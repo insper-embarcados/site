@@ -11,8 +11,8 @@ hero:
       text: Sobre o curso
       link: /about
     - theme: alt
-      text: Consultas
-      link: /consulta/
+      text: Consulta
+      link: /guides/
     - theme: alt
       text: Entregas
       link: /entregas/
