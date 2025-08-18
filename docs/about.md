@@ -20,6 +20,16 @@ const members = [
     ]
   },
   {
+    avatar: 'https://www.github.com/Marco-Mello.png',
+    name: 'Marco Mello',
+    title: 'Técnico Sr. de Laboratório',
+    links: [
+      { icon: 'github', link: 'https://github.com/Marco-Mello' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/marco-mello-79aa19272' }
+    ]
+
+  },
+  {
     avatar: 'https://www.github.com/arnaldojr.png',
     name: 'Arnaldo Junior',
     title: 'Professor Auxiliar',
