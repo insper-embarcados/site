@@ -8,7 +8,7 @@
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-Enviar no PrairiLearn
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
 :::
 ::::
 :::: third

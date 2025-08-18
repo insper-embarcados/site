@@ -95,22 +95,7 @@ export default defineConfig({
             { text: 'ISR', link: '/guides/qualidade-isr-handler' }
           ]
         },
-        {
-          text: 'labs/gpio',
-          items: [
-            { text: 'Entrega', link: '/labs/gpio' },
-            {
-              text: 'Leitura',
-              items: [
-                { text: 'Regras', link: '/guides/qualidade-rules' },
-                { text: 'Cppcheck', link: '/guides/qualidade-cppcheck' },
-                { text: 'Variáveis', link: '/guides/qualidade-variables' },
-              ]
-            }
-          ]
-        }
-
-      ]
+      ],
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/insper-embarcados' }

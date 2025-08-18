@@ -45,7 +45,7 @@ Agora que vocês já entenderam um pouco sobre qualidade de código, delay/sleep
 
 ## Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
-Entregas que devem ser realizadas antes da aula de laboratório (quarta feira).
+Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.
 
 ::::: center
 :::: third 
@@ -55,7 +55,7 @@ Entregas que devem ser realizadas antes da aula de laboratório (quarta feira).
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-Enviar no PrairiLearn
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
 :::
 ::::
 :::: third
@@ -67,9 +67,13 @@ Enviar no PrairiLearn
 ::::
 :::::
 
+::: warning
+Lembrem que para realizar a entrega final, vocês devem submeter o repositório no  PrairieLearn!
+:::
+
 ## Prática <Badge type="info" text="50% da nota de lab" />
 
-Entrega que deve ser **iniciada** na aula de laboratório e entregue até o próximo lab.
+Entrega que deve ser **iniciada** na aula de laboratório e entregue até a próxima segunda feira.
 
 ::::: center
 :::: third 
@@ -79,7 +83,7 @@ Entrega que deve ser **iniciada** na aula de laboratório e entregue até o pró
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-Enviar no PrairiLearn
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
 :::
 ::::
 :::: third
@@ -91,4 +95,7 @@ Enviar no PrairiLearn
 ::::
 :::::
 
+::: warning
+Lembrem que para realizar a entrega final, vocês devem **MOSTRAR** a entrega funcionando para alguém da equipe e então fazer o envio no PL.
+:::
 
