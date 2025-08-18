@@ -54,7 +54,7 @@ Na rasp pico todos os pinos são nomeados com um nome: [`GP0`, `GP1`]()[^1], ...
 ![]( https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
 
 ```c
-const int PIN = 5; // 5 varia de acordo com montagem do HW!
+const int LED_PIN = 5; // 5 varia de acordo com montagem do HW!
 ```
 
 Agora é necessário ativar o pino, isso é feito usando:
