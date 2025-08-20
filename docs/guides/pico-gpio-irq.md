@@ -141,6 +141,10 @@ Compiladores são projetados para otimizar programas removendo trechos ou variá
 ***ATENÇÃO: só usar `volatile` quando necessário uma IRQ altera o valor de uma variável.***
 :::
 
+### Outras referencias
+
+<YouTube id="oNsZm3f7Vm4"/>
+
 ## Snippets
 
 Snippets relacionados a interrupção do GPIO.

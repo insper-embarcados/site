@@ -71,17 +71,3 @@ void main(void) {
 O código anterior gera os seguintes erros:
 
 ![](qualidade-figs/checker-rule-isr-kiss.png)
-
-## Praticando
-
-Vamos praticar um pouco e corrigir as regras básicas de qualidade de código e boas práticas em sistemas embarcados. Para isso, crie um repositório pelo *GitHub Classroom* e então modifique os arquivos conforme indicado.
-
-1. Crie um repositório com o código de exemplo acessando o GitHub Classroom.
-2. Analise o log do Actions e verifique que o checker executou e encontrou alguns erros.
-
-Agora vamos corrigir os códigos com erro. Execute na ordem:
-
-1. `main_isr_kiss.c`
-2. `main_isr_practice.c`
-
-Dica: Crie uma `flag` para indicar que o botão foi pressionado e então reescreva o código na função `main`.

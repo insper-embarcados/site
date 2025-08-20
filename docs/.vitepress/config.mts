@@ -52,6 +52,7 @@ export default defineConfig({
           text: 'Laboratórios',
           items: [
             { text: '1. GPIO', link: '/labs/gpio' },
+            { text: '2. GPIO - IRQ', link: '/labs/gpio-irq' },
           ]
         }
 

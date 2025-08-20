@@ -34,7 +34,7 @@ As próximas leituras são sobre os conceitos básicos do microcontrolador. Para
 :::
 ::::
 :::: third
-:::card  📖 Leitura 4 [GPIO](/guides/pico-gpio)
+:::card  📖 Leitura 4: [GPIO](/guides/pico-gpio)
 :::
 ::::
 :::: third
