@@ -25,7 +25,7 @@ As próximas leituras são sobre os conceitos básicos do microcontrolador e com
 ::::
 
 :::: third 📖  Leitura 3
-::: card  [Interruption handler](/guides/qualidade-irs-handler)
+::: card  [Interruption handler](/guides/qualidade-isr-handler)
 ::::
 :::::
 

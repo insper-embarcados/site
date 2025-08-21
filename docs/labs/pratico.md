@@ -17,16 +17,19 @@ As entregas práticas também devem respeitar a qualidade de código. Os reposit
 
 ![](imgs/lab_pra_actions.png)
 
-
 ## Validando prática
 
 Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consulte os **horários disponíveis** para apresentar o laboratório.
 
+| Horário         | Segunda-feira | Terça-feira    | Quarta-feira | Quinta-feira | Sexta-feira   |
+|-----------------|---------------|----------------|--------------|--------------|---------------|
+| **09:15-09:30** |               |                |              |              | Corsi (Arq)   |
+| **09:45-12:00** | Marco  (Arq)  |                | Corsi (Arq)  | Corsi (Arq)  |               |
+| **14:00-15:30** | Corsi  (Arq)  |                | Corsi (Arq)  |              |               |
+| **18:30-21:00** |               | Daniel  (Agil) | Corsi (Arq)  |              | Daniel (Agil) |
 
-| Horário         | Segunda-feira | Terça-feira | Quarta-feira | Quinta-feira | Sexta-feira |
-|-----------------|---------------|-------------|--------------|--------------|-------------|
-| **09:45-12:00** | Marco         |             |              |              | Corsi       |
-| **18:30-21:00** |               |             | Daniel       |              | Daniel      |
+- (Arq): Laboratório de arquitetura
+- (Ágil): Laboratório Ágil 2
 
 Lembrando que:
 
