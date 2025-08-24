@@ -12,7 +12,12 @@ As próximas leituras são sobre os conceitos básicos do microcontrolador e com
 :::
 ::::
 
-:::: third 📖 Leitura 2
+:::: third  📖 Leitura 2
+:::card Sobre o RTC [RTC](/guides/pico-rtc)
+:::
+::::
+
+:::: third 📖 Leitura 3
 ::: card [Head file](/guides/qualidade-head-file)
 ::::
 :::::
