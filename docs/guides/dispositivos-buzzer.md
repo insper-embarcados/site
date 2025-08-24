@@ -1,3 +1,9 @@
+---
+tags:
+  - dispositivos
+description: Gerando som com buzzer
+---
+
 # Buzzer
 
 Músicas monofonicas[^1] são aquelas que só possuem uma única nota tocada por vez, como indicado na partitura a seguir:
