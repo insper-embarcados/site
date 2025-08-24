@@ -20,7 +20,8 @@ Não pode acessar o OLED ou qualquer outro display de dentro de uma ISR.
 
 ::: tip RULE 2.2
 Não pode usar `printf` ou `sprintf` de dentro de uma ISR. 
-    
+::: 
+
 ::: tip RULE 2.3
 Não pode executar laços de código (`while`, `for`) de dentro de uma ISR.
 :::

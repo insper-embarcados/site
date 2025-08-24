@@ -51,11 +51,24 @@ export default defineConfig({
         {
           text: 'Laboratórios',
           items: [
-            { text: '1. GPIO', link: '/labs/gpio' },
-            { text: '2. GPIO - IRQ', link: '/labs/gpio-irq' },
-          ]
-        }
-
+            {
+              text: '1. GPIO',
+              collapsed: true,
+              items: [
+                { text: 'Preparatório', link: '/labs/gpio-pre' },
+                { text: 'Prático', link: '/labs/gpio-pra' }
+              ]
+            },
+            {
+              text: '2. IRQ',
+              collapsed: true,
+              items: [
+                { text: 'Preparatório', link: '/labs/irq-pre' },
+                { text: 'Prático', link: '/labs/irq-pra' }
+              ]
+            }
+        ]
+       }
       ],
       '/guides/': [
         {
@@ -70,7 +83,15 @@ export default defineConfig({
           ]
         },
         {
+          text: 'Dispositivos',
+          collapsed: false,
+          items: [
+            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' }
+          ]
+        },
+        {
           text: 'Periféricos',
+          collapsed: false,
           items: [
             { text: 'Delay', link: '/guides/pico-delay' },
             { text: 'GPIO', link: '/guides/pico-gpio' },
@@ -88,6 +109,7 @@ export default defineConfig({
         },
         {
           text: 'Qualidade de código',
+          collapsed: false,
           items: [
             { text: 'Sobre', link: '/guides/qualidade-index' },
             { text: 'Regras', link: '/guides/qualidade-rules' },
