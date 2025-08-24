@@ -66,8 +66,15 @@ export default defineConfig({
                 { text: 'Preparatório', link: '/labs/irq-pre' },
                 { text: 'Prático', link: '/labs/irq-pra' }
               ]
+            },
+            {
+              text: '3. Timer',
+              collapsed: true,
+              items: [
+                { text: 'Preparatório', link: '/labs/timer-pre' }
+              ]
             }
-        ]
+          ]
        }
       ],
       '/guides/': [

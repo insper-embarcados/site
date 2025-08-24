@@ -1,6 +1,6 @@
-# Lab 2 - IRQ - Preparatório <Badge type="info" text="30% da nota de lab" />
+# Lab 3 - IRQ - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
-Neste laboratório, iremos aprender os conceitos básicos de interrupcão, para isso vamos utilizar o periférico já conhecido por vocês dolab anterior, o GPIO. Também iremos aprenderemos boas práticas de desenvolvimento de firmware para quando fazemos uso de interrupcao.
+Neste laboratório, iremos aprender um novo periférico, o timer. Muito utilizado para contar tempo e eventos, ele será um aliado para conseguirmos realizar simultaneamente diferentes operacoes no microcontrolador.
 
 ## Leitura obrigaratória
 
@@ -8,16 +8,12 @@ As próximas leituras são sobre os conceitos básicos do microcontrolador e com
 
 ::::: center
 :::: third  📖 Leitura 1
-:::card [GPIO e interrupcao](/guides/pico-gpio-irq)
+:::card Sobre o periférico [Timer](/guides/pico-timer)
 :::
 ::::
 
 :::: third 📖 Leitura 2
-::: card   [Qualidade de código - vars](/guides/qualidade-isr-variables)
-::::
-
-:::: third 📖  Leitura 3
-::: card  [Interruption handler](/guides/qualidade-isr-handler)
+::: card [Head file](/guides/qualidade-head-file)
 ::::
 :::::
 
@@ -28,7 +24,7 @@ Entregas que devem ser realizadas antes da aula de laboratório. Para conseguir 
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Preparatório](https://classroom.github.com/a/f3qRi-7g)
+[:memo: Preparatório]()
 :::
 ::::
 :::: third

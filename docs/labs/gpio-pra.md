@@ -1,4 +1,4 @@
-# GPIO - Prática
+# Lab 1 - GPIO - Prática <Badge type="info" text="70% da nota de lab" />
 
 ::::: center
 :::: third 

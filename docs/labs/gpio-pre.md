@@ -1,12 +1,4 @@
----
-sidebar: true
-hero:
-  name: "Lab 1" 
-  text: "General Purpose Input/Output (GPIO)" 
-  tagline: Neste laboratório, iremos aprender como acionar e ler os pinos digitais do microcontrolador. Junto com isso, aprenderemos boas práticas de desenvolvimento de firmware.
----
-
-# Lab 1 - GPIO
+# Lab 1 - GPIO - Preparatório <Badge type="info" text="30% da nota de lab" />
 
 Neste laboratório, iremos aprender como acionar e ler os pinos digitais do microcontrolador. Junto com isso, aprenderemos boas práticas de desenvolvimento de firmware.
 
@@ -43,7 +35,7 @@ As próximas leituras são sobre os conceitos básicos do microcontrolador. Para
 
 Agora que vocês já entenderam um pouco sobre qualidade de código, delay/sleep e GPIO, vamos praticar e colocar em uso, primeiro no preparatório que utiliza um ambiente virtual apenas, e depois na atividades prática.
 
-## Preparatório <Badge type="info" text="30% da nota de lab" /> 
+## Entrega
 
 Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.
 
@@ -70,32 +62,3 @@ Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). 
 ::: warning
 Lembrem que para realizar a entrega final, vocês devem submeter o repositório no  PrairieLearn!
 :::
-
-## Prática <Badge type="info" text="50% da nota de lab" />
-
-Entrega que deve ser **iniciada** na aula de laboratório e entregue até a próxima segunda feira.
-
-::::: center
-:::: third 
-::: box-blue 1. Descrição
-:memo: [Prática](/labs/gpio-pratica)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
-
-::: warning
-Lembrem que para realizar a entrega final, vocês devem **MOSTRAR** a entrega funcionando para alguém da equipe e então fazer o envio no PL.
-:::
-
