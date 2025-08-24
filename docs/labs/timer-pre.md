@@ -1,4 +1,4 @@
-# Lab 3 - IRQ - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+# Lab 3 - Timer - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste laboratório, iremos aprender um novo periférico, o timer. Muito utilizado para contar tempo e eventos, ele será um aliado para conseguirmos realizar simultaneamente diferentes operacoes no microcontrolador.
 
