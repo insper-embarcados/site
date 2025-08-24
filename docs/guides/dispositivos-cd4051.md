@@ -90,7 +90,6 @@ int main() {
 
 Abaixo temo um exemplo de como deverá imprimir os valores no terminal:
 
-
 ```
 Canal 0: 512
 Canal 1: 487

@@ -5,8 +5,6 @@
     
     https://github.com/insper-embarcados/pico-rtos-hc06
     
-
-
 O  [HC-06](https://www.olimex.com/Products/Components/RF/BLUETOOTH-SERIAL-HC-06/resources/hc06.pdf) é um módulo bluetooth popular (R$ 40) que pode funcionar como `device` , neste exemplo usaremos como device (conectando-se ao computador). O Computador (Windows ou Linux) virá enxergar o módulo HC-06 como um dispositivo bluetooth, e uma vez pareado o Windows irá criar uma porta COM (Serial --> Outgoing / Saída) associado a conexão, nessa porta faremos a recepção e envio dos dados via bluetooth.
 
 O modulo será conectado ao microcontrolador através de uma comunicação UART (muito similar ao que vocês implementaram na disciplina Camada Física), o microcontrolador pode enviar dados para o computador por esta porta (TX) ou receber dados do computador (RX), conforme diagrama a seguir:
@@ -82,7 +80,6 @@ pin ok
 
 A função `hc06_init` faz a seguinte inicialização:
 
-
 ![](imgs-dispositivos/hc06/state.png)
 
 ### Enviando dados para o bluetooth
@@ -112,6 +109,3 @@ Agora será necessário conectar o computador no HC-06, para isso temos que segu
 - [Windows](https://embeddedprogrammer.blogspot.com/2012/07/windows-communicating-with-hc-06.html)
 
 Após conectado é só selecionar a porta criado por cada um dos sistemas operacionais.
-
-
-

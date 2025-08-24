@@ -3,7 +3,6 @@
 | Datasheet                                                                                                 |
 |-----------------------------------------------------------------------------------------------------------|
 | [OLED1](https://onlinedocs.microchip.com/pr/GUID-26DC66D4-2EF7-4C54-8D2D-2A29BED57CAB-en-US-1/index.html) |
-|                                                                                                           |
 
 O OLED1 é uma placa de extensão fabricada pela Atmel/Microchip que possui 3 botões, 3 LEDs e um display OLED.
 
