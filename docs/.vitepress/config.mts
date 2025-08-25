@@ -1,8 +1,6 @@
 import { defineConfig, type DefaultTheme } from 'vitepress'
 import { defineConfig } from '@lando/vitepress-theme-default-plus/config'
-import variables from './variables.js'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Computação Embarcada",
   description: "Sistemas embarcados movem o mundo",
@@ -75,7 +73,13 @@ export default defineConfig({
               ]
             }
           ]
-       }
+       },
+       {
+          text: 'APS',
+          items: [
+            { text: '1. Genius', link: '/entregas/aps-1-genius'}
+          ]
+        }
       ],
       '/guides/': [
         {
@@ -130,7 +134,9 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/insper-embarcados' }
     ]
-  }
+  },
+
+
 })
 
 

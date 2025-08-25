@@ -29,7 +29,7 @@ Entregas que devem ser realizadas antes da aula de laboratório. Para conseguir 
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Preparatório]()
+[:memo: Preparatório](https://classroom.github.com/a/zEBO_yen)
 :::
 ::::
 :::: third
