@@ -1,4 +1,4 @@
-# Lab 2 - ISR - Prática <Badge type="info" text="30% da nota do lab" />
+# Lab 2 - ISR - Prática <Badge type="tip" text="70% da nota do lab" />
 
 ::::: center
 :::: third 

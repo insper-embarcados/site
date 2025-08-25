@@ -1,4 +1,4 @@
-# Lab 1 - GPIO - Prática <Badge type="info" text="70% da nota de lab" />
+# Lab 1 - GPIO - Prática <Badge type="tip" text="70% da nota de lab" />
 
 ::::: center
 :::: third 
