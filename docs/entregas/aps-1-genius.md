@@ -1,8 +1,24 @@
 # APS - 1 - Genius
 
-::: info
+::::: center
+:::: third 
+::: box-blue 1. Classroom
+[:memo: Link](https://classroom.github.com/a/7CaCkXVp)
+:::
+::::
+:::: third
+::: box-yellow 2. Entrega final
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
+:::
+::::
+:::: third
+::: box Nota
 A APS pode ser feita individual ou em dupla
 :::
+::::
+:::: third
+::::
+:::::
 
 <YouTube id="KfF-AZhUkdM"/>
 
@@ -17,7 +33,6 @@ O desafio é desenvolver o protótipo do jogo da memória "Genius", com as segui
 O requisito mínimo do projeto para o conceito C é dele ter funcionamento similar ao do jogo, isso é: 
 
 - Para cada botão, um LED e um som diferentes.
-- O jogo deve progressivamente ir aumentando a dificuldade.
 - Uma resposta visual e sonora para quando acertar ou errar.
 - Gera aleatoriamente a sequência cada vez que o sistema é ligado ou o começa um novo jogo.
     - Usar a seed no `srand()`
@@ -45,9 +60,9 @@ Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se des
 -  Organizar o código em arquivos `.c` e `.h` criando funções para organizar o código.
 -  Sistema que exibe pontuação final.
 -  Armazena pontuação mesmo quando perder a bateria.
-    - <Badge type="info" text="meio conceito" /> Dado uma certa dificuldade, jogo acende duas luz ou mais luzes por vez! E espera que o usuário pressione mais de um botão por vez.
--  Diferentes modos de jogo: (Solo, Dupla, ... )
--  Implementar o código em formato de máquina de estados
+-  Dado uma certa dificuldade, jogo acende duas luz ou mais luzes por vez! E espera que o usuário pressione mais de um botão por vez.
+-  Diferentes modos de jogo: (Solo, Dupla, ... ).
+-  Implementar o código em formato de máquina de estados.
 -  Usar alarme de timer para se usuário não apertar o botão em x segundos, perde.
 -  Para quem reproduz uma música (tipo mário). 
 -  [Manual On and Automatic Off](https://www.youtube.com/watch?v=jSZM9Js_zk8) 
