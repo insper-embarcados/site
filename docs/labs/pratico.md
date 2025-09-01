@@ -23,7 +23,7 @@ Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e f
 
 | Horário         | Segunda-feira | Terça-feira    | Quarta-feira | Quinta-feira | Sexta-feira   |
 |-----------------|---------------|----------------|--------------|--------------|---------------|
-| **09:15-09:30** |               |                |              |              | Corsi (Arq)   |
+| **09:15-09:30** |               |                |              |              | Marco (Arq)   |
 | **09:45-12:00** | Marco  (Arq)  |                | Corsi (Arq)  | Corsi (Arq)  |               |
 | **14:00-15:30** | Corsi  (Arq)  |                | Corsi (Arq)  |              |               |
 | **18:30-21:00** |               | Daniel  (Agil) | Corsi (Arq)  |              | Daniel (Agil) |
