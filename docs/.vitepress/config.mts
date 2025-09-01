@@ -69,7 +69,8 @@ export default defineConfig({
               text: '3. Timer',
               collapsed: true,
               items: [
-                { text: 'Preparatório', link: '/labs/timer-pre' }
+                { text: 'Preparatório', link: '/labs/timer-pre' },
+                { text: 'Prático', link: '/labs/timer-pra' }
               ]
             }
           ]
