@@ -87,20 +87,26 @@ A imagem a seguir ilustra uma falha no sensor. Nesse caso, o alarme estoura e o 
 
 ### Terminal
 
+::: highlight
+Essa parte foi atualizada após a explicaçãoeem sala pois descobrimos só agora que a PICO-2 não possui RTC.
+::: 
+
 O usuário deve ser capaz de controlar algumas opções do sistema pelo terminal:
 
 - `Start`: Inicializa a leitura
 - `Stop`: Para a leitura
 
-Em modo start, o sistema deve produzir um log no terminal com a hora, minuto e segundo (usar o RTC para isso) em que a leitura foi realizada e o valor da distância:
+Em modo start, o sistema deve produzir um log no terminal com um tick atualizado a cada 3s indicando quando a leitura foi realizada e o valor da distância ou se aconteceu algum erro.:
 
 ```
-22:10:01 - 100 cm
-22:10:02 -  89 cm
-22:10:03 -  70 cm
-22:10:04 -  50 cm
+3s - 100 cm
+6s -  89 cm
+9s -  70 cm
+12s -  50 cm
 ....
-23:03:01 - Falha
+
+300s - Falha
+303s - Falha
 ```
 
 ### Resultado
@@ -117,10 +123,9 @@ A seguir, algumas dicas de como fazer. Você pode ou não seguir:
     - Para cancelar um alarme, use `cancel_alarm(alarm);`
 2. Implemente a detecção de falha.
     - Para testar, basta desconectar qualquer fio do sensor!
-3. Adicione o [RTC](/guides/pico-rtc) (atualize o print).
-    - Você deve incluir o RTC no projeto. Para isso, consulte a [página do RTC](/guides/pico-rtc) (configurando `cmake`)
+3. Realize a leitura do sensor a cada 3s
+    - Crie um timer periódico de 3s que vai gerar a referencia de quando o sensor deve ser lido. 
 4. Implemente a parte de leitura da [serial](/guides/pico-uart).
-
 
 ::: tip Leitura de dados
 Para ler dados da serial/terminal sem que o programa fique travado para sempre esperando um dado:
