@@ -95,6 +95,14 @@ export default defineConfig({
           ]
         },
         {
+          text: 'Prototipando',
+          collapsed: false,
+          items: [
+            { text: 'Prototipando', link: '/guides/prototipando-index' }
+          ]
+        },
+
+        {
           text: 'Dispositivos',
           collapsed: false,
           items: [
