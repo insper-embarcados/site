@@ -66,7 +66,7 @@ Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se des
 -  Usar alarme de timer para se usuário não apertar o botão em x segundos, perde.
 -  Para quem reproduz uma música (tipo mário). 
 -  [Manual On and Automatic Off](https://www.youtube.com/watch?v=jSZM9Js_zk8) 
-
+-  Implementar o hardware em uma [placa universal](https://www.youtube.com/watch?v=AQKF6w1v5c0) ou em uma PCB.
 <!--
  - <Badge type="info" text="meio conceito" /> Se fizer um sistema que desliga a energia sozinho e liga quando apertar um botão
 --> 
