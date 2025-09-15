@@ -1,12 +1,14 @@
-# PicoDock
+---
+tags:
+  - periféricos
+  - picodock
+description: Kit de desenvolvimento pico-dock
+---
 
 ![](picodock-imgs/PicoDockALL.png)
 
 A **PicoDock** é uma placa de expansão desenvolvida para ser utilizada com a **Raspberry Pi Pico**, oferecendo acesso simplificado a diversos componentes eletrônicos já integrados.  
 Seu objetivo é facilitar o desenvolvimento de projetos de prototipagem, ensino e experimentação em sistemas embarcados.
-
-
----
 
 ## Recursos
 
@@ -118,6 +120,3 @@ Compatível para conexão de displays **TFT LCD**, expandindo as possibilidades 
 - Projetos com múltiplas entradas analógicas  
 - Testes com diferentes tipos de displays (OLED e TFT)  
 - Desenvolvimento de sistemas interativos (botões, LEDs, buzzer)  
-
-
----

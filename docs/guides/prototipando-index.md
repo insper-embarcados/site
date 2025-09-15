@@ -1,3 +1,9 @@
+---
+tags:
+  - prototipação
+description: Criando protótipos reais
+---
+
 # Prototipação
 
 Aqui, você encontrará informações relevantes para a realização do protótipo mecânico dos projetos de embarcados. Contamos com o apoio do pessoal do fablab, especialmente de Luis Bueno e de Eliana. Esta seção do site foi desenvolvida em conjunto com o pessoal do fablab!

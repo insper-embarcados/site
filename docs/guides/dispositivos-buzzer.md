@@ -28,7 +28,6 @@ A música monofônica tem o som como a seguir:
 
 Esse tipo de música foi muito utilizado nos primeiros videogames, quando a sintetização de músicas ainda estava no começo. Veja como era feito nos Nintendos, onde já era possível gerar mais de um tom por vez:
 
-
 <YouTube id="jvIzIAgRWV0"/>
 
 ## Buzzer
@@ -67,7 +66,6 @@ Usaremos a notação americana para as notas:
 > https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Frequency_vs_name.svg/350px-Frequency_vs_name.svg.png Wikipidia 
 :::
 
-
 ::: info Frequências
 Lembre-se que uma onda quadrada pode ser decomposta em infinitas senoides pela transformada de Fourier. 
 
@@ -80,30 +78,27 @@ Sendo a componente principal (de maior energia) centrada na frequência da onda 
 > https://mathworld.wolfram.com/images/eps-gif/FourierSeriesSquareWave_800.gif
 :::
 
-
 Existem diversas maneiras de gerar uma onda quadrada em um pino do microcontrolador. A que estamos sugerindo aqui não envolve nenhum periférico específico do microcontrolador, logo, faremos tudo por código.
 
 ## Gerando a frequência
 
 Para gerar uma onda quadrada da nota Dó (**261,63** Hz), precisamos calcular seu período e definir o tempo em que a mesma ficará em nível lógico alto e baixo (0 e 1):
 
-T = 1 ÷ **261,63**
-
-T = 0,0038 s
+- T = 1 ÷ **261,63**
+- T = 0,0038 s
 
 Na **Pico W**, programando em C, geralmente utilizamos a função **sleep_ms** para gerar atraso no código. Precisamos então converter esse valor para **milissegundos** (dividir por 1000) e também dividir por 2, gerando os respectivos atrasos nos níveis lógicos:
 
-delay = (0,0038 x 1000) ÷ 2
-
-delay ≃ **1,9** ms
-
+- delay = (0,0038 x 1000) ÷ 2
+- delay ≃ **1,9** ms
 
 ```c
 while(1){
     gpio_put(PIN_BUZZER, 1);
-    sleep_ms(1.9);
+    sleep_ms(1.9);  // Errado não funciona [!code error] 
     gpio_put(PIN_BUZZER, 0);
-    sleep_ms(1,9);
+    sleep_ms(1.9);  // Errado não funciona [!code error] 
+
 }
 ```
 
@@ -117,7 +112,6 @@ Como podemos observar, utilizando **sleep_ms** temos um limite de frequência da
 ::: tip
 **OBS:** Não se esqueça de alterar a escala de ms para us: `0,000001s = 0,001ms = 1us`
 :::
-
 ​	
 Para o mesmo exemplo com a nota Dó (**261,63** Hz), utilizando **sleep_us**, ficaria: 
 ```c
