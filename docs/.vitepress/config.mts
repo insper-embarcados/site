@@ -99,7 +99,8 @@ export default defineConfig({
             { text: 'RP2350', link: 'https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf' },
             { text: 'SDK', link: 'https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html' },
             { text: 'Programando  📀', link: '/guides/pico-debugging' },
-            { text: 'Códigos Exemplos', link: '/guides/pico-examples' }
+            { text: 'Códigos Exemplos', link: '/guides/pico-examples' },
+            { text: 'PicoDock', link: '/guides/picodock' }
           ]
         },
         {
