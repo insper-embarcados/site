@@ -60,6 +60,10 @@ A placa possui 3 botões para uso geral:
 - Quando pressionado, o estado lógico vai para **0**.  
 - Quando solto, o estado lógico fica em **alta impedância**, sendo necessário ativar o pino de leitura com **PULL_UP**.  
 
+Segue abaixo o circuito implementado em cada botão:
+
+![](picodock-imgs/sch_but.png)
+
 
 ### LED RGB
 
