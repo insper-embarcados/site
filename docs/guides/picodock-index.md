@@ -16,13 +16,13 @@ Seu objetivo é facilitar o desenvolvimento de projetos de prototipagem, ensino 
 
 A **Raspberry Pi Pico** pode ser encaixada diretamente no soquete da PicoDock, onde todos os componentes ficam disponíveis sem a necessidade de conexão adicional, são os principais recursos:
 
-1. 3x Botões;
-1. 1x LED RGB;
-1. 1x Buzzer sem oscilador interno;
-1. 1x OLED 128x32;
-1. 1x Multiplexador ADC 8x1;
-1. 1x Barramento para conexão com a placa TFT LCD - Dock;
-1. 1x Borne KRE para alimentação externa até 12V;
+- 3x Botões;
+- 1x LED RGB;
+- 1x Buzzer sem oscilador interno;
+- 1x OLED 128x32;
+- 1x Multiplexador ADC 8x1;
+- 1x Barramento para conexão com a placa TFT LCD - Dock;
+- 1x Borne KRE para alimentação externa até 12V;
 
 ## Recursos da Placa
 

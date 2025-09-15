@@ -100,7 +100,6 @@ export default defineConfig({
             { text: 'SDK', link: 'https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html' },
             { text: 'Programando  📀', link: '/guides/pico-debugging' },
             { text: 'Códigos Exemplos', link: '/guides/pico-examples' },
-            { text: 'PicoDock', link: '/guides/picodock' }
           ]
         },
         {
@@ -115,6 +114,7 @@ export default defineConfig({
           text: 'Dispositivos',
           collapsed: false,
           items: [
+            { text: 'PicoDock', link: '/guides/picodock-index' },
             { text: 'Buzzer', link: '/guides/dispositivos-buzzer' }
           ]
         },
