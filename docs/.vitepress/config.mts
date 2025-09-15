@@ -72,6 +72,14 @@ export default defineConfig({
                 { text: 'Preparatório', link: '/labs/timer-pre' },
                 { text: 'Prático', link: '/labs/timer-pra' }
               ]
+            },
+            {
+              text: '4. RTOS',
+              collapsed: false,
+              items: [
+                { text: 'Preparatório', link: '/labs/rtos-pre' },
+                { text: 'Prático', link: '/labs/rtos-pra' }
+              ]
             }
           ]
        },
@@ -128,6 +136,20 @@ export default defineConfig({
           ]
         },
         {
+          text: 'RTOS',
+          collapsed: false,
+          items: [
+            { text: 'Sobre', link: '/guides/freertos-basic' },
+            { text: 'Tasks', link: '/guides/freertos-tasks' },
+            { text: 'Delay', link: '/guides/freertos-vtaskDelay' },
+            { text: 'Semaphore', link: '/guides/freertos-semaphore' },
+            { text: 'Queue', link: '/guides/freertos-queue' },
+            { text: 'Queue Structure', link: '/guides/freertos-queue-advanced' },
+            { text: 'Timer', link: '/guides/freertos-software-time' },
+            { text: 'Consultas', link: '/guides/freertos-snippets' }
+          ]
+        },
+        {
           text: 'Qualidade de código',
           collapsed: false,
           items: [
@@ -135,7 +157,8 @@ export default defineConfig({
             { text: 'Regras', link: '/guides/qualidade-rules' },
             { text: 'Cppcheck', link: '/guides/qualidade-cppcheck' },
             { text: 'Variáveis', link: '/guides/qualidade-variables' },
-            { text: 'ISR', link: '/guides/qualidade-isr-handler' }
+            { text: 'ISR', link: '/guides/qualidade-isr-handler' },
+            { text: 'RTOS', link: '/guides/qualidade-rtos' }
           ]
         },
       ],

@@ -4,7 +4,7 @@ Neste laboratório, iremos aprender um novo periférico, o timer. Muito utilizad
 
 ## Leitura obrigaratória
 
-As próximas leituras são sobre os conceitos básicos do microcontrolador e como lisdar com interrupcao. Para isso, é necessário que vocês realizem algumas leituras prévias.
+Leia os conceitos básicos de como o timer funciona:
 
 ::::: center
 :::: third  📖 Leitura 1
