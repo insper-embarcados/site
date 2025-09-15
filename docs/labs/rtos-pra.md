@@ -21,7 +21,7 @@
 :::::
 
 ::: warning
-Agora surgem novas regras, consulte a página: [Regras RTOS](/guide/qualidade-rtos) para saber as regras que serão aplicadas.
+Agora surgem novas regras, consulte a página: [Regras RTOS](/guides/qualidade-rtos) para saber as regras que serão aplicadas.
 
 Cuidado! As antigas ainda continuam valendo!
 :::
