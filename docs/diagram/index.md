@@ -51,7 +51,7 @@ Outro exemplo pode ser visto no livro *Making Embedded Systems*, de Elecia White
 
 ![](imgs/making_embedded_systems.png)
 
-Aqui, a autora representa a solução de software para uma aplicação embarcada com display LCD.
+Aqui, a autora representa a solução de software para uma aplicação embarcada com display LCD. **No caso específico ela não utiliza RTOS, mas da pra ter uma ideia de outros usos em sistemas embarcados.**
 :::
 
 ### No curso
