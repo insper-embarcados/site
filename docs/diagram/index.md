@@ -70,8 +70,6 @@ Notação:
 A escolha por elementos simples facilita o desenho, sem necessidade de ferramentas sofisticadas. Além disso, essa prática é útil para a carreira: em entrevistas técnicas, é comum pedirem que você desenhe uma solução na lousa para resolver um problema.
 :::
 
-Quer que eu prepare também uma **versão resumida** (tipo guia rápido) para que os alunos tenham em mãos como referência durante os exercícios?
-
 ### Exemplos
 
 A seguir, um exemplo do uso do diagrama para representar a modelagem de um sistema:
