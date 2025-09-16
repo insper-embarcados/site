@@ -55,7 +55,7 @@ Abaixo estão detalhados os GPIOs de cada recurso da placa:
 
 A placa possui 3 botões para uso geral:
 
-![](picodock-imgs/botoes.png)
+![](picodock-imgs/botoes.png){width=20px height=20px}
 
 - Quando pressionado, o estado lógico vai para **0**.  
 - Quando solto, o estado lógico fica em **alta impedância**, sendo necessário ativar o pino de leitura com **PULL_UP**.  

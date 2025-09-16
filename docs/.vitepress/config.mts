@@ -35,6 +35,7 @@ export default defineConfig({
         activeMatch: '/guides',
       },
       { text: 'Entregas', link: '/entregas/' },
+      { text: 'Diagramas', link: '/diagram/' },
     ],
     sidebar: {
       '/entregas/': [
