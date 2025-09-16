@@ -7,6 +7,7 @@ Existem diversos tipos de diagramas para representar sistemas:
 
 - Diagrama de blocos
 - UML
+- Máquina de estados
 - [Tempo](http://groups.di.unipi.it/~augusto/seminars/PAM2002/s06.html)
 - [Redes de petri](https://en.wikipedia.org/wiki/Petri_net))
 - ...
@@ -70,3 +71,30 @@ A escolha por elementos simples facilita o desenho, sem necessidade de ferrament
 :::
 
 Quer que eu prepare também uma **versão resumida** (tipo guia rápido) para que os alunos tenham em mãos como referência durante os exercícios?
+
+### Exemplos
+
+A seguir, um exemplo do uso do diagrama para representar a modelagem de um sistema:
+
+![](imgs/diagram-example-1-pb.png)
+
+::: warning
+O diagrama não fornece todas as informações necessárias para entendermos exatamente o funcionamento do sistema, mas já dá para ter uma boa ideia!
+:::
+
+A partir do diagrama, somos capazes de identificar:
+
+- Que existem 3 *tasks*:
+    - `btn_task`
+    - `led_r_task`
+    - `led_g_task`
+- Um callback (ISR):
+    - `btn_callback`
+- Quatro recursos de hardware:
+    - Dois botões (`btn red` e `btn green`)
+    - Dois LEDs (`led red` e `led green`)
+- Que existe uma fila:
+    - `xQueueBtn`
+- E dois semáforos:
+    - `xSemaphoreR` e `xSemaphoreG`
+
