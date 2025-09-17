@@ -29,15 +29,20 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
-      {
-        text: 'Consulta',
-        link: '/guides/',
-        activeMatch: '/guides',
-      },
+      { text: 'Consulta', link: '/guides/', activeMatch: '/guides'},
       { text: 'Entregas', link: '/entregas/' },
       { text: 'Diagramas', link: '/diagram/' },
     ],
     sidebar: {
+      '/curso/': [
+      {
+      text: 'Sobre o curso',
+           items: [
+              {text: 'Sobre', link: '/curso/'},
+              {text: 'Avaliacão', link: '/curso/avaliacao'},
+           ]
+      }
+      ],
       '/entregas/': [
         {
           text: 'Entregas',
@@ -96,7 +101,8 @@ export default defineConfig({
        {
           text: 'APS',
           items: [
-            { text: '1. Genius', link: '/entregas/aps-1-genius'}
+            { text: '1. Genius', link: '/entregas/aps-1-genius'},
+            { text: '2. Controle', link: '/entregas/aps-2-controle'}
           ]
         }
       ],

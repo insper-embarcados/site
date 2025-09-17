@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Sobre o curso
-      link: /about
+      link: /curso/
     - theme: alt
       text: Consulta
       link: /guides/
