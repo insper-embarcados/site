@@ -1,6 +1,5 @@
 # APS - 2 - Controle
 
-
 <YouTube id="uCgnWqoP4MM"/>
 
 O desafio é desenvolver um protótipo de um controle para um jogo de computador. 
@@ -34,7 +33,6 @@ Veja alguns exemplos de entregas do semestre passado:
 - VITOR HIDEKI PEREIRA KATAKURA
 <YouTube id="2x4wYwhdspk"/>
 :::
-
 
 ## Rubrica
 

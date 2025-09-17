@@ -3,7 +3,7 @@
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/cye3AyRV)
+[:memo: Prática](https://classroom.github.com/a/sr3gGsvt ) 
 :::
 ::::
 :::: third
