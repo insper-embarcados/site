@@ -81,7 +81,16 @@ export default defineConfig({
                 { text: 'Preparatório', link: '/labs/rtos-pre' },
                 { text: 'Prático', link: '/labs/rtos-pra' }
               ]
+            },
+            {
+              text: '5. ADC e PWM',
+              collapsed: false,
+              items: [
+                { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
+                { text: 'Prático', link: '/labs/rtos-pra' }
+              ]
             }
+
           ]
        },
        {

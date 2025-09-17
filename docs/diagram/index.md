@@ -9,7 +9,7 @@ Existem diversos tipos de diagramas para representar sistemas:
 - UML
 - Máquina de estados
 - [Tempo](http://groups.di.unipi.it/~augusto/seminars/PAM2002/s06.html)
-- [Redes de petri](https://en.wikipedia.org/wiki/Petri_net))
+- [Redes de petri](https://en.wikipedia.org/wiki/Petri_net)
 - ...
 
 Neste curso, vamos trabalhar com diagramas de forma mais **informal e prática**, mas ainda assim bastante útil.
