@@ -30,8 +30,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Consulta', link: '/guides/', activeMatch: '/guides'},
-      { text: 'Entregas', link: '/entregas/' },
-      { text: 'Diagramas', link: '/diagram/' },
+      { text: 'Entregas', link: '/entregas/' }
     ],
     sidebar: {
       '/curso/': [
@@ -92,10 +91,16 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
-                { text: 'Prático', link: '/labs/rtos-pra' }
+                { text: 'Prático', link: '/labs/adc-pwm-pra' }
+              ]
+            },
+            {
+              text: '6. Diagram',
+              collapsed: false,
+              items: [
+                { text: 'Preparatório', link: '/labs/diagrama-pre' }
               ]
             }
-
           ]
        },
        {
@@ -108,6 +113,48 @@ export default defineConfig({
       ],
       '/guides/': [
         {
+          text: 'Sistemas Embarcados',
+          collapsed: false,
+          items: [
+            { text: 'Prototipando', link: '/guides/prototipando-index' },
+            { text: 'Diagramas', link: '/diagram/' }
+          ]
+        },
+        {
+          text: 'Dispositivos',
+          collapsed: false,
+          items: [
+            { text: 'PicoDock', link: '/guides/picodock-index' },
+            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' }
+          ]
+        },
+        {
+          text: 'Qualidade de código',
+          collapsed: false,
+          items: [
+            { text: 'Sobre', link: '/guides/qualidade-index' },
+            { text: 'Regras', link: '/guides/qualidade-rules' },
+            { text: 'Cppcheck', link: '/guides/qualidade-cppcheck' },
+            { text: 'Variáveis', link: '/guides/qualidade-variables' },
+            { text: 'ISR', link: '/guides/qualidade-isr-handler' },
+            { text: 'RTOS', link: '/guides/qualidade-rtos' }
+          ]
+        },
+        {
+          text: 'RTOS',
+          collapsed: false,
+          items: [
+            { text: 'Sobre', link: '/guides/freertos-basic' },
+            { text: 'Tasks', link: '/guides/freertos-tasks' },
+            { text: 'Delay', link: '/guides/freertos-vtaskDelay' },
+            { text: 'Semaphore', link: '/guides/freertos-semaphore' },
+            { text: 'Queue', link: '/guides/freertos-queue' },
+            { text: 'Queue Structure', link: '/guides/freertos-queue-advanced' },
+            { text: 'Timer', link: '/guides/freertos-software-time' },
+            { text: 'Consultas', link: '/guides/freertos-snippets' }
+          ]
+        },
+        {
           text: 'Pico',
           items: [
             { text: 'Pinout ', link: 'https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg' },
@@ -116,22 +163,6 @@ export default defineConfig({
             { text: 'SDK', link: 'https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html' },
             { text: 'Programando  📀', link: '/guides/pico-debugging' },
             { text: 'Códigos Exemplos', link: '/guides/pico-examples' },
-          ]
-        },
-        {
-          text: 'Prototipando',
-          collapsed: false,
-          items: [
-            { text: 'Prototipando', link: '/guides/prototipando-index' }
-          ]
-        },
-
-        {
-          text: 'Dispositivos',
-          collapsed: false,
-          items: [
-            { text: 'PicoDock', link: '/guides/picodock-index' },
-            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' }
           ]
         },
         {
@@ -150,32 +181,6 @@ export default defineConfig({
             { text: 'DMA', link: '/guides/pico-dma' },
             { text: 'UART', link: '/guides/pico-uart' },
             { text: 'WIFI', link: '/guides/pico-wifi' },
-          ]
-        },
-        {
-          text: 'RTOS',
-          collapsed: false,
-          items: [
-            { text: 'Sobre', link: '/guides/freertos-basic' },
-            { text: 'Tasks', link: '/guides/freertos-tasks' },
-            { text: 'Delay', link: '/guides/freertos-vtaskDelay' },
-            { text: 'Semaphore', link: '/guides/freertos-semaphore' },
-            { text: 'Queue', link: '/guides/freertos-queue' },
-            { text: 'Queue Structure', link: '/guides/freertos-queue-advanced' },
-            { text: 'Timer', link: '/guides/freertos-software-time' },
-            { text: 'Consultas', link: '/guides/freertos-snippets' }
-          ]
-        },
-        {
-          text: 'Qualidade de código',
-          collapsed: false,
-          items: [
-            { text: 'Sobre', link: '/guides/qualidade-index' },
-            { text: 'Regras', link: '/guides/qualidade-rules' },
-            { text: 'Cppcheck', link: '/guides/qualidade-cppcheck' },
-            { text: 'Variáveis', link: '/guides/qualidade-variables' },
-            { text: 'ISR', link: '/guides/qualidade-isr-handler' },
-            { text: 'RTOS', link: '/guides/qualidade-rtos' }
           ]
         },
       ],
