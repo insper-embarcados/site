@@ -131,5 +131,5 @@ typedef struct adc {
 ::: info
 Não sabe como enviar uma struct para a fila? Consulte a página da disciplina:
     
-- [Freertos/Queue Struct](/site/freertos/freertos-queue-advanced)
+- [Freertos/Queue Struct](/guides/freertos-queue-advanced)
 :::
