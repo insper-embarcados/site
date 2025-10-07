@@ -80,7 +80,7 @@ export default defineConfig({
             },
             {
               text: '4. RTOS',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/rtos-pre' },
                 { text: 'Prático', link: '/labs/rtos-pra' }
@@ -98,7 +98,8 @@ export default defineConfig({
               text: '6. i2c',
               collapsed: false,
               items: [
-                { text: 'Preparatório', link: '/labs/i2c-pre' }
+                { text: 'Preparatório', link: '/labs/i2c-pre' },
+                { text: 'Prático', link: '/labs/i2c-pra' }
               ]
             }
           ]
