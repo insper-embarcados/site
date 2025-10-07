@@ -95,10 +95,10 @@ export default defineConfig({
               ]
             },
             {
-              text: '6. Diagram',
+              text: '6. i2c',
               collapsed: false,
               items: [
-                { text: 'Preparatório', link: '/labs/diagrama-pre' }
+                { text: 'Preparatório', link: '/labs/i2c-pre' }
               ]
             }
           ]
