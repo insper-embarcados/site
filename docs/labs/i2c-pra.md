@@ -20,7 +20,6 @@
 ::::
 :::::
 
-
 Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o [spotlight da logitech]( https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html). 
 
 <YouTube id="8C9EGM1Bh3c"/>
@@ -58,6 +57,22 @@ while(1) {
     vTaskDelay(pdMS_TO_TICKS(10));
 }
 ```
+
+::: warning
+Se você for utilizar a PICO DOCK, você deve alterar os pinos do I2C:
+
+```diff
+-const int I2C_SDA_GPIO = 4;
+-const int I2C_SCL_GPIO = 5;
+
++const int I2C_SDA_GPIO = 17;
++const int I2C_SCL_GPIO = 16;
+```
+
+E utilizar esses pinos novos para conectar a MPU6050.
+
+Os pinos originais 4 e 5 estão conectados aos botões da placa, e nesse botões colocamos um capacitor para realziar o deboucing, por conta disso o barramento I2C não funciona!
+:::
 
 ::: tip 
 Execute o código e verifique se ele funciona.
