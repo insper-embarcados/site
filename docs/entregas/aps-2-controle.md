@@ -1,5 +1,26 @@
 # APS - 2 - Controle
 
+::::: center
+:::: third 
+::: box-blue 1. Classroom
+[:memo: Link](https://classroom.github.com/a/BxYEAyI2)
+:::
+::::
+:::: third
+::: box-yellow 2. Entrega final
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
+:::
+::::
+:::: third
+::: box Nota
+A APS pode ser feita individual ou em dupla
+:::
+::::
+:::: third
+::::
+:::::
+
+
 <YouTube id="uCgnWqoP4MM"/>
 
 O desafio é desenvolver um protótipo de um controle para um jogo de computador. 
