@@ -101,7 +101,15 @@ export default defineConfig({
                 { text: 'Preparatório', link: '/labs/i2c-pre' },
                 { text: 'Prático', link: '/labs/i2c-pra' }
               ]
+            },
+            {
+              text: '7. Diagramas',
+              collapsed: false,
+              items: [
+                { text: 'Preparatório', link: '/labs/diagrama-pre' }
+              ]
             }
+
           ]
        },
        {
