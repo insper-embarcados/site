@@ -88,7 +88,7 @@ export default defineConfig({
             },
             {
               text: '5. ADC e PWM',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
                 { text: 'Prático', link: '/labs/adc-pwm-pra' }
@@ -96,7 +96,7 @@ export default defineConfig({
             },
             {
               text: '6. i2c',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/i2c-pre' },
                 { text: 'Prático', link: '/labs/i2c-pra' }
@@ -106,7 +106,8 @@ export default defineConfig({
               text: '7. Diagramas',
               collapsed: false,
               items: [
-                { text: 'Preparatório', link: '/labs/diagrama-pre' }
+                { text: 'Preparatório', link: '/labs/diagrama-pre' },
+                { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
               ]
             }
 
@@ -117,6 +118,16 @@ export default defineConfig({
           items: [
             { text: '1. Genius', link: '/entregas/aps-1-genius'},
             { text: '2. Controle', link: '/entregas/aps-2-controle'}
+          ]
+        },
+       {
+          text: 'Labs expert',
+          items: [
+            { text: 'Sobre', link: '/labs-expert/index'},
+            { text: '1. COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt'},
+            { text: '1. DSP - Áudio', link: '/labs-expert/labs-expert-dsp-audio'},
+            { text: '1. SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor'},
+            { text: '1. FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver'}
           ]
         }
       ],
