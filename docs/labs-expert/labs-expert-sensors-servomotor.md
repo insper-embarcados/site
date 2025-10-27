@@ -32,10 +32,10 @@ Para entender o funcionamento detalhado, consulte:
 O sistema deve incluir ao menos **um sensor analógico** adicional, cuja leitura será enviada para o PC e exibida graficamente em tempo real.  
 Exemplos de sensores disponíveis:
 
-- [LDR](/guides/dispositivos-analogicos)
-- [Termistor NTC](/guides/dispositivos-analogicos)
-- [Strain gauge](/guides/dispositivos-analogicos)
-- [SHARP](/guides/site/dispositivos-analogicos)
+- [LDR](https://insper-embarcados.github.io/site/guides/dispositivos-analogicos.html#ldr)
+- [Termistor NTC](https://insper-embarcados.github.io/site/guides/dispositivos-analogicos.html#termistor-ntc)
+- [Strain gauge](https://insper-embarcados.github.io/site/guides/dispositivos-analogicos.html#strain-gauge)
+- [SHARP](https://insper-embarcados.github.io/site/guides/dispositivos-analogicos.html#sharp)
 
 Consulte mais opções em:
 - [Dispositivos/Analógicos](/guides/dispositivos-analogicos)
