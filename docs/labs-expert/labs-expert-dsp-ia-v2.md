@@ -8,12 +8,13 @@ Neste laboratório você utilizará a **Raspberry Pi Pico W** junto com o sensor
 
 Ao final, seu dispositivo embarcado será capaz de fazer inferência local desses movimentos, sem necessidade de conexão com a internet.
 
-!!! tip
-    Vocês devem utilizar os repositórios a seguir, utilize o  `lab-exp-dsp-ia-mpu-forwarder` para fazer a captura dos dados da imu para o edge-impulse, e quando finalizar o laboratório e tiver gerado o modelo utilize o `lab-exp-dsp-ia` para deploy do seu modelo e teste, mais informações sobre como fazer isso a seguir.
-    
-    - https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder
+::: tip
+  Vocês devem utilizar os repositórios a seguir, utilize o  `lab-exp-dsp-ia-mpu-forwarder` para fazer a captura dos dados da imu para o edge-impulse, e quando finalizar o laboratório e tiver gerado o modelo utilize o `lab-exp-dsp-ia` para deploy do seu modelo e teste, mais informações sobre como fazer isso a seguir.
 
-    - https://github.com/insper-embarcados/lab-exp-dsp-ia
+- https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder
+
+- https://github.com/insper-embarcados/lab-exp-dsp-ia
+:::
 
 ## Conceitos Importantes
 
@@ -36,22 +37,22 @@ O **Edge Impulse** é uma plataforma que ajuda desenvolvedores a criar modelos d
 
 Ferramenta de linha de comando usada para configurar e conectar dispositivos ao Edge Impulse. Veja a [documentação oficial](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli).
 
-
 ## Instalação 
 
 > IMPORTANTE: Para instalar corretamente siga os passos descritos na documentação oficial. 
 > [https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation)
 
+:::tabs
+
+=== Instalação 
 
 Basicamente as etapas são:
 
 1. Criar uma conta no [Edge Impulse](https://edgeimpulse.com/).
-
 2. **Python 3** instalado no computador.
-
 3. Instale **Node.js** v20 ou superior no computador.
 
-#### Instalação linux/MAC
+=== Instalação linux/MAC
 
 etapas para instalaçao em Linux/MAC:
 
@@ -91,9 +92,8 @@ bash
 npm install -g edge-impulse-cli
 reboot
  
----
 
-#### Instalação Windows
+=== Instalação Windows
 
 etapas para instalação WINDOWS
 
@@ -106,6 +106,7 @@ etapas para instalação WINDOWS
 4. Reinicie o computador e rode o seguinte comando através do PowerShell:
 
 > npm install -g edge-impulse-cli --force
+:::
 
 ## Prática do Laboratório
 
@@ -114,6 +115,7 @@ Neste laboratório, você conectará o sensor MPU6050 à Raspberry Pi Pico W uti
 O modelo resultante será exportado como biblioteca C++ e incluído no firmware que será executado localmente na Pico W, permitindo inferência offline dos movimentos idle, updown e wave com indicação visual através de um LED RGB.
 
 Projeto base recomendado:
+
 - [Continuous Motion Recognition](https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition)
 
 Fluxo de trabalho:
@@ -122,8 +124,7 @@ Fluxo de trabalho:
 
 Demonstração:
 
-!!! video
-    ![](https://youtu.be/Yk3hq3IcJR4)
+<YouTube id="Yk3hq3IcJR4"/>
 
 ### Detalhes Técnicos
 
@@ -156,8 +157,6 @@ Demonstração:
 ![edge impulse workflow](./imgs-dsp/ia-deploy.png)
 
 > É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de **Deploy** no site do **Edge Impulse**, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione.
-
-
 
 ## Referências:
 

@@ -125,9 +125,13 @@ export default defineConfig({
           items: [
             { text: 'Sobre', link: '/labs-expert/index'},
             { text: '1. COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt'},
+            { text: '2. COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2'},
             { text: '1. DSP - Áudio', link: '/labs-expert/labs-expert-dsp-audio'},
+            { text: '2. DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2'},
             { text: '1. SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor'},
-            { text: '1. FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver'}
+            { text: '2. SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
+            { text: '1. FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver'},
+            { text: '2. FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3'}
           ]
         }
       ],
