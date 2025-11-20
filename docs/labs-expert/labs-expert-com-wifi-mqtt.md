@@ -40,9 +40,14 @@ No MQTT, a comunicação é organizada por meio de "tópicos", que funcionam com
 
 ::: warning
 O Wi-Fi do Insper utiliza uma autenticação complexa por certificado, o que impede nossa plaquinha de utilizar
-a rede. Temos uma rede disponível no laboratório para vocês utilizarem.
+a rede. Temos uma rede disponível no laboratório para vocês utilizarem. rede `embarcados-IoT`e senha `Saciperer3` no código fica:
 
-Se não estiver no laboratório, utilize seu celular como roteador.
+```C
+#define WIFI_SSID "embarcados-IoT"
+#define WIFI_PASSWORD "Saciperer3"
+```
+
+Se não estiver no laboratório, utilize a internet da sua casa ou seu celular como roteador.
 
 **Lembre-se de conectar o computador e o embarcado na mesma rede.**
 :::
