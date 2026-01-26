@@ -14,6 +14,12 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
+    multiVersionBuild: {
+      build: 'stable',
+      match: /^v\d+(\.\d+)*$/,
+      base: '/v/',
+      satisfies: '*',
+    },
     sponsors: {
       text: 'Rafael Corsi - Professor',
       link: 'https://github.com/rafaelcorsi',
@@ -30,7 +36,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Consulta', link: '/guides/', activeMatch: '/guides'},
-      { text: 'Entregas', link: '/entregas/' }
+      { text: 'Módulos', link: '/entregas/' }
     ],
     sidebar: {
       '/curso/': [
@@ -44,7 +50,7 @@ export default defineConfig({
       ],
       '/entregas/': [
         {
-          text: 'Entregas',
+          text: 'Módulos',
           items: [
             { text: 'Sobre', link: '/entregas/' },
             { text: 'Preparatório', link: '/labs/preparatorio' },
@@ -52,10 +58,10 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Laboratórios',
+          text: 'Módulo 1 - Baremetal',
           items: [
             {
-              text: '1. GPIO',
+              text: 'Lab 1. GPIO',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/gpio-pre' },
@@ -63,7 +69,7 @@ export default defineConfig({
               ]
             },
             {
-              text: '2. IRQ',
+              text: 'Lab 2. ISR',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/irq-pre' },
@@ -71,7 +77,7 @@ export default defineConfig({
               ]
             },
             {
-              text: '3. Timer',
+              text: 'Lab 3. Timer',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/timer-pre' },
@@ -79,7 +85,23 @@ export default defineConfig({
               ]
             },
             {
-              text: '4. RTOS',
+              text: 'Lab 4. Expert 1',
+              collapsed: true,
+              items: [
+                { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
+                { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
+                { text: 'Expert - Multicore', link: '/labs-expert/' },
+                { text: 'Expert - DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out'},
+              ]
+            },
+            { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
+          ]
+       },
+       {
+          text: 'Módulo 2 - RTOS',
+            items: [
+            {
+              text: 'Lab 5. RTOS',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/rtos-pre' },
@@ -87,7 +109,15 @@ export default defineConfig({
               ]
             },
             {
-              text: '5. ADC e PWM',
+              text: 'Lab 6. Diagramas',
+              collapsed: true,
+              items: [
+                { text: 'Preparatório', link: '/labs/diagrama-pre' },
+                { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
+              ]
+            },
+            {
+              text: 'Lab 7. ADC e PWM',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
@@ -95,43 +125,37 @@ export default defineConfig({
               ]
             },
             {
-              text: '6. i2c',
+              text: 'Lab 8. I2C',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/i2c-pre' },
                 { text: 'Prático', link: '/labs/i2c-pra' }
               ]
             },
-            {
-              text: '7. Diagramas',
-              collapsed: false,
-              items: [
-                { text: 'Preparatório', link: '/labs/diagrama-pre' },
-                { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
-              ]
-            }
-
+            { text: 'Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
+            { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' }
           ]
        },
        {
-          text: 'APS',
+          text: 'Módulo 3 - Expert',
           items: [
-            { text: '1. Genius', link: '/entregas/aps-1-genius'},
-            { text: '2. Controle', link: '/entregas/aps-2-controle'}
+            { text: 'Lab 10. Expert 3', link: '/labs-expert/modulo-1-expert' },
+            { text: 'Lab 11. Expert 4', link: '/labs-expert/modulo-1-expert' },
           ]
-        },
+       },
        {
           text: 'Labs expert',
           items: [
             { text: 'Sobre', link: '/labs-expert/index'},
-            { text: '1. COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt'},
-            { text: '2. COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2'},
-            { text: '1. DSP - Áudio', link: '/labs-expert/labs-expert-dsp-audio'},
-            { text: '2. DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2'},
-            { text: '1. SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor'},
-            { text: '2. SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
-            { text: '1. FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver'},
-            { text: '2. FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3'}
+            { text: 'COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt'},
+            { text: 'COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2'},
+            { text: 'DSP - Áudio IN/OUT', link: '/labs-expert/labs-expert-dsp-audio'},
+            { text: 'DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out'},
+            { text: 'DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2'},
+            { text: 'SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor'},
+            { text: 'SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
+            { text: 'FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver'},
+            { text: 'FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3'}
           ]
         }
       ],
