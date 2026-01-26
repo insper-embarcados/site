@@ -7,6 +7,15 @@ export default defineConfig({
   base: "/site/",
   markdown: {
     math: true,
+    config(md) {
+      // Add markdown hook to process sidebar links
+      md.core.ruler.push('sidebar_links', (state) => {
+        const meta = state.env
+        if (meta.frontmatter?.sidebar_links) {
+          meta.sidebar_links = meta.frontmatter.sidebar_links
+        }
+      })
+    }
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   themeConfig: {

@@ -12,9 +12,7 @@ Leia as instrucões no README para sabe como converter um áudio.
 
 ## Áudio
 
-O desafio é como fazemos para gerar o áudio, a maioria dos microcontroladores possui o conversor analógico para digital, mas poucos possuem um digital para analógico (DAC), que iria facilitar muito a nossa vida, já que poderíamos simplesmente copiar o valor do ADC para DAC e buuumm!!, teríamos um som sendo gerado no pino, ai bastaria amplificar o sinal e pronto, teríamos um áudio sendo reproduzido!
-
-![](imgs-dsp/adc-dac.png)
+O desafio é como fazemos para gerar o áudio, a maioria dos microcontroladores possui o conversor analógico para digital, mas poucos possuem um digital para analógico (DAC), que iria facilitar muito a nossa vida, já que poderíamos simplesmente "copiar o som para o pino" e teríamos um som analógico sendo produzido, ai bastaria amplificar o sinal e pronto, teríamos um áudio sendo reproduzido!
 
 Como não temos o DAC, poderíamos pensar em algumas alternativas:
 
