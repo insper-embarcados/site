@@ -86,31 +86,32 @@ export default defineConfig({
               ]
             },
             {
-              text: 'Lab 3. Timer',
+              text: '⏳ Lab 3. Timer',
               collapsed: true,
               items: [
-                { text: 'Preparatório', link: '/labs/timer-pre' },
-                { text: 'Prático', link: '/labs/timer-pra' }
+               // { text: 'Preparatório', link: '/labs/timer-pre' },
+               // { text: 'Prático', link: '/labs/timer-pra' }
               ]
             },
             {
-              text: 'Lab 4. Expert 1',
+              text: '⏳ Lab 4. Expert 1',
               collapsed: true,
               items: [
-                { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
-                { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
-                { text: 'Expert - Multicore', link: '/labs-expert/' },
-                { text: 'Expert - DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out'},
+               // { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
+               // { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
+               // { text: 'Expert - Multicore', link: '/labs-expert/' },
+               // { text: 'Expert - DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out'},
               ]
             },
-            { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
+            { text: '⏳ APS 1. Genius', link: '/entregas/aps-1-genius' },
           ]
        },
        {
-          text: 'Módulo 2 - RTOS',
+          text: '⏳ Módulo 2 - RTOS',
+            collapsed: true,
             items: [
             {
-              text: 'Lab 5. RTOS',
+              text: ' Lab 5. RTOS',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/rtos-pre' },
@@ -146,14 +147,16 @@ export default defineConfig({
           ]
        },
        {
-          text: 'Módulo 3 - Expert',
+          text: '⏳  Módulo 3 - Expert',
+          collapsed: true,
           items: [
             { text: 'Lab 10. Expert 3', link: '/labs-expert/modulo-1-expert' },
             { text: 'Lab 11. Expert 4', link: '/labs-expert/modulo-1-expert' },
           ]
        },
        {
-          text: 'Labs expert',
+          text: '⏳ Labs expert',
+          collapsed: true,
           items: [
             { text: 'Sobre', link: '/labs-expert/index'},
             { text: 'COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt'},

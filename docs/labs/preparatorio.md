@@ -27,9 +27,9 @@ Após terminar os exercícios, o mesmo deve ser submetido para avaliação na pl
 ::: danger Punição de atraso
 As punições de atraso serão aplicadas automaticamente pelo PrairieLearn.
 
-- -50% se entregue com até `dois dias de atraso`
-- -70% se entregue com até `quatro dias de atraso`
-- -100% se entregue após `quatro dias de atraso`
+- 20% se entregue com até `após o prazo.`
 :::
+
+Cada atividade preparatória é composta de uma série de exercícios:
 
 ![](imgs/pl.png)

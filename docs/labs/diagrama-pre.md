@@ -25,5 +25,5 @@ O que é [Diagrama](/diagram/)
 Diferente dos anteriores esse laboratório deve ser realizado interiamente dentro do prairielearn:
 
 ::: tip Exercícios dentro do PL
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
 :::

@@ -3,12 +3,12 @@
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/xGXQxdMg)
+[:memo: Prática](https://classroom.github.com/a/XYsU1qny)
 :::
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
 :::
 ::::
 :::: third

@@ -42,12 +42,12 @@ Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). 
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Preparatório](https://classroom.github.com/a/wKgeR0Q_)
+[:memo: Preparatório](https://classroom.github.com/a/DSolRxRH)
 :::
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/188020)
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
 :::
 ::::
 :::: third
