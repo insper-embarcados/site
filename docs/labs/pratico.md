@@ -42,13 +42,12 @@ Primeiro, faça a conexão como indicado a seguir:
     Note a necessidade de dois cabos USB!
 :::
 
-![](/pico/imgs/pico-probe.png){width=400}
 
 :::tabs
 == tab Montagem
-![](pico-imgs/pico-probe.png)
+![](/guides/pico-imgs/pico-probe.png){width=400}
 == tab Imagem
-![](pico-imgs/pico-probe-real.jpeg)
+![](/guides/pico-imgs/pico-probe-real.jpeg)
 :::
 
 
