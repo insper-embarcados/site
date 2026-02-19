@@ -61,13 +61,13 @@ As entregas práticas também devem respeitar a qualidade de código. Os reposit
 
 Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consulte os **horários disponíveis** para apresentar o laboratório.
 
-| Horário         | Segunda-feira | Terça-feira    | Quarta-feira | Quinta-feira | Sexta-feira   |
-|-----------------|---------------|----------------|--------------|--------------|---------------|
-| **09:15-09:30** |               |                |              |              | Marco (Arq)   |
-| **09:45-12:00** | Marco  (Arq)  |                | Corsi (Arq)  |              |               |
-| **13:40-14:20** | Marco  (Arq)  |                | Corsi (Arq)  |              |               |
-| **16:30-18:20** |               |                |              | Marco (Arq)  |               |
-| **18:30-21:00** |               | Daniel  (Agil) | Corsi (Arq)  |              | Daniel (Agil) |
+| Horário         | Segunda-feira | Terça-feira   | Quarta-feira  | Quinta-feira  | Sexta-feira   |
+|-----------------|---------------|---------------|---------------|---------------|---------------|
+| **07:30-09:30** | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  |               |
+| **09:45-12:00** | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  |               |
+| **14:15-16:15** |               |               |               | Daniel (Agil) |               |
+| **16:30-18:30** |               | Marco  (Arq)  |               | Corsi (Arq)   | Daniel (Agil) |
+| **19:00-21:00** | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) |
 
 - (Arq): Laboratório de arquitetura
 - (Ágil): Laboratório Ágil 2

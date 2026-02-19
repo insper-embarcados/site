@@ -33,6 +33,22 @@ A disciplina utilizará atividades preparatórias que ajudarão vocês no desenv
 
 Já as atividades de laboratório prático demandam que vocês utilizem a placa física e apliquem o que aprenderam no ambiente virtual em uma aplicação real.
 
+::: box
+Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consulte os **horários disponíveis** para apresentar o laboratório.
+
+| Horário         | Segunda-feira | Terça-feira   | Quarta-feira  | Quinta-feira  | Sexta-feira   |
+|-----------------|---------------|---------------|---------------|---------------|---------------|
+| **07:30-09:30** | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  |               |
+| **09:45-12:00** | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  |               |
+| **14:15-16:15** |               |               |               | Daniel (Agil) |               |
+| **16:30-18:30** |               | Marco  (Arq)  |               | Corsi (Arq)   | Daniel (Agil) |
+| **19:00-21:00** | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) |
+
+- (Arq): Laboratório de arquitetura
+- (Ágil): Laboratório Ágil 2
+:::
+
+
 ### APS
 
 Ao todo, são duas APS. Elas se diferenciam dos laboratórios por serem mais complexas, realizadas em duplas e por envolverem design e criação de protótipos. São elas:
