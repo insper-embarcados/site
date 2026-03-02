@@ -29,12 +29,12 @@ Entregas que devem ser realizadas antes da aula de laboratório. Para conseguir 
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Preparatório](https://classroom.github.com/a/zEBO_yen)
+[:memo: Preparatório](https://classroom.github.com/a/AgHVL_d3)
 :::
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559) 
 :::
 ::::
 :::: third

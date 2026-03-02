@@ -77,11 +77,11 @@ export default defineConfig({
               ]
             },
             {
-              text: '⏳ Lab 3. Timer',
+              text: 'Lab 3. Timer',
               collapsed: true,
               items: [
-               // { text: 'Preparatório', link: '/labs/timer-pre' },
-               // { text: 'Prático', link: '/labs/timer-pra' }
+               { text: 'Preparatório', link: '/labs/timer-pre' },
+               { text: 'Prático', link: '/labs/timer-pra' }
               ]
             },
             {

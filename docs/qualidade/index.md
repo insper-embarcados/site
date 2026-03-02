@@ -38,7 +38,7 @@ Você deve gastar no máximo algo entre 100-200 clocks dentro de uma interrupç�
 
 ## freeRTOS
 
-- De forma geral usar `vTaskDelay` no lugar de `delay_ms`.
+- De forma geral usar `vTaskDelay` no lugar de `sleep_ms`.
 - Não fazer uso de flags (variáveis globais) para indicar que um evento deve acontecer, usar um semáforo.
 - Não compartilhar variáveis globais entre tasks para transmitir informações, usar uma fila para isso.
 - Lembre de inicializar os recursos antes de usar (`xCreateSemaphore`, `xCreateQueue`). Indicamos fazer isso no início da função `main` e não dentro das tarefas 

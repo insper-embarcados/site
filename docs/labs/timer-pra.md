@@ -1,9 +1,9 @@
-# Lab 3 - Timer - Prática <Badge type="tip" text="70% da nota do lab" />
+aluno # Lab 3 - Timer - Prática <Badge type="tip" text="70% da nota do lab" />
 
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/cye3AyRV)
+[:memo: Prática](https://classroom.github.com/a/IVS6ykXY)
 :::
 ::::
 :::: third
@@ -87,26 +87,23 @@ A imagem a seguir ilustra uma falha no sensor. Nesse caso, o alarme estoura e o 
 
 ### Terminal
 
-::: highlight
-Essa parte foi atualizada após a explicaçãoeem sala pois descobrimos só agora que a PICO-2 não possui RTC.
-::: 
-
 O usuário deve ser capaz de controlar algumas opções do sistema pelo terminal:
 
-- `Start`: Inicializa a leitura
-- `Stop`: Para a leitura
+- `Start`: Inicializa a leitura.
+- `Stop`: Para a leitura.
+- `Período`: Frequência na qual a leitura vai ser realizada (em segundos).
 
-Em modo start, o sistema deve produzir um log no terminal com um tick atualizado a cada 3s indicando quando a leitura foi realizada e o valor da distância ou se aconteceu algum erro.:
+Em modo start, o sistema deve produzir um log no terminal com um tick atualizado a cada 3s (padrão) indicando quando a leitura foi realizada e o valor da distância ou se aconteceu algum erro:
 
-```
+```diff
 3s - 100 cm
 6s -  89 cm
 9s -  70 cm
 12s -  50 cm
 ....
 
-300s - Falha
-303s - Falha
+-300s - Falha
+-303s - Falha
 ```
 
 ### Resultado
@@ -136,8 +133,11 @@ Para ler dados da serial/terminal sem que o programa fique travado para sempre e
 int caracter = getchar_timeout_us (uint32_t timeout_us)
 ```
 
-- [Documentação - API](https://www.raspberrypi.com/documentation/pico-sdk/runtime.html#ga9b10b3bc1a4750fcb0e691566bc868e8)
+[Consulte a documentação](https://www.raspberrypi.com/documentation/pico-sdk/runtime.html#group_pico_stdio)
+ para outras funções relacionadas ao `stdio`:
 :::
+
+5. Implemente a configuração via UART do periódo de amostragem.
 
 ## Desafios extras
 
@@ -146,4 +146,5 @@ Gostou e quer fazer mais? Que tal:
 - Pense em uma forma de calibrar o sensor.
 - Tente ler dois sensores ao mesmo tempo.
 - Modo alerta, se a distância chegar a um limite gere um som de alarme!
-- Crie um código em python para exibir o valor.
+- Crie um código em python para plotar o valor.
+- Exibir no display OLED a distância.

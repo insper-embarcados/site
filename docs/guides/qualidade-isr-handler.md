@@ -56,7 +56,7 @@ void btn_callback(void) {
   for (i = 0; i < g_cnt; i++) { // for dentro da ISR
     g_str[i] = '*';
     g_str[i + 1] = '\0';
-    delay_ms(50); // delay dentro da ISR
+    sleep_ms(50); // delay dentro da ISR
     gfx_mono_draw_string(g_str, 0, 0, &sysfont); // oled dentro da ISR
   }
 }
