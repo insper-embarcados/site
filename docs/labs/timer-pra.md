@@ -1,4 +1,4 @@
-aluno # Lab 3 - Timer - Prática <Badge type="tip" text="70% da nota do lab" />
+# Lab 3 - Timer - Prática <Badge type="tip" text="70% da nota do lab" />
 
 ::::: center
 :::: third 
