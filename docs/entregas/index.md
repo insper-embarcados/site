@@ -36,15 +36,15 @@ Já as atividades de laboratório prático demandam que vocês utilizem a placa 
 ::: box
 Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consulte os **horários disponíveis** para apresentar o laboratório.
 
-| Horário         | Segunda-feira | Terça-feira   | Quarta-feira  | Quinta-feira  | Sexta-feira   |
-|-----------------|---------------|---------------|---------------|---------------|---------------|
-| **07:30-09:30** | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  |               |
-| **09:45-12:00** | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  | Marco  (Arq)  |               |
-| **14:15-16:15** |               |               |               | Daniel (Agil) |               |
-| **16:30-18:30** |               | Marco  (Arq)  |               | Corsi (Arq)   | Daniel (Agil) |
-| **19:00-21:00** | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) | Daniel (Agil) |
+|        Horário         |     Segunda&#8209;feira     |      Terça&#8209;feira      |     Quarta&#8209;feira      |     Quinta&#8209;feira      |      Sexta&#8209;feira      |
+|:----------------------:|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|
+| **07:30<br>~<br>09:30** |                            |                             |                             |                             |                             |
+| **09:45<br>~<br>11:45** |       Marco<br>**(Arq)**   |       Marco<br>**(Arq)**    |       Marco<br>**(Arq)**    |       Marco<br>**(Arq)**    |                             |
+| **14:15<br>~<br>16:15** |                            |                             |                             |      Daniel<br>**(Ágil)**   |                             |
+| **16:30<br>~<br>18:30** |                            |       Marco<br>**(Arq)**    |                             |       Corsi<br>**(Arq)**    |      Daniel<br>**(Ágil)**   |
+| **19:00<br>~<br>21:00** |      Daniel<br>**(Ágil)**  |      Daniel<br>**(Ágil)**   |      Daniel<br>**(Ágil)**   |      Daniel<br>**(Ágil)**   |      Daniel<br>**(Ágil)**   |
 
-- (Arq): Laboratório de arquitetura
+- (Arq): Laboratório Arquitetura de Computadores
 - (Ágil): Laboratório Ágil 2
 :::
 
