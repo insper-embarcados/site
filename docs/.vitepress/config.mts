@@ -85,16 +85,16 @@ export default defineConfig({
               ]
             },
             {
-              text: '⏳ Lab 4. Expert 1',
+              text: 'Lab 4. Expert 1',
               collapsed: true,
               items: [
-               // { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
-               // { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
-               // { text: 'Expert - Multicore', link: '/labs-expert/' },
-               // { text: 'Expert - DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out'},
+                { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
+                { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
+                { text: 'Expert - Multicore', link: '/labs-expert/labs-expert-firmware-multicore' },
+                { text: 'Expert - Áudio', link: '/labs-expert/labs-expert-dsp-audio-out'},
               ]
             },
-            { text: '⏳ APS 1. Genius', link: '/entregas/aps-1-genius' },
+            { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
           ]
        },
        {
@@ -232,6 +232,7 @@ export default defineConfig({
             { text: 'DMA', link: '/guides/pico-dma' },
             { text: 'UART', link: '/guides/pico-uart' },
             { text: 'WIFI', link: '/guides/pico-wifi' },
+            { text: 'CORE', link: '/guides/pico-core' }
           ]
         },
       ],
@@ -243,5 +244,3 @@ export default defineConfig({
 
 
 })
-
-

@@ -3,7 +3,6 @@ tags:
   - software
   - periféricos
 description: Direct Memory Access é uma forma de otimizar a transferência de dados.
-
 ---
 
 # DMA

@@ -1,5 +1,9 @@
 # Expert – Módulo 1
 
+::: box
+Labs de expert possuem apenas a entrega prática.
+:::
+
 Cada integrante do grupo deve escolher **um laboratório expert diferente** para realizar. A proposta desses laboratórios é que cada participante se especialize em um tópico distinto, permitindo que o grupo, como um todo, contribua para o desenvolvimento de uma **APS mais completa e abrangente**.
 
 Sistemas embarcados abrangem diversas áreas de conhecimento, sendo **impossível cobrir todas elas em um único curso de graduação**. O mapa a seguir busca ilustrar o conjunto de competências e conhecimentos esperados de um desenvolvedor de sistemas embarcados:
@@ -20,14 +24,11 @@ Neste primeiro laboratório expert, estarão disponíveis **três módulos**, do
 * **Áudio PWM**: módulo que prepara o aluno para reproduzir sons, como fala humana ou músicas, utilizando modulação por largura de pulso (PWM).
 * **MultiCore**: a placa Pico possui dois núcleos de processamento; este módulo apresenta os conceitos básicos para utilização de múltiplos processadores.
 
-::: highlight
-Os laboratórios experts estão no módulo EXPERT do site, vocês podem espiar o conteúdo deles antes de decidir.
-:::
-
 ## Começando
 
 Discuta com sua futura dupla da APS quais módulos vocês consideram mais interessantes e que podem ser aplicados no projeto. Em seguida, cada integrante deve escolher um módulo.
 
-::: box-red
+::: box-yellow
 A escolha deve ser registrada no **PL**. Lembrem-se de que **cada membro da dupla deve escolher um módulo diferente**.
 :::
+

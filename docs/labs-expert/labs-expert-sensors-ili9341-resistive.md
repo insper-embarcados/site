@@ -1,5 +1,25 @@
 # Expert - ili9341 c/ Touch Resistivo
 
+::::: center
+:::: third 
+::: box-blue 1. Classroom
+[:memo: Prática](https://classroom.github.com/a/5Xy3fY7o)
+:::
+::::
+:::: third
+::: box-yellow 2. Entrega final
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
+:::
+::::
+:::: third
+::: box Nota
+70% da nota do laboratório
+:::
+::::
+:::: third
+::::
+:::::
+
 Neste laboratório, iremos utilizar o display LCD com driver ili9341 para mostrar informações de sensores. 
 
 ::: warning Placa Adaptadora para o LCD
