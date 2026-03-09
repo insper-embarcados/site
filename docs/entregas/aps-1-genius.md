@@ -3,17 +3,17 @@
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Link](https://classroom.github.com/a/7CaCkXVp)
+[:memo: Link](https://classroom.github.com/a/)
 :::
 ::::
 :::: third
 ::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
+[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/)
 :::
 ::::
 :::: third
 ::: box Nota
-A APS pode ser feita individual ou em dupla
+Realizar em dupla!
 :::
 ::::
 :::: third
@@ -22,37 +22,54 @@ A APS pode ser feita individual ou em dupla
 
 <YouTube id="KfF-AZhUkdM"/>
 
-O desafio é desenvolver o protótipo do jogo da memória "Genius", com as seguintes características:
+O desafio consiste em desenvolver um protótipo funcional do jogo da memória **“Genius”**, contemplando os seguintes requisitos de hardware:
 
-- 4 (ou mais) LEDs de cores diferentes.
-- 4 (ou mais) Botões (cada botão corresponde a um LED).
-- 1 Buzzer (para reproduzir um som)
+- **4 (ou mais) LEDs** de cores distintas  
+- **4 (ou mais) botões**, sendo cada botão associado a um LED  
+- **1 buzzer**, responsável pela reprodução dos sons  
 
 ## Rubrica
 
-O requisito mínimo do projeto para o conceito C é dele ter funcionamento similar ao do jogo, isso é: 
+Para atingir o conceito **C**, o projeto deve apresentar funcionamento equivalente ao jogo original, atendendo aos seguintes critérios mínimos:
 
-- Para cada botão, um LED e um som diferentes.
-- Uma resposta visual e sonora para quando acertar ou errar.
-- Gera aleatoriamente a sequência cada vez que o sistema é ligado ou o começa um novo jogo.
-    - Usar a seed no `srand()`
-- **Sistema integrado em protótipo físico, consultar página no site sobre prototipação!**
+- Cada botão deve estar associado a **um LED específico e a um som distinto**.
+- O sistema deve fornecer **feedback visual e sonoro** tanto para acertos quanto para erros.
+- A sequência deve ser **gerada aleatoriamente** sempre que:
+  - o sistema for energizado; ou  
+  - um novo jogo for iniciado.  
+- A geração pseudoaleatória deve utilizar corretamente uma *seed* na função `srand()`.
+
+- O sistema deve estar **integrado em protótipo físico funcional**.  
+  Consulte a página oficial sobre prototipação para orientações.
 
 ::: tip Qualidade de Código
-O código não deve possuir erros de detectados pelas ferramentas de qualidade de código: `cppcheck` e `embedded-check`.
+O código não deve apresentar erros apontados pelas ferramentas de análise estática **`cppcheck`** e **`embedded-check`**.
 :::
+
+## Expert
+
+A dupla deverá obrigatoriamente integrar **dois** dos laboratórios classificados como *expert*. As combinações possíveis são:
+
+- LCD + Multi Core  
+- LCD + Áudio  
+- Multi Core + Áudio  
+
+A utilização dos recursos escolhidos deve **impactar diretamente a versão final do projeto**.  
+Durante a apresentação, a equipe deverá justificar tecnicamente as decisões de projeto e demonstrar de forma clara como os recursos selecionados foram incorporados ao sistema.
+
+### Design
 
 Exemplo de entregas de design aceitável:
 
-| ![](imgs-aps/aps-1/1.jpeg) | ![](imgs-aps/aps-1/2.jpeg) |  
+| ![](imgs-aps/aps-1/1.jpeg) | ![](imgs-aps/aps-1/2.jpeg) |
 |----------------------------|----------------------------|
-| ![](imgs-aps/aps-1/4.png)  | ![](imgs-aps/aps-1/5.jpg)  |   
-| ![](imgs-aps/aps-1/3.jpeg) |                            |   
+| ![](imgs-aps/aps-1/4.png)  | ![](imgs-aps/aps-1/5.jpg)  |
+| ![](imgs-aps/aps-1/3.jpeg) |                            |
 
 ### Ganhando nota
 
 ::: info
-Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui, mandar mensagem ao professor.
+Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se deseja incluir algum que não está aqui falar com o professor.
 :::
 
 <Badge type="tip" text="meio conceito:" />
@@ -65,9 +82,9 @@ Conceitos acumulativos, pode fazer qual quiser para ir acumulando pontos. Se des
 -  Implementar o código em formato de máquina de estados.
 -  Usar alarme de timer para se usuário não apertar o botão em x segundos, perde.
 -  Para quem reproduz uma música (tipo mário). 
--  [Manual On and Automatic Off](https://www.youtube.com/watch?v=jSZM9Js_zk8) 
 -  Implementar o hardware em uma [placa universal](https://www.youtube.com/watch?v=AQKF6w1v5c0) ou em uma PCB.
 <!--
+-  [Manual On and Automatic Off](https://www.youtube.com/watch?v=jSZM9Js_zk8) 
  - <Badge type="info" text="meio conceito" /> Se fizer um sistema que desliga a energia sozinho e liga quando apertar um botão
 --> 
 
