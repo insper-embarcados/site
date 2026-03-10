@@ -41,28 +41,9 @@ Antes de seguir no laboratório será necessário ler o material:
 
 Neste laboratório iremos trabalhar com o display LCD TFT ili9341 e com o módulo de **Touch Resistivo**, permitindo que a aplicação possua saída gráfica e também interação com o usuário.
 
-Com o LCD podemos:
+Com o LCD podemos exibir mensagens e informações na tela, escrever textos em diferentes posições e tamanhos, desenhar formas geométricas como retângulos, círculos e linhas, renderizar imagens (bitmaps) e criar interfaces gráficas simples.
 
-- Exibir mensagens e informações na tela;
-- Escrever textos em diferentes posições e tamanhos;
-- Desenhar formas geométricas (retângulos, círculos e linhas);
-- Renderizar imagens (bitmaps);
-- Criar interfaces gráficas simples.
-
-Com o **touch resistivo**, podemos:
-
-- Detectar a posição do toque na tela;
-- Criar áreas interativas, como botões;
-- Desenvolver menus e interfaces gráficas;
-- Implementar aplicações com interação direta do usuário.
-
-### LCD TFT ili9341
-
-O display TFT LCD ili9341 é um módulo gráfico amplamente utilizado em sistemas embarcados. Ele possui resolução típica de 320x240 pixels e suporte a milhares de cores, permitindo a construção de interfaces visuais mais elaboradas.
-
-O controlador ili9341 é responsável por gerenciar a memória de vídeo e o mapeamento de pixels, recebendo comandos e dados por meio do protocolo **SPI (Serial Peripheral Interface)**. Essa interface permite comunicação rápida entre a Raspberry Pi Pico e o display.
-
-A utilização de uma biblioteca gráfica, como a `gfx_ili9341`, simplifica o desenvolvimento ao abstrair os comandos de baixo nível do controlador.
+Com o **touch resistivo**, podemos detectar a posição do toque na tela, criar áreas interativas como botões, desenvolver menus e interfaces gráficas e implementar aplicações com interação direta do usuário.
 
 ## Laboratório
 
