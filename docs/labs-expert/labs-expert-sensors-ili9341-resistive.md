@@ -1,4 +1,4 @@
-# Expert - ili9341 c/ Touch Resistivo
+# Expert - ili9341 com Touch Resistivo
 
 ::::: center
 :::: third 
@@ -20,51 +20,160 @@
 ::::
 :::::
 
-Neste laboratório, iremos utilizar o display LCD com driver ili9341 para mostrar informações de sensores. 
+Neste laboratório, iremos aprender a utilizar funções do display LCD com driver ili9341 em conjunto com o módulo de touch resistivo.
 
 ::: warning Placa Adaptadora para o LCD
-Desenvolvemos duas placas (PicoDock / TFT LCD - Dock) que facilita as conexões da PICO com o LCD (ili9341):
-	
+Desenvolvemos duas placas (PicoDock / TFT LCD Dock) que facilitam as conexões da Raspberry Pi Pico com o LCD ili9341:
+
 ![](imgs-ili9341-resistive/pico_tft_lcd_dock.jpeg){width=800px}
 :::
 
 ## Definições
 
-Durante o curso realizamos várias aplicações com procolo UART, principalmente para enviar dados da Pico W para o PC e vice-versa, contudo para comunicações com outros dispositivos como sensores por exemplos a velocidade e integridade dos dados se torna mais necessário, para isso, foram criados outros tipos de protocolo, e um deles é o SPI.
+Neste laboratório iremos trabalhar com o display LCD TFT ili9341 e com o módulo de **Touch Resistivo**, permitindo que a aplicação possua saída gráfica e também interação com o usuário.
 
-### SPI
+Com o LCD podemos:
 
-O protocolo SPI (Serial Peripheral Interface) é realmente muito útil em comunicações entre microcontroladores e dispositivos periféricos, como sensores. Ele oferece uma comunicação serial síncrona de alta velocidade e é adequado para transferências de dados rápidas e confiáveis em curta distância, você pode encontrar mais detalhes sobre o protocolo no seguinte link:
+- Exibir mensagens e informações na tela;
+- Escrever textos em diferentes posições e tamanhos;
+- Desenhar formas geométricas (retângulos, círculos e linhas);
+- Renderizar imagens (bitmaps);
+- Criar interfaces gráficas simples.
 
-https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all
+Com o **touch resistivo**, podemos:
+
+- Detectar a posição do toque na tela;
+- Criar áreas interativas, como botões;
+- Desenvolver menus e interfaces gráficas;
+- Implementar aplicações com interação direta do usuário.
+
+---
 
 ### LCD TFT ili9341
 
-<!--
+O display TFT LCD ili9341 é um módulo gráfico amplamente utilizado em sistemas embarcados. Ele possui resolução típica de 320x240 pixels e suporte a milhares de cores, permitindo a construção de interfaces visuais mais elaboradas.
 
-![](imgs-bme280-ili9341/tft_lcd_ili9341.jpg){width=400px}
--->
+O controlador ili9341 é responsável por gerenciar a memória de vídeo e o mapeamento de pixels, recebendo comandos e dados por meio do protocolo **SPI (Serial Peripheral Interface)**. Essa interface permite comunicação rápida entre a Raspberry Pi Pico e o display.
 
-A principal característica do TFT LCD ili9341 é sua alta resolução e capacidade de exibir cores vivas. Ele geralmente possui uma resolução de 320x240 pixels e é capaz de exibir milhares de cores, o que o torna ideal para aplicações gráficas. Outra vantagem desse display é a sua capacidade de ser controlado por interfaces comuns, como SPI (Serial Peripheral Interface), o que simplifica ainda mais o processo de comunicação com dispositivos externos.
+A utilização de uma biblioteca gráfica, como a `gfx_ili9341`, simplifica o desenvolvimento ao abstrair os comandos de baixo nível do controlador.
+
+---
+
+### Touch Resistivo
+
+O módulo de touch resistivo funciona de forma independente do display, sendo responsável por detectar a posição do toque na superfície da tela.
+
+Ele opera medindo variações de tensão nos eixos X e Y. Quando o usuário pressiona a tela, ocorre um contato entre camadas condutivas internas, permitindo calcular as coordenadas do ponto tocado.
+
+Como o touch não acompanha automaticamente a rotação aplicada ao display, é necessário realizar uma transformação das coordenadas para que o ponto detectado corresponda corretamente à interface gráfica exibida.
+
+---
 
 ## LAB
 
-Neste lab, vamos utilizar o exemplo disponível e adaptá-lo para nossa aplicação específica:
+Neste laboratório iremos desenvolver três aplicações progressivas utilizando o display LCD ili9341 e o touch resistivo.
+
+Utilizaremos como base o exemplo disponível no repositório:
 
 https://github.com/insper-embarcados/pico-dock_examples/tree/main/PicoDock_TFT_Resistive_Example
 
-### LCD TFT ili9341 com Adafruit GFX Library
+A partir dele, iremos implementar:
 
-A Adafruit criou uma [biblioteca](https://learn.adafruit.com/adafruit-gfx-graphics-library/overview) muito interessante, ela fornece uma sintaxe comum e um conjunto de funções gráficas para todos os nossos displays LCD e OLED, bem como matrizes de LEDs.
+### 1 - Escrita de Texto
 
-No repositório que foi fornecido acima você irá encontrar uma aplicação utilizando a Pico para se comunicar com o driver **ili9341** (e também outros drivers) já com a biblioteca Adafruit GFX integrada, rode o exemplo e faça testes com o mesmo.
+Primeiramente, iremos exibir uma mensagem simples na tela utilizando a biblioteca gráfica:
+
+- Exibir o texto `"Hello World"` na tela;
+- Definir a posição do texto com `gfx_setCursor()`;
+- Ajustar tamanho e cor com `gfx_setTextSize()` e `gfx_setTextColor()`.
+
+Essa etapa tem como objetivo compreender o funcionamento básico da biblioteca gráfica.
+
+---
+
+### 2 - Criação de Formas Geométricas
+
+Na segunda parte, iremos utilizar funções de desenho para criar elementos gráficos na tela:
+
+- `gfx_drawRect()` para desenhar retângulos;
+- `gfx_drawCircle()` para desenhar círculos;
+- Explorar posicionamento e dimensões.
+
+O objetivo é compreender como desenhar primitivas gráficas e organizar elementos visuais na interface.
+
+---
+
+### 3 - Criação de um Botão com Bitmap
+
+Na terceira etapa, utilizaremos a ferramenta online:
+
+https://lopaka.app/sandbox
+
+Com ela, iremos:
+
+- Criar um formato personalizado (ícone ou botão);
+- Exportar o bitmap gerado;
+- Integrar esse bitmap ao projeto;
+- Definir essa imagem como um botão interativo na tela.
+
+Nessa etapa, o botão deverá:
+
+- Ser exibido na tela utilizando `gfx_drawBitmap()`;
+- Detectar toque na sua área;
+- Executar uma ação quando pressionado.
+
+Ao final do laboratório, você terá construído uma interface gráfica simples e interativa utilizando o display LCD e o touch resistivo.
+
+---
 
 ## Entrega
 
-Utilizando RTOS, você deverá  fazer a leitura de algum sensor e mostrar seu respectivo dado no LCD TFT ili9341.
+Para a entrega deste laboratório, você deverá desenvolver uma aplicação gráfica interativa utilizando o display LCD ili9341 e o touch resistivo.
 
-### Dicas:
+### Objetivo
 
-1. Integrar o exemplo do display com FreeRTOS;
-2. Escolher um sensor para que os valores sejam exibidos
-3. Fazer a leitura do sensor e mostra no display LCD utilizando a biblioteca Adafruti GFX Library
+Criar um botão gráfico personalizado utilizando a ferramenta:
+
+https://lopaka.app/sandbox
+
+O botão deverá ser exportado como bitmap e integrado ao projeto.
+
+---
+
+### Requisitos da Entrega
+
+1 - Criar um botão no Lopaka  
+- Desenvolver um formato visual personalizado;
+- Exportar o bitmap gerado;
+- Integrar o bitmap ao projeto como `GFX_Bitmap`.
+
+2 - Implementar o botão na tela  
+- Exibir o botão utilizando `gfx_drawBitmap()`;
+- Detectar toque na área correspondente;
+- Utilizar `gfx_touchTransform()` para mapear corretamente as coordenadas.
+
+3 - Alterar a aparência ao pressionar  
+- Quando o botão for pressionado:
+  - A cor do bitmap deverá ser alterada (por exemplo, inverter cor ou mudar para vermelho);
+  - O botão deverá retornar à cor original quando não estiver pressionado.
+
+4 - Controle de LED físico  
+- Um LED da placa deverá representar o estado do botão;
+- Quando o botão na tela estiver pressionado, o LED deve estar aceso;
+- Quando o botão não estiver pressionado, o LED deve estar apagado.
+
+---
+
+### Critérios de Avaliação
+
+- Funcionamento correto do botão;
+- Alteração visual ao pressionar;
+- LED sincronizado com o estado do botão;
+- Organização e clareza do código;
+- Uso correto da biblioteca `gfx_ili9341`.
+
+Ao final, sua aplicação deverá demonstrar integração entre:
+
+- Interface gráfica;
+- Touch resistivo;
+- Controle de hardware externo (LED).
