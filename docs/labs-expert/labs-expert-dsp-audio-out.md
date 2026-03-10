@@ -25,9 +25,9 @@ Neste laboratório iremos criar um sistema capaz de reproduzir uma série de son
 ::: info Código base
 Você deve utilizar o repositório a seguir para realizar o lab.
 
-- https://github.com/rgrosset/pico-pwm-audio
+- https://github.com/insper-embarcados/pico-pwm-audio
 
-Leia as instrucões no README para sabe como converter um áudio.
+Leia as instrucões no README para sabe como converter um áudio que está no seu PC para poder ser usado na PICO.
 :::
 
 ## Áudio
@@ -70,7 +70,6 @@ Notem que estamos utilizando um amplificador (azul) para podermos ligar o falant
 :::
 
 Segue a versão corrigida e aprimorada do texto, mantendo o sentido original e melhorando a clareza e a norma culta:
-
 
 ## Entrega
 

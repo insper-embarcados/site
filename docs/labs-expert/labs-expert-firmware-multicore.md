@@ -22,6 +22,13 @@
 
 Neste laboratório, iremos desenvolver uma aplicação que utiliza os dois núcleos de processamento da Raspberry Pi Pico.
 
+::: box-red LEITURA
+
+Antes de seguir no laboratório será necessário ler o material:
+
+- [Pico multi core](/guides/pico-core)
+:::
+
 ## Laboratório
 
 Trabalharemos com o modelo de execução multicore, no qual cada **core** da Pico será responsável por uma parte específica do sistema. A comunicação entre os núcleos será realizada por meio da **FIFO de sincronização** disponibilizada pelo hardware.

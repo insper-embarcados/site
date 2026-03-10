@@ -123,7 +123,7 @@ Para treinar o uso do DMA, vamos fazer um pouco diferente desta vez:
 2. Reserve um tempo para tentar entendê-lo.
 3. Por final leia a seção **Desvendando o código: hello_dma.c**.
 
-### Snippets
+## Snippets
 
 Códigos de exemplo para o DMA.
 

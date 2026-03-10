@@ -1,3 +1,4 @@
+import footnote from 'markdown-it-footnote'
 import { defineConfig, type DefaultTheme } from 'vitepress'
 import { defineConfig } from '@lando/vitepress-theme-default-plus/config'
 
@@ -7,6 +8,9 @@ export default defineConfig({
   base: "/site/",
   markdown: {
     math: true,
+    config: (md) => {
+      md.use(footnote)
+    }
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   themeConfig: {
@@ -95,6 +99,7 @@ export default defineConfig({
               ]
             },
             { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
+            { text: 'Avaliação prática', link: '/provas/sobre-modulo-1' },
           ]
        },
        {
@@ -176,7 +181,8 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'PicoDock', link: '/guides/picodock-index' },
-            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' }
+            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
+            { text: 'LCD', link: '/guides/lcd-ili-gfx' }
           ]
         },
         {
