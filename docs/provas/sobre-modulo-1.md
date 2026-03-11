@@ -67,7 +67,7 @@ A maioria dos exercícios possui teste automatizado.
 ::::
 :::: third
 ::: box Nota
- :sparkles: Não pode usar LLM 
+ :sparkles: Praticar sem LLM (na prova não vai poder usar)
 :::
 ::::
 :::: third
