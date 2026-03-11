@@ -47,7 +47,7 @@ Com o **touch resistivo**, podemos detectar a posição do toque na tela, criar 
 
 ## Demonstração
 
-![DEMO](imgs-ili9341-resistive/demoLCD.gif)
+![DEMO](imgs-ili9341-resistive/demoLCD.gif){width=400px}
 
 No link para o repositório abaixo está o exemplo que vamos utilizar (LED_TOGGLE):
 
@@ -56,7 +56,7 @@ https://github.com/insper-embarcados/pico-lcd-ili9341
 
 O código de demonstração possui o seguinte fluxo:
 
-![](imgs-ili9341-resistive/diagramaExpertLCD.png){width=800px}
+![](imgs-ili9341-resistive/diagramaExpertLCD.png){width=400px}
 
 ## Dicas
 
@@ -66,7 +66,7 @@ https://lopaka.app/sandbox
 
 Na imagem abaixo você deve fazer a configuração conforme indicado pelas setas amarelas
 
-![](imgs-ili9341-resistive/lopaka.png){width=800px}
+![](imgs-ili9341-resistive/lopaka.png){width=400px}
 
 A seta vermelha é o botão que em que você importa a imagem, abaixo estão ambas as imagems (.bmp) utilizadas:
 
@@ -76,7 +76,7 @@ A seta vermelha é o botão que em que você importa a imagem, abaixo estão amb
 
 Após a importação é retornado o Bitmap gerado e também a função drawBitmap, já setada com o bitmap, tamanho e posição na tela.
 
-![LOPAKA BITMAP](imgs-ili9341-resistive/lopakaBITMAP.png){width=40px}
+![LOPAKA BITMAP](imgs-ili9341-resistive/lopakaBITMAP.png){width=400px}
 
 - VERMELHO: Bitmap contendo os valores
 
