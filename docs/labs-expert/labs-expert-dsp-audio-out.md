@@ -43,11 +43,7 @@ Mas existe uma alternativa mais fácil e que não demanda o uso de um novo dispo
 
 ![](imgs-dsp/adc-pwm.png)
 
-O repositório a seguir possui uma bom exemplo e demonstração de como gerar um áudio usando essa técnica na nossa pico! Inclusive com exemplo de como reproduzir uma música!
-
-- https://github.com/rgrosset/pico-pwm-audio/tree/main
-
-No lugar de usar o filtro indicado no repositório, vocês devem usar esse como alternativa: 
+Vocês devem implementar o filtro a seguir:
 
 ![](imgs-dsp/pwm-filter.png){width=300}
 
