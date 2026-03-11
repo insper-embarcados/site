@@ -47,6 +47,8 @@ Com o **touch resistivo**, podemos detectar a posição do toque na tela, criar 
 
 ## Demonstração
 
+![DEMO](imgs-ili9341-resistive/demoLCD.gif)
+
 No link para o repositório abaixo está o exemplo que vamos utilizar (LED_TOGGLE):
 
 https://github.com/insper-embarcados/pico-lcd-ili9341
@@ -74,14 +76,33 @@ A seta vermelha é o botão que em que você importa a imagem, abaixo estão amb
 
 Após a importação é retornado o Bitmap gerado e também a função drawBitmap, já setada com o bitmap, tamanho e posição na tela.
 
+![LOPAKA BITMAP](imgs-ili9341-resistive/lopakaBITMAP.png){width=40px}
+
+- VERMELHO: Bitmap contendo os valores
+
+- AZUL: Função drawBitmap contendo informações do tamanho da imagem gerada e posiçao na tela
+
+```c
+
+drawBitmap(
+    136,                //Posição horizontal da imagem
+    79,                 //Posição vertical da imagem
+    image_LED_ON_bits,  //Ponteiro para os dados do bitmap da imagem
+    47,                 //Largura da imagem (width)
+    82,                 //Altura da imagem (height)
+    1                   //Cor da imagem (1 para cor definida, 0 para transparente)
+);
+
+```
+
 Após isso, basta:
 
 - Abrir o arquivo image_bitmap.h e colar o vetor Bitmap
 - No main.c modificar as variáveis que solicitção os tamanho de WIDTH e HEIGHT da __imagem__
 
-::: warning Placa Adaptadora para o LCD
+::: warning ATENÇÃO!!!
 
-- O site gera um vetor do tipo **static const unsigned char PROGMEM**, no nosso exemplo utilizamos **static const uint8_t**.
+- O site gera um vetor do tipo **static const unsigned char PROGMEM**, no nosso exemplo utilizamos **static const uint8_t**, como pode ser visto no código exemplo.
 
 :::
 
