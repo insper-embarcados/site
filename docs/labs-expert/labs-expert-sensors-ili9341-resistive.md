@@ -30,12 +30,16 @@ Desenvolvemos duas placas (PicoDock / TFT LCD Dock) que facilitam as conexões d
 
 
 ::: box-red LEITURA
-
 Antes de seguir no laboratório será necessário ler o material:
 
 - [Sobre LCD](/guides/lcd-ili-gfx)
 :::
 
+::: info Código base
+Você deve utilizar o repositório a seguir para realizar o lab.
+
+-  https://github.com/insper-embarcados/pico-lcd-ili9341
+:::
 
 ## Definições
 
@@ -45,24 +49,41 @@ Com o LCD podemos exibir mensagens e informações na tela, escrever textos em d
 
 Com o **touch resistivo**, podemos detectar a posição do toque na tela, criar áreas interativas como botões, desenvolver menus e interfaces gráficas e implementar aplicações com interação direta do usuário.
 
-## Demonstração
 
-![DEMO](imgs-ili9341-resistive/demoLCD.gif){width=400px}
+
+## Laboratório
+
+O desafio desse laboratório é criar uma interface para controntolar o motor de passos, com os seguintes recursos (do LCD):
+
+Botões:
+
+- girar sentido horário
+- girar sentido anti-horário
+
+Animações: 
+
+- Enquanto o motor estiver girando, o LCD deverá exibir uma animação indicando para qual sentido o mesmo está girando
+    
+
+## Tutorial: Criando um botão com uma imagem
+
+A seguir um breve tutorial de como criar um botão a partir de uma imagem para gerar o efeito a seguir:
+
+![DEMO](imgs-ili9341-resistive/demoLCD.gif){width=250px}
 
 No link para o repositório abaixo está o exemplo que vamos utilizar (LED_TOGGLE):
 
-https://github.com/insper-embarcados/pico-lcd-ili9341
-
+- https://github.com/insper-embarcados/pico-lcd-ili9341
 
 O código de demonstração possui o seguinte fluxo:
 
 ![](imgs-ili9341-resistive/diagramaExpertLCD.png){width=400px}
 
-## Dicas
+### Passos
 
-- Os bitmaps dos estados ON e OFF do LED foram gerados através do site:
+Os bitmaps dos estados ON e OFF do LED foram gerados através do site:
 
-https://lopaka.app/sandbox
+- https://lopaka.app/sandbox
 
 Na imagem abaixo você deve fazer a configuração conforme indicado pelas setas amarelas
 
@@ -70,13 +91,18 @@ Na imagem abaixo você deve fazer a configuração conforme indicado pelas setas
 
 A seta vermelha é o botão que em que você importa a imagem, abaixo estão ambas as imagems (.bmp) utilizadas:
 
+::: half
 ![LED OFF](imgs-ili9341-resistive/LED_OFF.bmp){width=40x}
+:::
 
+::: half
 ![LED ON](imgs-ili9341-resistive/LED_ON.bmp){width=40px}
+:::
+
 
 Após a importação é retornado o Bitmap gerado e também a função drawBitmap, já setada com o bitmap, tamanho e posição na tela.
 
-![LOPAKA BITMAP](imgs-ili9341-resistive/lopakaBITMAP.png){width=400px}
+![LOPAKA BITMAP](imgs-ili9341-resistive/lopakaBITMAP.png){width=500px}
 
 - VERMELHO: Bitmap contendo os valores
 
@@ -97,29 +123,9 @@ drawBitmap(
 
 Após isso, basta:
 
-- Abrir o arquivo image_bitmap.h e colar o vetor Bitmap
-- No main.c modificar as variáveis que solicitção os tamanho de WIDTH e HEIGHT da __imagem__
+- Abrir o arquivo `image_bitmap.h` e colar o vetor Bitmap
+- No main.c modificar as variáveis que solicitção os tamanho de `WIDTH` e `HEIGHT` da __imagem__
 
 ::: warning ATENÇÃO!!!
-
-- O site gera um vetor do tipo **static const unsigned char PROGMEM**, no nosso exemplo utilizamos **static const uint8_t**, como pode ser visto no código exemplo.
-
+- O site gera um vetor do tipo `static const unsigned char PROGMEM`, no nosso exemplo utilizamos `static const uint8_t`, como pode ser visto no código exemplo.
 :::
-
-## Laboratório
-
-O desafio desse laboratório é criar uma interface para controntolar o motor de passos, com os seguintes recursos:
-
-Botões:
-
-    - girar sentido horário
-    - girar sentido anti-horário
-
-Animações: 
-
-    - Enquanto o motor estiver girando, o LCD deverá exibir uma animação indicando para qual sentido o mesmo está girando
-    
-
-
-
-

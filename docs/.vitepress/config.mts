@@ -99,7 +99,7 @@ export default defineConfig({
               ]
             },
             { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
-            { text: 'Avaliação prática', link: '/provas/sobre-modulo-1' },
+            { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
           ]
        },
        {

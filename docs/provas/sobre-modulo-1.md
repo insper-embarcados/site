@@ -41,6 +41,10 @@ Pense nessa avaliação como um laboratório prático, onde terão que aplicar o
 Notem que a versão de 2026 é diferente da do ano passado, agora a prova será 1 exercício e terá que ser feito no hardware.
 :::
 
+::: box-green DICA
+Já venham para a prova com uma placa com botões e LEDs já configurados.
+:::
+
 O problema deverá ser testado no hardware e validado por alguém da equipe **durante a realização da prova**. Não validaremos entregas realizadas após a prova. 
 
 A nota da prova é binária, todos os requisitos precisam ser cumpridos para ganharem o `OK`, isso inclui:
