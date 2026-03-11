@@ -45,6 +45,60 @@ Com o LCD podemos exibir mensagens e informações na tela, escrever textos em d
 
 Com o **touch resistivo**, podemos detectar a posição do toque na tela, criar áreas interativas como botões, desenvolver menus e interfaces gráficas e implementar aplicações com interação direta do usuário.
 
+## Demonstração
+
+No link para o repositório abaixo está o exemplo que vamos utilizar (LED_TOGGLE):
+
+https://github.com/insper-embarcados/pico-lcd-ili9341
+
+
+O código de demonstração possui o seguinte fluxo:
+
+![](imgs-ili9341-resistive/diagramaExpertLCD.png){width=800px}
+
+## Dicas
+
+- Os bitmaps dos estados ON e OFF do LED foram gerados através do site:
+
+https://lopaka.app/sandbox
+
+Na imagem abaixo você deve fazer a configuração conforme indicado pelas setas amarelas
+
+![](imgs-ili9341-resistive/lopaka.png){width=800px}
+
+A seta vermelha é o botão que em que você importa a imagem, abaixo estão ambas as imagems (.bmp) utilizadas:
+
+![LED OFF](imgs-ili9341-resistive/LED_OFF.bmp){width=40x}
+
+![LED ON](imgs-ili9341-resistive/LED_ON.bmp){width=40px}
+
+Após a importação é retornado o Bitmap gerado e também a função drawBitmap, já setada com o bitmap, tamanho e posição na tela.
+
+Após isso, basta:
+
+- Abrir o arquivo image_bitmap.h e colar o vetor Bitmap
+- No main.c modificar as variáveis que solicitção os tamanho de WIDTH e HEIGHT da __imagem__
+
+::: warning Placa Adaptadora para o LCD
+
+- O site gera um vetor do tipo **static const unsigned char PROGMEM**, no nosso exemplo utilizamos **static const uint8_t**.
+
+:::
+
 ## Laboratório
+
+O desafio desse laboratório é criar uma interface para controntolar o motor de passos, com os seguintes recursos:
+
+Botões:
+
+    - girar sentido horário
+    - girar sentido anti-horário
+
+Animações: 
+
+    - Enquanto o motor estiver girando, o LCD deverá exibir uma animação indicando para qual sentido o mesmo está girando
+    
+
+
 
 
