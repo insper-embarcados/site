@@ -3,7 +3,7 @@
 ::::: center
 :::: third 
 ::: box-blue 1. Classroom
-[:memo: Link](https://classroom.github.com/a/)
+[:memo: Link](https://classroom.github.com/a/ieZM3TBy)
 :::
 ::::
 :::: third
