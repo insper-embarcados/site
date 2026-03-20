@@ -198,6 +198,8 @@ Compatível para conexão de displays **TFT LCD**, expandindo as possibilidades 
 
 #### Pinos utilizados (Conflitantes)
 
+<img src="picodock-imgs/conectorFLAT.svg)" alt="" width="300">
+
 | Componente                                   | GPIO | Descrição |
 |----------------------------------------------|------|------------|
 | LCD_TOUCH_X+ (Resistivo)                     | 14   | Eixo X+ |
