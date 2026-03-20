@@ -198,7 +198,7 @@ Compatível para conexão de displays **TFT LCD**, expandindo as possibilidades 
 
 #### Pinos utilizados (Conflitantes)
 
-<img src="picodock-imgs/conectorFLAT.svg)" alt="" width="300">
+![](picodock-imgs/conectorFLAT.svg)
 
 | Componente                                   | GPIO | Descrição |
 |----------------------------------------------|------|------------|
