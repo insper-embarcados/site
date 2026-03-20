@@ -82,7 +82,6 @@ Esses barramentos permitem múltiplos dispositivos, mas exigem configuração ad
 - Endereços distintos no I2C  
 - Controle correto do Chip Select (CS) no SPI  
 
-
 ### 🚨 Por que isso é importante?
 
 Configuração incorreta de pinos conflitantes pode causar:
@@ -99,8 +98,6 @@ Configuração incorreta de pinos conflitantes pode causar:
 - Verificar conflitos antes de inicializar os drivers  
 - Documentar o mapeamento de GPIO no firmware  
 
----
-
 ## Botões
 
 A placa possui 3 botões para uso geral:
@@ -114,7 +111,6 @@ Segue abaixo o circuito implementado em cada botão:
 
 ![](picodock-imgs/sch_but.png)
 
-
 #### Pinos utilizados (Conflitantes)
 
 | Componente                                   | GPIO | Descrição |
@@ -122,8 +118,6 @@ Segue abaixo o circuito implementado em cada botão:
 | Botão B1                                     | 4    | Entrada digital |
 | Botão B2                                     | 5    | Entrada digital |
 | Botão B3                                     | 6    | Entrada digital |
-
----
 
 ## LED RGB
 
@@ -139,8 +133,6 @@ Permite o controle de três canais de cor (Vermelho, Verde e Azul) para geraçã
 | LED RGB - Verde                              | 8    | Saída PWM / Digital |
 | LED RGB - Azul                               | 9    | Saída PWM / Digital |
 
----
-
 ## BUZZER
 
 ![](picodock-imgs/BUZZER.png)
@@ -154,8 +146,6 @@ Controlado por saída digital ou PWM, pode ser utilizado para emissão de alerta
 | Buzzer                                       | 10   | Saída Digital ||
 
 
----
-
 ## Display OLED 128x32
 
 ![](picodock-imgs/OLED.png)
@@ -168,8 +158,6 @@ Conectado via protocolo I²C, possibilita a exibição de textos, gráficos e da
 |----------------------------------------------|------|------------|
 | OLED - SDA                                   | 2    | I2C0 - Dados |
 | OLED - SCK (SCL)                             | 3    | I2C0 - Clock |
-
----
 
 ## Display MUX_8x1 (ADC)
 
@@ -186,45 +174,41 @@ Conectado ao **pino ADC2** da Pico, permite a leitura de até 8 sinais analógic
 | Sel_C_4051 (MUX)                             | 13   | Seleção C do multiplexador |
 | ADC_IN_4051 (MUX)                            | 28   | Entrada ADC (leitura do MUX) |
 
----
-
-
-
 ## LCD TFT
 
 ![](picodock-imgs/LCD-TFT.png)
 
 Compatível para conexão de displays **TFT LCD**, expandindo as possibilidades visuais da placa.
 
+### Pinos do FLAT
+
+Caso queiram conectar o LCD direito na pico usando um protoboard, utilizem os pinos a seguir do cabo flat:
+
+![](picodock-imgs/conectorFLAT.svg){width=400}
+
+Notem que os pinos `GP14`, `GP26`, `GP27`, `GP20` e `GP21` são utilizados para o touch, a conexão só é necessária se forem usar no código.
+
 #### Pinos utilizados (Conflitantes)
 
-![](picodock-imgs/conectorFLAT.svg)
-
-| Componente                                   | GPIO | Descrição |
-|----------------------------------------------|------|------------|
-| LCD_TOUCH_X+ (Resistivo)                     | 14   | Eixo X+ |
-| LCD_TOUCH_X- (Resistivo)                     | 26   | Eixo X- |
-| LCD_TOUCK_Y+ (Resistivo)                     | 27   | Eixo Y+ |
-| LCD_TOUCH_Y-/SDA (Resistivo / Capacitivo)    | 20   | Y- ou I2C SDA (touch capacitivo) |
-| LCD_TOUCH_SCL (Capacitivo)                   | 21   | I2C SCL (touch capacitivo) |
-| LCD_RESET                                    | 16   | Reset do display |
-| LCD_SPI_0_CS                                 | 17   | Chip Select (SPI0) |
-| LCD_SPI_0_SCK                                | 18   | Clock SPI0 |
-| LCD_SPI_0_TX                                 | 19   | MOSI SPI0 |
-| LCD_DATA_CMD_SEL                             | 22   | Seleção Data/Command |
-| LCD_LITE                                     | 15   | Controle de backlight |
-
-
----
+| Componente                                | GPIO | Descrição                                |
+|-------------------------------------------|------|------------------------------------------|
+| LCD_TOUCH_X+ (Resistivo)                  | 14   | (Touch) Eixo X+                          |
+| LCD_TOUCH_X- (Resistivo)                  | 26   | (Touch) Eixo X-                          |
+| LCD_TOUCK_Y+ (Resistivo)                  | 27   | (Touch) Eixo Y+                          |
+| LCD_TOUCH_Y-/SDA (Resistivo / Capacitivo) | 20   | (Touch) Y- ou I2C SDA (touch capacitivo) |
+| LCD_TOUCH_SCL (Capacitivo)                | 21   | (Touch) I2C SCL (touch capacitivo)       |
+| LCD_RESET                                 | 16   | Reset do display                         |
+| LCD_SPI_0_CS                              | 17   | Chip Select (SPI0)                       |
+| LCD_SPI_0_SCK                             | 18   | Clock SPI0                               |
+| LCD_SPI_0_TX                              | 19   | MOSI SPI0                                |
+| LCD_DATA_CMD_SEL                          | 22   | Seleção Data/Command                     |
+| LCD_LITE                                  | 15   | Controle de backlight                    |
 
 ## Alimentação Externa
 
 ![](picodock-imgs/Alimentacao.png)
 
 Conector para **alimentação externa**, garantindo maior flexibilidade no fornecimento de energia.  
-
-
----
 
 ## Aplicações
 
