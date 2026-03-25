@@ -25,7 +25,7 @@ export default defineConfig({
       satisfies: '*',
     },
     sponsors: {
-      text: 'Rafael Corsi - Professor',
+      text: 'Rafael Corsi',
       link: 'https://github.com/rafaelcorsi',
       data: [
         {
