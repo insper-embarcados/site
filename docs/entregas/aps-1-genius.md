@@ -1,24 +1,20 @@
-# APS - 1 - Genius
+---
+linksTitle: "Entregas"
+links:
+  - title:
+    text: "Classroom"
+    url: "https://classroom.github.com/a/ieZM3TBy"
+    box: "box-blue"
+  - title: 
+    text: "PrairieLearn"
+    url: "https://us.prairielearn.com/pl/course_instance/"
+    box: "box-yellow"
+  - title: "Realizar em duplas"
+    box: "box"
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Link](https://classroom.github.com/a/ieZM3TBy)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/)
-:::
-::::
-:::: third
-::: box Nota
-Realizar em dupla!
-:::
-::::
-:::: third
-::::
-:::::
+---
+
+# APS - 1 - Genius
 
 <YouTube id="KfF-AZhUkdM"/>
 

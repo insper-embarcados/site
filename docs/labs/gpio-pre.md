@@ -1,3 +1,18 @@
+---
+linksTitle: "Entregas"
+links:
+  - title:
+    text: "Classroom"
+    url: "https://classroom.github.com/a/DSolRxRH"
+    box: "box-blue"
+  - title: 
+    text: "PrairieLearn"
+    url: "https://us.prairielearn.com/pl/course_instance/210559"
+    box: "box-yellow"
+  - title: "30% da nota de lab"
+    box: "box"
+---
+
 # Lab 1 - GPIO - Preparatório <Badge type="info" text="30% da nota de lab" />
 
 Neste laboratório, iremos aprender como acionar e ler os pinos digitais do microcontrolador. Junto com isso, aprenderemos boas práticas de desenvolvimento de firmware.
@@ -38,26 +53,6 @@ Agora que vocês já entenderam um pouco sobre qualidade de código, delay/sleep
 ## Entrega
 
 Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.
-
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Preparatório](https://classroom.github.com/a/DSolRxRH)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-30% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
 
 ::: warning
 Lembrem que para realizar a entrega final, vocês devem submeter o repositório no  PrairieLearn!
