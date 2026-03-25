@@ -7,7 +7,7 @@
 :::
 ::::
 :::: third
-::: box-yellow 2. Entrega final
+::: box-yellow 2. Durante a prova
  :alarm_clock: 2h de duração
 :::
 ::::
@@ -53,6 +53,7 @@ A nota da prova é binária, todos os requisitos precisam ser cumpridos para gan
 - Funcionalidade
 - Organização do código conforme pedido
 - Qualidade de código
+- <Badge type="tip" text="Requisitos de funcionalidade e de software" /> 
 
 A duração total da avaliação será de 2h, não haverá ajuda de ninguém da equipe durante a realização da prova e vocês **não poderão utilizar LLM**. Vocês podem consultar os seus próprios códigos e o site da disciplina.
 
@@ -64,14 +65,17 @@ A maioria dos exercícios possui teste automatizado.
 
 ::::: center
 :::: third 
-::: box-blue 1. Praticando
+::: box-blue Praticando
 [:memo: Exercícios para prática](https://classroom.github.com/a/AMzqM9Wy)
 :::
 ::::
 :::: third
+::: box Cuidado
+Esses exercícios são para praticar, não conte que vai cair algo similar
+:::
 ::::
 :::: third
-::: box Nota
+::: box-red LLM
  :sparkles: Praticar sem LLM (na prova não vai poder usar)
 :::
 ::::
