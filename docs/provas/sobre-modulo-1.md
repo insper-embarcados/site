@@ -122,4 +122,3 @@ Alunos com tempo extra:
 
 - Alguma restrição de fazerem a prova no lab de arquitetura? Assim fica mais fácil validarmos
 - Se alguém tiver algo contra, me manda uma msg e alinhamos como fazer
-

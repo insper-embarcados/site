@@ -1,6 +1,26 @@
 import footnote from 'markdown-it-footnote'
 import { defineConfig, type DefaultTheme } from 'vitepress'
 import { defineConfig } from '@lando/vitepress-theme-default-plus/config'
+import { links } from './links.js'
+
+/**
+ * Substitui todas as ocorrências de {{chave}} pelo valor definido em links.js.
+ * Funciona recursivamente em objetos e arrays (para cobrir o frontmatter).
+ */
+function resolveVars(value: unknown): unknown {
+  if (typeof value === 'string') {
+    return value.replace(/\{\{(\w+)\}\}/g, (_, key) =>
+      (links as Record<string, string>)[key] ?? `{{${key}}}`
+    )
+  }
+  if (Array.isArray(value)) return value.map(resolveVars)
+  if (value !== null && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, resolveVars(v)])
+    )
+  }
+  return value
+}
 
 export default defineConfig({
   title: "Computação Embarcada",
@@ -10,6 +30,23 @@ export default defineConfig({
     math: true,
     config: (md) => {
       md.use(footnote)
+      // Substitui {{variavel}} no texto Markdown antes de renderizar
+      md.core.ruler.push('resolve_vars', (state) => {
+        for (const token of state.tokens) {
+          if (token.type === 'inline' && token.children) {
+            for (const child of token.children) {
+              if (child.type === 'text' || child.type === 'html_inline') {
+                child.content = child.content.replace(/\{\{(\w+)\}\}/g, (_, key) =>
+                  (links as Record<string, string>)[key] ?? `{{${key}}}`
+                )
+              }
+            }
+          }
+          if (token.type === 'html_block' || token.type === 'fence') {
+            // não substituir dentro de blocos de código
+          }
+        }
+      })
     }
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
@@ -63,6 +100,7 @@ export default defineConfig({
         },
         {
           text: 'Módulo 1 - Baremetal',
+          collapsed: true,
           items: [
             {
               text: 'Lab 1. GPIO',
@@ -103,8 +141,8 @@ export default defineConfig({
           ]
        },
        {
-          text: '⏳ Módulo 2 - RTOS',
-            collapsed: true,
+          text: 'Módulo 2 - RTOS',
+            collapsed: false,
             items: [
             {
               text: ' Lab 5. RTOS',
@@ -115,19 +153,19 @@ export default defineConfig({
               ]
             },
             {
-              text: 'Lab 6. Diagramas',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/diagrama-pre' },
-                { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
-              ]
-            },
-            {
-              text: 'Lab 7. ADC e PWM',
+              text: 'Lab 6. ADC e PWM',
               collapsed: true,
               items: [
                 { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
                 { text: 'Prático', link: '/labs/adc-pwm-pra' }
+              ]
+            },
+            {
+              text: 'Lab 7. Diagramas',
+              collapsed: true,
+              items: [
+                { text: 'Preparatório', link: '/labs/diagrama-pre' },
+                { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
               ]
             },
             {
@@ -139,7 +177,8 @@ export default defineConfig({
               ]
             },
             { text: 'Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
-            { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' }
+            { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' },
+            { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
           ]
        },
        {
@@ -248,5 +287,9 @@ export default defineConfig({
     ]
   },
 
+  // Substitui {{variavel}} em todo o frontmatter de cada página
+  transformPageData(pageData) {
+    pageData.frontmatter = resolveVars(pageData.frontmatter) as typeof pageData.frontmatter
+  },
 
 })

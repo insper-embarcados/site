@@ -3,11 +3,11 @@ linksTitle: "Entregas"
 links:
   - title:
     text: "Classroom"
-    url: "https://classroom.github.com/a/DSolRxRH"
+    url: "{{lab_pre_gpio_classroom}}"
     box: "box-blue"
   - title: 
     text: "PrairieLearn"
-    url: "https://us.prairielearn.com/pl/course_instance/210559"
+    url: "{{prairielearn}}"
     box: "box-yellow"
   - title: "30% da nota de lab"
     box: "box"
@@ -22,12 +22,12 @@ Neste laboratório, iremos aprender como acionar e ler os pinos digitais do micr
 Comece pela leitura sobre qualidade de código:
 
 ::::: center
-:::: third
-::: card  📖 Leitura 1: [cppcheck](/guides/qualidade-cppcheck)
+:::: third Leitura 1
+::: card  [Cppcheck](/guides/qualidade-cppcheck)
 :::
 ::::
-:::: third
-::: card Leitura 2: [variáveis](/guides/qualidade-variables)
+:::: third  Leitura 2
+::: card [Variáveis](/guides/qualidade-variables)
 ::::
 :::: third
 ::::
@@ -36,12 +36,12 @@ Comece pela leitura sobre qualidade de código:
 As próximas leituras são sobre os conceitos básicos do microcontrolador. Para isso, é necessário que vocês realizem algumas leituras prévias.
 
 ::::: center
-:::: third
-:::card 📖 Leitura 3: [delay](/guides/pico-delay)
+:::: third  Leitura 3
+:::card [Delay](/guides/pico-delay)
 :::
 ::::
-:::: third
-:::card  📖 Leitura 4: [GPIO](/guides/pico-gpio)
+:::: third  Leitura 4
+:::card [GPIO](/guides/pico-gpio)
 :::
 ::::
 :::: third
