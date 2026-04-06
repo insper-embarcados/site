@@ -18,12 +18,10 @@ O Tick de um RTOS define quantas vezes por segundo o escalonador irá executar o
 
 Por exemplo, um RTOS que opera com um tick de 10ms irá decidir pelo chaveamento de suas tarefas 100 vezes por segundo, já um tick configurado para 1ms irá executar o escalonador a uma taxa de 1000 vezes por segundo. Trechos de código que necessitam executar a uma taxa maior que 1000 vezes por segundo (tick = 1ms) não devem ser implementados em tasks do RTOS, mas sim via interrupção de timer.
 
-::: note
 - O impacto do tick na função `vTaskDelay` é que a mesma só pode ser chamada com múltiplos inteiros referente ao tick.
-- Não temos uma resolução tão boa quanto o Timer.
+- Não temos uma resolução tão boa quanto o Timer ou o `sleep_us`
 - Quanto maior a frequência de chaveamento mais vezes/segundo o OS necessita salvar e recuperar o contexto, diminuindo assim sua eficiência.
 - Frequência máxima recomendada para o FreeRTOS em uma ARM é de 1000 Hz
-:::
 
 ::: info Estados de uma task
 A máquina de estados a seguir ilustra os possíveis estados de uma

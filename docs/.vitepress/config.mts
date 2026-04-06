@@ -22,6 +22,128 @@ function resolveVars(value: unknown): unknown {
   return value
 }
 
+/**
+ * Sidebar dos módulos — compartilhado entre /entregas/, /labs/, /labs-expert/ e /provas/
+ * para que a barra lateral seja sempre exibida independente da URL atual.
+ */
+const sidebarModulos = [
+  {
+    text: 'Módulos',
+    items: [
+      { text: 'Sobre', link: '/entregas/' },
+      { text: 'Preparatório', link: '/labs/preparatorio' },
+      { text: 'Prático', link: '/labs/pratico' },
+    ]
+  },
+  {
+    text: 'Módulo 1 - Baremetal',
+    collapsed: true,
+    items: [
+      {
+        text: 'Lab 1. GPIO',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/gpio-pre' },
+          { text: 'Prático', link: '/labs/gpio-pra' }
+        ]
+      },
+      {
+        text: 'Lab 2. ISR',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/irq-pre' },
+          { text: 'Prático', link: '/labs/irq-pra' }
+        ]
+      },
+      {
+        text: 'Lab 3. Timer',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/timer-pre' },
+          { text: 'Prático', link: '/labs/timer-pra' }
+        ]
+      },
+      {
+        text: 'Lab 4. Expert 1',
+        collapsed: true,
+        items: [
+          { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
+          { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive' },
+          { text: 'Expert - Multicore', link: '/labs-expert/labs-expert-firmware-multicore' },
+          { text: 'Expert - Áudio', link: '/labs-expert/labs-expert-dsp-audio-out' },
+        ]
+      },
+      { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
+      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
+    ]
+  },
+  {
+    text: 'Módulo 2 - RTOS',
+    collapsed: false,
+    items: [
+      {
+        text: 'Lab 5. RTOS',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/rtos-pre' },
+          { text: 'Prático', link: '/labs/rtos-pra' }
+        ]
+      },
+      {
+        text: '⏳ Lab 6. ADC e PWM',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
+          { text: 'Prático', link: '/labs/adc-pwm-pra' }
+        ]
+      },
+      {
+        text: '⏳ Lab 7. Diagramas',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/diagrama-pre' },
+          { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
+        ]
+      },
+      {
+        text: '⏳ Lab 8. I2C',
+        collapsed: true,
+        items: [
+          { text: 'Preparatório', link: '/labs/i2c-pre' },
+          { text: 'Prático', link: '/labs/i2c-pra' }
+        ]
+      },
+      { text: '⏳ Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
+      { text: '⏳ APS 2. Controle', link: '/entregas/aps-2-controle' },
+      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
+    ]
+  },
+  {
+    text: '⏳  Módulo 3 - Expert',
+    collapsed: true,
+    items: [
+      { text: 'Lab 10. Expert 3', link: '/labs-expert/modulo-1-expert' },
+      { text: 'Lab 11. Expert 4', link: '/labs-expert/modulo-1-expert' },
+    ]
+  },
+  {
+    text: '⏳ Labs expert',
+    collapsed: true,
+    items: [
+      { text: 'Sobre', link: '/labs-expert/index' },
+      { text: 'COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt' },
+      { text: 'COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2' },
+      { text: 'DSP - Áudio IN/OUT', link: '/labs-expert/labs-expert-dsp-audio' },
+      { text: 'DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out' },
+      { text: 'DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2' },
+      { text: 'SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor' },
+      { text: 'SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive' },
+      { text: 'FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver' },
+      { text: 'FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3' }
+    ]
+  }
+]
+
 export default defineConfig({
   title: "Computação Embarcada",
   description: "Sistemas embarcados movem o mundo",
@@ -41,9 +163,6 @@ export default defineConfig({
                 )
               }
             }
-          }
-          if (token.type === 'html_block' || token.type === 'fence') {
-            // não substituir dentro de blocos de código
           }
         }
       })
@@ -76,136 +195,24 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Consulta', link: '/guides/', activeMatch: '/guides'},
+      { text: 'Consulta', link: '/guides/', activeMatch: '/guides' },
       { text: 'Módulos', link: '/entregas/' }
     ],
     sidebar: {
       '/curso/': [
-      {
-      text: 'Sobre o curso',
-           items: [
-              {text: 'Sobre', link: '/curso/'},
-              {text: 'Avaliacão', link: '/curso/avaliacao'},
-           ]
-      }
-      ],
-      '/entregas/': [
         {
-          text: 'Módulos',
+          text: 'Sobre o curso',
           items: [
-            { text: 'Sobre', link: '/entregas/' },
-            { text: 'Preparatório', link: '/labs/preparatorio' },
-            { text: 'Prático', link: '/labs/pratico' },
-          ]
-        },
-        {
-          text: 'Módulo 1 - Baremetal',
-          collapsed: true,
-          items: [
-            {
-              text: 'Lab 1. GPIO',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/gpio-pre' },
-                { text: 'Prático', link: '/labs/gpio-pra' }
-              ]
-            },
-            {
-              text: 'Lab 2. ISR',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/irq-pre' },
-                { text: 'Prático', link: '/labs/irq-pra' }
-              ]
-            },
-            {
-              text: 'Lab 3. Timer',
-              collapsed: true,
-              items: [
-               { text: 'Preparatório', link: '/labs/timer-pre' },
-               { text: 'Prático', link: '/labs/timer-pra' }
-              ]
-            },
-            {
-              text: 'Lab 4. Expert 1',
-              collapsed: true,
-              items: [
-                { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
-                { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
-                { text: 'Expert - Multicore', link: '/labs-expert/labs-expert-firmware-multicore' },
-                { text: 'Expert - Áudio', link: '/labs-expert/labs-expert-dsp-audio-out'},
-              ]
-            },
-            { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
-            { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
-          ]
-       },
-       {
-          text: 'Módulo 2 - RTOS',
-            collapsed: false,
-            items: [
-            {
-              text: ' Lab 5. RTOS',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/rtos-pre' },
-                { text: 'Prático', link: '/labs/rtos-pra' }
-              ]
-            },
-            {
-              text: 'Lab 6. ADC e PWM',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
-                { text: 'Prático', link: '/labs/adc-pwm-pra' }
-              ]
-            },
-            {
-              text: 'Lab 7. Diagramas',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/diagrama-pre' },
-                { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
-              ]
-            },
-            {
-              text: 'Lab 8. I2C',
-              collapsed: true,
-              items: [
-                { text: 'Preparatório', link: '/labs/i2c-pre' },
-                { text: 'Prático', link: '/labs/i2c-pra' }
-              ]
-            },
-            { text: 'Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
-            { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' },
-            { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
-          ]
-       },
-       {
-          text: '⏳  Módulo 3 - Expert',
-          collapsed: true,
-          items: [
-            { text: 'Lab 10. Expert 3', link: '/labs-expert/modulo-1-expert' },
-            { text: 'Lab 11. Expert 4', link: '/labs-expert/modulo-1-expert' },
-          ]
-       },
-       {
-          text: '⏳ Labs expert',
-          collapsed: true,
-          items: [
-            { text: 'Sobre', link: '/labs-expert/index'},
-            { text: 'COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt'},
-            { text: 'COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2'},
-            { text: 'DSP - Áudio IN/OUT', link: '/labs-expert/labs-expert-dsp-audio'},
-            { text: 'DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out'},
-            { text: 'DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2'},
-            { text: 'SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor'},
-            { text: 'SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive'},
-            { text: 'FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver'},
-            { text: 'FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3'}
+            { text: 'Sobre', link: '/curso/' },
+            { text: 'Avaliacão', link: '/curso/avaliacao' },
           ]
         }
       ],
+      // Todas as rotas abaixo compartilham o mesmo sidebar de módulos
+      '/entregas/':   sidebarModulos,
+      '/labs/':       sidebarModulos,
+      '/labs-expert/': sidebarModulos,
+      '/provas/':     sidebarModulos,
       '/guides/': [
         {
           text: 'Sistemas Embarcados',

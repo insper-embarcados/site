@@ -9,37 +9,11 @@ links:
     text: "PrairieLearn"
     url: "{{prairielearn}}"
     box: "box-yellow"
-  - title: "30% da nota de lab"
-    box: "box"
+  - title: "70% da nota de lab"
+    box: "box-green"
 ---
 
-# Lab 4 - RTOS - Prática <Badge type="tip" text="70% da nota do lab" />
-
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/i9203J_m) 
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
-
-::: warning
-Agora surgem novas regras, consulte a página: [Regras RTOS](/guides/qualidade-rtos) para saber as regras que serão aplicadas.
-
-Cuidado! As antigas ainda continuam valendo!
-:::
+# RTOS - Prática <Badge type="tip" text="70% da nota do lab" />
 
 ## Pico Dock
 
@@ -94,7 +68,7 @@ if (xQueueReceive(xQueueDistance, &time,  pdMS_TO_TICKS(100))) {
 
 > Bem mais fácil que usar um timer para calcular o timeout!!
 
-2. O HS-SR04 pede para gerarmos um pulso de 10us no triger, o valor mínimo que conseguimos no `vTaskDelay` é de 1ms! Então nesse caso 
+2. O HS-SR04 pede para gerarmos um pulso de 10us no triger, o valor mínimo que conseguimos no `vTaskDelay` é de 1ms! Então nesse caso tá liberado. 
 :::
 
 ### Display
@@ -112,3 +86,9 @@ Exibir no LED:
 - Verde: Se o objeto está até 1m de distância.
 - Amarelo: Se o objeto está a mais de 1m de distância.
 - Vermelho: Se o sensor está com falha.
+
+::: warning
+Agora surgem novas regras, consulte a página: [Regras RTOS](/guides/qualidade-rtos) para saber as regras que serão aplicadas.
+
+Cuidado! As antigas ainda continuam valendo!
+:::

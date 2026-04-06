@@ -20,15 +20,11 @@ export const links = {
   lab_pre_gpio_classroom: "https://classroom.github.com/a/DSolRxRH",
 
   // ─── Lab 2 - IRQ ─────────────────────────────────────────────────────────────
-  // lab_irq_classroom: "https://classroom.github.com/a/...",
 
   // ─── Lab 3 - Timer ───────────────────────────────────────────────────────────
-  // lab_timer_classroom: "https://classroom.github.com/a/...",
 
   // ─── Lab 5 - RTOS ────────────────────────────────────────────────────────────
-  // lab_rtos_classroom: "https://classroom.github.com/a/...",
-
+  lab_pre_rtos_classroom: "https://classroom.github.com/a/jTe9Y09F",
+  lab_pra_rtos_classroom: "https://classroom.github.com/a/Irnan8Po",
   // ─── Outros ──────────────────────────────────────────────────────────────────
-  // lab_adc_pwm_classroom: "https://classroom.github.com/a/...",
-  // lab_i2c_classroom: "https://classroom.github.com/a/...",
 }

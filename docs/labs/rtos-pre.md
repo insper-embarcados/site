@@ -10,10 +10,10 @@ links:
     url: "{{prairielearn}}"
     box: "box-yellow"
   - title: "30% da nota de lab"
-    box: "box"
+    box: "box-green"
 ---
 
-# Lab 4 - RTOS - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+# RTOS - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Iremos agora aprender como utilizar um sistema operacional dedicado para sistemas embarcados. O Real-Time Operating System (RTOS) é muito utilizado em aplicações embarcadas, pois ajuda a organizar o código, torna o sistema mais robusto e permite que tenhamos maior controle sobre a execução das etapas do programa.
 
