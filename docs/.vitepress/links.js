@@ -25,6 +25,6 @@ export const links = {
 
   // ─── Lab 5 - RTOS ────────────────────────────────────────────────────────────
   lab_pre_rtos_classroom: "https://classroom.github.com/a/jTe9Y09F",
-  lab_pra_rtos_classroom: "https://classroom.github.com/a/Irnan8Po",
+  lab_pra_rtos_classroom: "https://classroom.github.com/a/6OUo5Tea",
   // ─── Outros ──────────────────────────────────────────────────────────────────
 }
