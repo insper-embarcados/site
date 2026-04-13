@@ -90,8 +90,8 @@ const sidebarModulos = [
         ]
       },
       {
-        text: '⏳ Lab 6. ADC e PWM',
-        collapsed: true,
+        text: 'Lab 6. ADC e PWM',
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
           { text: 'Prático', link: '/labs/adc-pwm-pra' }
