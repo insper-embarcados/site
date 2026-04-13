@@ -13,7 +13,7 @@ links:
     box: "box-green"
 ---
 
-# Lab 5 - ADC / PWM - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+# Lab 6 - ADC / PWM - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste laboratório iremos aprender como fazemos para mexer com dois novos periféricos:
 
