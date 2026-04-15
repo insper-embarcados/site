@@ -83,7 +83,7 @@ const sidebarModulos = [
     items: [
       {
         text: 'Lab 5. RTOS',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/rtos-pre' },
           { text: 'Prático', link: '/labs/rtos-pra' }

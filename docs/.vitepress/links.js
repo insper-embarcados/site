@@ -28,6 +28,7 @@ export const links = {
   lab_pra_rtos_classroom: "https://classroom.github.com/a/6OUo5Tea",
 
   lab_pre_adc_classroom: "https://classroom.github.com/a/SBQ74JCw",
+  lab_pra_adc_classroom: "https://classroom.github.com/a/JwGv-jwO",
 
   // ─── Outros ──────────────────────────────────────────────────────────────────
 }

@@ -1,31 +1,26 @@
-# Lab 5 - ADC, PWM - Prática <Badge type="tip" text="70% da nota do lab" />
+---
+linksTitle: "Entrega"
+links:
+  - title:
+    text: "Classroom"
+    url: "{{lab_pra_adc_classroom}}"
+    box: "box-blue"
+  - title: 
+    text: "PrairieLearn"
+    url: "{{prairielearn}}"
+    box: "box-yellow"
+  - title: "70% da nota de lab"
+    box: "box-green"
+---
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/qt4pjBeh) 
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
+# Lab 5 - ADC, PWM - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos usar um joystick analógico para implementar um "mouse".
 
 Para isso, você vai precisar de:
 
-| Lista de Materiais   | Valor    |
-|----------------------|----------|
+| Lista de Materiais   | Valor   |
+|----------------------|---------|
 | 1x JY-023 (joystick) | R$ 8,00 |
 
 ## Requisitos
@@ -33,6 +28,11 @@ Para isso, você vai precisar de:
 Fazer a leitura de um joystick, formatar os dados corretamente e enviar via serial para a leitura do programa python.
 
 ![](imgs/lab-adc-pwm-pra-diagrama.png)
+
+::: note
+Nesse laboratório não vamos usar o PWM que vocês viram no 
+pre-lab, mas ele vai aparecer no próximo!
+:::
 
 ## Python
 
@@ -83,6 +83,7 @@ Onde:
 - `xQueueADC`: ID (`1` / `0`) e dados filtrados para serem transmitidos
 - `uart_task`: Faz o envio dos dados pela UART
 
+
 ## Dicas
 
 A seguir, dicas sobre como executar o lab:
@@ -117,6 +118,8 @@ Para o mouse funcionar corretamente, devemos obter um valor `0` quando ele estiv
 A zona morta define um valor que não deve ser enviado para o Python, ou, se enviado, o valor deve ser sempre 0. Isso é necessário devido às variações mecânicas que o potenciômetro possui, pois quando solto, seu valor não é necessariamente 2095.
 :::
 
+Os dados devem ser filtrados antes de serem enviados para a fila `xQueueADC`, o filtro usado deve ser um passa baixas a fim de removermos possívels ruídos de alta frequência. **Usar a média móvel implementada no pré lab**.
+
 ### `xQueueADC` 
 
 A fila `xQueueADC` deverá ser uma fila de `structs` para que possamos separar se os dados pertencem ao eixo `x` ou `y`. Para isso, sugerimos criar a seguinte `struct`:
@@ -133,3 +136,7 @@ Não sabe como enviar uma struct para a fila? Consulte a página da disciplina:
     
 - [Freertos/Queue Struct](/guides/freertos-queue-advanced)
 :::
+
+### ADC
+
+Você deve editar o `CMakeList.txt` adicionando as dependencias do ADC, para isso consulte a página de cada periférico para saber o que deve ser adicionado.
