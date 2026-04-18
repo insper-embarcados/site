@@ -83,7 +83,7 @@ const sidebarModulos = [
     items: [
       {
         text: 'Lab 5. RTOS',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/rtos-pre' },
           { text: 'Prático', link: '/labs/rtos-pra' }
@@ -98,19 +98,19 @@ const sidebarModulos = [
         ]
       },
       {
-        text: '⏳ Lab 7. Diagramas',
+        text: 'Lab 7. I2C',
+        collapsed: false,
+        items: [
+          { text: 'Preparatório', link: '/labs/i2c-pre' },
+          { text: 'Prático', link: '/labs/i2c-pra' }
+        ]
+      },
+      {
+        text: '⏳Lab 8. Diagramas',
         collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/diagrama-pre' },
           { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
-        ]
-      },
-      {
-        text: '⏳ Lab 8. I2C',
-        collapsed: true,
-        items: [
-          { text: 'Preparatório', link: '/labs/i2c-pre' },
-          { text: 'Prático', link: '/labs/i2c-pra' }
         ]
       },
       { text: '⏳ Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
