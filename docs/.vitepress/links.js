@@ -13,22 +13,16 @@
  *       url: "{{lab_gpio_classroom}}"
  */
 export const links = {
-  // ─── PrairieLearn ────────────────────────────────────────────────────────────
   prairielearn: "https://us.prairielearn.com/pl/course_instance/210559",
 
-  // ─── Lab 1 - GPIO ────────────────────────────────────────────────────────────
   lab_pre_gpio_classroom: "https://classroom.github.com/a/DSolRxRH",
 
-  // ─── Lab 2 - IRQ ─────────────────────────────────────────────────────────────
-
-  // ─── Lab 3 - Timer ───────────────────────────────────────────────────────────
-
-  // ─── Lab 5 - RTOS ────────────────────────────────────────────────────────────
   lab_pre_rtos_classroom: "https://classroom.github.com/a/jTe9Y09F",
   lab_pra_rtos_classroom: "https://classroom.github.com/a/6OUo5Tea",
 
   lab_pre_adc_classroom: "https://classroom.github.com/a/SBQ74JCw",
   lab_pra_adc_classroom: "https://classroom.github.com/a/JwGv-jwO",
 
-  // ─── Outros ──────────────────────────────────────────────────────────────────
+  lab_pre_i2c_classroom: "https://classroom.github.com/a/KPHgCS8f",
+  lab_pra_i2c_classroom: "https://classroom.github.com/a/",
 }
