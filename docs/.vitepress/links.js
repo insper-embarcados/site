@@ -24,5 +24,5 @@ export const links = {
   lab_pra_adc_classroom: "https://classroom.github.com/a/JwGv-jwO",
 
   lab_pre_i2c_classroom: "https://classroom.github.com/a/KPHgCS8f",
-  lab_pra_i2c_classroom: "https://classroom.github.com/a/",
+  lab_pra_i2c_classroom: "https://classroom.github.com/a/ImQQ8RVG",
 }

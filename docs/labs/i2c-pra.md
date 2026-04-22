@@ -1,24 +1,20 @@
-# Lab 6 - I2C - Prática <Badge type="tip" text="70% da nota do lab" />
+---
+linksTitle: "Entrega"
+links:
+  - title:
+    text: "Classroom"
+    url: "{{lab_pra_i2c_classroom}}"
+    box: "box-blue"
+  - title: 
+    text: "PrairieLearn"
+    url: "{{prairielearn}}"
+    box: "box-yellow"
+  - title: "70% da nota de lab"
+    box: "box-green"
+---
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/1OcvE9CG) 
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
+
+# Lab 7 - I2C - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o [spotlight da logitech]( https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html). 
 
@@ -29,20 +25,33 @@ Para isso, vocês precisarão de:
 | Lista de Materiais | Valor    |
 |--------------------|----------|
 | 1x MPU6050         | R$ 20,00 |
+| 1x LED PWM         | R$ 0,50  |
 
 ::: info
-Você devem utilizar o mesmo python do lab passado.
+Você devem utilizar o mesmo python do lab passado (porém vão precisar alterar ele).
 :::
 
 ![](https://user-images.githubusercontent.com/107638696/241324971-43b8fe88-447d-4c2d-9296-4b3aaa50f4ce.png)
 
+- `mpu_task`: Faz a leitura da aceleracao e do giroscópio e envia os dados para a fila `xQueueMPU`
+- `xQueueMPU`: Fila que possui os dados de aceleração e de giroscópio
+- `fusion_task`: Task que faz a fusão de dados, detecta o click e formata a cor
+- `xQueueColor`: Fila que recebe um dado `rgb` e exibe no LED (via pwm)
+- `xQueuePos`: Fila que possui os dados `x` e `y` que irão movimentar o mouse
+- `xSemaphoreBtn`: Semáforo que indica que o botão foi pressionado
+- `uart_task`: Task que faz o envio dos dados para UART
+
 ## Requisitos
 
-No lugar do joystick, agora você deve fazer a leitura da IMU6050 formatar os dados corretamente e enviar via serial para a leitura do programa python.
+No lugar do joystick, agora você deve fazer a leitura da `IMU6050` formatar os dados corretamente e enviar via serial para a leitura do programa python.
 
-Vocês precisarão implementar um "mouse click", que deve ser acionado quando o sistema embarcado perceber uma movimentação repentina na horizontal no sentido para frente, como se estivesse cutucando o ar. Para isso vão precisar identificar esse tipo de movimentação e fazer o envio para o python (que deverá ser modificado).
+Vocês precisarão implementar um "mouse click", que deve ser acionado quando o sistema embarcado perceber uma movimentação repentina na horizontal no sentido para frente, como se estivesse "cutucando o ar". Para isso vão precisar identificar esse tipo de movimentação e fazer o envio para o python (que deverá ser modificado).
 
-![](imgs/lab-i2c-diagrama.png)
+Além do mouse click, você deverão implementar o controle de um led RGB que deverá mudar de cor dado a orientacão do controle.
+
+Siga o diagrama detalhado a seguir:
+
+![](imgs/lab-i2c-diagrama-2.png)
 
 ## Firmware fornecido
 
@@ -77,7 +86,9 @@ Os pinos originais 4 e 5 estão conectados aos botões da placa, e nesse botões
 :::
 
 ::: tip 
-Execute o código e verifique se ele funciona.
+Execute o código exemplo fornecido, abra o terminal e verifique se ele funciona (envia dados na UART).
+
+- Analisando os dados enviados, você é capaz de extrair alguma infomaćão?
 :::
 
 ## Fusão de dados
@@ -86,7 +97,7 @@ Os dados brutos de aceleração e giro não são muito fáceis de se usar, pois 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png)
 
-Existem diversos algortímos que realizam essa fusão de dados, e IMUs mais poderosas podem fazer isso internamente, mas não é o caso da nossa (IMUs que fazem fusão são um pouco mais caras!). Para obtermos a orientacão iremos usar uma biblioteca escrita em C para sistemas embarcados chamada de [xioTechnologies/Fusion](https://github.com/xioTechnologies/Fusion). A biblioteca já foi importada para vocês, ser necessário apenas utilizar.
+Existem diversos algortímos que realizam essa fusão de dados, e IMUs mais poderosas podem fazer isso internamente, mas não é o caso da nossa (IMUs que fazem fusão são um pouco mais caras!). Para obtermos a orientacão iremos usar uma biblioteca escrita em C para sistemas embarcados chamada de [xioTechnologies/Fusion](https://github.com/xioTechnologies/Fusion). A biblioteca já foi importada para vocês no projeto, mas ainda não foi utilizada.
 
 A lib que iremos utilizar é a:
 
@@ -130,3 +141,24 @@ void mpu6050_task(void *p) {
 - Notem que a lib necessita saber a taxa de amostragem! `SAMPLE_PERIOD`, vocês precisam ajustar com o valor de vocês!
 - Esse exemplo não faz uso de bussolá (pois nossa IMU não possui), isso acrescenta um *drift* no resultado, ou seja, mesmo com a IMU parada vamos notar um "movimento" (a bussolá tenta corrigir isso). 
 :::
+
+## LED RGB
+
+O LED RGB possibilita que tenhamos uma combinação de cores para representar o estado de orientação do controle de forma visual e imediata.
+O objetivo final é que o LED RGB funcione como uma extensão da interface: além de enviar os dados para o Python e detectar o clique, o sistema também deve comunicar visualmente a orientação do dispositivo.
+
+Para isso vocês deverão controlar as cores do LED a partir dos ângulos de `roll` e `pitch` calculados pela fusão de dados. A ideia é que o LED funcione como um indicador intuitivo da inclinação do dispositivo, permitindo que a cor mude conforme o controle é inclinado para diferentes direções.
+
+Uma sugestão de mapeamento é:
+
+- inclinação para a esquerda: aumentar o componente azul;
+- inclinação para a direita: aumentar o componente vermelho;
+- inclinação para frente: aumentar o componente verde;
+
+Vocês podem escolher a estratégia de mapeamento que fizer mais sentido, desde que a cor varie de forma consistente com a orientação do controle. O importante é que a relação entre orientação e cor seja perceptível e reproduzível.
+
+Como o LED é do tipo RGB, será necessário controlar os três canais independentemente por LED. Também é interessante suavizar as transições de cor, para que o LED não fique “pulando” entre tons muito diferentes a cada amostra (podem usar a média móvel).
+
+## Python
+
+Vocês devem modificar o programa em python para que ele identifique quando houve um click do mouse e "aperte" o botão.
