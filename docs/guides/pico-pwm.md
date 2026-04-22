@@ -65,7 +65,7 @@ Códigos exemplo para o PWM.
 
 ### Hello PWM
 
-O exemplo a seguir configura o pino `GP28` para operar com um PWM de 1Mhz com 100 possíveis níveis de Duty Cycle e configura o pino para operar com um `Duty Cycle` de 40%.
+O exemplo a seguir configura o pino `GP28` para operar com um PWM de 1Mhz com 100 possíveis níveis de Duty Cycle e configura o pino para operar com um `Duty Cycle` de 70%.
 
 [Simulação no wokwi](https://wokwi.com/projects/392432331889921025){.ah-button}
 /
@@ -99,7 +99,7 @@ int main() {
     pwm_set_wrap(slice_num, 100);
 
     // Set channel A output high for one cycle before dropping
-    // PWM set to 30%
+    // PWM set to 70%
     pwm_set_chan_level(slice_num, PWM_CHAN_A, 70);
 
     // Set the PWM running
