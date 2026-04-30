@@ -25,4 +25,7 @@ export const links = {
 
   lab_pre_i2c_classroom: "https://classroom.github.com/a/KPHgCS8f",
   lab_pra_i2c_classroom: "https://classroom.github.com/a/ImQQ8RVG",
+
+  lab_pre_diagrama: "https://us.prairielearn.com/pl/course_instance/210559/assessment/2647128",
+  lab_pra_diagrama: "https://us.prairielearn.com/pl/course_instance/210559/assessment/2647127",
 }

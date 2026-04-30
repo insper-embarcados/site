@@ -1,4 +1,15 @@
-# Lab 6 - Diagrama - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+---
+linksTitle: "Entrega"
+links:
+    text: "PrairieLearn"
+    url: "{{lab_pre_diagrama}}"
+    box: "box-yellow"
+  - title: "30% da nota de lab"
+    box: "box-green"
+---
+
+
+# Lab 8 - Diagrama - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste laboratório, trabalharemos para que vocês desenvolvam a habilidade de **interpretar e utilizar diagramas de blocos** como forma de representar sistemas embarcados. O laboratório vai explorar três direções principais:
 
@@ -22,8 +33,4 @@ O que é [Diagrama](/diagram/)
 
 ## Entrega
 
-Diferente dos anteriores esse laboratório deve ser realizado interiamente dentro do prairielearn:
-
-::: tip Exercícios dentro do PL
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
+Diferente dos anteriores esse laboratório deve ser realizado interiamente dentro do prairielearn!

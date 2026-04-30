@@ -106,11 +106,11 @@ const sidebarModulos = [
         ]
       },
       {
-        text: '⏳Lab 8. Diagramas',
+        text: 'Lab 8. Diagramas',
         collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/diagrama-pre' },
-          { text: 'Prático', link: 'https://us.prairielearn.com/pl/course_instance/188020/assessment/2601077' }
+          { text: 'Prático', link: '/labs/diagrama-pra' }
         ]
       },
       { text: '⏳ Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
