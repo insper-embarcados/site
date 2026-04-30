@@ -4,8 +4,6 @@ links:
     text: "PrairieLearn"
     url: "{{lab_pre_diagrama}}"
     box: "box-yellow"
-  - title: "30% da nota de lab"
-    box: "box-green"
 ---
 
 
