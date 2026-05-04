@@ -226,9 +226,12 @@ export default defineConfig({
           text: 'Dispositivos',
           collapsed: false,
           items: [
-            { text: 'PicoDock', link: '/guides/picodock-index' },
-            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
-            { text: 'LCD', link: '/guides/lcd-ili-gfx' }
+	    { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
+	    { text: 'Encoder', link: '/guides/dispositivos-encoder' },
+	    { text: 'LCD', link: '/guides/lcd-ili-gfx' },
+            { text: 'PicoDock', link: '/guides/picodock-index' }
+            
+            
           ]
         },
         {
