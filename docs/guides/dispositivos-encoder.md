@@ -163,7 +163,7 @@ int main() {
 ```
 
 
-## 7. Resumo
+## Resumo
 
 - encoder mede movimento incremental
 - usa dois sinais em quadratura
