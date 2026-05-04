@@ -9,7 +9,7 @@ description: Leitura de posição e direção com encoder rotativo na Raspberry 
 
 Você já deve ter visto um encoder em botões de volume, menus de equipamentos ou painéis de controle. Ele permite transformar rotação em comandos digitais.
 
----
+
 
 ## O que o encoder resolve?
 
@@ -19,7 +19,7 @@ O encoder informa **movimento incremental**:
 - girou para um lado → incrementa
 - girou para o outro → decrementa
 
----
+
 
 ## Funcionamento
 
@@ -33,7 +33,7 @@ horário   -> posição++
 anti-horário -> posição--
 ```
 
----
+
 
 ## Por que usamos dois sinais?
 
@@ -45,7 +45,7 @@ Por isso usamos dois canais:
 
 Esses sinais são defasados (quadratura).
 
----
+
 
 ## Sinais em quadratura
 
@@ -81,7 +81,7 @@ Anti-horário:  00 -> 01 -> 11 -> 10 -> 00
 👉 Regra prática:
 > Quem muda primeiro define a direção
 
----
+
 
 ## Ligação com a Pico
 
@@ -90,7 +90,7 @@ Anti-horário:  00 -> 01 -> 11 -> 10 -> 00
 - BTN → GPIO com pull-up
 - GND → GND
 
----
+
 
 
 ## Snippets
@@ -162,7 +162,6 @@ int main() {
 }
 ```
 
----
 
 ## 7. Resumo
 
