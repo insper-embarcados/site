@@ -13,7 +13,7 @@ Ao final, seu dispositivo embarcado será capaz de fazer inferência local desse
 
 - https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder
 
-- https://github.com/insper-embarcados/lab-exp-dsp-ia
+- https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp
 :::
 
 ## Conceitos Importantes
@@ -132,7 +132,7 @@ O modelo resultante será exportado como biblioteca C++ e incluído no firmware 
 
 ### Detalhes Técnicos
 
-- Clone os repositórios: [https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp](https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp) e o [https://github.com/insper-embarcados/lab-exp-dsp-ia-pico2](https://github.com/insper-embarcados/lab-exp-dsp-ia)
+- Clone os repositórios: [https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp](https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp) e o [https://github.com/insper-embarcados/lab-exp-dsp-ia-pico2](https://github.com/insper-embarcados/lab-exp-dsp-ia-pico2)
 
 ![alt text](./imgs-dsp/image.png)
 
