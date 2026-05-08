@@ -91,7 +91,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 6. ADC e PWM',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
           { text: 'Prático', link: '/labs/adc-pwm-pra' }
@@ -99,7 +99,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 7. I2C',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/i2c-pre' },
           { text: 'Prático', link: '/labs/i2c-pra' }
@@ -107,13 +107,13 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 8. Diagramas',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/diagrama-pre' },
           { text: 'Prático', link: '/labs/diagrama-pra' }
         ]
       },
-      { text: '⏳ Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
+      { text: 'Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
       { text: '⏳ APS 2. Controle', link: '/entregas/aps-2-controle' },
       { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
     ]
