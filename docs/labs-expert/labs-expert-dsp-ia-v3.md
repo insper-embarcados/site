@@ -36,7 +36,7 @@ Esse laboratório trabalha com o paradigma de **Edge computing** onde os dados s
 
 Existem diversas plataformas que podemos utilizar para treinar e gerar os códigos necessários para executarmos nossa rede. Nesse laboratório iremos trabalhar com o [Edge impulse](https://www.edgeimpulse.com/).
 
-## Prática do Laboratório
+### Visão geral
 
 Neste laboratório, você conectará o sensor `MPU6050` (IMU) à Raspberry Pi Pico 2 utilizando a interface I2C para capturar dados de movimento (aceleração e giroscópio). Esses dados serão enviados em tempo real ao Edge Impulse utilizando a ferramenta `edge-impulse-data-forwarder`. Com isso, será possível criar um conjunto de dados rotulado para treinar um modelo de classificação de movimentos diretamente na nuvem.
 
@@ -51,7 +51,7 @@ O laboratório deverá ser realizado em duas etapas:
 - **Parte 1**: Coleta de dados e treinamento da rede neual
 - **Parte 2**: Deploy e execução da rede neural
 
-### Parte 1
+## Parte 1
 
 Aqui iremos coletar dados de aceleração, fazer o envio para o `edge-impluse` e treinar uma rede neural capaz de detectar os movimentos. Isso será feito utilizando um firmware que envia pela serial dados padronizados, um software fornecido pelo `edge-impulse` chamado de `data-forwarding` será executado a fim de transmitir os dados do PC para a plataforma online que serão classificados, com os dados classificados uma rede neural será treinada.
 
@@ -70,7 +70,7 @@ Note que você deve escolher que estamos trabalhando com a RP 2350 (pico 2):
 
 ![](imgs-dsp/ai-edgeimpluse-device.png)
 
-### Parte 2
+## Parte 2
 
 ![](imgs-dsp/ai-runner.png)
 
