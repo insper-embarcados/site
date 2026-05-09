@@ -1,3 +1,18 @@
+---
+linksTitle: "Entrega"
+links:
+  - title:
+    text: "Classroom"
+    url: "{{lab_expert_2}}"
+    box: "box-blue"
+  - title: 
+    text: "PrairieLearn"
+    url: "{{prairielearn}}"
+    box: "box-yellow"
+  - title: "30% da nota de lab"
+    box: "box-green"
+---
+
 # Expert - DSP - Inteligência Artificial
 
 Neste laboratório você utilizará a **Raspberry Pi Pico 2** junto com o sensor **MPU6050 IMU** para classificar movimentos de um acelerômetro no espaço utilizando a plataforma **Edge Impulse** utilizando como referência o demo oficial. O que importa neste laboratório é a expertise em utilizar a plataforma do Edge Impulse para treinar movimento, e para isso iremos treinar um modelo capaz de identificar os seguintes padrões de movimento:
@@ -8,19 +23,9 @@ Neste laboratório você utilizará a **Raspberry Pi Pico 2** junto com o sensor
 
 Ao final, seu dispositivo embarcado será capaz de fazer inferência local desses movimentos, sem necessidade de conexão com a internet e o modelo rodando na própria Pico 2.
 
-::: tip
-  Vocês devem utilizar os repositórios a seguir, utilize o  `pico2-rtos-mpu-lab-exp-dsp` para fazer a captura dos dados da imu para o edge-impulse, e quando finalizar o laboratório e tiver gerado o modelo utilize o `lab-exp-dsp-ia` para deploy do seu modelo e teste, mais informações sobre como fazer isso a seguir.
+<YouTube id="Yk3hq3IcJR4"/>
 
-- https://github.com/insper-embarcados/lab-exp-dsp-ia-mpu-forwarder
-
-- https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp
-:::
-
-## Conceitos Importantes
-
-### Edge Computing
-
-**Edge Computing** é uma arquitetura de TI onde os dados são processados o mais próximo possível da sua origem ("na borda"). Isso resulta em:
+Esse laboratório trabalha com o paradigma de **Edge computing** onde os dados são processados o mais próximo possível da sua origem ("na borda"). Isso resulta em:
 
 - Latência reduzida
 - Menor tráfego de dados para a nuvem
@@ -29,136 +34,74 @@ Ao final, seu dispositivo embarcado será capaz de fazer inferência local desse
 > "Uma fábrica moderna com 2.000 equipamentos pode gerar 2.200 terabytes de dados por mês. Processar esses dados localmente é mais rápido e econômico."  
 > Fonte: [RedHat - O que é Edge Computing?](https://www.redhat.com/pt-br/topics/edge-computing/what-is-edge-computing)
 
-### Edge Impulse
-
-O **Edge Impulse** é uma plataforma que ajuda desenvolvedores a criar modelos de machine learning para dispositivos embarcados de forma acessível e escalável.
-
-### Edge Impulse CLI
-
-Ferramenta de linha de comando usada para configurar e conectar dispositivos ao Edge Impulse. Veja a [documentação oficial](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli).
-
-## Instalação 
-
-> IMPORTANTE: Para instalar corretamente siga os passos descritos na documentação oficial. 
-> [https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation)
-
-:::tabs
-
-=== Instalação 
-
-Basicamente as etapas são:
-
-1. Criar uma conta no [Edge Impulse](https://edgeimpulse.com/).
-2. **Python 3** instalado no computador.
-3. Instale **Node.js** v20 ou superior no computador.
-
-=== Instalação linux/MAC
-
-etapas para instalaçao em Linux/MAC:
-
-bash
-curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v
-
-
-
-Verifique o diretório de instalação do Node.
-
-bash
-npm config get prefix
-
-
-> Se retornar **/usr/local/**, rode os seguintes comandos para mudar o diretório padrão do npm.
->
-> 
-bash
-> mkdir ~/.npm-global
-> npm config set prefix '~/.npm-global'
-> echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
->
-
-> No MAC com zsh,
-> 
-bash
-> mkdir ~/.npm-global
-> npm config set prefix '~/.npm-global'
-> echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.zprofile
->
-
-
-4. Instale o edge-impulse-cli.
-
-bash
-npm install -g edge-impulse-cli
-reboot
- 
-
-=== Instalação Windows
-
-etapas para instalação WINDOWS
-
-1. Crie uma conta no edge-impulse
-
-2. Instale python3 no computador
-
-3. Instale Node.js (Instale o "tools for native modules" caso sugerido)
-
-4. Reinicie o computador e rode o seguinte comando através do PowerShell:
-
-> npm install -g edge-impulse-cli --force
-:::
+Existem diversas plataformas que podemos utilizar para treinar e gerar os códigos necessários para executarmos nossa rede. Nesse laboratório iremos trabalhar com o [Edge impulse](https://www.edgeimpulse.com/).
 
 ## Prática do Laboratório
 
-Neste laboratório, você conectará o sensor MPU6050 à Raspberry Pi Pico 2 utilizando a interface I2C para capturar dados de movimento (aceleração e giroscópio). Esses dados serão enviados em tempo real ao Edge Impulse utilizando a ferramenta edge-impulse-data-forwarder. Com isso, será possível criar um conjunto de dados rotulado para treinar um modelo de classificação de movimentos diretamente na nuvem.
+Neste laboratório, você conectará o sensor `MPU6050` (IMU) à Raspberry Pi Pico 2 utilizando a interface I2C para capturar dados de movimento (aceleração e giroscópio). Esses dados serão enviados em tempo real ao Edge Impulse utilizando a ferramenta `edge-impulse-data-forwarder`. Com isso, será possível criar um conjunto de dados rotulado para treinar um modelo de classificação de movimentos diretamente na nuvem.
 
-O modelo resultante será exportado como biblioteca C++ e incluído no firmware que será executado localmente na Pico W, permitindo inferência offline dos movimentos idle, updown e wave com indicação visual através de um LED RGB.
+O modelo resultante será exportado como biblioteca C++ e incluído no firmware que será executado localmente no microcontrolador, permitindo inferência offline dos movimentos: idle, updown e wave com indicação visual através de um LED RGB.
 
-### Projeto a ser seguido para realizar o lab:
+Vocês devem consultar a documentação oficial para entenderem como utilizar o `edge impulse`:
 
 - [Continuous Motion Recognition](https://docs.edgeimpulse.com/docs/tutorials/end-to-end-tutorials/continuous-motion-recognition)
 
-### Fluxo de trabalho:
+O laboratório deverá ser realizado em duas etapas:
 
-![edge impulse workflow](./imgs-dsp/ia-edgeflux.png)
+- **Parte 1**: Coleta de dados e treinamento da rede neual
+- **Parte 2**: Deploy e execução da rede neural
 
-### Demonstração:
+### Parte 1
 
-<YouTube id="Yk3hq3IcJR4"/>
+Aqui iremos coletar dados de aceleração, fazer o envio para o `edge-impluse` e treinar uma rede neural capaz de detectar os movimentos. Isso será feito utilizando um firmware que envia pela serial dados padronizados, um software fornecido pelo `edge-impulse` chamado de `data-forwarding` será executado a fim de transmitir os dados do PC para a plataforma online que serão classificados, com os dados classificados uma rede neural será treinada.
 
-- Os arquivos gerados no Edge Impulse que deverão ser incluídos no teu repositório clonado `lab-exp-dsp-ia` são **tflite-model, model-parameters e o edge-impulse-sdk**, não inclua o restante para não desconfigurar o projeto.
-- Verifique no código onde está conectado os pinos SDA e SCL do módulo I2C.
+![](imgs-dsp/ia-dataforwarding.png)
 
-### Detalhes Técnicos
+1. Primeiro comece instalando o **Edge impluse CLI** seguindo o [tutorial oficial ](https://docs.edgeimpulse.com/tools/clis/edge-impulse-cli/installation)
+2. Agora monte a IMU na pico e [execute o firmware](https://github.com/insper-embarcados/edgeimpulse-dataforwarding) que irá coletar dados de aceleracao e envia para o `edge impulse cli`.
+3. Execute o `edge impluse cli` no seu computador executando: 
 
-- Clone os repositórios: [https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp](https://github.com/insper-embarcados/pico2-rtos-mpu-lab-exp-dsp) e o [https://github.com/insper-embarcados/lab-exp-dsp-ia-pico2](https://github.com/insper-embarcados/lab-exp-dsp-ia-pico2)
+```bash
+edge-impulse-data-forwarder
+```
+4. Acesse o edge impluse (você terá que logar) e siga o [tutorial oficial](https://docs.edgeimpulse.com/tutorials/end-to-end/motion-recognition) até a **etapa 6: Deploying back to device**.
 
-![alt text](./imgs-dsp/image.png)
+Note que você deve escolher que estamos trabalhando com a RP 2350 (pico 2):
 
-- Carregue na placa o código base mpu-forwarder na Raspberry Pico. disponível no repositório com mesmo nome, deve ser utilizado para ler os dados da Pico W e encaminhá-los via serial.
-- Vamos usar o edge-impulse-cli para enviar os dados da Pico W para o Edge Impulse, em um terminal, use o comando edge-impulse-data-forwarder.
-- Leia a [documentação do data forwarder](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-data-forwarder)
-- Durante a coleta de dados, garanta que está em execução o código mpu-data-forwarder do repositório base
-- No deploy, configure para exportar como biblioteca C++.
+![](imgs-dsp/ai-edgeimpluse-device.png)
 
-## Entrega
+### Parte 2
 
-### O que deve ser entregue
+![](imgs-dsp/ai-runner.png)
+
+Agora iremos exportar uma rede neural que poderá ser executada no microcontrolador, para isso o `edge impulse` fornece toda uma estrutura de código em C++ que permite executarmos a rede embarcada, eles fornecem porjetos exemplos para diferentes tipos de processadores e kits de desenvolvimento. Devemos então usar o código exemplo, atualizar o peso da nossa rede e fazer o processamento que acharmos relevante.
+
+> Para facilitar a vida de vocês criamos um projeto exemplo para a pico2, baseado no que eles já fornecem (a única diferenća aqui é que o nosso `main` está em C e não em C++). Utilize esse repositório!
+
+1. Clone o [repositório exemplo](https://github.com/insper-embarcados/edgeimpluse-runner) que executa a rede neural
+
+
+::: details 2. Na plataforma do `edge impluse` exporte a rede no formato `C++ Library`
+![](imgs-dsp/edgeimpulse-deploy.png)
+:::
+
+3. Agora atualize os arquivos do repositório exemplo com o que foi gerado pelo edge impluse:
+
+> Substitua apenas: **tflite-model**, **model-parameters**, **edge-impulse-sdk**
+
+![](imgs-dsp/edgeimpulse-files.png)
+
+> É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de **Deploy** no site do **Edge Impulse**, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione.
+
+4. Execute o firmware, analise a saída da UART. Movimente a placa para classificarmos os movimentos.
+
+### Entrega final
+
+A entrega final você deve acender um LED para cada um dos movimentos detectados, indicamos fazer isso com um LED RGB.
 
 - Modelo treinado com 3 classes: idle, wave, updown
 - Projeto embarcado funcional com classificação local
-- LED RGB indicando o estado classificado (pinos GP15, GP16, GP17)
-
-
-#### Substituir bibliotecas no projeto lab-exp-dsp-ia:
-
-- Inclua apenas: tflite-model, model-parameters, edge-impulse-sdk
-- Substitua os arquivos do projeto base pelos do deploy no Edge Impulse
-
-![edge impulse workflow](./imgs-dsp/ia-deploy.png)
-
-> É necessário substituir esses arquivos do teu projeto que vieram por padrão pelo gerado na etapa de **Deploy** no site do **Edge Impulse**, esses arquivos juntos compõem o Output do seu modelo treinado, sendo eles essenciais para que sua aplicação funcione.
+- LED RGB indicando o estado classificado
 
 ## Referências:
 

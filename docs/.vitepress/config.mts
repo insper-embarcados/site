@@ -113,35 +113,38 @@ const sidebarModulos = [
           { text: 'Prático', link: '/labs/diagrama-pra' }
         ]
       },
-      { text: 'Lab 9. Expert 2', link: '/labs-expert/modulo-1-expert' },
-      { text: '⏳ APS 2. Controle', link: '/entregas/aps-2-controle' },
-      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
+      {
+        text: 'Lab 9. Expert 2',
+        collapsed: true,
+        items: [
+          { text: 'Sobre', link: '/labs-expert/modulo-2-expert' },
+          { text: 'Expert - AI', link: '/labs-expert/labs-expert-dsp-ia-v3' },
+          { text: 'Expert - RTOS', link: '/labs-expert/labs-expert-firmware-rtos' },
+          { text: 'Expert - Bluetooth', link: '/labs-expert/labs-expert-com-hc06' }
+        ]
+      },
+      { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' },
+      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' }
     ]
   },
-  {
-    text: '⏳  Módulo 3 - Expert',
-    collapsed: true,
-    items: [
-      { text: 'Lab 10. Expert 3', link: '/labs-expert/modulo-1-expert' },
-      { text: 'Lab 11. Expert 4', link: '/labs-expert/modulo-1-expert' },
-    ]
-  },
-  {
-    text: '⏳ Labs expert',
-    collapsed: true,
-    items: [
-      { text: 'Sobre', link: '/labs-expert/index' },
-      { text: 'COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt' },
-      { text: 'COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2' },
-      { text: 'DSP - Áudio IN/OUT', link: '/labs-expert/labs-expert-dsp-audio' },
-      { text: 'DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out' },
-      { text: 'DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2' },
-      { text: 'SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor' },
-      { text: 'SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive' },
-      { text: 'FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver' },
-      { text: 'FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3' }
-    ]
-  }
+  /**
+  *{
+  *  text: '⏳ Labs expert',
+  *  collapsed: true,
+  *  items: [
+  *    { text: 'Sobre', link: '/labs-expert/index' },
+  *    { text: 'COM - Wifi', link: '/labs-expert/labs-expert-com-wifi-mqtt' },
+  *    { text: 'COM - BLT', link: '/labs-expert/labs-expert-com-bt-v2' },
+  *    { text: 'DSP - Áudio IN/OUT', link: '/labs-expert/labs-expert-dsp-audio' },
+  *    { text: 'DSP - Áudio out', link: '/labs-expert/labs-expert-dsp-audio-out' },
+  *    { text: 'DSP - AI', link: '/labs-expert/labs-expert-dsp-ia-v2' },
+  *    { text: 'SEN - PanTilt', link: '/labs-expert/labs-expert-sensors-servomotor' },
+  *    { text: 'SEN - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive' },
+  *    { text: 'FW  - Driver', link: '/labs-expert/labs-expert-firmware-driver' },
+  *    { text: 'FW  - DMA', link: '/labs-expert/labs-expert-firmware-dma-v3' }
+  *  ]
+  *}
+  **/
 ]
 
 export default defineConfig({
@@ -223,13 +226,14 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Dispositivos',
+          text: 'Diversos',
           collapsed: false,
           items: [
-	    { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
-	    { text: 'Encoder', link: '/guides/dispositivos-encoder' },
-	    { text: 'LCD', link: '/guides/lcd-ili-gfx' },
-            { text: 'PicoDock', link: '/guides/picodock-index' }
+            { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
+            { text: 'Encoder', link: '/guides/dispositivos-encoder' },
+            { text: 'LCD', link: '/guides/lcd-ili-gfx' },
+            { text: 'PicoDock', link: '/guides/picodock-index' },
+            { text: 'Edge impulse cli', link: '/guides/expert-edge-impulse-cli' }
             
             
           ]
