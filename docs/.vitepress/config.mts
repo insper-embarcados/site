@@ -261,6 +261,8 @@ export default defineConfig({
             { text: 'Queue', link: '/guides/freertos-queue' },
             { text: 'Queue Structure', link: '/guides/freertos-queue-advanced' },
             { text: 'Timer', link: '/guides/freertos-software-time' },
+            { text: 'SMP', link: '/guides/freertos-smp' },
+            { text: 'Metricas', link: '/guides/freertos-metrics' },
             { text: 'Consultas', link: '/guides/freertos-snippets' }
           ]
         },
