@@ -118,7 +118,7 @@ const sidebarModulos = [
         collapsed: true,
         items: [
           { text: 'Sobre', link: '/labs-expert/modulo-2-expert' },
-          { text: 'Expert - AI', link: '/labs-expert/labs-expert-dsp-ia-v3' },
+          { text: 'Expert - AI', link: '/labs-expert/labs-expert-dsp-ia' },
           { text: 'Expert - RTOS', link: '/labs-expert/labs-expert-firmware-rtos' },
           { text: 'Expert - Bluetooth', link: '/labs-expert/labs-expert-com-hc06' }
         ]
