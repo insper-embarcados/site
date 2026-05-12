@@ -1,10 +1,11 @@
 # HC-06
 
-!!! Código exemplo
+::: info Código exemplo
     Usar o código exemplo em:
     
     https://github.com/insper-embarcados/pico-rtos-hc06
-    
+:::
+
 O  [HC-06](https://www.olimex.com/Products/Components/RF/BLUETOOTH-SERIAL-HC-06/resources/hc06.pdf) é um módulo bluetooth popular (R$ 40) que pode funcionar como `device` , neste exemplo usaremos como device (conectando-se ao computador). O Computador (Windows ou Linux) virá enxergar o módulo HC-06 como um dispositivo bluetooth, e uma vez pareado o Windows irá criar uma porta COM (Serial --> Outgoing / Saída) associado a conexão, nessa porta faremos a recepção e envio dos dados via bluetooth.
 
 O modulo será conectado ao microcontrolador através de uma comunicação UART (muito similar ao que vocês implementaram na disciplina Camada Física), o microcontrolador pode enviar dados para o computador por esta porta (TX) ou receber dados do computador (RX), conforme diagrama a seguir:
@@ -22,8 +23,9 @@ No microcontrolador, iremos usar um **periférico** da pico chamado UART para re
 
 Já no computador iremos usar um programa em **python** que acessará a porta COM criada pelo sistema operacional para enviar e receber dados do microcontrolador via protocolo Bluetooth. Note que estamos lidando com o Bluetooth de forma "transparente", apenas como "usuários", toda a mágica acontece dentro do HC-06.
 
-!!! tip "HC-05"
-	Exsite um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
+::: tip "HC-05"
+Exsite um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
+:::
 
 ## Exemplo
 
@@ -39,9 +41,10 @@ O exemplo faz uso dos pinos:
 - **HC-RX:** Ligado na **UART 1 - TX** (transmissão de dados)
 - **HC-EN:** Ligado no **GP6** (configurar modo de funcionamento)
 
-!!! tip
-	O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
-​    
+::: tip
+Opino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
+​:::
+
 ## Firmware
 
 O firmware fornecido no exemplo possui uma task e um driver para comunicar com o bluetooth via o protocolo serial:
@@ -97,11 +100,11 @@ O trecho de código fica enviando `OLAA` pela UART, e deve aparecer no dispositi
 
 # Conectando o PC ao bluetooth
 
-!!! tip "windows"
-	
-	1. Bluetooth Devices > Devices
-	1. There is an option called Bluetooth devices discovery set in default, change that to advanced.
-	1. Click add device then Bluetooth and it shoud appear the HC06.
+::: tip "windows"
+1. Bluetooth Devices > Devices
+1. There is an option called Bluetooth devices discovery set in default, change that to advanced.
+1. Click add device then Bluetooth and it shoud appear the HC06.
+:::
 
 Agora será necessário conectar o computador no HC-06, para isso temos que seguir tutoriais específicos de cada sistema operacional:
 

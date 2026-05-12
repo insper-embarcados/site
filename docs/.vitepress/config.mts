@@ -232,6 +232,7 @@ export default defineConfig({
             { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
             { text: 'Encoder', link: '/guides/dispositivos-encoder' },
             { text: 'LCD', link: '/guides/lcd-ili-gfx' },
+            { text: 'HC-06', link: '/guides/dispositivos-hc06' },
             { text: 'PicoDock', link: '/guides/picodock-index' },
             { text: 'Edge impulse cli', link: '/guides/expert-edge-impulse-cli' }
             

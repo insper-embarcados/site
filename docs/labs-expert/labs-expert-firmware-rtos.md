@@ -45,7 +45,7 @@ A entrega deve ser uma documentação das métricas no **README** do repositóri
 
 Tabela — Single Core:
 
-| Métrica \ Task     | mpu_task | fusion_task | uart_task | pwm_task |
+| Métrica / Task     | mpu_task | fusion_task | uart_task | pwm_task |
 | ------------------ | -------- | ----------- | --------- | -------- |
 | WCET               |          |             |           |          |
 | Jitter             |          |             |           |          |
@@ -54,7 +54,7 @@ Tabela — Single Core:
 
 Tabela — SMP (2 cores):
 
-| Métrica \ Task     | mpu_task | fusion_task | uart_task | pwm_task |
+| Métrica / Task     | mpu_task | fusion_task | uart_task | pwm_task |
 | ------------------ | -------- | ----------- | --------- | -------- |
 | WCET               |          |             |           |          |
 | Jitter             |          |             |           |          |
@@ -77,7 +77,7 @@ Instrumentalizando *stack size*:
 
 ### Parte 2 — SMP no FreeRTOS
 
-Ative o modo SMP no FreeRTOS e defina a afinidade de cada *task*.
+Ative o modo SMP no FreeRTOS e defina a afinidade de cada *task*. Usando os dados da tabela 1, defina o que é melhor.
 
 ### Parte 3 — Medindo em SMP
 
