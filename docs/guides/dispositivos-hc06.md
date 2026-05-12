@@ -23,7 +23,7 @@ No microcontrolador, iremos usar um **periférico** da pico chamado UART para re
 
 Já no computador iremos usar um programa em **python** que acessará a porta COM criada pelo sistema operacional para enviar e receber dados do microcontrolador via protocolo Bluetooth. Note que estamos lidando com o Bluetooth de forma "transparente", apenas como "usuários", toda a mágica acontece dentro do HC-06.
 
-::: tip "HC-05"
+::: tip HC-05
 Exsite um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
 :::
 
@@ -42,8 +42,9 @@ O exemplo faz uso dos pinos:
 - **HC-EN:** Ligado no **GP6** (configurar modo de funcionamento)
 
 ::: tip
-Opino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
-​:::
+O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
+:::
+
 
 ## Firmware
 
