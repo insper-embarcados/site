@@ -13,8 +13,8 @@ A primeira alternativa (`AMP`) consiste em executar dois `FreeRTOS` independente
 
 ## SMP
 
-!!! video
-    ![](https://www.youtube.com/watch?v=sSjSquKBNkw)
+
+<YouTube id="sSjSquKBNkw"/>
 
 A segunda solução é executar um único `FreeRTOS` entre os dois COREs, o que simplifica bastante, já que toda a parte de baixo nível fica sob a responsabilidade do `FreeRTOS`. Assim, o scheduler do `FreeRTOS` vai alocar uma tarefa por CORE. O `FreeRTOS` recentemente fez merge na branch principal de uma atualização que adiciona suporte ao symmetric multiprocessing (`SMP`), permitindo o agendamento e distribuição de tarefas entre processadores idênticos de um microcontrolador multicore.
 

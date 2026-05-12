@@ -1,15 +1,15 @@
 # Métricas RTOS
 
-Trabalhar com sistemas de tempo real envolve não só sabermos como projetar esses sistemas, mas também medirmos para verificar se estamos respeitando os requisitos de projeto, e então podermos afirmar que o sistema realmente funciona dentro das restrições temporais.
+Trabalhar com sistemas embarcados de tempo real envolve não apenas saber projetar o sistema, mas também avaliar de forma quantitativa. Essa avaliação é importante para vertificar se os requisitos temporais do projeto estão sendo respeitados. Somente assim, podemos afirmar que o sistema realmente funciona dentro das restrições temporais especificadas.
 
-Existem diversas métricas que podem ser utilizadas. Aqui iremos detalhar algumas das mais importantes para este laboratório. Outras podem ser encontradas em literaturas específicas:
+Existem diversas métricas que podem ser utilizadas. Aqui, iremos detalhar apenas algumas das mais importantes para o nosso curso. Outras métricas e abordagens mais avançadas podem ser encontradas em literaturas específicas:
 
 - Artigo [Building timing predictable embedded systems](https://dl.acm.org/doi/10.1145/2560033)
 - Livro [A Practical Introduction to Real-Time Systems (UW)](https://ece.uwaterloo.ca/~dwharder/icsrts/Lecture_materials/A_practical_introduction_to_real-time_systems_for_undergraduate_engineering.pdf?utm_source=chatgpt.com)
 
 ## Worst Case Execution Time (WCET)
 
-O WCET mede o pior tempo que uma tarefa (no nosso caso, uma task do RTOS) leva para ser executada. Esse valor pode ser obtido de duas formas:
+No caso de um sistema com RTOS, o `WCET` mede o pior tempo que uma tarefa (no nosso caso, uma task) leva para ser executar um ciclo completo de sua lógica. Esse valor pode ser obtido de duas formas:
 
 - Analítica: utilizando técnicas formais da teoria da computação e análise estática de código.
 - Empírica (exploratória): executando o firmware sob diferentes estímulos e medindo o pior tempo observado.
@@ -30,15 +30,15 @@ Considere uma task configurada para executar a cada **10 ms**.
 | 1        | 6.8 ms               |
 | 2        | 7.1 ms               |
 | 3        | 6.5 ms               |
-| 4        | 7.6 ms               |
+| `4`        | `7.9 ms`               |
 | 5        | 7.3 ms               |
-| 6        | 7.9 ms               |
+| 6        | 7.6 ms               |
 
 O maior valor observado foi:
 
 $WCET = 7.9\ \text{ms}$
 
-Como o período da task é **10 ms**, ainda existe uma margem de: $10 - 7.9 = 2.1\ \text{ms}$. Isso indica que, nas condições testadas, a task consegue cumprir seu deadline. Caso o WCET observado fosse superior a 10 ms, o sistema apresentaria *deadline misses*.
+Como o período da task é **10 ms**, ainda existe uma margem de: $10 - 7.9 = 2.1\ \text{ms}$. Isso indica que, nas condições testadas, a task consegue cumprir seu deadline dentro do escopo especificado. Caso o WCET observado fosse superior a 10 ms, o sistema apresentaria *`deadline misses`*.
 
 ### Como medir?
 
@@ -51,7 +51,7 @@ A forma mais confiável de medir é **instrumentalizar a task** usando um GPIO:
 
 A largura do pulso observado corresponde ao tempo de execução da task.
 
-Medindo vários pulsos ao longo do tempo e sob diferentes estímulos, o maior valor observado corresponde ao **MCET**.
+Medindo vários pulsos ao longo do tempo e sob diferentes estímulos, o maior valor observado corresponde ao **WCET**.
 
 Exemplo
 
@@ -121,7 +121,7 @@ Isso indica que, em 40% das vezes, a task não conseguiu terminar antes da próx
 
 ## Jitter
 
-O jitter é a variação temporal indesejada no instante em que uma tarefa periódica executa. Mesmo que uma task esteja configurada para rodar, por exemplo, a cada 10 ms, na prática ela não executa exatamente nesses instantes. Essa variação é o jitter.
+O `Jitter` é a variação temporal indesejada no instante em que uma tarefa periódica executa. Mesmo que uma task esteja configurada para rodar, por exemplo, a cada 10 ms, na prática ela não executa exatamente nesses instantes. Essa variação é o jitter.
 
 > Em sistemas de tempo real, não basta cumprir o período médio — é fundamental que o instante de execução seja previsível. o alto jitter em aplicações reais (áudio, controle, comunicação) pode causar:
 > 
@@ -196,14 +196,14 @@ Ao criar uma task, o tamanho da stack é definido no momento da chamada da funç
 xTaskCreate(
     vAudioTask,          // Função da task
     "AudioTask",         // Nome
-    stack_size,          // Tamanho da stack (palavras) // [!code focus]
+    stack_size,          // Tamanho da stack (palavras (words)) // [!code focus]
     NULL,                // Parâmetros
     prioridade,          // Prioridade
     NULL                 // Handle
 );
 ```
 
-O terceiro parâmetro define **quantas palavras** a stack terá.
+O terceiro parâmetro define **quantas palavras(words)** a stack terá.
 
 Escolher esse valor “no chute” é um erro comum e pode causar:
 
@@ -214,7 +214,8 @@ Escolher esse valor “no chute” é um erro comum e pode causar:
 
 > https://www.freertos.org/Documentation/02-Kernel/04-API-references/03-Task-utilities/04-uxTaskGetStackHighWaterMark
 
-O FreeRTOS fornece a função `uxTaskGetStackHighWaterMark` que retorna o tamanho máximo já oculpado pela stack. Ai podemos chamar na task:
+O FreeRTOS fornece a função `uxTaskGetStackHighWaterMark()` que retorna a menor quantidade de stack livre já observada desde que a task começou a rodar. Ai podemos chamar na task:
+
 
 ```c
 UBaseType_t watermark = uxTaskGetStackHighWaterMark(NULL);
@@ -241,4 +242,4 @@ Então:
 
 $Stack\ Usage = 1 - \frac{300}{1024} \approx 70\%$ que é $< 80\%$
 
-Isso indica um dimensionamento adequado (com base na regra que eu comentei dos 80%).
+Isso indica um dimensionamento adequado (com base na regra dos 80%).
