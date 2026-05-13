@@ -51,6 +51,14 @@ O laboratório deverá ser realizado em duas etapas:
 
 ## Parte 1
 
+::: info Repositório exemplo
+Nessa etapa você deve utilizar o código do repo exemplo:
+
+-  https://github.com/insper-embarcados/edgeimpulse-dataforwarding
+
+> Esse código não faz parte da entrega final, apenas serve para coletar dados.
+:::
+
 Aqui iremos coletar dados de aceleração, fazer o envio para o `edge-impluse` e treinar uma rede neural capaz de detectar os movimentos. Isso será feito utilizando um firmware que envia pela serial dados padronizados, um software fornecido pelo `edge-impulse` chamado de `data-forwarding` será executado a fim de transmitir os dados do PC para a plataforma online que serão classificados, com os dados classificados uma rede neural será treinada.
 
 ![](imgs-dsp/ia-dataforwarding.png)
@@ -69,6 +77,16 @@ Note que você deve escolher que estamos trabalhando com a RP 2350 (pico 2):
 ![](imgs-dsp/ai-edgeimpluse-device.png)
 
 ## Parte 2
+
+::: info Repositório exemplo
+Agora iremos utilizar um outro código exemplo:
+
+-  https://github.com/insper-embarcados/edgeimpulse-runner
+
+> Esse código deve ser copiado para a entrega final e modificado.
+:::
+
+
 
 ![](imgs-dsp/ai-runner.png)
 
