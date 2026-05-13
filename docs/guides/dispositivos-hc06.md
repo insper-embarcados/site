@@ -91,7 +91,7 @@ Essa rotina:
 
 Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos abaixo:
 
-![Exemplo de uso do terminal Python](https://github.com/insper-embarcados/pico-rtos-hc06-rx-tx/blob/main/imgs/tela.png)
+![Exemplo de uso do terminal Python](https://raw.githubusercontent.com/insper-embarcados/pico-rtos-hc06-rx-tx/refs/heads/main/imgs/tela.png)
 
 ### Rodando o `terminal.py`
 1. Navegue até a pasta `python` onde está localizado o arquivo `terminal.py`.
