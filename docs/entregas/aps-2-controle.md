@@ -17,9 +17,9 @@ links:
 
 <YouTube id="uCgnWqoP4MM"/>
 
+::: highlight
 O desafio é desenvolver um protótipo de um controle para um jogo de computador. 
-
-## Exemplos
+:::
 
 Veja alguns exemplos de entregas de semestres passados:
 
@@ -53,7 +53,7 @@ Veja alguns exemplos de entregas de semestres passados:
 ::: half
 :::
 
-## Rubrica
+## Entrega mínima (C)
 
 A ideia do controle é:
 
@@ -73,22 +73,6 @@ Funcionalidade esperada:
 - O jogo deve ser "jogável" com o controle (sem latência e validado pela equipe)
 - Todo o hardware deve estar integrado ao controle (bateria e tudo mais)
 
-O controle deve ser documentado no README do repositório e deve conter:
-
-- Jogo
-- Ideia do controle
-- Inputs e Outputs (sensores e atuadores)
-- Protocolo utilizado
-- Diagrama de blocos explicativo do firmware
-- Indicando tasks, filas, semáforos e ISR
-- Imagens do controle (proposta e real), e links para arquivos ou outras coisas úteis
-
-::: tip Qualidade de Código
-O código não deve possuir erros detectados pelas ferramentas de qualidade de código: `cppcheck` e `embedded-check`.
-
-Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.
-:::
-
 ### Expert
 
 Vocês deverão aplicar o lab de expert nesta APS, de forma muito similar ao que fizeram na APS passada. Os labs foram pensados para que pudessem ser aplicados aqui e contribuir para o projeto. Temos as seguintes combinações de expert que podem ser utilizadas:
@@ -103,15 +87,38 @@ Durante a apresentação, a equipe deverá justificar tecnicamente as decisões 
 Converse com a equipe do curso para ter ideias de como aplicar os labs.
 :::
 
+### Documentação
+
+O controle deve ser documentado no README do repositório e deve conter:
+
+- Jogo
+- Ideia do controle (projeto mecánico, scratch)
+- Inputs e Outputs (sensores e atuadores que irão utilizar)
+- Protocolo utilizado
+- Diagrama de blocos do firmware
+  - Indicando tasks, filas, semáforos e ISR
+- Imagens do controle (proposta e real), e links para arquivos ou outras coisas úteis
+  - (apenas para entrega final)
+  
+::: tip Qualidade de Código
+O código não deve possuir erros detectados pelas ferramentas de qualidade de código: `cppcheck` e `embedded-check`.
+
+Além disso, após o envio do projeto, o código passará por um processo de revisão manual, onde a equipe pode pedir revisões do código.
+:::
+
 ## Ganhando nota
 
 ::: info
 Conceitos acumulativos: pode fazer o que quiser para ir acumulando pontos. Se quiser incluir algum que não está aqui, mande mensagem ao professor.
 :::
 
+Entrega prévia:
 
 - <Badge type="warning" text="meio conceito"/> Entrega de design antecipada **(05/15)**
     - Entregar o README do projeto preenchido (vocês podem alterar depois se necessário)
+       
+Entrega final:
+
 - <Badge type="warning" text="meio conceito"/> Utiliza ADC e IMU em conjunto no controle
 - <Badge type="warning" text="meio conceito"/> Utiliza algum componente não visto em sala de aula
 - <Badge type="warning" text="meio conceito"/> Botão de macro (salva e reproduz uma série de comandos)
