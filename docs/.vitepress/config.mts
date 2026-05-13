@@ -107,7 +107,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 8. Diagramas',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/diagrama-pre' },
           { text: 'Prático', link: '/labs/diagrama-pra' }
@@ -115,7 +115,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 9. Expert 2',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Sobre', link: '/labs-expert/modulo-2-expert' },
           { text: 'Expert - AI', link: '/labs-expert/labs-expert-dsp-ia' },
