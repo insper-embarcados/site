@@ -47,11 +47,11 @@ O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto pa
 
 ## Firmware Exemplo
 
-O firmware utiliza FreeRTOS com quatro tarefas independentes e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
+O firmware utiliza FreeRTOS com duas tarefas (`tx_task` e `serial_task`) e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
 
 <!--![Diagrama de blocos do firmware](imgs-dispositivos/hc06/firmware.png) -->
 
-A `init_task` configura os pinos via `gpio_set_function`, a UART e chama `hc06_config(name, pin)` para definir o nome e PIN do dispositivo Bluetooth — depois se auto-destrói. A recepção é orientada por IRQ: a interrupção notifica a `rx_task` via *task notification*, que lê os bytes e enfileira-os. A `tx_task` consome a fila de envio e escreve na UART. A `serial_task` faz a ponte entre o terminal USB e o Bluetooth.
+A inicialização é feita diretamente no `main()`: configura a UART, chama `hc06_config(name, pin)` para definir o nome e PIN do dispositivo Bluetooth, e instala a interrupção de recepção. A recepção é orientada por IRQ: a ISR `uart_rx_handler` lê cada byte da UART e o enfileira em `xQueueRX` via `xQueueSendFromISR`. A `tx_task` consome a fila `xQueueTX` e escreve na UART. A `serial_task` faz a ponte entre o terminal USB e o Bluetooth: lê `xQueueRX` e imprime no PC, e lê entrada do PC colocando na `xQueueTX`.
 
 Ao inicializar, a UART de debug exibe o progresso da configuração do HC-06, testando primeiro 9600 baud e, se necessário, 115200 baud:
 
@@ -77,7 +77,6 @@ No caso ilustrado acima, a configuração ocorreu sem erros ou retries: o módul
 
 A sequência de inicialização e configuração automática é realizada pela função `hc06_config`, chamada pela `init_task` durante o boot do sistema:
 
-Essa rotina:
 - Coloca o HC-06 em modo AT
 - Tenta comunicar em 9600 e, se necessário, em 115200 baud, exibindo mensagens de progresso e erro
 - Ajusta o baudrate do módulo para 115200 se ele estiver em 9600
@@ -88,7 +87,7 @@ Essa rotina:
 
 Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos abaixo:
 
-![Exemplo de uso do terminal Python](imgs/tela.png)
+![Exemplo de uso do terminal Python](https://raw.githubusercontent.com/insper-embarcados/pico-rtos-hc06-rx-tx/refs/heads/main/imgs/tela.png)
 
 ### Rodando o `terminal.py`
 1. Navegue até a pasta `python` onde está localizado o arquivo `terminal.py`.
