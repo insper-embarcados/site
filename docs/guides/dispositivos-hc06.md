@@ -6,9 +6,9 @@
     https://github.com/insper-embarcados/pico-rtos-hc06-rx-tx
 :::
 
-O  [HC-06](https://www.olimex.com/Products/Components/RF/BLUETOOTH-SERIAL-HC-06/resources/hc06.pdf) é um módulo bluetooth popular (R$ 40) que pode funcionar como `device` , neste exemplo usaremos como device (conectando-se ao computador). O Computador (Windows ou Linux) virá enxergar o módulo HC-06 como um dispositivo bluetooth, e uma vez pareado o Windows irá criar uma porta COM (Serial --> Outgoing / Saída) associado a conexão, nessa porta faremos a recepção e envio dos dados via bluetooth.
+O  [HC-06](https://www.olimex.com/Products/Components/RF/BLUETOOTH-SERIAL-HC-06/resources/hc06.pdf) é um módulo bluetooth popular (R$ 40) que pode funcionar como `device` , neste exemplo usaremos como device (conectando-se ao computador). O computador (Windows ou Linux) irá enxergar o módulo HC-06 como um dispositivo Bluetooth, e, uma vez pareado, o Windows criará uma porta COM (Serial --> Outgoing / Saída) associada à conexão. Nessa porta, faremos a recepção e o envio dos dados via Bluetooth.
 
-O modulo será conectado ao microcontrolador através de uma comunicação UART (muito similar ao que vocês implementaram na disciplina Camada Física), o microcontrolador pode enviar dados para o computador por esta porta (TX) ou receber dados do computador (RX), conforme diagrama a seguir:
+O módulo será conectado ao microcontrolador através de uma comunicação UART (muito similar ao que vocês implementaram na disciplina Camada Física), o microcontrolador pode enviar dados para o computador por esta porta (TX) ou receber dados do computador (RX), conforme diagrama a seguir:
 
 ``` 
     +----------+           		+-------+             +----------+
@@ -24,7 +24,7 @@ No microcontrolador, iremos usar um **periférico** da pico chamado UART para re
 Já no computador iremos usar um programa em **python** que acessará a porta COM criada pelo sistema operacional para enviar e receber dados do microcontrolador via protocolo Bluetooth. Note que estamos lidando com o Bluetooth de forma "transparente", apenas como "usuários", toda a mágica acontece dentro do HC-06.
 
 ::: tip HC-05
-Exsite um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
+Existe um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
 :::
 
 ## Montagem do Exemplo
@@ -37,7 +37,7 @@ O exemplo faz uso dos pinos:
 
 - **HC-VCC:** 5V (alimentação)
 - **HC-GND**: GND (alimentação)
-- **HC-TX:** Ligado na **UART 1 - RX** (recebimento de dados)
+- **HC-TX:** Ligado ao **UART 1 - RX** (recebimento de dados)
 - **HC-RX:** Ligado na **UART 1 - TX** (transmissão de dados)
 - **HC-EN:** Ligado no **GP6** (configurar modo de funcionamento)
 
@@ -52,7 +52,7 @@ O firmware utiliza FreeRTOS com quatro tarefas independentes e duas filas de com
 
 <!--![Diagrama de blocos do firmware](imgs-dispositivos/hc06/firmware.png) -->
 
-A `init_task` configura os pinos via `gpio_set_function`, a UART e chama `hc06_config(name, pin)` para definir o nome e PIN do dispositivo Bluetooth — depois se auto-destrói. A recepção é orientada por IRQ: a interrupção notifica a `rx_task` via *task notification*, que lê os bytes e os enfileira. A `tx_task` consome a fila de envio e escreve na UART. A `serial_task` faz a ponte entre o terminal USB e o Bluetooth.
+A `init_task` configura os pinos via `gpio_set_function`, a UART e chama `hc06_config(name, pin)` para definir o nome e PIN do dispositivo Bluetooth — depois se auto-destrói. A recepção é orientada por IRQ: a interrupção notifica a `rx_task` via *task notification*, que lê os bytes e enfileira-os. A `tx_task` consome a fila de envio e escreve na UART. A `serial_task` faz a ponte entre o terminal USB e o Bluetooth.
 
 Ao inicializar, a UART de debug exibe o progresso da configuração do HC-06, testando primeiro 9600 baud e, se necessário, 115200 baud:
 
@@ -89,11 +89,30 @@ Essa rotina:
 
 # Testando
 
-Para testar a conexão rode o terminal.py e configure as portas COM conforme for necessário, assim você pode enviar comando da serial da pico para o bluetooth e do bluetooh para a pico e monitorar.
+Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos abaixo:
 
-Agora será necessário conectar o computador no HC-06, para isso temos que seguir tutoriais específicos de cada sistema operacional:
+![Exemplo de uso do terminal Python](imgs/tela.png)
 
-- [Linux](https://marcqueiroz.wordpress.com/aventuras-com-arduino/configurando-hc-06-bluetooth-module-device-no-ubuntu-12-04/)
-- [Windows](https://embeddedprogrammer.blogspot.com/2012/07/windows-communicating-with-hc-06.html)
+### Rodando o `terminal.py`
+1. Navegue até a pasta `python` onde está localizado o arquivo `terminal.py`.
+2. Execute o programa:
+   ```bash
+   python terminal.py
+   ```
+3. Configure o programa para selecionar a porta COM e o BAUDRATE:
 
-Após conectado é só selecionar a porta criado por cada um dos sistemas operacionais.
+   - **Pico UART** (à esquerda).
+   - **HC-06 (Bluetooth)** (à direita)
+
+
+### Enviando e Recebendo Dados
+- As mensagens enviadas pelo Bluetooth (via HC-06) serão exibidas no terminal USB conectado a Pico, e vice-versa.
+- Este é um jeito simples e direto de validar tanto as conexões físicas quanto o fluxo de dados do firmware.
+
+### Conectando o Computador ao HC-06
+Agora será necessário parear o HC-06 com o computador. Siga os tutoriais específicos para o seu sistema operacional:
+
+- **[Linux](https://marcqueiroz.wordpress.com/aventuras-com-arduino/configurando-hc-06-bluetooth-module-device-no-ubuntu-12-04/)**
+- **[Windows](https://embeddedprogrammer.blogspot.com/2012/07/windows-communicating-with-hc-06.html)**
+
+Ao terminar o pareamento, selecione a porta COM criada pelo sistema operacional no `terminal.py` e comece seu teste.
