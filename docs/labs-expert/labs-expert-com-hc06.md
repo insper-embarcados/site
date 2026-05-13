@@ -24,7 +24,7 @@ Antes de começar o lab, rode e entenda os materiais de referência abaixo:
 
 ::::: center
 :::: third Exemplo 1
-::: card [Bluetooth HC-06 e FreeRTOS](https://github.com/insper-embarcados/pico-rtos-hc06-rx-tx)
+::: card [Bluetooth HC-06 e FreeRTOS](https://insper-embarcados.github.io/site/guides/dispositivos-hc06.html)
 :::
 ::::
 :::: third Exemplo 2

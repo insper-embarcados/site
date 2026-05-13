@@ -3,7 +3,7 @@
 ::: info Código exemplo
     Usar o código exemplo em:
     
-    https://github.com/insper-embarcados/pico-rtos-hc06
+    https://github.com/insper-embarcados/pico-rtos-hc06-rx-tx
 :::
 
 O  [HC-06](https://www.olimex.com/Products/Components/RF/BLUETOOTH-SERIAL-HC-06/resources/hc06.pdf) é um módulo bluetooth popular (R$ 40) que pode funcionar como `device` , neste exemplo usaremos como device (conectando-se ao computador). O Computador (Windows ou Linux) virá enxergar o módulo HC-06 como um dispositivo bluetooth, e uma vez pareado o Windows irá criar uma porta COM (Serial --> Outgoing / Saída) associado a conexão, nessa porta faremos a recepção e envio dos dados via bluetooth.
@@ -27,7 +27,7 @@ Já no computador iremos usar um programa em **python** que acessará a porta CO
 Exsite um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
 :::
 
-## Exemplo
+## Montagem do Exemplo
 
 Conecte o hardware como indicado a seguir:
 
@@ -46,66 +46,50 @@ O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto pa
 :::
 
 
-## Firmware
+# Firmware do Exemplo
 
-O firmware fornecido no exemplo possui uma task e um driver para comunicar com o bluetooth via o protocolo serial:
+O firmware utiliza FreeRTOS com quatro tarefas independentes e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
 
-```c
-void hc06_task(void *p) {
-    uart_init(HC06_UART_ID, HC06_BAUD_RATE);
-    gpio_set_function(HC06_TX_PIN, GPIO_FUNC_UART);
-    gpio_set_function(HC06_RX_PIN, GPIO_FUNC_UART);
-    hc06_init("aps2_legal", "1234");
+<!--![Diagrama de blocos do firmware](imgs-dispositivos/hc06/firmware.png) -->
 
-    while (true) {
-        uart_puts(HC06_UART_ID, "OLAAA ");
-        vTaskDelay(pdMS_TO_TICKS(100));
-    }
-}
-```
+A `init_task` configura os pinos via `gpio_set_function`, a UART e chama `hc06_config(name, pin)` para definir o nome e PIN do dispositivo Bluetooth — depois se auto-destrói. A recepção é orientada por IRQ: a interrupção notifica a `rx_task` via *task notification*, que lê os bytes e os enfileira. A `tx_task` consome a fila de envio e escreve na UART. A `serial_task` faz a ponte entre o terminal USB e o Bluetooth.
 
-As funções iniciais da task são responsáveis por configurar o módulo UART e a função principal `bool hc06_init(char name[], char pin[])` faz a configuração do Bluetooth, com seguintes parâmetros:
-
-- `name`: Nome do bluetooth que aparecerá quando procurar o dispositivo.
-- `pin `: Senha de 4 dígitos que pode ser requisitada ao se conectar no dispositivo.
-
-Se conectado corretamente, ao executar o código vocês devem obter isso na serial (debug):
+Ao inicializar, a UART de debug exibe o progresso da configuração do HC-06, testando primeiro 9600 baud e, se necessário, 115200 baud:
 
 ```
-check connection
-connected
+Tentando baud = 9600...
+Conectado!
 
-set name
-name ok
+Alterando baud rate para 115200...
+Baud rate OK
 
-set pin
-pin ok
+Configurando nome...
+Nome OK
+
+Configurando PIN...
+PIN OK
+
+HC-06 configurado!
 ```
 
-A função `hc06_init` faz a seguinte inicialização:
-
-![](imgs-dispositivos/hc06/state.png)
-
-### Enviando dados para o bluetooth
-
-Após iniciado o hardware, basta colocarmos `0` no pino `EN` e que toda informação enviada para a `UART 1` será enviada automaticamente para o bluetooth.
-
-```c
-    while (true) {
-        uart_puts(HC06_UART_ID, "OLAAA ");
-        vTaskDelay(pdMS_TO_TICKS(100));
-    }
-```
-
-O trecho de código fica enviando `OLAA` pela UART, e deve aparecer no dispositivo quando conectado ao bluetooth.
-
-# Conectando o PC ao bluetooth
-
-::: tip "windows"
-1. Bluetooth Devices > Devices
-1. There is an option called Bluetooth devices discovery set in default, change that to advanced.
-1. Click add device then Bluetooth and it shoud appear the HC06.
+::: warning
+No caso ilustrado acima, a configuração ocorreu sem erros ou retries: o módulo respondeu logo na primeira tentativa. Se o módulo estiver em outro baud rate, o firmware exibirá mensagens adicionais indicando novas tentativas até que a comunicação seja estabelecida.
 :::
+
+
+A sequência de inicialização e configuração automática é realizada pela função `hc06_config`, chamada pela `init_task` durante o boot do sistema:
+
+Essa rotina:
+- Coloca o HC-06 em modo AT
+- Tenta comunicar em 9600 e, se necessário, em 115200 baud, exibindo mensagens de progresso e erro
+- Ajusta o baudrate do módulo para 115200 se ele estiver em 9600
+- Configura o nome e PIN, repetindo em caso de falhas
+- Restaura o modo normal após terminar
+
+
+# Testando
+
+Para testar a conexão rode o terminal.py e configure as portas COM conforme for necessário, assim você pode enviar comando da serial da pico para o bluetooth e do bluetooh para a pico e monitorar.
 
 Agora será necessário conectar o computador no HC-06, para isso temos que seguir tutoriais específicos de cada sistema operacional:
 
