@@ -9,8 +9,6 @@ links:
     text: "PrairieLearn"
     url: "{{prairielearn}}"
     box: "box-yellow"
-  - title: "30% da nota de lab"
-    box: "box-green"
 ---
 
 # Expert - Bluetooth - RTOS

@@ -40,16 +40,30 @@ Esta configuração só funciona com versões específicas do FreeRTOS. Use como
 :::
 
 
-Para ativarmos o `SMP` em nossos projetos, precisamos editar o arquivo `freertos/FreeRTOSConfig.h`, modificando as seguintes linhas:
+Para ativarmos o `SMP` em nossos projetos, precisamos editar o arquivo `main/CMakeList.txt` e defirmos agora que iremos trabalhar com 2 cores:
 
 ```diff
-#if FREE_RTOS_KERNEL_SMP // set by the RP2040 SMP port of FreeRTOS
+target_compile_definitions(pico_emb PRIVATE
+-    configNUMBER_OF_CORES=1
++    configNUMBER_OF_CORES=2
+    )
+```
+
+Isso modifica a configuração do FreeRTOS, analise o arquivo `FreeRTOSConfig.h` que está na mesma pasta, a modifição irá alterar:
+
+```diff
+#if FREE_RTOS_KERNEL_SMP // set by the RP2xxx SMP port of FreeRTOS
 /* SMP port only */
-+#define configNUMBER_OF_CORES 2
-#define configUSE_PASSIVE_IDLE_HOOK 0
-#define configTICK_CORE 0
-#define configRUN_MULTIPLE_PRIORITIES 1
-+#define configUSE_CORE_AFFINITY 1
+#ifndef configNUMBER_OF_CORES
+#define configNUMBER_OF_CORES                   2
+#endif
++#define configNUM_CORES                         configNUMBER_OF_CORES
+#define configTICK_CORE                         0
+#define configRUN_MULTIPLE_PRIORITIES           1
+#if configNUMBER_OF_CORES > 1
++#define configUSE_CORE_AFFINITY                 1
+#endif
+#define configUSE_PASSIVE_IDLE_HOOK             0
 #endif
 ```
 

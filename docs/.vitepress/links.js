@@ -28,4 +28,8 @@ export const links = {
 
   lab_pre_diagrama: "https://us.prairielearn.com/pl/course_instance/210559/assessment/2647128",
   lab_pra_diagrama: "https://us.prairielearn.com/pl/course_instance/210559/assessment/2647127",
+
+  lab_expert_2: "https://classroom.github.com/a/o570SnAT",
+
+  aps_2: "https://classroom.github.com/a/N_07cFqn",
 }
