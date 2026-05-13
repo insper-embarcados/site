@@ -27,7 +27,7 @@ Já no computador iremos usar um programa em **python** que acessará a porta CO
 Existe um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
 :::
 
-## Montagem do Exemplo
+# Montagem do Exemplo
 
 Conecte o hardware como indicado a seguir:
 
@@ -109,8 +109,8 @@ Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos
 - As mensagens enviadas pelo Bluetooth (via HC-06) serão exibidas no terminal USB conectado a Pico, e vice-versa.
 - Este é um jeito simples e direto de validar tanto as conexões físicas quanto o fluxo de dados do firmware.
 
-### Conectando o Computador ao HC-06
-Agora será necessário parear o HC-06 com o computador. Siga os tutoriais específicos para o seu sistema operacional:
+# Conectando o Computador ao HC-06
+Caso você não saiba como parear o HC-06 com o seus respectivo sistema operacional, siga o tutorial específico:
 
 - **[Linux](https://marcqueiroz.wordpress.com/aventuras-com-arduino/configurando-hc-06-bluetooth-module-device-no-ubuntu-12-04/)**
 - **[Windows](https://embeddedprogrammer.blogspot.com/2012/07/windows-communicating-with-hc-06.html)**
