@@ -18,7 +18,7 @@ Para mais informações, leia o site do FreeRTOS sobre filas:
 
 Mailbox/`queue` é uma das maneiras de enviarmos dados entre tarefas em um sistema operacional. Com ele, podemos comunicar interrupção com tarefa e tarefa com tarefa, enviando valores (diferente do semáforo que só funciona de forma binária).
 
-::: note
+::: info
 Queues are the primary form of intertask communications. They can be used to send messages between tasks, and between interrupts and tasks. In most cases they are used as thread safe FIFO (First In First Out) buffers with new data being sent to the back of the queue, although data can also be sent to the front. 
 
 Writing to and reading from a queue. In this example the queue was created to hold 5 items, and the queue never becomes full.
