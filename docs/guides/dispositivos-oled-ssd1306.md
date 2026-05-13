@@ -139,9 +139,3 @@ Se a tela permanecer em branco, confira os pontos abaixo:
 ### Comportamento esperado
 
 Quando as entradas mudarem de estado, o conteúdo exibido no OLED também deve mudar imediatamente após a próxima atualização do laço principal.
-
-## Considerações Finais
-
-Esta versão é mais simples do que a anterior porque dispensa a placa adaptadora e usa apenas a ligação direta entre o OLED e a Raspberry Pi Pico.
-
-O uso de I2C com o SSD1306 é suficiente para displays pequenos como o de **128 x 32 pixels**, mantendo o projeto enxuto, didático e fácil de montar.

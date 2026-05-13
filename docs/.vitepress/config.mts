@@ -229,13 +229,14 @@ export default defineConfig({
           text: 'Diversos',
           collapsed: false,
           items: [
+
             { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
             { text: 'Encoder', link: '/guides/dispositivos-encoder' },
+            { text: 'Edge impulse cli', link: '/guides/expert-edge-impulse-cli' },
+	    { text: 'HC-06', link: '/guides/dispositivos-hc06' },
             { text: 'LCD', link: '/guides/lcd-ili-gfx' },
-            { text: 'HC-06', link: '/guides/dispositivos-hc06' },
-            { text: 'PicoDock', link: '/guides/picodock-index' },
-            { text: 'Edge impulse cli', link: '/guides/expert-edge-impulse-cli' }
-            
+            { text: 'OLED-SS1306', link: '/guides/dispositivos-oled-ssd1306' },
+            { text: 'PicoDock', link: '/guides/picodock-index' }
             
           ]
         },
