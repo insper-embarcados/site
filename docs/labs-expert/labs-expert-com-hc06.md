@@ -28,7 +28,7 @@ Antes de começar o lab, rode e entenda os materiais de referência abaixo:
 :::
 ::::
 :::: third Exemplo 2
-::: card [Exemplo OLED (em breve)]()
+::: card [OLED SSD1306](https://insper-embarcados.github.io/site/guides/dispositivos-oled-ssd1306html)
 :::
 ::::
 :::: third
