@@ -1,9 +1,9 @@
 # HC-06
 
 ::: info Código exemplo
-    Usar o código exemplo em:
-    
-    https://github.com/insper-embarcados/pico-rtos-hc06-rx-tx
+Usaro código exemplo em:
+
+- https://github.com/insper-embarcados/pico-rtos-hc06-rx-tx
 :::
 
 O  [HC-06](https://www.olimex.com/Products/Components/RF/BLUETOOTH-SERIAL-HC-06/resources/hc06.pdf) é um módulo bluetooth popular (R$ 40) que pode funcionar como `device` , neste exemplo usaremos como device (conectando-se ao computador). O computador (Windows ou Linux) irá enxergar o módulo HC-06 como um dispositivo Bluetooth, e, uma vez pareado, o Windows criará uma porta COM (Serial --> Outgoing / Saída) associada à conexão. Nessa porta, faremos a recepção e o envio dos dados via Bluetooth.
@@ -27,7 +27,7 @@ Já no computador iremos usar um programa em **python** que acessará a porta CO
 Existe um outro dispositivo similar chamado de HC-05, esse módulo é mais completo e pode funcionar como `device` ou `host`.
 :::
 
-## Montagem do Exemplo
+## Montagem Exemplo
 
 Conecte o hardware como indicado a seguir:
 
@@ -45,8 +45,7 @@ O exemplo faz uso dos pinos:
 O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
 :::
 
-
-# Firmware do Exemplo
+## Firmware Exemplo
 
 O firmware utiliza FreeRTOS com quatro tarefas independentes e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
 
@@ -76,7 +75,6 @@ HC-06 configurado!
 No caso ilustrado acima, a configuração ocorreu sem erros ou retries: o módulo respondeu logo na primeira tentativa. Se o módulo estiver em outro baud rate, o firmware exibirá mensagens adicionais indicando novas tentativas até que a comunicação seja estabelecida.
 :::
 
-
 A sequência de inicialização e configuração automática é realizada pela função `hc06_config`, chamada pela `init_task` durante o boot do sistema:
 
 Essa rotina:
@@ -86,8 +84,7 @@ Essa rotina:
 - Configura o nome e PIN, repetindo em caso de falhas
 - Restaura o modo normal após terminar
 
-
-# Testando
+## Testando
 
 Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos abaixo:
 
@@ -104,12 +101,13 @@ Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos
    - **Pico UART** (à esquerda).
    - **HC-06 (Bluetooth)** (à direita)
 
-
 ### Enviando e Recebendo Dados
+
 - As mensagens enviadas pelo Bluetooth (via HC-06) serão exibidas no terminal USB conectado a Pico, e vice-versa.
 - Este é um jeito simples e direto de validar tanto as conexões físicas quanto o fluxo de dados do firmware.
 
 ### Conectando o Computador ao HC-06
+
 Agora será necessário parear o HC-06 com o computador. Siga os tutoriais específicos para o seu sistema operacional:
 
 - **[Linux](https://marcqueiroz.wordpress.com/aventuras-com-arduino/configurando-hc-06-bluetooth-module-device-no-ubuntu-12-04/)**
