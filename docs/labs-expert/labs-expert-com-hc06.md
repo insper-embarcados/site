@@ -57,30 +57,21 @@ A ideia deste laboratório é implementar um sistema interativo de pareamento do
 
 ## Entrega
 
-![Texto Alternativo](imgs-hc06/diagrama-EXPERT-BT.png)
+![entrega_EXPERT-BT](imgs-hc06/diagrama-EXPERT-BT.png)
 
-Você deverá integrar a aplicação desenvolvida neste laboratório ao projeto do [Lab 6. ADC e PWM](https://insper-embarcados.github.io/site/labs/adc-pwm-pra.html), criando assim um mouse wireless utilizando Bluetooth.
+Você deverá integrar a aplicação desenvolvida neste laboratório ao projeto do [Lab 6. ADC e PWM](https://insper-embarcados.github.io/site/labs/adc-pwm-pra.html), criando assim um mouse wireless (com iluminação RGB) utilizando Bluetooth.
 
 O projeto final deverá obrigatoriamente possuir:
 
 - O sistema de sincronização Bluetooth desenvolvido neste laboratório
-  - Geração de PIN randômico
+  - Geração e exibição do PIN randômico no display OLED
   - Configuração automática do HC-06
-  - Exibição do PIN no display OLED
   - Pareamento utilizando botão físico
 
 - Um programa em Python no computador responsável por:
-  - Receber os dados enviados pela Raspberry Pi Pico
-  - Interpretar os comandos recebidos
-  - Converter os dados em movimentação do mouse
+  - Receber os dados enviados pela Pico e converter em movimento do mouse
+  - Enviar dados de configuração do LED RGB, alterando as cores Vermelho, Verde ou Azul.
 
-O sistema deverá implementar os seguintes comandos de movimentação:
-
-| Comando | Funcionamento |
-|---|---|
-| `vertical` | O mouse deverá se mover apenas no eixo vertical (Y) |
-| `horizontal` | O mouse deverá se mover apenas no eixo horizontal (X) |
-| `ambos` | O mouse deverá se mover simultaneamente nos eixos horizontal e vertical |
 
 ## Dicas
 
