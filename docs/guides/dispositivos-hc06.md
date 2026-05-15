@@ -47,7 +47,10 @@ O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto pa
 
 ## Firmware Exemplo
 
+
+
 ![Diagrama de blocos do firmware](imgs-dispositivos/hc06/firmware.png)
+
 
 
 O firmware utiliza FreeRTOS com duas tarefas (`tx_task` e `serial_task`) e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
