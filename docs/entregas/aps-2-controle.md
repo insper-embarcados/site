@@ -51,6 +51,7 @@ Veja alguns exemplos de entregas de semestres passados:
 <YouTube id="YVrig4paHU"/>
 :::
 ::: half
+<YouTube id="72-BhcwcOMQ"/>
 :::
 
 ## Entrega mínima (C)
