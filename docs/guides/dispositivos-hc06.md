@@ -47,9 +47,13 @@ O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto pa
 
 ## Firmware Exemplo
 
-O firmware utiliza FreeRTOS com duas tarefas (`tx_task` e `serial_task`) e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
 
-<!--![Diagrama de blocos do firmware](imgs-dispositivos/hc06/firmware.png) -->
+
+![Diagrama de blocos do firmware](imgs-dispositivos/hc06/firmware.png)
+
+
+
+O firmware utiliza FreeRTOS com duas tarefas (`tx_task` e `serial_task`) e duas filas de comunicação (`xQueueRX` e `xQueueTX`).
 
 A inicialização é feita diretamente no `main()`: configura a UART, chama `hc06_config(name, pin)` para definir o nome e PIN do dispositivo Bluetooth, e instala a interrupção de recepção. A recepção é orientada por IRQ: a ISR `uart_rx_handler` lê cada byte da UART e o enfileira em `xQueueRX` via `xQueueSendFromISR`. A `tx_task` consome a fila `xQueueTX` e escreve na UART. A `serial_task` faz a ponte entre o terminal USB e o Bluetooth: lê `xQueueRX` e imprime no PC, e lê entrada do PC colocando na `xQueueTX`.
 
