@@ -2,7 +2,7 @@
 linkstitle: "Praticando"
 links:
   - title:
-    text: "classroom"
+    text: "Banco de exercícios"
     url: "{{modulo_2_banco_exercicios}}"
     box: "box-blue"
 ---
@@ -53,6 +53,27 @@ A nota da prova é binária, todos os requisitos precisam ser cumpridos para gan
 A duração total da avaliação será de 2h, não haverá ajuda de ninguém da equipe durante a realização da prova e vocês **não poderão utilizar LLM**. Vocês podem consultar os seus próprios códigos e o site da disciplina.
 
 ## Praticando
+
+::::: center
+:::: third 
+::: box-blue 1. Praticando
+[:memo: Exercícios para prática](https://classroom.github.com/a/_wS3CzoG)
+:::
+::::
+:::: third
+::: box-yellow 2. Durante a prova
+ :alarm_clock: 2h de duração
+:::
+::::
+:::: third
+::: box Nota
+ :sparkles: Não pode usar LLM 
+:::
+::::
+:::: third
+::::
+:::::
+
 
 Como o formato da prova é novo não possuímos nenhum "simulado", mas vocês vão poder praticar com exercícios de provas dos anos passados. Notem que o formato é diferente, mas vai ser um bom exercício para praticarem.
 
