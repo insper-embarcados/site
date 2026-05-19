@@ -32,4 +32,6 @@ export const links = {
   lab_expert_2: "https://classroom.github.com/a/o570SnAT",
 
   aps_2: "https://classroom.github.com/a/N_07cFqn",
+
+  modulo_2_banco_exercicios: "https://classroom.github.com/a/_wS3CzoG"
 }
