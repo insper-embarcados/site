@@ -259,10 +259,11 @@ export default defineConfig({
             { text: 'Sobre', link: '/guides/freertos-basic' },
             { text: 'Tasks', link: '/guides/freertos-tasks' },
             { text: 'Delay', link: '/guides/freertos-vtaskDelay' },
+            { text: 'Timer', link: '/guides/freertos-software-time' },
             { text: 'Semaphore', link: '/guides/freertos-semaphore' },
             { text: 'Queue', link: '/guides/freertos-queue' },
             { text: 'Queue Structure', link: '/guides/freertos-queue-advanced' },
-            { text: 'Timer', link: '/guides/freertos-software-time' },
+            { text: 'Mutex', link: '/guides/freertos-mutex' },
             { text: 'SMP', link: '/guides/freertos-smp' },
             { text: 'Metricas', link: '/guides/freertos-metrics' },
             { text: 'Consultas', link: '/guides/freertos-snippets' }
