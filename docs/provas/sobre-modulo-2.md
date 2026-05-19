@@ -1,24 +1,13 @@
 # Avaliação prática - Módulo 2
 
-::::: center
-:::: third 
-::: box-blue 1. Praticando
-[:memo: Exercícios para prática]({{modulo_2_banco_exercicios}})
-:::
-::::
-:::: third
-::: box-yellow 2. Durante a prova
- :alarm_clock: 2h de duração
-:::
-::::
-:::: third
-::: box Nota
- :sparkles: Não pode usar LLM 
-:::
-::::
-:::: third
-::::
-:::::
+---
+linkstitle: "Praticando"
+links:
+  - title:
+    text: "classroom"
+    url: "{{modulo_2_banco_exercicios}}"
+    box: "box-blue"
+---
 
 ::: box-red
 Para ser aprovado na disciplina é preciso ter sido aprovado nessa avaliação.
@@ -62,27 +51,11 @@ A duração total da avaliação será de 2h, não haverá ajuda de ninguém da 
 
 Como o formato da prova é novo não possuímos nenhum "simulado", mas vocês vão poder praticar com exercícios de provas dos anos passados. Notem que o formato é diferente, mas vai ser um bom exercício para praticarem.
 
-A maioria dos exercícios possui teste automatizado.
+A maioria dos exercícios possui teste automatizado, mas não confie neles. O Wokwi pode indicar que está errado, mas o seu está certo.
 
-::::: center
-:::: third 
-::: box-blue Praticando
-[:memo: Exercícios para prática]({{modulo_2_banco_exercicios}})
+::: info
+Não teste apenas no simulado, execute alguns dos exercícios também na placa.
 :::
-::::
-:::: third
-::: box Cuidado
-Esses exercícios são para praticar, não conte que vai cair algo similar
-:::
-::::
-:::: third
-::: box-red LLM
- :sparkles: Praticar sem LLM (na prova não vai poder usar)
-:::
-::::
-:::: third
-::::
-:::::
 
 ## FAQ
 
@@ -113,7 +86,9 @@ Validação:
 Hardware:
 
 - Já venham para a prova com três botões e três LEDs configurados, vai poupar tempo.
-- NÃO SOFRAM COM DEBOUNCE!! Usem capacitores nos botões para tirar o bounce!!
+    - NÃO SOFRAM COM DEBOUNCE!! Usem capacitores nos botões para tirar o bounce!!
+- Um led pwm
+- Um analógico
 
 Ajuda!!
 
