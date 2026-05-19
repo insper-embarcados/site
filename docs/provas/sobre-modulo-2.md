@@ -15,7 +15,7 @@ Para ser aprovado na disciplina é preciso ter sido aprovado nessa avaliação.
 - Serão duas chances: uma durante a AF e outra durante a AS.
 :::
 
-Pense nessa avaliação como um laboratório prático, onde terão que aplicar o que aprenderam para resolver um problema. Na avaliação prática individual do módulo 2 vocês precisarão solucionar um problema que contará com:
+Pense nessa avaliação como um laboratório prático, onde terão que aplicar o que aprenderam para resolver um problema. Na avaliação prática individual do módulo 2 vocês precisarão solucionar um problema que contará com desafios de RTOS:
 
 - Interrupção 
 - Tasks
@@ -24,6 +24,11 @@ Pense nessa avaliação como um laboratório prático, onde terão que aplicar o
 - Timeout
 - Seguir um diagrama de blocos (diagrama -> código)
 - Qualidade de código
+
+E também com:
+
+- PWM
+- Entrada analógica
 
 ## Teste no hardware
 
