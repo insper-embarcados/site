@@ -124,7 +124,7 @@ const sidebarModulos = [
         ]
       },
       { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' },
-      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' }
+      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-2' }
     ]
   },
   /**
