@@ -1,5 +1,3 @@
-# Avaliação prática - Módulo 2
-
 ---
 linkstitle: "Praticando"
 links:
@@ -8,6 +6,8 @@ links:
     url: "{{modulo_2_banco_exercicios}}"
     box: "box-blue"
 ---
+
+# Avaliação prática - Módulo 2
 
 ::: box-red
 Para ser aprovado na disciplina é preciso ter sido aprovado nessa avaliação.
