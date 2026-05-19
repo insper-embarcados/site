@@ -74,7 +74,7 @@ const sidebarModulos = [
         ]
       },
       { text: 'APS 1. Genius', link: '/entregas/aps-1-genius' },
-      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-1' },
+      { text: '🎓 Avaliação prática - 1', link: '/provas/sobre-modulo-1' },
     ]
   },
   {
@@ -124,7 +124,7 @@ const sidebarModulos = [
         ]
       },
       { text: 'APS 2. Controle', link: '/entregas/aps-2-controle' },
-      { text: '🎓 Avaliação prática', link: '/provas/sobre-modulo-2' }
+      { text: '🎓 Avaliação prática - 2', link: '/provas/sobre-modulo-2' }
     ]
   },
   /**
