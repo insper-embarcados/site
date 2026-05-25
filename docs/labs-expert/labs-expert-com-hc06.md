@@ -97,9 +97,9 @@ O projeto final deverá obrigatoriamente possuir:
   - Ceritique-se que o módulo está conectado, usando o pino STATE do HC-06 ou fazer com que o python envie via protocolo, uma indicação de que o módulo está conectado (xQueueRX do exemplo), para alternar entre animar o LED ou mantê-lo aceso.
 
 - **Modificar o python**
-  - Modificar a interface do python utilizado no lab [Lab 6. ADC e PWM](https://insper-embarcados.github.io/site/labs/adc-pwm-pra.html)
+  - Modificar a interface do python utilizado no lab [Lab 6. ADC e PWM](https://insper-embarcados.github.io/site/labs/adc-pwm-pra.html).
   - Defina um protocolo simples para envio das mensagens, facilitando a interpretação dos comandos pela Pico.
-
+  - Adicione componentes (Botões / Sliders) para enviar os comandos de configuração das cores do LED RGB.
 
 ::: tip Pareado x Conectado
 `Pareado` significa que o dispositivo Bluetooth já foi autenticado anteriormente e as credenciais (PIN/senha) foram salvas.
