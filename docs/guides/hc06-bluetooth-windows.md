@@ -12,9 +12,13 @@ Abra o gerenciador de dispositivos Bluetooth de uma das formas abaixo:
 - Clique em **"Adicionar dispositivo"**
 - Selecione **Bluetooth** na janela que abrir
 
+![Adicionar dispositivo Bluetooth](imgs-bluetooth/bt-adicionar.png)
+
 O Windows 11 iniciará a busca por dispositivos Bluetooth próximos — certifique-se de que o módulo HC-06 esteja energizado neste momento.
 
 > **Dica:** caso o HC-06 não apareça na lista, role até o final da janela e clique em **"Mostrar todos os dispositivos Bluetooth"**. Isso força o Windows a exibir dispositivos clássicos (BR/EDR) que podem ficar ocultos na visualização padrão.
+
+![Adicionar dispositivo Bluetooth](imgs-bluetooth/bt-mostrar-todos.png)
 
 ---
 
@@ -41,6 +45,8 @@ Para visualizar as portas atribuídas, abra as **Configurações de Bluetooth**:
    - **Entrada** — usada pelo módulo para enviar dados ao PC
    - **Saída (Outgoing)** — usada pelo PC para enviar dados ao módulo
 4. Anote a porta de **Saída** (ex: `COM11`) — é ela que deve ser usada nos scripts e terminais
+
+![Adicionar dispositivo Bluetooth](imgs-bluetooth/bt-PortasCOM.png)
 
 ---
 
