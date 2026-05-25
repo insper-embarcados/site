@@ -43,6 +43,9 @@ O exemplo faz uso dos pinos:
 
 ::: tip
 O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
+
+Quando conectado, o pino `STATE` fica em nível lógico 1. Na função hc06_config() do códgio exemplo, o pino HC06_STATE_PIN é configurado como entrada (sem pull-up).
+
 :::
 
 ## Firmware Exemplo
