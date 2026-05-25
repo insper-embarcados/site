@@ -95,7 +95,7 @@ O projeto final deverá obrigatoriamente possuir:
 
 - **Lógica do LED PWM para status**
   - Para efeito de fade, incremente/decremente gradualmente o duty cycle dentro de uma task periódica.
-  - Ceritique-se que o módulo está conectado, usandoo pino STATE do HC-06 ou aguardar que o python envie um estado de conectado, para alternar entre animar o LED ou mantê-lo aceso.
+  - Ceritique-se que o módulo está conectado, usando o pino STATE do HC-06 ou fazer com que o python envie via protocolo, uma indicação de que o módulo está conectado (xQueueRX do exemplo), para alternar entre animar o LED ou mantê-lo aceso.
 
 ::: tip Pareado x Conectado
 `Pareado` significa que o dispositivo Bluetooth já foi autenticado anteriormente e as credenciais (PIN/senha) foram salvas.
