@@ -64,13 +64,12 @@ Você deverá integrar a aplicação desenvolvida neste laboratório ao projeto 
 O projeto final deverá obrigatoriamente possuir:
 
 - O sistema de sincronização Bluetooth desenvolvido neste laboratório
-  - Geração e exibição do PIN randômico no display OLED
-  - Configuração automática do HC-06
-  - Pareamento utilizando botão físico
+  - Geração do PIN randômico através do botão, exibindo no display OLED
+  - O computador deverá parear com o módulo hc-06 através do PIN gerado
 
-- Um programa em Python no computador responsável por:
-  - Receber os dados enviados pela Pico e converter em movimento do mouse
-  - Enviar dados de configuração do LED RGB, alterando os padrão parab Vermelho, Verde ou Azul, como por exmeplo:
+- Um programa em Python rodando no computador, responsável por:
+  - **Receber** os dados enviados pela Pico e converter em movimento do mouse
+  - **Enviar** dados de configuração do LED RGB, alterando os padrões para as cores Vermelho, Verde ou Azul, como por exmeplo:
           - Botões + / - para aumentar e diminuir o brilho de cada cor
           - Sliders em que seja possível controlar a frequência de piscada de cada cor
 
