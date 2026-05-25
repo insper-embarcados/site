@@ -124,7 +124,7 @@ Para validar o funcionamento do HC-06 e testar sua comunicação, siga os passos
 
 Agora será necessário parear o HC-06 com o computador. Siga os tutoriais específicos para o seu sistema operacional:
 
-- **[Linux](https://marcqueiroz.wordpress.com/aventuras-com-arduino/configurando-hc-06-bluetooth-module-device-no-ubuntu-12-04/)**
+- **[Linux](https://insper-embarcados.github.io/site/guides/hc06-bluetooth-ubuntu.html)**
 - **[Windows](https://embeddedprogrammer.blogspot.com/2012/07/windows-communicating-with-hc-06.html)**
 
 Ao terminar o pareamento, selecione a porta COM criada pelo sistema operacional no `terminal.py` e comece seu teste.
