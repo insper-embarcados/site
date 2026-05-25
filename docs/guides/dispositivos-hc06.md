@@ -45,8 +45,16 @@ O exemplo faz uso dos pinos:
 O pino `STATE` indica o estado do bluetooth, se ele está conectado ou pronto para parear. Por exemplo, se você precisar indicar para o usuário se o controle (bluetooth) está ou não conectado, você pode utilizar esse pino para isso.
 
 Quando conectado, o pino `STATE` fica em nível lógico 1. Na função hc06_config() do códgio exemplo, o pino HC06_STATE_PIN é configurado como entrada (sem pull-up).
-
 :::
+
+::: tip Pareado x Conectado
+`Pareado` significa que o dispositivo Bluetooth já foi autenticado anteriormente e as credenciais (PIN/senha) foram salvas.
+Ou seja, o computador “conhece” o módulo HC-06 (com o NAME que foi definido) e pode se conectar a ele sem precisar informar o PIN novamente, desde que ele não tenha sido alterado.
+
+`Conectado` significa que existe uma comunicação ativa naquele momento entre o dispositivo e o HC-06.
+Após o pareamento, a conexão ainda precisa ser estabelecida para que dados possam ser enviados e recebidos.
+:::
+
 
 ## Firmware Exemplo
 

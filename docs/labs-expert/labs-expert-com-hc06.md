@@ -70,7 +70,9 @@ O projeto final deverá obrigatoriamente possuir:
 
 - Um programa em Python no computador responsável por:
   - Receber os dados enviados pela Pico e converter em movimento do mouse
-  - Enviar dados de configuração do LED RGB, alterando as cores Vermelho, Verde ou Azul.
+  - Enviar dados de configuração do LED RGB, alterando os padrão parab Vermelho, Verde ou Azul, como por exmeplo:
+          - Botões + / - para aumentar e diminuir o brilho de cada cor
+          - Sliders em que seja possível controlar a frequência de piscada de cada cor
 
 
 ## Dicas
@@ -87,12 +89,20 @@ O projeto final deverá obrigatoriamente possuir:
   - Inicialize o display antes de exibir o PIN.
   - Atualize o valor sempre que um novo PIN for configurado, garantindo que não haja "resíduos" de valores antigos na tela.
 
-- **Lógica do LED PWM para status**
-  - Para efeito de fade, incremente/decremente gradualmente o duty cycle dentro de uma task periódica.
-  - Monitore o status de pareamento (por exemplo, usando a saída STATE do HC-06) para alternar entre animar o LED ou mantê-lo aceso.
-
 - **Pareamento via computador**
   - Após criar um novo PIN, faça o pareamento do computador.
   - Se o PC não encontrar o módulo, tente remover emparelhamentos antigos e busque novamente.
+
+- **Lógica do LED PWM para status**
+  - Para efeito de fade, incremente/decremente gradualmente o duty cycle dentro de uma task periódica.
+  - Ceritique-se que o módulo está conectado, usandoo pino STATE do HC-06 ou aguardar que o python envie um estado de conectado, para alternar entre animar o LED ou mantê-lo aceso.
+
+::: tip Pareado x Conectado
+`Pareado` significa que o dispositivo Bluetooth já foi autenticado anteriormente e as credenciais (PIN/senha) foram salvas.
+Ou seja, o computador “conhece” o módulo HC-06 (com o NAME que foi definido) e pode se conectar a ele sem precisar informar o PIN novamente, desde que ele não tenha sido alterado.
+
+`Conectado` significa que existe uma comunicação ativa naquele momento entre o dispositivo e o HC-06.
+Após o pareamento, a conexão ainda precisa ser estabelecida para que dados possam ser enviados e recebidos.
+:::
 
 ---
