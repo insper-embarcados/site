@@ -69,9 +69,9 @@ O projeto final deverá obrigatoriamente possuir:
 
 - Um programa em Python rodando no computador, responsável por:
   - **Receber** os dados enviados pela Pico e converter em movimento do mouse
-  - **Enviar** dados de configuração do LED RGB, alterando os padrões para as cores Vermelho, Verde ou Azul, como por exmeplo:
-          - Botões + / - para aumentar e diminuir o brilho de cada cor
-          - Sliders em que seja possível controlar a frequência de piscada de cada cor
+  - **Enviar** dados de configuração do LED RGB, alterando os padrões para as cores Vermelho, Verde ou Azul, como por exemplo:
+    - `Botões` + / - para aumentar e diminuir o brilho de cada cor
+    - `Sliders` em que seja possível controlar a frequência de piscada de cada cor
 
 
 ## Dicas
@@ -95,6 +95,11 @@ O projeto final deverá obrigatoriamente possuir:
 - **Lógica do LED PWM para status**
   - Para efeito de fade, incremente/decremente gradualmente o duty cycle dentro de uma task periódica.
   - Ceritique-se que o módulo está conectado, usando o pino STATE do HC-06 ou fazer com que o python envie via protocolo, uma indicação de que o módulo está conectado (xQueueRX do exemplo), para alternar entre animar o LED ou mantê-lo aceso.
+
+- **Modificar o python**
+  - Modificar a interface do python utilizado no lab [Lab 6. ADC e PWM](https://insper-embarcados.github.io/site/labs/adc-pwm-pra.html)
+  - Defina um protocolo simples para envio das mensagens, facilitando a interpretação dos comandos pela Pico.
+
 
 ::: tip Pareado x Conectado
 `Pareado` significa que o dispositivo Bluetooth já foi autenticado anteriormente e as credenciais (PIN/senha) foram salvas.

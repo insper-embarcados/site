@@ -13,7 +13,7 @@ links:
     box: "box-green"
 ---
 
-# Lab 5 - ADC, PWM - Prática <Badge type="tip" text="70% da nota do lab" />
+# Lab 6 - ADC, PWM - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos usar um joystick analógico para implementar um "mouse".
 
