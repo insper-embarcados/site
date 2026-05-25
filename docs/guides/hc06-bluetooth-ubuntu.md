@@ -15,7 +15,7 @@ hcitool scan
 A saída será algo como:
 
 ```
-linvor  00:12:06:DE:E1:B3
+LAB-EXPERT-BT  00:12:06:DE:E1:B3
 ```
 
 Anote o endereço MAC exibido — ele será necessário nos próximos passos.
@@ -89,5 +89,33 @@ Para sair do `minicom`, pressione `CTRL-A` seguido de `X` e confirme.
 ---
 
 ## Resultado
-
+ 
 Pronto! Agora é possível enviar e receber dados pelo módulo Bluetooth HC-06 no Ubuntu através da porta serial virtual `/dev/rfcomm0`.
+ 
+Ou utilizar qualquer software ou script que abra uma porta serial. Um exemplo prático em Python com a biblioteca `pyserial`:
+ 
+```bash
+pip install pyserial
+```
+ 
+```python
+import serial
+ 
+ser = serial.Serial('/dev/rfcomm0', baudrate=9600, timeout=1)
+ 
+print("Aguardando dados...")
+ 
+while True:
+    linha = ser.readline()
+    if linha:
+        print(linha.decode('utf-8').strip())
+```
+ 
+Para enviar dados ao módulo:
+ 
+```python
+ser.write(b'Hello HC-06\n')
+```
+ 
+> **Dica:** ajuste o `baudrate` conforme a configuração do seu módulo. O padrão de fábrica do HC-06 é `9600`.
+ 
