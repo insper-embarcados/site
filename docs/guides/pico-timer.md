@@ -134,7 +134,7 @@ int main() {
 
     // Call alarm_callback in 300 ms
     // usar esse alarm para cancelar 
-    alarm_id_t alarm = add_alarm_in_ms(300, alarm_callback, NULL, false))
+    alarm_id_t alarm = add_alarm_in_ms(300, alarm_callback, NULL, false);
 
     if (!alarm) {
         printf("Failed to add timer\n");
