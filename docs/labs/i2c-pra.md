@@ -1,19 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_pra_i2c_classroom}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "70% da nota de lab"
-    box: "box-green"
----
-
-
 # Lab 7 - I2C - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o [spotlight da logitech]( https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html). 

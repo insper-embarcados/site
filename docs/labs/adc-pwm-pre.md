@@ -1,18 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_pre_adc_classroom}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "30% da nota de lab"
-    box: "box-green"
----
-
 # Lab 6 - ADC / Mutex - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste laboratório iremos aprender como fazemos para mexer com um novo periférico e um novo recurso do RTOS:

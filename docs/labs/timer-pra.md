@@ -1,24 +1,5 @@
 # Lab 3 - Timer - Prática <Badge type="tip" text="70% da nota do lab" />
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/IVS6ykXY)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
 
 Neste laboratório, aplicaremos os conceitos de timer para realizar a leitura de um sensor de distância e criar um datalogger.
 

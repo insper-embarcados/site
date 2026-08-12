@@ -1,25 +1,5 @@
 # Lab 2 - ISR - Prática <Badge type="tip" text="70% da nota do lab" />
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/XYsU1qny)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
-
 Neste laboratório, aplicaremos os conceitos de Interrupção de Hardware/GPIO (IRQ). Como desafio, vamos desenvolver um telégrafo digital!
 
 <YouTube id="hIN1wH4iYdg"/>

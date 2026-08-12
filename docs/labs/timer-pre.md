@@ -26,26 +26,6 @@ Leia os conceitos básicos de como o timer funciona:
 
 Entregas que devem ser realizadas antes da aula de laboratório. Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Preparatório](https://classroom.github.com/a/AgHVL_d3)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559) 
-:::
-::::
-:::: third
-::: box Nota
-30% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
-
 ::: warning
 Lembrem que para realizar a entrega final, vocês devem submeter o repositório no  PrairieLearn!
 :::

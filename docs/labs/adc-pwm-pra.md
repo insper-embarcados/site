@@ -1,18 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_pra_adc_classroom}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "70% da nota de lab"
-    box: "box-green"
----
-
 # Lab 6 - ADC, PWM - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos usar um joystick analógico para implementar um "mouse".

@@ -1,18 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_pra_rtos_classroom}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "70% da nota de lab"
-    box: "box-green"
----
-
 # RTOS - Prática <Badge type="tip" text="70% da nota do lab" />
 
 ## Pico Dock

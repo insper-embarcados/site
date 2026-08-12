@@ -1,18 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_pre_i2c_classroom}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "30% da nota de lab"
-    box: "box-green"
----
-
 # Lab 7 - I2C e PWM - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste pré-lab, exploraremos um pouco a comunicação i2c usando como base o sensor MPU6050, que é uma unidade inercial que possui internamente um acelerômetro e um giroscópio.
@@ -39,5 +24,5 @@ Ler sobre o I2C e PWM:
 Entregas que devem ser realizadas antes da aula de laboratório. Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.
 
 ::: warning
-Lembrem que para realizar a entrega final, vocês devem submeter o repositório no  PrairieLearn!
+Lembrem que para realizar a entrega final, vocês devem submeter o repositório no PrairieLearn!
 :::

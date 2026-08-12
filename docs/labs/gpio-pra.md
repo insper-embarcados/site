@@ -1,25 +1,5 @@
 # Lab 1 - GPIO - Prática <Badge type="tip" text="70% da nota de lab" />
 
-::::: center
-:::: third 
-::: box-blue 1. Classroom
-[:memo: Prática](https://classroom.github.com/a/5ZUGbuPd)
-:::
-::::
-:::: third
-::: box-yellow 2. Entrega final
-[Enviar no PrairieLearn](https://us.prairielearn.com/pl/course_instance/210559)
-:::
-::::
-:::: third
-::: box Nota
-70% da nota do laboratório
-:::
-::::
-:::: third
-::::
-:::::
-
 Neste laboratório, vocês irão aplicar os conceitos do pré-lab (leitura e acionamento de um pino) para controlar um motor de passos.
 
 A ideia geral é que vocês tenham um botão, um LED e o motor de passos conectado na placa. Toda vez que o botão for pressionado, o LED deve acender e o motor girar 360 graus para uma direção de sua escolha. O sistema deve funcionar alimentado por bateria (não aceitaremos demonstrações com ele ligado no PC).

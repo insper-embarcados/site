@@ -1,14 +1,3 @@
----
-linksTitle: "Entregas"
-links:
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "30% da nota de lab"
-    box: "box"
----
-
 # Lab 1 - GPIO - Preparatório <Badge type="info" text="30% da nota de lab" />
 
 Neste laboratório, iremos aprender como acionar e ler os pinos digitais do microcontrolador. Junto com isso, aprenderemos boas práticas de desenvolvimento de firmware.
