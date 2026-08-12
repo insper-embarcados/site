@@ -14,19 +14,6 @@ hero:
     - theme: alt
       text: Prática
       link: /labs/pratico
-
-features:
-  - title: Lab 1 - GPIO
-    icon: ✅
-    details: Entrada e saída digital
-    link: /labs/gpio
-  - title: Lab 2 - IRS
-    icon: ➘
-    details: Interrupção
-    link: /labs/gpio
-  - title: Lab 3 - Timer
-    details: Contabilizando tempo
-    link: /labs/gpio
 ---
 
 # Laboratórios
@@ -40,7 +27,7 @@ As atividades de pré-lab são compostas de duas frentes: uma que trata da quali
 Para saber mais sobre cada uma das frentes, acesse:
 
 - [Qualidade de código](/qualidade/)
-- [Exercícios de programação](/labs/preparatorio)
+- [Exercícios de programação](/sobre/preparatorio)
 
 ## Lab prático
 
@@ -48,7 +35,7 @@ As atividades de laboratório prático demandam que vocês utilizem a placa fís
 
 Para saber mais sobre a atividade prática, acesse:
 
-- [Pra lab](/labs/pratico)
+- [Pra lab](/sobre/pratico)
 
 ## Funcionamento
 

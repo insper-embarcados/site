@@ -83,12 +83,12 @@ O SSD1306 suporta três modos de endereçamento da GDDRAM: por página, horizont
 
 Conecte o hardware como indicado a seguir:
 
-| Pico | OLED SSD1306 |
-|------|--------------|
-| GPIO 2 | SDA |
-| GPIO 3 | SCL |
-| 3.3V | VCC |
-| GND | GND |
+| Pico   | OLED SSD1306 |
+|--------|--------------|
+| GPIO 2 | SDA          |
+| GPIO 3 | SCL          |
+| 3.3V   | VCC          |
+| GND    | GND          |
 
 O exemplo faz uso dos pinos:
 
@@ -99,7 +99,7 @@ O exemplo faz uso dos pinos:
 
 ## Firmware Exemplo
 
-![Diagrama de blocos do firmware](imgs-dispositivos/oled-ssd1306/firmware.png)
+> Marco adicionar imagem imgs-dispositivos/oled-ssd1306/firmware.png
 
 O firmware opera sem FreeRTOS, com um laço principal (`while(true)`) que atualiza o display a cada 10 ms.
 
