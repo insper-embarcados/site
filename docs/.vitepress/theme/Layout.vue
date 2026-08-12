@@ -1,6 +1,10 @@
 <template>
   <Layout :class="headerClass">
     <!-- slots do Lando Plus (replicados para manter funcionalidade) -->
+    <template #nav-bar-content-after>
+      <PrairieLearnDeliveries />
+    </template>
+
     <template #layout-top>
       <Alert
         v-if="alert"
@@ -56,6 +60,7 @@ import Sponsors from '@lando/vitepress-theme-default-plus/components/VPLSponsors
 import Tags from '@lando/vitepress-theme-default-plus/components/VPLCollectionItemTags.vue';
 
 import AsideLinks from './AsideLinks.vue';
+import PrairieLearnDeliveries from './PrairieLearnDeliveries.vue';
 
 const { Layout } = DefaultTheme;
 

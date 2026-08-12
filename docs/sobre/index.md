@@ -3,7 +3,8 @@
 - **Curso:** Engenharia de Computação - Quinto Semestre - [Insper](https://www.insper.edu.br/)
 - **Disciplina:** Computação Embarcada 
 - **Organização no GitHub:** [https://github.com/insper-embarcados/](https://github.com/insper-embarcados/)
-- **© Todos os direitos reservados**
+- **Local:** 
+    - Laboratórios de Arquitetura de Computadores
 
 **Equipe:**
 <script setup>
@@ -63,13 +64,6 @@ const members = [
 
 <VPTeamMembers size="small" :members />
 
-## Encontros
-
-- **Local:** 
-    - Ágil 2 (`segunda-feira`)
-    - Laboratórios de Arquitetura de Computadores (`quarta e quinta-feira`)
-
-A disciplina acontece às segundas-feiras, 14h, no laboratório Ágil 2 de computadores com a turma toda, e às quartas, 9h45, e quintas-feiras, 16h00, com metade da turma no laboratório de Arquitetura de Computadores.
 
 ## Objetivos da matéria
 
@@ -83,39 +77,64 @@ Ao final da disciplina vocês (alunos) devem ser capazes de:
 
 ## Critério de avaliação
 
-O sistema de avaliação da disciplina é composto por atividades individuais e em grupo, incluindo Laboratórios Core e de Especialização, Atividades Práticas Supervisionadas (APS), um projeto em grupo e três avaliações práticas individuais. A nota final é calculada considerando 30% dos Laboratórios Core, 20% dos Laboratórios de Especialização, 30% das APS e 20% do projeto. Com os seguintes critérios de barreira:
+A disciplina é dividida em dois módulos.
 
-- Média igual ou superior a C nas APS.
-- Conceito igual ou superior a C no projeto.
-- Ser aprovado em pelo menos uma Avaliação Prática, com nota A.
-- Média acima de C nos Laboratórios Core e nos Laboratórios de Especialização.
+### Módulo 1
 
-### 1. Laboratórios Core
+A nota do Módulo 1 é composta por:
 
-- **Como funciona:** Você deve entregar, individualmente, as atividades de laboratório propostas.
-- **Quantidade:** 6 entregas.
-- **Avaliação:** A média das atividades deve ser superior a C.
+* 50% — média dos Laboratórios 1, 2, 3 e 4
+* 50% — APS 1
 
-### 2. Laboratórios de Especialização
+Para validar o módulo, é necessário:
 
-- **Como funciona:** Você deve entregar, individualmente, as atividades de laboratório propostas.
-- **Quantidade:** 2 entregas.
-- **Avaliação:** É necessário obter média superior a C.
+* obter conceito igual ou superior a C no módulo;
+* obter conceito igual ou superior a C na APS 1;
+* obter PASS na Avaliação Prática do Módulo 1.
 
-### 3. Atividades Práticas Supervisionadas (APS)
+### Módulo 2
 
-- **Como funciona:** Realizadas em duplas.
-- **Quantidade:** 2 APS.
-- **Avaliação:** Para ser aprovado, o conceito deve ser igual ou superior a C em ambas.
+A nota do Módulo 2 é composta por:
 
-### 4. Projeto
+* 50% — média dos Laboratórios 5, 6, 7, 8 e 9
+* 50% — APS 2
 
-- **Como funciona:** Realizado em grupo.
-- **Quantidade:** Um projeto durante o semestre.
-- **Avaliação:** É preciso conceito igual ou superior a C.
+Para validar o módulo, é necessário:
 
-### 5. Avaliações Práticas
+* obter conceito igual ou superior a C no módulo;
+* obter conceito igual ou superior a C na APS 2;
+* obter PASS na Avaliação Prática do Módulo 2.
 
-- **Como funciona:** São três avaliações individuais ao longo do semestre, sem possibilidade de reposição.
-- **Avaliação:** Para ser aprovado nesse quesito, é necessário obter pelo menos uma nota A (lembrando que as notas são: I [Insuficiente] ou A [Aprovado]).
+### Avaliações Práticas
 
+Cada módulo possui uma Avaliação Prática individual.
+
+A Avaliação Prática não entra diretamente na nota do módulo, mas funciona como critério de barreira.
+
+Cada avaliação terá até duas oportunidades:
+
+1. Prova regular
+2. Prova delta
+
+Se o estudante não obtiver PASS após a prova delta, o módulo não será validado.
+
+### Nota final
+
+A nota final é calculada da seguinte forma:
+
+* 40% — Módulo 1
+* 60% — Módulo 2
+
+Nota Final = (0,4 × Módulo 1) + (0,6 × Módulo 2)
+
+### Para ser aprovado
+
+O estudante deve cumprir todos os requisitos abaixo:
+
+* obter conceito igual ou superior a C no Módulo 1;
+* obter conceito igual ou superior a C no Módulo 2;
+* obter conceito igual ou superior a C na APS 1 e na APS 2;
+* obter PASS nas Avaliações Práticas dos dois módulos;
+* obter nota final superior a 5,0.
+
+O não cumprimento de qualquer um desses critérios implica reprovação na disciplina.

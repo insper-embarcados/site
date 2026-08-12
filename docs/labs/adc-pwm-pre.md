@@ -13,18 +13,16 @@ links:
     box: "box-green"
 ---
 
-# Lab 6 - ADC / PWM - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+# Lab 6 - ADC / Mutex - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
-Neste laboratório iremos aprender como fazemos para mexer com dois novos periféricos:
+Neste laboratório iremos aprender como fazemos para mexer com um novo periférico e um novo recurso do RTOS:
 
 - ADC: Que faz leituras analógicas
-- PWM: Que gera um pulso no pino usando modulação por largura de pulso 
+- Mutex: Mecanismo do RTOS que permite controlarmos quem terá acesso a um recurso.
 
 Junto com isso iremos aprender uma técnica básica de filtagem de sinal, aplicando uma média móvel. 
 
-## Leitura obrigaratória
-
-As próximas leituras são sobre os conceitos básicos do RTOS:
+## Leituras obrigaratórias
 
 ::::: center
 :::: third  📖 Leitura 1
@@ -33,7 +31,7 @@ As próximas leituras são sobre os conceitos básicos do RTOS:
 ::::
 
 :::: third  📖 Leitura 2
-:::card Periférico [PWM](/guides/pico-pwm)
+:::card Mutex [PWM](/guides/freertos-mutex)
 :::
 ::::
 

@@ -1,1 +1,16 @@
 .ad-header { font-size: 0 !important; }
+
+.VPNavBar .content-body .pl-deliveries {
+  order: 10;
+}
+
+.VPNavBar .content-body .translations,
+.VPNavBar .content-body .appearance,
+.VPNavBar .content-body .social-links,
+.VPNavBar .content-body .extra {
+  order: 20;
+}
+
+.VPNavBar .content-body .hamburger {
+  order: 30;
+}

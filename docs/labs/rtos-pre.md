@@ -52,3 +52,7 @@ As próximas leituras são sobre os conceitos básicos do RTOS:
 ::: card Qualidade de código com [RTOS](/guides/qualidade-rtos)
 ::::
 :::::
+
+## Entrega
+
+Entregas que devem ser realizadas antes da aula de laboratório. Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.

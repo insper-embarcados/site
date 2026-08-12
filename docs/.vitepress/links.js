@@ -13,8 +13,7 @@
  *       url: "{{lab_gpio_classroom}}"
  */
 export const links = {
-  prairielearn: "https://us.prairielearn.com/pl/course_instance/210559",
-
+  prairielearn: "https://us.prairielearn.com/pl/course_instance/225442",
   lab_pre_gpio_classroom: "https://classroom.github.com/a/DSolRxRH",
 
   lab_pre_rtos_classroom: "https://classroom.github.com/a/jTe9Y09F",
@@ -34,4 +33,6 @@ export const links = {
   aps_2: "https://classroom.github.com/a/N_07cFqn",
 
   modulo_2_banco_exercicios: "https://classroom.github.com/a/_wS3CzoG"
+
+
 }

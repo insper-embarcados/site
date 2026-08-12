@@ -28,20 +28,11 @@ function resolveVars(value: unknown): unknown {
  */
 const sidebarModulos = [
   {
-    text: 'Módulos',
-    items: [
-      { text: 'Sobre', link: '/entregas/' },
-      { text: 'Preparatório', link: '/labs/preparatorio' },
-      { text: 'Prático', link: '/labs/pratico' },
-    ]
-  },
-  {
     text: 'Módulo 1 - Baremetal',
-    collapsed: true,
     items: [
       {
         text: 'Lab 1. GPIO',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/gpio-pre' },
           { text: 'Prático', link: '/labs/gpio-pra' }
@@ -79,7 +70,7 @@ const sidebarModulos = [
   },
   {
     text: 'Módulo 2 - RTOS',
-    collapsed: false,
+    collapsed: true,
     items: [
       {
         text: 'Lab 5. RTOS',
@@ -90,7 +81,7 @@ const sidebarModulos = [
         ]
       },
       {
-        text: 'Lab 6. ADC e PWM',
+        text: 'Lab 6. ADC e Mutex',
         collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
@@ -98,7 +89,7 @@ const sidebarModulos = [
         ]
       },
       {
-        text: 'Lab 7. I2C',
+        text: 'Lab 7. I2C e PWM',
         collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/i2c-pre' },
@@ -198,20 +189,22 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Sobre o curso', link:'/sobre/' },
       { text: 'Consulta', link: '/guides/', activeMatch: '/guides' },
-      { text: 'Módulos', link: '/entregas/' }
+      { text: 'Entregas', link: '/entregas/' }
     ],
     sidebar: {
-      '/curso/': [
+      // Todas as rotas abaixo compartilham o mesmo sidebar de módulos
+      '/sobre/': [
         {
-          text: 'Sobre o curso',
           items: [
-            { text: 'Sobre', link: '/curso/' },
-            { text: 'Avaliacão', link: '/curso/avaliacao' },
+            { text: 'Sobre o curso', link: '/sobre/' },
+            { text: 'Visão geral', link: '/sobre/visao-geral' },
+            { text: 'Labs preparatórios', link: '/sobre/preparatorio' },
+            { text: 'Labs práticos', link: '/sobre/pratico' }
           ]
         }
       ],
-      // Todas as rotas abaixo compartilham o mesmo sidebar de módulos
       '/entregas/':   sidebarModulos,
       '/labs/':       sidebarModulos,
       '/labs-expert/': sidebarModulos,
@@ -233,7 +226,7 @@ export default defineConfig({
             { text: 'Buzzer', link: '/guides/dispositivos-buzzer' },
             { text: 'Encoder', link: '/guides/dispositivos-encoder' },
             { text: 'Edge impulse cli', link: '/guides/expert-edge-impulse-cli' },
-	    { text: 'HC-06', link: '/guides/dispositivos-hc06' },
+            { text: 'HC-06', link: '/guides/dispositivos-hc06' },
             { text: 'LCD', link: '/guides/lcd-ili-gfx' },
             { text: 'OLED-SS1306', link: '/guides/dispositivos-oled-ssd1306' },
             { text: 'PicoDock', link: '/guides/picodock-index' }

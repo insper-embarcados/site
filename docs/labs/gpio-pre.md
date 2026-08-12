@@ -1,10 +1,6 @@
 ---
 linksTitle: "Entregas"
 links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_pre_gpio_classroom}}"
-    box: "box-blue"
   - title: 
     text: "PrairieLearn"
     url: "{{prairielearn}}"
@@ -52,8 +48,8 @@ Agora que vocês já entenderam um pouco sobre qualidade de código, delay/sleep
 
 ## Entrega
 
-Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**.
+Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). Para conseguir pontos nesse laboratório você deve resolver todos os exercícios! **Não existe nota parcial aqui**. Para acessar os exercícios entre no PrairieLearn e crie o repositório.
 
 ::: warning
-Lembrem que para realizar a entrega final, vocês devem submeter o repositório no  PrairieLearn!
+Lembrem que para realizar a entrega final, vocês devem submeter o repositório no PrairieLearn!
 :::

@@ -2,9 +2,10 @@
 .idea
 *.log
 tmp/
-
+.env
 
 
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+docs/public/pl-assessments.json
 node_modules/
