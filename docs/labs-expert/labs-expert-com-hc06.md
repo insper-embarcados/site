@@ -64,13 +64,14 @@ Você deverá integrar a aplicação desenvolvida neste laboratório ao projeto 
 O projeto final deverá obrigatoriamente possuir:
 
 - O sistema de sincronização Bluetooth desenvolvido neste laboratório
-  - Geração e exibição do PIN randômico no display OLED
-  - Configuração automática do HC-06
-  - Pareamento utilizando botão físico
+  - Geração do PIN randômico através do botão, exibindo no display OLED
+  - O computador deverá parear com o módulo hc-06 através do PIN gerado
 
-- Um programa em Python no computador responsável por:
-  - Receber os dados enviados pela Pico e converter em movimento do mouse
-  - Enviar dados de configuração do LED RGB, alterando as cores Vermelho, Verde ou Azul.
+- Um programa em Python rodando no computador, responsável por:
+  - **Receber** os dados enviados pela Pico e converter em movimento do mouse
+  - **Enviar** dados de configuração do LED RGB, alterando os padrões para as cores Vermelho, Verde ou Azul, como por exemplo:
+    - `Botões` + / - para aumentar e diminuir o brilho de cada cor
+    - `Sliders` em que seja possível controlar a frequência de piscada de cada cor
 
 
 ## Dicas
@@ -87,12 +88,25 @@ O projeto final deverá obrigatoriamente possuir:
   - Inicialize o display antes de exibir o PIN.
   - Atualize o valor sempre que um novo PIN for configurado, garantindo que não haja "resíduos" de valores antigos na tela.
 
-- **Lógica do LED PWM para status**
-  - Para efeito de fade, incremente/decremente gradualmente o duty cycle dentro de uma task periódica.
-  - Monitore o status de pareamento (por exemplo, usando a saída STATE do HC-06) para alternar entre animar o LED ou mantê-lo aceso.
-
 - **Pareamento via computador**
   - Após criar um novo PIN, faça o pareamento do computador.
   - Se o PC não encontrar o módulo, tente remover emparelhamentos antigos e busque novamente.
+
+- **Lógica do LED PWM para status**
+  - Para efeito de fade, incremente/decremente gradualmente o duty cycle dentro de uma task periódica.
+  - Ceritique-se que o módulo está conectado, usando o pino STATE do HC-06 ou fazer com que o python envie via protocolo, uma indicação de que o módulo está conectado (xQueueRX do exemplo), para alternar entre animar o LED ou mantê-lo aceso.
+
+- **Modificar o python**
+  - Modificar a interface do python utilizado no lab [Lab 6. ADC e PWM](https://insper-embarcados.github.io/site/labs/adc-pwm-pra.html).
+  - Defina um protocolo simples para envio das mensagens, facilitando a interpretação dos comandos pela Pico.
+  - Adicione componentes (Botões / Sliders) para enviar os comandos de configuração das cores do LED RGB.
+
+::: tip Pareado x Conectado
+`Pareado` significa que o dispositivo Bluetooth já foi autenticado anteriormente e as credenciais (PIN/senha) foram salvas.
+Ou seja, o computador “conhece” o módulo HC-06 (com o NAME que foi definido) e pode se conectar a ele sem precisar informar o PIN novamente, desde que ele não tenha sido alterado.
+
+`Conectado` significa que existe uma comunicação ativa naquele momento entre o dispositivo e o HC-06.
+Após o pareamento, a conexão ainda precisa ser estabelecida para que dados possam ser enviados e recebidos.
+:::
 
 ---
