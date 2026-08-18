@@ -1,13 +1,5 @@
 # Laboratório preparatório
 
-::: info
-Ao abrir o projeto, você deve importar o mesmo na extensão da Raspberry Pi Pico!
-:::
-
-<YouTube id="io7dd_pljyY"/>
-
-## Testando exercícios
-
 Esta entrega possui verificação automática. Para validar a entrega, envie o código para o seu repositório no GitHub e verifique o resultado do Actions. O sistema verifica:
 
 - Se o código compila.
@@ -27,9 +19,24 @@ Após terminar os exercícios, o mesmo deve ser submetido para avaliação na pl
 ::: danger Punição de atraso
 As punições de atraso serão aplicadas automaticamente pelo PrairieLearn.
 
-- 20% se entregue com até `após o prazo.`
+- 30% até `uma semana após o prazo.`
+- 0% depois de `uma semana`.
 :::
 
 Cada atividade preparatória é composta de uma série de exercícios:
 
 ![](imgs/pl.png)
+
+## Tutorial
+
+A seguir uma série de vídeos de como resolver os exercícios do lab prático.
+
+Criação de respositório:
+
+<YouTube id="3C4fwBBh190"/>
+
+Instalando extensões e resolvendo exercícios:
+<YouTube id="Bjx5leWoN4I"/>
+
+Validação dos exercicios preparatórios.
+<YouTube id="FT3GqjNrmtw"/>

@@ -42,3 +42,17 @@ Entregas que devem ser realizadas antes da aula de laboratório (quarta feira). 
 ::: warning
 Lembrem que para realizar a entrega final, vocês devem submeter o repositório no PrairieLearn!
 :::
+
+### Tutorial
+
+A seguir uma série de vídeos de como resolver os exercícios do lab prático.
+
+Criação de respositório:
+
+<YouTube id="3C4fwBBh190"/>
+
+Instalando extensões e resolvendo exercícios:
+<YouTube id="Bjx5leWoN4I"/>
+
+Validação dos exercicios preparatórios.
+<YouTube id="FT3GqjNrmtw"/>

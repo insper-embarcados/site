@@ -9,6 +9,18 @@ O curso pode ser realizado em qualquer sistema operacional e em x86 ou ARM. Voc�
 
 Para podermos utilizar o wokwi, cada aluno precisa registrar criar uma conta gratuíta na plataforma https://wokwi.com/ .
 
+A disciplina faz uso de um sistema de verificação automática integrado ao GitHub, que envolve diferentes frentes:
+
+![](imgs/checks.png)
+
+1. Verificação se o projeto compila
+2. Teste de funcionalidade do código (apenas para os pré-labs e prova)
+3. Verificação de qualidade de código, com dois verificadores:
+   - **cppcheck**: qualidade de código na linguagem C
+   - **embedded-check**: qualidade de código para sistemas embarcados
+
+O sistema está totalmente integrado ao GitHub e utiliza o Github Actions para realizar os testes. 
+
 ## Entregas
 
 No curso temos 3 categorias de entregas:
@@ -29,12 +41,46 @@ A disciplina utilizará atividades preparatórias que ajudarão vocês no desenv
 
 ![](imgs/labs.png){width=400}
 
-### Labs Prática
+Esta entrega possui verificação automática. Para validar a entrega, envie o código para o seu repositório no GitHub e verifique o resultado do Actions. O sistema verifica:
+
+- Se o código compila.
+- Teste de unidade em cada código (se funciona).
+- Análise da qualidade de código:
+    - cppcheck *(erros básicos de linguagem C)*
+    - embedded-check *(erros conceituais de sistemas embarcados)*
+
+Vocês devem obter o seguinte resultado no Actions:
+
+![](/sobre/imgs/lab_pre_actions.png)
+
+
+### Labs Práticos
 
 Já as atividades de laboratório prático demandam que vocês utilizem a placa física e apliquem o que aprenderam no ambiente virtual em uma aplicação real.
 
+No curso iremos usar o [debug-probe](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html), um dispositivo criado para podermos gravar, depurar e ter acesso à saída UART da Raspberry Pi Pico. Para usar o debug probe, faça conexão como indicado a seguir:
+
+:::tabs
+== tab Montagem
+![](/guides/pico-imgs/pico-probe.png){width=400}
+== tab Imagem
+![](/guides/pico-imgs/pico-probe-real.jpeg)
+:::
+
+> Note a necessidade de dois cabos USB!
+
+### APS
+
+Ao todo, são duas APS. Elas se diferenciam dos laboratórios por serem mais complexas, realizadas em duplas e por envolverem design e criação de protótipos. São elas:
+
+1. Jogo Genius
+2. Desenvolvimento de um controle Bluetooth para um jogo
+
+## Horários 
+
+Consulte os **horários disponíveis** para apresentar as entregas práticas:
+
 ::: box
-Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e funcionando para alguém da equipe. Consulte os **horários disponíveis** para apresentar o laboratório.
 
 |        Horário         |     Segunda&#8209;feira     |      Terça&#8209;feira      |     Quarta&#8209;feira      |     Quinta&#8209;feira      |      Sexta&#8209;feira      |
 |:----------------------:|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|
@@ -49,23 +95,3 @@ Vocês possuem uma semana para terminar o lab e apresentar o projeto montado e f
 :::
 
 
-### APS
-
-Ao todo, são duas APS. Elas se diferenciam dos laboratórios por serem mais complexas, realizadas em duplas e por envolverem design e criação de protótipos. São elas:
-
-1. Jogo Genius
-2. Desenvolvimento de um controle Bluetooth para um jogo
-
-## Sistema de Verificação Automática
-
-![](imgs/checks.png)
-
-A disciplina faz uso de um sistema de verificação automática integrado ao GitHub, que envolve diferentes frentes:
-
-1. Verificação se o projeto compila
-2. Teste de funcionalidade do código (apenas para os pré-labs e prova)
-3. Verificação de qualidade de código, com dois verificadores:
-   - **cppcheck**: qualidade de código na linguagem C
-   - **embedded-check**: qualidade de código para sistemas embarcados
-
-O sistema está totalmente integrado ao GitHub e utiliza o Github Actions para realizar os testes. 
