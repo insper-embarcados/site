@@ -46,6 +46,11 @@ Resultado esperado:
 
 <YouTube id="sH9y-UITTTo"/>
 
+### Função tone
+
+Você deve implementar uma função com o seguinte protótipo: `tone(int freq, int periodo)` que deve realizar o acionamento do buzzer na frequencia e no tempo determinado.
+
+
 ### Dicas
 
 A seguir, algumas dicas de como fazer. Você pode ou não seguir:
