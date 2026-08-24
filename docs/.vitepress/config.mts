@@ -40,7 +40,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 2. ISR',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/irq-pre' },
           { text: 'Prático', link: '/labs/irq-pra' }
@@ -48,7 +48,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 3. Timer',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/timer-pre' },
           { text: 'Prático', link: '/labs/timer-pra' }
