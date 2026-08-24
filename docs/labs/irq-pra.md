@@ -50,6 +50,19 @@ Resultado esperado:
 
 Você deve implementar uma função com o seguinte protótipo: `tone(int freq, int periodo)` que deve realizar o acionamento do buzzer na frequencia e no tempo determinado.
 
+::: tip Medindo (item novo 2026-2)
+Após implementar a função, utilize um osciloscópio do laboratório para verificar se o sinal gerado está de acordo com os parâmetros informados.
+
+A validação deve incluir:
+
+- medição da frequência do sinal;
+- medição do período da onda;
+- verificação do tempo total de acionamento do buzzer;
+- uma imagem ou captura de tela do osciloscópio, mostrando o sinal medido;
+- uma breve explicação comparando os valores esperados com os valores obtidos experimentalmente.
+
+> Considere que pequenas diferenças podem ocorrer devido à resolução dos temporizadores, ao clock do microcontrolador e ao próprio processo de medição.
+:::
 
 ### Dicas
 
