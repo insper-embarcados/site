@@ -6,11 +6,13 @@ const open = ref(false)
 const assessments = ref([])
 const generatedAt = ref('')
 const panel = ref(null)
+const now = ref(Date.now())
+let clock
 
 const sortedAssessments = computed(() => assessments.value)
 const hasAssessments = computed(() => sortedAssessments.value.length > 0)
-const fullCreditAssessments = computed(() => sortedAssessments.value.filter((assessment) => maxCredit(assessment) >= 100))
-const lateAssessments = computed(() => sortedAssessments.value.filter((assessment) => maxCredit(assessment) < 100))
+const fullCreditAssessments = computed(() => sortByTitle(sortedAssessments.value.filter((assessment) => maxCredit(assessment) >= 100)))
+const lateAssessments = computed(() => sortByTitle(sortedAssessments.value.filter((assessment) => maxCredit(assessment) < 100)))
 const openCount = computed(() => fullCreditAssessments.value.length)
 const countLabel = computed(() => openCount.value > 9 ? '9+' : String(openCount.value))
 
@@ -24,21 +26,25 @@ function formatDate(value) {
   }).format(new Date(value))
 }
 
-function deadlineTone(deadlines) {
-  const end = deadlines.find((deadline) => deadline.end)?.end
-  if (!end) return 'sem prazo'
-  const hours = (new Date(end) - new Date()) / 36e5
-  if (hours <= 24) return 'vence hoje'
-  if (hours <= 72) return 'em breve'
-  return 'aberta'
-}
-
 function maxCredit(assessment) {
   return Math.max(...assessment.deadlines.map((deadline) => Number(deadline.credit) || 0))
 }
 
+function sortByTitle(items) {
+  return [...items].sort((a, b) =>
+    a.title.localeCompare(b.title, 'pt-BR', { numeric: true, sensitivity: 'base' })
+      || a.label.localeCompare(b.label, 'pt-BR', { numeric: true, sensitivity: 'base' })
+  )
+}
+
 function bestDeadline(assessment) {
   return [...assessment.deadlines].sort((a, b) => (Number(b.credit) || 0) - (Number(a.credit) || 0))[0]
+}
+
+function isDeadlineSoon(assessment) {
+  const end = new Date(bestDeadline(assessment)?.end).getTime()
+  const remaining = end - now.value
+  return Number.isFinite(end) && remaining > 0 && remaining < 48 * 60 * 60 * 1000
 }
 
 function creditLabel(assessment) {
@@ -52,6 +58,9 @@ function closeOnOutside(event) {
 
 onMounted(async () => {
   document.addEventListener('click', closeOnOutside)
+  clock = window.setInterval(() => {
+    now.value = Date.now()
+  }, 60_000)
   try {
     const response = await fetch(withBase('/pl-assessments.json'))
     if (!response.ok) return
@@ -63,7 +72,10 @@ onMounted(async () => {
   }
 })
 
-onUnmounted(() => document.removeEventListener('click', closeOnOutside))
+onUnmounted(() => {
+  document.removeEventListener('click', closeOnOutside)
+  window.clearInterval(clock)
+})
 </script>
 
 <template>
@@ -101,7 +113,7 @@ onUnmounted(() => document.removeEventListener('click', closeOnOutside))
             <a
               v-for="assessment in fullCreditAssessments"
               :key="assessment.id"
-              class="pl-deliveries__item pl-deliveries__item--open"
+              :class="['pl-deliveries__item', 'pl-deliveries__item--open', { 'pl-deliveries__item--soon': isDeadlineSoon(assessment) }]"
               :href="assessment.url"
               target="_blank"
               rel="noopener noreferrer"
@@ -332,6 +344,11 @@ onUnmounted(() => document.removeEventListener('click', closeOnOutside))
   border-color: rgba(34, 197, 94, 0.34);
 }
 
+.pl-deliveries__item--soon {
+  background: linear-gradient(135deg, rgba(254, 249, 195, 0.94), rgba(253, 230, 138, 0.48));
+  border-color: rgba(202, 138, 4, 0.42);
+}
+
 .pl-deliveries__item--late {
   background: linear-gradient(135deg, rgba(254, 226, 226, 0.92), rgba(254, 202, 202, 0.44));
   border-color: rgba(239, 68, 68, 0.34);
@@ -339,6 +356,10 @@ onUnmounted(() => document.removeEventListener('click', closeOnOutside))
 
 .dark .pl-deliveries__item--open {
   background: linear-gradient(135deg, rgba(20, 83, 45, 0.65), rgba(22, 101, 52, 0.28));
+}
+
+.dark .pl-deliveries__item--soon {
+  background: linear-gradient(135deg, rgba(113, 63, 18, 0.72), rgba(133, 77, 14, 0.34));
 }
 
 .dark .pl-deliveries__item--late {
