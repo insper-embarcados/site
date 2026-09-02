@@ -32,7 +32,7 @@ const sidebarModulos = [
     items: [
       {
         text: 'Lab 1. GPIO',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/gpio-pre' },
           { text: 'Prático', link: '/labs/gpio-pra' }
@@ -40,7 +40,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 2. ISR',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/irq-pre' },
           { text: 'Prático', link: '/labs/irq-pra' }

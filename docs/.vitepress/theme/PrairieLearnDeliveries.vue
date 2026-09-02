@@ -103,6 +103,7 @@ onUnmounted(() => {
           <div>
             <p class="pl-deliveries__eyebrow">PrairieLearn</p>
             <h2>Entregas abertas</h2>
+            <p class="pl-deliveries__eyebrow">(prazos coletivos)</p>
           </div>
           <span class="pl-deliveries__pill">{{ sortedAssessments.length }}</span>
         </div>
