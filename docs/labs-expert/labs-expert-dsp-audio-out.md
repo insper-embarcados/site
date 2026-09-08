@@ -2,6 +2,15 @@
 
 Neste laboratório iremos criar um sistema capaz de reproduzir uma série de sons pré criados.
 
+::: tip LEITURA
+
+Antes de seguir no laboratório será necessário ler o material:
+
+- [PCM](/guides/teoria-pcm-sound)
+:::
+
+
+
 ::: info Código base
 Você deve utilizar o repositório a seguir para realizar o lab.
 

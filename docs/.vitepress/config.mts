@@ -228,7 +228,8 @@ export default defineConfig({
             { text: 'Edge impulse cli', link: '/guides/expert-edge-impulse-cli' },
             { text: 'HC-06', link: '/guides/dispositivos-hc06' },
             { text: 'LCD', link: '/guides/lcd-ili-gfx' },
-            { text: 'LCD', link: '/guides/lcd-lopaka' },
+            { text: 'LCD - Lopaka', link: '/guides/lcd-lopaka' },
+            { text: 'PCM - Áudio', link: '/guides/teoria-pcm-sound' },
             { text: 'OLED-SS1306', link: '/guides/dispositivos-oled-ssd1306' },
             { text: 'PicoDock', link: '/guides/picodock-index' }
             
