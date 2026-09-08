@@ -29,14 +29,20 @@ Você deve utilizar o código do repositório a seguir para realizar o lab, copi
 
 ## Entrega
 
-O desafio desse laboratório é criar uma interface para controntolar o motor de passos, com os seguintes recursos (do LCD):
+O desafio desse laboratório é criar uma interface para controntolar o motor de passos, com os seguintes recursos (via controle do LCD):
 
 Botões:
 
 - girar sentido horário
 - girar sentido anti-horário
+- Start/Stop
+
+Configuração:
+
+- Modo de operação: se será livre (gira até pedir para parar) ou se será uma angulação definida
+- Definir ângulo que o motor vai girar 
 
 Animações: 
 
-- Enquanto o motor estiver girando, o LCD deverá exibir uma animação indicando para qual sentido o mesmo está girando
+- Enquanto o motor estiver girando, o LCD deverá exibir uma animação de que o motor está girando e também com informação sobre o seu sentito
     

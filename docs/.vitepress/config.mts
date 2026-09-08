@@ -48,7 +48,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 3. Timer',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/timer-pre' },
           { text: 'Prático', link: '/labs/timer-pra' }
@@ -56,7 +56,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 4. Expert 1',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
           { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive' },
