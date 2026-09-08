@@ -1,6 +1,7 @@
 # Expert - firmware - Multi core
 
-Neste laboratório, iremos desenvolver uma aplicação que utiliza os dois núcleos de processamento da Raspberry Pi Pico.
+Neste laboratório iremos trabalhar com o uso do multicore da pico. O objetivo é fazer cada **core** da Pico ser responsável por uma parte específica do sistema. A comunicação entre os núcleos será realizada por meio da **FIFO de sincronização** disponibilizada pelo hardware.
+
 
 ::: tip LEITURA
 
@@ -10,8 +11,6 @@ Antes de seguir no laboratório será necessário ler o material:
 :::
 
 ## Laboratório
-
-Trabalharemos com o modelo de execução multicore, no qual cada **core** da Pico será responsável por uma parte específica do sistema. A comunicação entre os núcleos será realizada por meio da **FIFO de sincronização** disponibilizada pelo hardware.
 
 A proposta é expandir o **LAB-3-pra**, distribuindo as responsabilidades da seguinte forma:
 
