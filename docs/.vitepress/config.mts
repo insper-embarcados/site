@@ -232,7 +232,8 @@ export default defineConfig({
             { text: 'PCM - Áudio', link: '/guides/teoria-pcm-sound' },
             { text: 'OLED-SS1306', link: '/guides/dispositivos-oled-ssd1306' },
             { text: 'PicoDock', link: '/guides/picodock-index' },
-            { text: 'Usando osciloscópio', link:'https://www.youtube.com/watch?v=bM9Tt58DgC8&list=PLOeDD149atRA' }
+            { text: 'Usando osciloscópio', link:'https://www.youtube.com/watch?v=bM9Tt58DgC8&list=PLOeDD149atRA' },
+            { text: 'Métricas bare-metal', link: '/guides/metricas-baremetal' }
             
           ]
         },
@@ -272,9 +273,9 @@ export default defineConfig({
             { text: 'Pico 2', link: 'https://www.raspberrypi.com/products/raspberry-pi-pico-2/' },
             { text: 'RP2350', link: 'https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf' },
             { text: 'SDK', link: 'https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html' },
-            { text: 'Programando  📀', link: '/guides/pico-debugging' },
-            { text: 'Códigos Exemplos', link: '/guides/pico-examples' },
-          ]
+             { text: 'Programando  📀', link: '/guides/pico-debugging' },
+             { text: 'Códigos Exemplos', link: '/guides/pico-examples' }
+           ]
         },
         {
           text: 'Periféricos',
