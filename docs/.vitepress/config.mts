@@ -231,7 +231,8 @@ export default defineConfig({
             { text: 'LCD - Lopaka', link: '/guides/lcd-lopaka' },
             { text: 'PCM - Áudio', link: '/guides/teoria-pcm-sound' },
             { text: 'OLED-SS1306', link: '/guides/dispositivos-oled-ssd1306' },
-            { text: 'PicoDock', link: '/guides/picodock-index' }
+            { text: 'PicoDock', link: '/guides/picodock-index' },
+            { text: 'Usando osciloscópio', link:'https://www.youtube.com/watch?v=bM9Tt58DgC8&list=PLOeDD149atRA' }
             
           ]
         },
