@@ -1,19 +1,3 @@
----
-linksTitle: "Entregas"
-links:
-  - title:
-    text: "Classroom"
-    url: "https://classroom.github.com/a/ieZM3TBy"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "https://us.prairielearn.com/pl/course_instance/"
-    box: "box-yellow"
-  - title: "Realizar em duplas"
-    box: "box"
-
----
-
 # APS - 1 - Genius
 
 <YouTube id="KfF-AZhUkdM"/>

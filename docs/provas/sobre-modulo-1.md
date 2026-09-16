@@ -1,29 +1,9 @@
 # Avaliação prática - Módulo 1
 
-::::: center
-:::: third 
-::: box-blue 1. Praticando
-[:memo: Exercícios para prática](https://classroom.github.com/a/AMzqM9Wy)
-:::
-::::
-:::: third
-::: box-yellow 2. Durante a prova
- :alarm_clock: 2h de duração
-:::
-::::
-:::: third
-::: box Nota
- :sparkles: Não pode usar LLM 
-:::
-::::
-:::: third
-::::
-:::::
-
 ::: box-red
 Para ser aprovado na disciplina é preciso ter sido aprovado nessa avaliação.
 
-- Serão duas chances: uma durante a AI e outra durante a AS.
+- Serão três chances: uma durante a AI, outra durante entre AI e AF e a última na AS.
 :::
 
 Pense nessa avaliação como um laboratório prático, onde terão que aplicar o que aprenderam para resolver um problema. Na avaliação prática individual do módulo 1 vocês precisarão solucionar um problema que contará com:
@@ -36,10 +16,6 @@ Pense nessa avaliação como um laboratório prático, onde terão que aplicar o
 - Qualidade de código
 
 ## Teste no hardware
-
-::: box
-Notem que a versão de 2026 é diferente da do ano passado, agora a prova será 1 exercício e terá que ser feito no hardware.
-:::
 
 ::: box-green DICAS
 - Já venham para a prova com uma placa com botões e LEDs já configurados
@@ -59,14 +35,16 @@ A duração total da avaliação será de 2h, não haverá ajuda de ninguém da 
 
 ## Praticando
 
-Como o formato da prova é novo não possuímos nenhum "simulado", mas vocês vão poder praticar com exercícios de provas dos anos passados. Notem que o formato é diferente, mas vai ser um bom exercício para praticarem.
+Temos um banco de exercícios (simulado) que podem servir para vocês treinarem para a prova. Notem que a prova vai ser prática, e os exercícios estão em ambiente simulado.
 
-A maioria dos exercícios possui teste automatizado.
-
+::: tip
+Sugerimos fortemente que facam alguns desses exercícios na placa física.
+:::
 ::::: center
+
 :::: third 
 ::: box-blue Praticando
-[:memo: Exercícios para prática](https://classroom.github.com/a/AMzqM9Wy)
+Acesse o exercícios no PrairieLearn
 :::
 ::::
 :::: third
