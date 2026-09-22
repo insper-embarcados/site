@@ -232,6 +232,7 @@ export default defineConfig({
             { text: 'PCM - Áudio', link: '/guides/teoria-pcm-sound' },
             { text: 'OLED-SS1306', link: '/guides/dispositivos-oled-ssd1306' },
             { text: 'PicoDock', link: '/guides/picodock-index' },
+            { text: 'PicoLCDock', link: '/guides/picoLCDock-index' },
             { text: 'Usando osciloscópio', link:'https://www.youtube.com/watch?v=bM9Tt58DgC8&list=PLOeDD149atRA' },
             { text: 'Métricas bare-metal', link: '/guides/metricas-baremetal' }
             
