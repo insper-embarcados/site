@@ -15,14 +15,14 @@ Para realizar o lab expert será necessário ler/ consultar os material:
 - 📖 [Lopaka](/guides/lcd-lopaka)
 :::
 
-::: info Placa Adaptadora para o LCD
-Desenvolvemos duas placas (PicoDock / TFT LCD Dock) que facilitam as conexões da Raspberry Pi Pico com o LCD ili9341:
+::: info Placa PicoLCDock
+Desenvolvemos uma placa que já integra uma Raspberry Pi Pico ao display LCD ILI9341:
 
-![](imgs-ili9341-resistive/pico_tft_lcd_dock.jpeg){width=800px}
+![](imgs-picoLCDock/picoLCDock_cool.jpg){width=800px}
 :::
 
 ::: info Código base
-Você deve utilizar o código do repositório a seguir para realizar o lab, copie os arquivos para o repositório criado para entrega.
+No repositório abaixo, você encontrará dois projetos de exemplo para realizar o laboratório. Você deve clonar o repositório, importar e testar cada um dos projetos (DEMO e LED_TOGGLE) separadamente.
 
 -  https://github.com/insper-embarcados/pico-lcd-ili9341
 :::
