@@ -1,4 +1,4 @@
-# Lab 6 - ADC, PWM - Prática <Badge type="tip" text="70% da nota do lab" />
+# Lab 6 - ADC - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos usar um joystick analógico para implementar um "mouse".
 
@@ -60,18 +60,19 @@ Exemplo:
 
 Para garantir a integridade do sinal analógico, você deve aplicar uma média móvel antes de enviarem o dado para a uart. Para isso iremos estruturar o firmware da seguinte maneira:
 
-![](imgs/lab-adc-pwm-pra-rtos.png){width=800}
+![](imgs/lab-adc-mutx-pra-rtos.png)
 
 Onde:
 
 - `x_task` e `y_task`: Fazem a leitura e **implementam a média móvel** do valor analógico
 - `xQueueADC`: ID (`1` / `0`) e dados filtrados para serem transmitidos
 - `uart_task`: Faz o envio dos dados pela UART
-
+- `AdcMutex`: Mutex para controlar a leitura do ADC
 
 ## Dicas
 
 A seguir, dicas sobre como executar o lab:
+
 
 ### Conexão
 
@@ -125,3 +126,7 @@ Não sabe como enviar uma struct para a fila? Consulte a página da disciplina:
 ### ADC
 
 Você deve editar o `CMakeList.txt` adicionando as dependencias do ADC, para isso consulte a página de cada periférico para saber o que deve ser adicionado.
+
+### Mutex
+
+Como só temos um ADC no nosso microcontrolador e ele é compartilhado entre os pinos, é necessário colocar um MUTEX para só uma task acessar o ADC por vez!

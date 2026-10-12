@@ -29,6 +29,7 @@ function resolveVars(value: unknown): unknown {
 const sidebarModulos = [
   {
     text: 'Módulo 1 - Baremetal',
+    collapsed: true,
     items: [
       {
         text: 'Lab 1. GPIO',
@@ -56,7 +57,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 4. Expert 1',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Sobre', link: '/labs-expert/modulo-1-expert' },
           { text: 'Expert - LCD', link: '/labs-expert/labs-expert-sensors-ili9341-resistive' },
@@ -70,11 +71,11 @@ const sidebarModulos = [
   },
   {
     text: 'Módulo 2 - RTOS',
-    collapsed: true,
+    collapsed: false,
     items: [
       {
         text: 'Lab 5. RTOS',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/rtos-pre' },
           { text: 'Prático', link: '/labs/rtos-pra' }
@@ -106,7 +107,7 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 9. Expert 2',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Sobre', link: '/labs-expert/modulo-2-expert' },
           { text: 'Expert - AI', link: '/labs-expert/labs-expert-dsp-ia' },

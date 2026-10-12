@@ -61,6 +61,10 @@ Esses exercícios são para praticar, não conte que vai cair algo similar
 ::::
 :::::
 
+## Commit a cada 10s
+
+Vamos testar
+
 ## FAQ
 
 Critério de avaliação:
