@@ -14,11 +14,6 @@ Fazer a leitura de um joystick, formatar os dados corretamente e enviar via seri
 
 ![](imgs/lab-adc-pwm-pra-diagrama.png)
 
-::: note
-Nesse laboratório não vamos usar o PWM que vocês viram no 
-pre-lab, mas ele vai aparecer no próximo!
-:::
-
 ## Python
 
 Para executar esse laboratório, você terá que utilizar um programa Python localizado em:

@@ -15,10 +15,17 @@ Junto com isso iremos aprender uma técnica básica de filtagem de sinal, aplica
 :::
 ::::
 
+:::: third  📖 Leitura 3
+:::card [Freertos/Queue Struct](/guides/freertos-queue-advanced)
+:::
+::::
+
 :::: third  📖 Leitura 2
 :::card Mutex [PWM](/guides/freertos-mutex)
 :::
 ::::
+
+:::::
 
 ## Entrega
 
