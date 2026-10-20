@@ -60,7 +60,7 @@ Exemplo:
 
 Para garantir a integridade do sinal analógico, você deve aplicar uma média móvel antes de enviarem o dado para a uart. Para isso iremos estruturar o firmware da seguinte maneira:
 
-![](imgs/lab-adc-mutx-pra-rtos.png)
+![](imgs/lab-adc-mutex-pra-rtos.png)
 
 Onde:
 
