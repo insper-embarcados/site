@@ -1,18 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{aps_2}}"
-    box: "box-blue"
-  - title:
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
-  - title: "Realizar em dupla!"
-    box: "box-green"
----
-
 # APS - 2 - Controle
 
 <YouTube id="uCgnWqoP4MM"/>

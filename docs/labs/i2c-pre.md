@@ -1,4 +1,4 @@
-# Lab 7 - I2C e PWM - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+# Lab 8 - I2C e PWM - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste pré-lab, exploraremos um pouco a comunicação i2c usando como base o sensor MPU6050, que é uma unidade inercial que possui internamente um acelerômetro e um giroscópio.
 Também vamos ver como usar o PWM para gerat um pulso no pino usando modulação por largura de pulso e controlar por exemplo a luminosidade de um LED.

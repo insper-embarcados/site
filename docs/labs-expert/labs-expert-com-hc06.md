@@ -1,16 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_expert_2}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
----
-
 # Expert - Bluetooth - RTOS
 
 Nesse laboratório iremos trabalhar com:
@@ -35,8 +22,6 @@ Antes de começar o lab, rode e entenda os materiais de referência abaixo:
 ::::
 :::::
 
----
-
 A ideia deste laboratório é implementar um sistema interativo de pareamento do módulo HC-06, utilizando as bases dos exemplos acima para aplicar a seguinte ordem de utilização:
 
 1. **Apertar botão para gerar um PIN randômico**
@@ -52,8 +37,6 @@ A ideia deste laboratório é implementar um sistema interativo de pareamento do
 - O status de conexão Bluetooth deve ser indicado por um LED controlado por PWM:
   - Enquanto aguardando conexão: LED pisca (*fade in/out*)
   - Quando conectado: LED permanece aceso
-
----
 
 ## Entrega
 
@@ -108,5 +91,3 @@ Ou seja, o computador “conhece” o módulo HC-06 (com o NAME que foi definido
 `Conectado` significa que existe uma comunicação ativa naquele momento entre o dispositivo e o HC-06.
 Após o pareamento, a conexão ainda precisa ser estabelecida para que dados possam ser enviados e recebidos.
 :::
-
----

@@ -1,17 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_expert_2}}"
-    box: "box-blue"
-  - title:
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
----
-
-
 # Expert - Firmware - RTOS
 
 Neste laboratório vamos trabalhar com:

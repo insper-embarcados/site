@@ -1,16 +1,3 @@
----
-linksTitle: "Entrega"
-links:
-  - title:
-    text: "Classroom"
-    url: "{{lab_expert_2}}"
-    box: "box-blue"
-  - title: 
-    text: "PrairieLearn"
-    url: "{{prairielearn}}"
-    box: "box-yellow"
----
-
 # Expert - DSP - Inteligência Artificial
 
 Neste laboratório você utilizará a **Raspberry Pi Pico 2** junto com o sensor **MPU6050 IMU** para classificar movimentos de um acelerômetro no espaço utilizando a plataforma **Edge Impulse** utilizando como referência o demo oficial. O que importa neste laboratório é a expertise em utilizar a plataforma do Edge Impulse para treinar movimento, e para isso iremos treinar um modelo capaz de identificar os seguintes padrões de movimento:
@@ -86,8 +73,6 @@ Agora iremos utilizar um outro código exemplo:
 > Esse código deve ser copiado para a entrega final e modificado.
 :::
 
-
-
 ![](imgs-dsp/ai-runner.png)
 
 Agora iremos exportar uma rede neural que poderá ser executada no microcontrolador, para isso o `edge impulse` fornece toda uma estrutura de código em C++ que permite executarmos a rede embarcada, eles fornecem porjetos exemplos para diferentes tipos de processadores e kits de desenvolvimento. Devemos então usar o código exemplo, atualizar o peso da nossa rede e fazer o processamento que acharmos relevante.
@@ -95,7 +80,6 @@ Agora iremos exportar uma rede neural que poderá ser executada no microcontrola
 > Para facilitar a vida de vocês criamos um projeto exemplo para a pico2, baseado no que eles já fornecem (a única diferenća aqui é que o nosso `main` está em C e não em C++). Utilize esse repositório!
 
 1. Clone o [repositório exemplo](https://github.com/insper-embarcados/edgeimpluse-runner) que executa a rede neural
-
 
 ::: details 2. Na plataforma do `edge impluse` exporte a rede no formato `C++ Library`
 ![](imgs-dsp/edgeimpulse-deploy.png)

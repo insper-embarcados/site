@@ -1,4 +1,4 @@
-# Lab 7 - I2C - Prática <Badge type="tip" text="70% da nota do lab" />
+# Lab 8 - I2C - Prática <Badge type="tip" text="70% da nota do lab" />
 
 Neste laboratório iremos substituir o joystick analógico por uma IMU para implementarmos um "pointer" (esses usados para apresentacão!). Como o [spotlight da logitech]( https://www.logitech.com/pt-br/products/presenters/spotlight-presentation-remote.910-005216.html). 
 

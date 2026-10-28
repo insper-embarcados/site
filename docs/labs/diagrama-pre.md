@@ -1,4 +1,4 @@
-# Lab 8 - Diagrama - Preparatório <Badge type="info" text="30% da nota de lab" /> 
+# Lab 7 - Diagrama - Preparatório <Badge type="info" text="30% da nota de lab" /> 
 
 Neste laboratório, trabalharemos para que vocês desenvolvam a habilidade de **interpretar e utilizar diagramas de blocos** como forma de representar sistemas embarcados. O laboratório vai explorar três direções principais:
 
