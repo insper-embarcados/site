@@ -75,7 +75,7 @@ const sidebarModulos = [
     items: [
       {
         text: 'Lab 5. RTOS',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/rtos-pre' },
           { text: 'Prático', link: '/labs/rtos-pra' }
@@ -83,26 +83,26 @@ const sidebarModulos = [
       },
       {
         text: 'Lab 6. ADC e Mutex',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'Preparatório', link: '/labs/adc-pwm-pre' },
           { text: 'Prático', link: '/labs/adc-pwm-pra' }
         ]
       },
       {
-        text: 'Lab 7. I2C e PWM',
-        collapsed: true,
-        items: [
-          { text: 'Preparatório', link: '/labs/i2c-pre' },
-          { text: 'Prático', link: '/labs/i2c-pra' }
-        ]
-      },
-      {
-        text: 'Lab 8. Diagramas',
-        collapsed: true,
+        text: 'Lab 7. Diagramas',
+        collapsed: false,
         items: [
           { text: 'Preparatório', link: '/labs/diagrama-pre' },
           { text: 'Prático', link: '/labs/diagrama-pra' }
+        ]
+      },
+      {
+        text: 'Lab 8. I2C e PWM',
+        collapsed: false,
+        items: [
+          { text: 'Preparatório', link: '/labs/i2c-pre' },
+          { text: 'Prático', link: '/labs/i2c-pra' }
         ]
       },
       {
