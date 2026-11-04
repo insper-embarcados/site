@@ -1,6 +1,3 @@
-Segue uma versão corrigida e mais refinada, com linguagem mais consistente e técnica:
-
-
 # Expert – Módulo 2
 
 ::: box

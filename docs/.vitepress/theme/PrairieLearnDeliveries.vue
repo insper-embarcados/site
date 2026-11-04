@@ -11,8 +11,8 @@ let clock
 
 const sortedAssessments = computed(() => assessments.value)
 const hasAssessments = computed(() => sortedAssessments.value.length > 0)
-const fullCreditAssessments = computed(() => sortByTitle(sortedAssessments.value.filter((assessment) => maxCredit(assessment) >= 100)))
-const lateAssessments = computed(() => sortByTitle(sortedAssessments.value.filter((assessment) => maxCredit(assessment) < 100)))
+const fullCreditAssessments = computed(() => sortByDeadline(sortedAssessments.value.filter((assessment) => maxCredit(assessment) >= 100)))
+const lateAssessments = computed(() => sortByDeadline(sortedAssessments.value.filter((assessment) => maxCredit(assessment) < 100)))
 const openCount = computed(() => fullCreditAssessments.value.length)
 const countLabel = computed(() => openCount.value > 9 ? '9+' : String(openCount.value))
 
@@ -30,10 +30,10 @@ function maxCredit(assessment) {
   return Math.max(...assessment.deadlines.map((deadline) => Number(deadline.credit) || 0))
 }
 
-function sortByTitle(items) {
+function sortByDeadline(items) {
   return [...items].sort((a, b) =>
-    a.title.localeCompare(b.title, 'pt-BR', { numeric: true, sensitivity: 'base' })
-      || a.label.localeCompare(b.label, 'pt-BR', { numeric: true, sensitivity: 'base' })
+    (new Date(bestDeadline(a)?.end).getTime() || Infinity) - (new Date(bestDeadline(b)?.end).getTime() || Infinity)
+      || a.title.localeCompare(b.title, 'pt-BR', { numeric: true, sensitivity: 'base' })
   )
 }
 
@@ -240,7 +240,7 @@ onUnmounted(() => {
   position: absolute;
   right: -8px;
   top: 100%;
-  width: min(430px, calc(100vw - 28px));
+  width: min(520px, calc(100vw - 28px));
 }
 
 .pl-deliveries__header {
@@ -285,7 +285,8 @@ onUnmounted(() => {
   gap: 16px;
   max-height: min(460px, calc(100vh - 230px));
   overflow: auto;
-  padding-right: 2px;
+  padding-right: 12px;
+  scrollbar-gutter: stable;
 }
 
 .pl-deliveries__group {
@@ -378,14 +379,20 @@ onUnmounted(() => {
   display: grid;
 }
 
+.pl-deliveries__item-main {
+  min-width: 0;
+}
+
 .pl-deliveries__item-main strong {
   font-size: 14px;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .pl-deliveries__item-main small {
   color: var(--vp-c-text-2);
   margin-top: 4px;
+  overflow-wrap: anywhere;
 }
 
 .pl-deliveries__date {
