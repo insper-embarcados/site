@@ -51,7 +51,7 @@ Aqui iremos coletar dados de aceleração, fazer o envio para o `edge-impluse` e
 ![](imgs-dsp/ia-dataforwarding.png)
 
 1. Primeiro comece instalando o **Edge impluse CLI** seguindo o [tutorial oficial ](https://docs.edgeimpulse.com/tools/clis/edge-impulse-cli/installation)
-2. Agora monte a IMU na pico e [execute o firmware](https://github.com/insper-embarcados/edgeimpulse-dataforwarding-audio-ai) que irá coletar dados de aceleracao e envia para o `edge impulse cli`.
+2. Agora monte a IMU na pico e [execute o firmware](https://github.com/insper-embarcados/edgeimpulse-dataforwarding) que irá coletar dados de aceleracao e envia para o `edge impulse cli`.
 3. Execute o `edge impluse cli` no seu computador executando: 
 
 ```bash
