@@ -95,6 +95,16 @@ Agora iremos exportar uma rede neural que poderá ser executada no microcontrola
 
 4. Execute o firmware, analise a saída da UART. Movimente a placa para classificarmos os movimentos.
 
+### Entendendo o código 
+
+Deve-se trabalhar exclusivamente com o main.c, os demais arquivos já estão configurados corretamente para receber o modelo e realizar a inferência.
+
+``` C
+    static void imu_task(void *params) // Faz a leitura do sensor MPU6050
+    static void ia_task(void *params)  // Faz inferência
+    int ia_classificar(float *features, int n, float *confianca_out, const char **label_out)  // Função responsável por fazer a classificação baseado no modelo fornecido
+```
+
 ### Entrega final
 
 A entrega final você deve acender um LED para cada um dos movimentos detectados, indicamos fazer isso com um LED RGB.
